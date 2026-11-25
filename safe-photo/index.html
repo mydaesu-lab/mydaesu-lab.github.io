@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>안심 사진 편집기 | 서버 전송 없는 모자이크·개인정보 가리기·용량 줄이기</title>
+<meta name="description" content="주민등록증·통장·차량 번호판 같은 개인정보를 모자이크·블러·검정 가림으로 지우고, JPG·WebP로 사진 용량을 줄이며 EXIF(촬영 위치)까지 지우는 무료 사진 편집기입니다. 사진은 서버로 전송되지 않고 내 브라우저에서만 처리됩니다.">
+<meta name="keywords" content="사진 모자이크, 개인정보 가리기, 사진 용량 줄이기, EXIF 삭제, 위치정보 제거, 주민등록증 모자이크, 차량번호 가리기, 사진 편집기, 이미지 압축, 무료 사진 편집, 웹p 변환, 서류 사진 편집">
+<meta name="author" content="안심 사진 편집기">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="안심 사진 편집기">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="안심 사진 편집기 | 서버 전송 없는 모자이크·개인정보 가리기·용량 줄이기">
+<meta property="og:description" content="개인정보는 모자이크로 가리고, 용량은 줄이고, EXIF(촬영 위치)는 자동 삭제. 사진이 서버로 전송되지 않는 브라우저 사진 편집기.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/safe-photo/preview.png">
+<meta property="og:image:alt" content="안심 사진 편집기 화면 예시">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="안심 사진 편집기 | 서버 전송 없는 모자이크·용량 줄이기">
+<meta name="twitter:description" content="사진은 내 브라우저에서만 처리. 모자이크·검정 가림으로 개인정보를 지우고 EXIF까지 삭제하세요.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/safe-photo/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/safe-photo/">
+<meta property="og:url" content="https://mydaesu-lab.github.io/safe-photo/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "안심 사진 편집기",
+      "alternateName": "안심 사진 편집기 - 모자이크 · 개인정보 가리기 · 용량 줄이기",
+      "url": "https://mydaesu-lab.github.io/safe-photo/",
+      "image": "https://mydaesu-lab.github.io/safe-photo/preview.png",
+      "description": "주민등록증·통장·차량 번호판 같은 개인정보를 모자이크·블러·검정 가림으로 지우고, JPG·WebP로 용량을 줄이며 EXIF(촬영 위치)까지 지우는 무료 사진 편집기. 사진은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다.",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "사진 편집 · 개인정보 가리기",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "HTML5 Canvas와 JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "featureList": [
+        "모자이크(픽셀화) · 블러 · 검정 가림 도구",
+        "사각형 드래그와 브러시 칠하기, 마우스·터치 동시 지원",
+        "여러 단계 실행 취소와 원본 초기화",
+        "JPG · WebP · PNG 저장과 품질·최대 너비 조절",
+        "실제 저장 용량과 감소율 실시간 계산",
+        "저장 시 EXIF(촬영 위치·기기) 자동 제거",
+        "브라우저 안에서만 처리되는 100% 로컬 편집"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "사진이 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 사진 선택, 모자이크 처리, 용량 압축, 파일 저장까지 모두 이용자의 브라우저 안에서만 처리됩니다. 파일이 서버로 업로드되지 않고, 서버에 사진을 보관하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "모자이크를 나중에 되돌릴 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "저장하기 전 화면에서는 실행 취소로 언제든 되돌릴 수 있습니다. 하지만 한 번 저장한 파일에는 가리기 전 원본 픽셀이 남지 않으므로, 저장된 모자이크는 되돌릴 수 없습니다. 그래서 원본은 따로 보관하고 가린 사본을 새 이름으로 저장하는 것이 안전합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "EXIF(촬영 위치)가 정말 지워지나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "네. 이 도구는 사진을 캔버스에 다시 그려 새 파일로 저장하기 때문에 EXIF의 GPS 위치·기기 정보·촬영 시각 같은 메타데이터가 파일에 포함되지 않습니다. 원본 파일은 수정되지 않고 그대로 남습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "어떤 사진을 올릴 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "JPG, PNG, WebP, AVIF와 브라우저가 지원하는 HEIC를 열 수 있습니다. 아주 큰 사진은 처리 속도와 메모리를 위해 긴 변 4096px 기준으로 맞춰 편집하며, 저장할 때 원하는 최대 너비를 고를 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "아이폰 HEIC 사진도 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "브라우저가 HEIC를 읽을 수 있으면 바로 열립니다. 읽지 못하는 브라우저에서는 아이폰 설정의 카메라 > 포맷을 '높은 호환성'으로 바꾸거나, 사진 앱에서 JPG로 내보낸 뒤 올려 주세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "무료인가요? 로그인이나 워터마크가 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "모든 기능을 무료로 쓸 수 있고 회원가입·설치가 필요 없습니다. 저장한 사진에 워터마크도 붙지 않습니다. 운영 비용은 편집기 아래의 광고 영역으로 충당하며, 광고는 사진 처리와 무관합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "인터넷이 없어도 편집할 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "페이지를 한 번 연 뒤에는 사진 편집과 저장이 네트워크 없이도 동작합니다. 광고와 방문 통계, 웹 글꼴만 인터넷을 사용합니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%235b57f0'/%3E%3Ctext x='50' y='70' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif'%3E%F0%9F%94%92%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff}
+  .pb-text{min-width:0}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:800px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{position:sticky;top:72px;min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 12px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn:disabled{opacity:.45;cursor:not-allowed}
+  .mini-btn.danger:hover:not(:disabled){background:#fff5f5;border-color:#f3c9c9;color:#b91c1c}
+
+  .stage-body{position:relative}
+  .dropzone{border:1.5px dashed #cfcbf2;border-radius:15px;background:linear-gradient(180deg,#fbfaff,#f7f7fd);padding:26px 18px;text-align:center;transition:border-color .16s,background .16s}
+  .dropzone.is-over{border-color:#7c78f5;background:#f3f1ff}
+  .dz-icon{font-size:30px;line-height:1;margin-bottom:8px}
+  .dz-title{margin:0 0 4px;font-size:14.5px;font-weight:800;letter-spacing:-.02em}
+  .dz-sub{margin:0 0 14px;font-size:12px;color:var(--muted);line-height:1.6}
+  .dz-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .dz-note{margin:13px 0 0;font-size:11px;color:#8f95a6;line-height:1.55}
+  .quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}
+  .qs{display:flex;gap:8px;align-items:flex-start;background:#fbfbfe;border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+  .qs-num{flex:0 0 auto;width:18px;height:18px;border-radius:6px;background:var(--accent-soft);color:#514bd8;font-size:10.5px;font-weight:900;display:grid;place-items:center;line-height:1}
+  .qs-t{font-size:11.5px;font-weight:800;line-height:1.35;letter-spacing:-.01em;min-width:0}
+  .qs-d{display:block;font-style:normal;font-size:10.5px;color:var(--muted);font-weight:500;margin-top:1px;line-height:1.35}
+
+  .canvas-wrap{padding:0}
+  .canvas-stage{position:relative;display:flex;align-items:center;justify-content:center;background:#14161c;border-radius:14px;padding:12px;min-height:200px;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+  .canvas-holder{position:relative;display:inline-block;line-height:0;max-width:100%}
+  .canvas-holder canvas{display:block;max-width:100%;border-radius:3px}
+  #view{box-shadow:0 16px 40px rgba(0,0,0,.45);cursor:crosshair}
+  #overlay{position:absolute;left:0;top:0;touch-action:none;cursor:crosshair}
+  .canvas-stage.is-brush #view,.canvas-stage.is-brush #overlay{cursor:none}
+  .canvas-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:9px;padding:0 2px}
+  .canvas-foot .tip{font-size:11.5px;color:var(--muted);line-height:1.5;flex:1 1 180px;min-width:0}
+  .link-btn{border:0;background:none;color:#6b63f0;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .link-btn:hover{background:#f2f1ff}
+  .stage-loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,22,28,.82);border-radius:14px;color:#fff;font-size:12.5px;font-weight:700;gap:10px;z-index:5}
+  .spinner{width:22px;height:22px;border-radius:50%;border:2.5px solid rgba(255,255,255,.28);border-top-color:#fff;animation:spin .8s linear infinite;margin:0 auto 8px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------- panel ---------- */
+  .panel{position:sticky;top:72px;max-height:calc(100vh - 92px);overflow-y:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px 18px}
+  .panel::-webkit-scrollbar{width:9px}
+  .panel::-webkit-scrollbar-thumb{background:#dcdfea;border-radius:99px;border:2px solid #fff}
+  .pblock{padding:15px 2px 16px;border-bottom:1px dashed var(--line)}
+  .pblock:last-of-type{border-bottom:0;padding-bottom:6px}
+  .block-title{display:flex;align-items:center;gap:8px;margin:2px 0 11px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+  .step{font-size:10px;font-weight:800;color:#6d68e8;background:var(--accent-soft);border-radius:6px;padding:2px 5px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:#f2f3f9;border-radius:12px;padding:4px}
+  .seg button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:inherit;font-size:12.5px;font-weight:700;color:#6b7183;cursor:pointer;transition:background .14s,color .14s,box-shadow .14s;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1.2;min-width:0}
+  .seg button span{font-size:13px;line-height:1}
+  .seg button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .seg button:disabled{opacity:.45;cursor:not-allowed}
+  .seg.seg-sm button{font-size:12px;padding:8px 5px}
+  .seg + .seg{margin-top:6px}
+  .row-note{font-size:11px;color:var(--muted);margin:7px 0 0;line-height:1.5}
+
+  .slider-row{margin-top:12px}
+  .slider-row.is-hidden{display:none}
+  .slider-label{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink-2);font-weight:700;margin-bottom:4px;gap:8px}
+  .slider-label output{font-size:11px;color:#5b57f0;font-weight:800;background:#f1f0ff;padding:2px 7px;border-radius:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:22px;background:transparent;cursor:pointer;margin:0;display:block}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,#ded9ff,#c9c3ff)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-6px;border-radius:50%;background:#fff;border:2.5px solid #6b63f0;box-shadow:0 2px 6px rgba(60,50,180,.25)}
+  input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:#ded9ff}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2.5px solid #6b63f0}
+  input[type=range]:disabled{opacity:.45;cursor:not-allowed}
+
+  .field{margin-top:13px}
+  .field:first-child{margin-top:0}
+  .field-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .field-head .field-label{margin:0}
+  .mini-note{font-size:10.5px;color:var(--muted);text-align:right;line-height:1.3}
+  .field-head output{font-size:11px;color:#5b57f0;font-weight:800;background:#f1f0ff;padding:2px 7px;border-radius:6px;font-variant-numeric:tabular-nums}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b8194' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s}
+  .chip-btn:hover{border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-primary:disabled{background:#c9cbe0;box-shadow:none;cursor:not-allowed}
+  .btn-soft{background:var(--accent-soft);color:#4b45c9;border-color:#e2e0ff}
+  .btn-soft:hover{background:#e7e5ff}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+
+  .estimate{margin-top:14px;border:1px solid var(--line);border-radius:13px;padding:11px 12px;background:linear-gradient(180deg,#fbfaff,#fff)}
+  .est-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .est-line b{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .est-arrow{color:#b3b7c6;font-weight:700}
+  .est-line .est-out{color:#3f3ac0}
+  .est-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;font-size:10.5px;color:var(--muted);line-height:1.4}
+  .est-pct{font-size:11px;font-weight:800;color:var(--good);background:#e8f8f1;border-radius:6px;padding:2px 7px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .est-pct.is-big{color:var(--warn);background:#fdf4e7}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .lead{margin:0 0 9px;max-width:890px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p b{color:var(--ink);font-weight:700}
+  .tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .stage{position:static}
+    .panel{position:static;max-height:none;overflow:visible}
+    .panel{padding:4px 15px 14px}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .tips{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-image{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .canvas-stage{padding:8px;border-radius:11px}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .dz-actions .btn{flex:1 1 auto}
+    .qs{padding:8px 9px}
+    .qs-d{display:none}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s !important;transition-duration:.001s !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/safe-photo/">
+      <span class="brand-mark" aria-hidden="true">🔒</span>
+      <span class="brand-text">
+        <b>안심 사진 편집기</b>
+        <i>모자이크 · 가리기 · 용량 줄이기 · EXIF 제거</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>100% 내 브라우저에서 처리</b> · 서버 전송 0% · 위치정보(EXIF) 자동 삭제</span></span>
+      <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+    </div>
+    <h1>안심하고 가리는 <span>사진 편집기</span></h1>
+    <p class="hero-sub">주민등록증·통장·차량 번호판 같은 개인정보를 <b>모자이크·블러·검정 가림</b>으로 지우고, 사진 용량을 줄여 저장하세요. 올린 사진은 <b>서버로 전송되지 않고</b> 이 브라우저 안에서만 처리되며, 저장할 때 <b>촬영 위치 정보(EXIF)</b>도 함께 지워집니다.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 편집 화면 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-head">
+          <div class="stage-title">
+            <span>편집 화면</span>
+            <span class="chip grey" id="imgMeta">사진을 올려 주세요</span>
+            <span class="chip is-hidden" id="opCount">가린 곳 0</span>
+          </div>
+          <div class="stage-actions">
+            <button class="mini-btn" id="undoBtn" type="button" disabled title="Ctrl/⌘ + Z">↶ 실행 취소</button>
+            <button class="mini-btn danger" id="resetBtn" type="button" disabled>원본 초기화</button>
+          </div>
+        </div>
+
+        <div class="stage-body" id="stageBody">
+          <div class="dropzone" id="dropzone">
+            <div class="dz-icon" aria-hidden="true">🖼️</div>
+            <p class="dz-title">사진을 끌어다 놓으세요</p>
+            <p class="dz-sub">JPG · PNG · WebP · HEIC<br>붙여넣기(Ctrl+V)로도 열 수 있어요</p>
+            <div class="dz-actions">
+              <button class="btn btn-primary" id="pickBtn" type="button">사진 선택</button>
+              <button class="btn btn-soft" id="sampleBtn" type="button">샘플로 체험하기</button>
+            </div>
+            <p class="dz-note">사진은 이 브라우저 메모리에서만 열리고, 어디에도 업로드되지 않습니다.</p>
+            <input type="file" id="fileInput" accept="image/*" class="is-hidden">
+          </div>
+
+          <div class="quick-steps" id="quickSteps">
+            <div class="qs"><span class="qs-num">1</span><span class="qs-t">사진 고르기<em class="qs-d">기기에서만 열립니다</em></span></div>
+            <div class="qs"><span class="qs-num">2</span><span class="qs-t">가릴 곳 드래그<em class="qs-d">모자이크·블러·검정</em></span></div>
+            <div class="qs"><span class="qs-num">3</span><span class="qs-t">용량 줄여 저장<em class="qs-d">EXIF 자동 삭제</em></span></div>
+          </div>
+
+          <div class="canvas-wrap is-hidden" id="canvasWrap">
+            <div class="canvas-stage" id="canvasStage">
+              <div class="canvas-holder" id="canvasHolder">
+                <canvas id="view" aria-label="편집 중인 사진"></canvas>
+                <canvas id="overlay" aria-hidden="true"></canvas>
+              </div>
+            </div>
+            <div class="canvas-foot">
+              <span class="tip" id="toolTip">사각형: 가릴 부분을 드래그하세요.</span>
+              <button class="link-btn" id="changeBtn" type="button">다른 사진</button>
+              <button class="link-btn" id="sampleBtn2" type="button">샘플 다시 열기</button>
+            </div>
+          </div>
+
+          <div class="stage-loading is-hidden" id="stageLoading"><div><div class="spinner"></div>사진 준비 중…</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 도구 패널 ============ -->
+    <aside class="panel" aria-label="편집 도구">
+      <section class="pblock">
+        <div class="block-title"><span class="step">1</span> 개인정보 가리기</div>
+
+        <div class="seg" id="toolSeg" role="group" aria-label="가리기 도구">
+          <button type="button" data-tool="mosaic" class="is-active"><span aria-hidden="true">▦</span>모자이크</button>
+          <button type="button" data-tool="blur"><span aria-hidden="true">◍</span>블러</button>
+          <button type="button" data-tool="box"><span aria-hidden="true">■</span>검정 가림</button>
+        </div>
+
+        <div class="seg seg-sm" id="shapeSeg" role="group" aria-label="가리기 모양">
+          <button type="button" data-shape="rect" class="is-active">사각형 드래그</button>
+          <button type="button" data-shape="brush">브러시 칠하기</button>
+        </div>
+
+        <div class="slider-row" id="strengthRow">
+          <div class="slider-label"><label for="strength" id="strengthLabel">가리기 강도</label><output id="strengthOut" for="strength">5</output></div>
+          <input type="range" id="strength" min="1" max="10" step="1" value="5">
+          <p class="row-note" id="strengthHint">숫자가 클수록 칸이 굵어지고 더 강하게 가려집니다.</p>
+        </div>
+
+        <div class="slider-row is-hidden" id="brushRow">
+          <div class="slider-label"><label for="brush">브러시 굵기</label><output id="brushOut" for="brush">44</output></div>
+          <input type="range" id="brush" min="10" max="120" step="2" value="44">
+        </div>
+
+        <p class="row-note" id="toolHint">가릴 부분을 사각형으로 드래그하면 바로 적용됩니다. 잘못 가렸으면 <b>실행 취소</b>를 누르세요.</p>
+      </section>
+
+      <section class="pblock">
+        <div class="block-title"><span class="step">2</span> 용량 줄이기 · 저장</div>
+
+        <div class="field">
+          <div class="field-head">
+            <span class="field-label">저장 형식</span>
+            <span class="mini-note" id="fmtNote">사진에 가장 무난</span>
+          </div>
+          <div class="seg seg-sm" id="fmtSeg" role="group" aria-label="저장 형식">
+            <button type="button" data-fmt="jpeg" class="is-active">JPG</button>
+            <button type="button" data-fmt="webp">WebP</button>
+            <button type="button" data-fmt="png">PNG</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label class="field-label" for="quality">품질</label>
+            <output id="qualityOut" for="quality">75%</output>
+          </div>
+          <input type="range" id="quality" min="10" max="100" step="1" value="75">
+          <div class="chips" id="qPresets">
+            <button class="chip-btn" type="button" data-q="90">고화질 90%</button>
+            <button class="chip-btn is-active" type="button" data-q="75">블로그용 75%</button>
+            <button class="chip-btn" type="button" data-q="55">서류제출 55%</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="maxWidth">최대 너비</label>
+          <select class="input" id="maxWidth">
+            <option value="0">원본 유지 (가장 선명)</option>
+            <option value="1920">1920px · 풀HD 화면</option>
+            <option value="1200">1200px · 블로그·카페</option>
+            <option value="800">800px · 게시판 첨부</option>
+          </select>
+        </div>
+
+        <div class="estimate" aria-live="polite">
+          <div class="est-line">
+            <span>원본</span><b id="estOrig">—</b>
+            <span class="est-arrow" aria-hidden="true">→</span>
+            <span>예상</span><b class="est-out" id="estOut">—</b>
+          </div>
+          <div class="est-foot">
+            <span id="estMeta">사진을 올리면 실제 저장 용량을 계산합니다</span>
+            <span class="est-pct is-hidden" id="estPct"></span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="downloadBtn" type="button" disabled>안심 사진 저장하기</button>
+        <p class="hint tiny center">저장할 때 EXIF(촬영 위치·기기·촬영 시각)가 자동으로 제거됩니다.</p>
+      </section>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 (편집기 아래 1곳) ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 사진 처리와 무관하며, 올린 사진은 광고로도 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">🛡️</span> 왜 &lsquo;서버에 올리지 않는&rsquo; 편집기가 필요할까요</h2>
+      <p class="lead">모자이크를 하려고 사진을 편집 사이트에 올리면, 가리기 전 원본이 그 서버에 남습니다. 개인정보를 가리려던 사진이 오히려 남의 저장 공간에 쌓이는 셈이죠. 이 도구는 사진을 <b>내 기기 안에서만</b> 열고, 가리고, 줄이고, 저장합니다. 업로드 버튼도, 서버 저장 공간도 없습니다.</p>
+      <ul class="facts">
+        <li><b>0%</b><span>서버 전송<br>사진은 기기 밖으로 나가지 않음</span></li>
+        <li><b>EXIF 삭제</b><span>촬영 위치·기기 정보<br>저장 시 자동 제거</span></li>
+        <li><b>3가지</b><span>모자이크 · 블러<br>· 검정 가림</span></li>
+        <li><b>무료</b><span>회원가입·워터마크<br>없음</span></li>
+      </ul>
+    </article>
+
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">💡</span> 개인정보 사진, 이렇게 가리세요 (실전 팁 4가지)</h2>
+      <p class="lead">서류 사진을 단톡방·카페·중고거래에 올리기 전에 확인해야 할 것들만 모았습니다.</p>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>서류를 올리기 전엔 EXIF부터</h3>
+          <p>휴대폰 사진에는 <b>촬영 위치(GPS)</b>, 기기 이름, 촬영 시각이 파일 안에 함께 저장됩니다. 얼굴을 가려도 집 위치가 남을 수 있어요. 이 편집기는 저장할 때 사진을 새로 그려 내보내므로 <b>EXIF·촬영 위치가 파일에 남지 않습니다.</b> 원본 파일은 수정되지 않으니 안심하세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>모자이크는 &lsquo;되돌릴 수 없게&rsquo; 두껍게</h3>
+          <p>성기고 옅은 모자이크는 원본 값이 통계적으로 복원될 수 있습니다. 글자 높이보다 <b>칸을 크게</b> 잡고, 글자 테두리에서 <b>10~20px 여유</b>를 두세요. 이름·주민번호·계좌번호처럼 확실히 지워야 하는 곳은 모자이크보다 <b>검정 가림</b>이 가장 안전합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>용량은 세 가지 손잡이로 줄입니다</h3>
+          <p>용량을 결정하는 건 <b>해상도 · 품질 · 포맷</b>입니다. 블로그·카페는 1200px·75%, 서류 제출은 1200px·55%, 보관용은 원본·90%가 무난합니다. <b>WebP</b>는 같은 화질에서 JPG보다 20~30% 작지만, 아직 받아 주지 않는 사이트가 있으니 제출용은 <b>JPG</b>를 권합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>원본은 따로, 올릴 건 사본으로</h3>
+          <p>저장 파일 이름은 자동으로 <code>-안심</code>이 붙습니다. 원본을 덮어쓰지 말고 그대로 보관하세요. 나중에 다른 부분을 더 가리고 싶을 때 원본이 있어야 다시 편집할 수 있습니다. 급할 땐 위의 <b>샘플로 체험하기</b>로 먼저 눌러 보세요.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문 (FAQ)</h2>
+      <p class="lead">사진을 올리기 전에 가장 많이 묻는 것들만 모았습니다.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>사진이 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 사진 선택, 모자이크 처리, 용량 압축, 파일 저장까지 모두 <b>이용자의 브라우저 안에서만</b> 처리됩니다. 파일이 서버로 업로드되지 않고, 서버에 사진을 보관하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다. 자세한 내용은 <button class="inline-link" type="button" data-modal="privacy">개인정보처리방침</button>에서 확인할 수 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>모자이크를 나중에 되돌릴 수 있나요?</summary>
+          <div class="faq-body"><p>저장하기 전 화면에서는 <b>실행 취소</b>로 여러 단계까지 되돌릴 수 있습니다. 하지만 한 번 저장한 파일에는 가리기 전 원본 픽셀이 남지 않으므로 저장된 모자이크는 되돌릴 수 없습니다. 그래서 원본은 따로 보관하고, 가린 사본을 새 이름으로 저장하는 것이 안전합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>EXIF(촬영 위치)가 정말 지워지나요?</summary>
+          <div class="faq-body"><p>네. 이 도구는 사진을 캔버스에 다시 그려 새 파일로 저장하기 때문에 <b>GPS 위치·기기 정보·촬영 시각</b> 같은 EXIF 메타데이터가 결과 파일에 포함되지 않습니다. 원본 파일은 수정되지 않고 그대로 남습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>어떤 사진을 올릴 수 있나요?</summary>
+          <div class="faq-body"><p>JPG, PNG, WebP, AVIF와 브라우저가 지원하는 HEIC를 열 수 있습니다. 아주 큰 사진은 처리 속도와 메모리를 위해 <b>긴 변 4096px · 약 1,250만 화소</b> 기준으로 맞춰 편집하고, 저장할 때 최대 너비를 다시 고를 수 있습니다. 그보다 작은 사진은 원본 해상도 그대로 처리됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>아이폰 HEIC 사진도 되나요?</summary>
+          <div class="faq-body"><p>브라우저가 HEIC를 읽을 수 있으면 바로 열립니다. 읽지 못하는 브라우저에서는 아이폰 <b>설정 &gt; 카메라 &gt; 포맷</b>을 &lsquo;높은 호환성&rsquo;으로 바꾸거나, 사진 앱에서 JPG로 내보낸 뒤 올려 주세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>무료인가요? 로그인이나 워터마크가 있나요?</summary>
+          <div class="faq-body"><p>모든 기능을 무료로 쓸 수 있고 회원가입·설치가 필요 없습니다. 저장한 사진에 워터마크도 붙지 않습니다. 운영 비용은 편집기 아래의 <b>광고 영역</b>으로 충당하며, 광고는 사진 처리와 무관합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>인터넷이 없어도 편집할 수 있나요?</summary>
+          <div class="faq-body"><p>페이지를 한 번 연 뒤에는 사진 편집과 저장이 <b>네트워크 없이도</b> 동작합니다. 광고와 방문 통계, 웹 글꼴만 인터넷을 사용합니다.</p></div>
+        </details>
+      </div>
+      <p class="content-cta">가릴 곳이 정해졌다면 사진을 올리고 사각형으로 드래그하기만 하면 됩니다. <a href="#top">편집기로 돌아가기 ↑</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">🔒</span>
+      <div>
+        <p class="foot-name" id="footName">안심 사진 편집기</p>
+        <p class="foot-desc">모자이크·개인정보 가리기·용량 줄이기를 브라우저에서 처리하는 무료 도구</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="서비스 정보">
+      <button class="foot-link" type="button" data-modal="about">서비스 소개</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/" style="text-decoration-color:transparent">썸네일 10초</a>
+    </nav>
+    <p class="foot-copy">© 2026 안심 사진 편집기 · 사진은 내 기기 밖으로 나가지 않아요</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 저장 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbSize">—</b>
+    <span id="sbMeta">사진을 올려 주세요</span>
+  </div>
+  <button class="btn btn-primary" id="sbSave" type="button">안심 사진 저장</button>
+</div>
+
+<!-- ============ 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>안심 사진 편집기</b>는 개인정보가 담긴 사진을 남에게 보내기 전에, 또는 서류 사진을 제출하기 전에 쓰는 무료 도구입니다. 원래 이런 작업은 편집 프로그램을 설치하고, 모자이크를 넣고, 해상도를 줄이고, 다시 저장하는 여러 단계가 필요했습니다. 이 도구는 <b>사진 선택 → 가리기 → 저장</b> 세 단계로 줄였습니다.</p>
+
+      <h3>이렇게 동작합니다</h3>
+      <ul>
+        <li>사진은 브라우저가 파일을 읽어 <b>메모리 안의 캔버스</b>에 그립니다. 서버 요청은 한 번도 생기지 않습니다.</li>
+        <li>모자이크·블러·검정 가림은 캔버스 픽셀에 직접 적용되고, <b>실행 취소</b>는 적용 기록을 되돌려 다시 그리는 방식이라 여러 단계도 가볍습니다.</li>
+        <li>저장할 때는 화면에 보이는 결과를 새 파일로 다시 인코딩합니다. 이 과정에서 <b>EXIF(촬영 위치·기기·촬영 시각)가 제거</b>됩니다.</li>
+        <li>예상 용량은 실제 저장과 같은 방법(인코딩)으로 계산해 보여 줍니다. 표시된 숫자와 실제 파일 크기는 거의 같습니다.</li>
+      </ul>
+
+      <h3>담을 수 있는 것</h3>
+      <ul>
+        <li>가리기 도구 3종 — 모자이크(픽셀화), 블러, 검정 가림 / 모양 2종 — 사각형 드래그, 브러시 칠하기(마우스·터치 동시 지원)</li>
+        <li>가리기 강도·브러시 굵기 조절, 여러 단계 실행 취소, 원본 초기화</li>
+        <li>저장 형식 JPG · WebP · PNG, 품질 10~100%, 프리셋 3종, 최대 너비 1920·1200·800px</li>
+        <li>실제 인코딩으로 계산한 예상 용량과 감소율, EXIF 자동 제거</li>
+      </ul>
+
+      <h3>알아 두세요</h3>
+      <p>이 도구는 사진을 &lsquo;가려서 안전하게 만드는&rsquo; 도구이지, 원본을 복구하는 도구가 아닙니다. 이미 저장된 모자이크는 되돌릴 수 없고, 원본 파일은 사용자의 기기에 그대로 남습니다. 민감한 사진은 원본 보관 위치도 함께 관리해 주세요.</p>
+
+      <h3>운영</h3>
+      <p>이 도구는 무료로 제공되며, 운영 비용은 화면의 광고 영역으로 충당합니다. 광고는 <b>편집기 아래</b>에만 표시되고, 원하지 않으면 &lsquo;숨기기&rsquo;로 접을 수 있습니다.</p>
+      <p>서비스 개선 의견이나 오류 제보는 사이트 운영자에게 알려 주세요.</p>
+      <p class="modal-note">안심 사진 편집기 · 회원가입 없는 브라우저 기반 사진 도구 · 2026년 운영</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>안심 사진 편집기(이하 &lsquo;사이트&rsquo;)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 편집하려고 올린 사진도 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 사진은 서버로 전송되지 않습니다</h3>
+      <p>사진 선택, 모자이크·블러·검정 가림 처리, 용량 압축, 파일 저장까지 모든 과정이 <b>이용자의 브라우저(클라이언트) 안에서</b> 처리됩니다. 사진 파일이 서버로 업로드되지 않으며, 서버에 이미지를 저장하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다.</p>
+
+      <h3>3. EXIF(촬영 위치) 정보</h3>
+      <p>휴대폰 사진에는 촬영 위치(GPS), 기기 정보, 촬영 시각 같은 EXIF 메타데이터가 들어 있을 수 있습니다. 사이트는 저장 시 사진을 캔버스에 다시 그려 새 파일로 인코딩하므로, <b>결과 파일에는 EXIF가 포함되지 않습니다.</b> 원본 파일은 수정되지 않으며 사이트가 원본을 별도로 보관하지도 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보</h3>
+      <p>편집 중인 사진과 가리기 기록은 브라우저 메모리에만 있으며, 사이트는 사진을 브라우저 저장소(localStorage)에도 저장하지 않습니다. 화면 설정(도구·품질 등)은 페이지를 새로 고치면 초기값으로 돌아갑니다.</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: G-GFRNHP2GC4)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·전화번호·이메일 등 개인을 식별하는 정보나 <b>편집한 사진·사진 파일</b>은 Analytics로 전송되지 않습니다. 사이트가 보내는 이벤트는 &lsquo;사진 선택, 도구 사용, 저장 완료&rsquo; 같은 동작 이름과 형식·용량 같은 숫자뿐입니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 사진 편집·저장 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>화면 글꼴을 표시하기 위해 Google Fonts와 jsDelivr(프리텐다드)에서 스타일 파일을 불러옵니다. 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있으며, 각 서비스의 개인정보처리방침이 적용됩니다. 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 25일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 기본 설정
+     ========================================================= */
+  var AD_SLOT_ID = '';            // AdSense 광고 단위 ID. 비워 두면 안내용 자리만 표시됩니다.
+  var MAX_SIDE = 4096;            // 처리 캔버스 최대 긴 변(px)
+  var MAX_AREA = 12500000;        // 처리 캔버스 최대 화소(약 1,250만) — 모바일 메모리 보호
+  var MIME = { jpeg: 'image/jpeg', webp: 'image/webp', png: 'image/png' };
+  var EXT  = { jpeg: 'jpg', webp: 'webp', png: 'png' };
+  var FMT_NOTE = { jpeg: '사진에 가장 무난 · 호환성 좋음', webp: '같은 화질에 20~30% 작음', png: '무손실 · 용량이 큼' };
+
+  var S = {
+    img: null, W: 0, H: 0,
+    ops: [], ver: 0,
+    work: null, wctx: null,
+    view: null, vctx: null, ov: null, octx: null,
+    tool: 'mosaic', shape: 'rect', strength: 5, brush: 44,
+    format: 'jpeg', quality: 75, maxW: 0,
+    origBytes: 0, baseName: 'safe-photo',
+    drag: null, stroke: null, strokeBase: null, hover: null,
+    blob: null, blobKey: '', estSeq: 0, estTimer: null,
+    sampleBlob: null, webpOK: false, dpr: 1
+  };
+
+  function $(id) { return document.getElementById(id); }
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+
+  var el = {
+    imgMeta: $('imgMeta'), opCount: $('opCount'),
+    undoBtn: $('undoBtn'), resetBtn: $('resetBtn'),
+    dropzone: $('dropzone'), canvasWrap: $('canvasWrap'), canvasStage: $('canvasStage'),
+    quickSteps: $('quickSteps'),
+    view: $('view'), overlay: $('overlay'), fileInput: $('fileInput'),
+    pickBtn: $('pickBtn'), sampleBtn: $('sampleBtn'), sampleBtn2: $('sampleBtn2'),
+    changeBtn: $('changeBtn'), stageLoading: $('stageLoading'), toolTip: $('toolTip'),
+    toolSeg: $('toolSeg'), shapeSeg: $('shapeSeg'),
+    strengthRow: $('strengthRow'), strengthLabel: $('strengthLabel'), strengthOut: $('strengthOut'),
+    strengthHint: $('strengthHint'), strength: $('strength'),
+    brushRow: $('brushRow'), brushOut: $('brushOut'), brush: $('brush'),
+    toolHint: $('toolHint'),
+    fmtSeg: $('fmtSeg'), fmtNote: $('fmtNote'), quality: $('quality'), qualityOut: $('qualityOut'),
+    qPresets: $('qPresets'), maxWidth: $('maxWidth'),
+    estOrig: $('estOrig'), estOut: $('estOut'), estMeta: $('estMeta'), estPct: $('estPct'),
+    downloadBtn: $('downloadBtn'),
+    stickyBar: $('stickyBar'), sbSize: $('sbSize'), sbMeta: $('sbMeta'), sbSave: $('sbSave'),
+    toast: $('toast'), adCard: $('adCard'), adSlot: $('adSlot'), adToggle: $('adToggle')
+  };
+
+  /* ---------- 캔버스 준비 ---------- */
+  S.view = el.view;
+  S.vctx = el.view.getContext('2d');
+  S.ov = el.overlay;
+  S.octx = el.overlay.getContext('2d');
+
+  /* ---------- 분석 이벤트 (GA4) ---------- */
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계는 실패해도 기능에 영향 없음 */ }
+  }
+
+  /* ---------- 유틸 ---------- */
+  function fmtBytes(b) {
+    if (!b || b < 0) return '—';
+    if (b < 1024) return b + ' B';
+    if (b < 1024 * 1024) return (b / 1024).toFixed(b < 10240 ? 1 : 0) + 'KB';
+    return (b / 1048576).toFixed(2) + 'MB';
+  }
+  var toastTimer = null;
+  function toast(msg) {
+    el.toast.textContent = msg;
+    el.toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.toast.classList.remove('is-on'); }, 2600);
+  }
+  function baseName(name) {
+    var n = (name || 'photo').replace(/\.[a-z0-9]+$/i, '');
+    n = n.replace(/[\\/:*?"<>|]+/g, '').replace(/\s+/g, '-').slice(0, 40);
+    return n || 'safe-photo';
+  }
+  function newCanvas(w, h) {
+    var c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(w));
+    c.height = Math.max(1, Math.round(h));
+    return c;
+  }
+
+  /* ---------- WebP 지원 확인 ---------- */
+  try {
+    var probe = newCanvas(2, 2);
+    S.webpOK = probe.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  } catch (e) { S.webpOK = false; }
+  if (!S.webpOK) {
+    var wb = el.fmtSeg.querySelector('[data-fmt="webp"]');
+    if (wb) { wb.disabled = true; wb.title = '이 브라우저는 WebP 저장을 지원하지 않습니다'; }
+  }
+
+  /* =========================================================
+     1. 가리기 엔진 (원본 → 작업 캔버스)
+     ========================================================= */
+
+  function minDim() { return Math.min(S.W, S.H) || 1000; }
+
+  // 강도 1~10 → 이미지 픽셀 단위 칸 크기 / 흐림 반경
+  function blockFor(v) { return Math.max(3, Math.round(minDim() * (0.003 + v * 0.0035))); }
+  function blurFor(v) { return Math.max(2, Math.min(90, minDim() * (0.0015 + v * 0.0028))); }
+
+  // 화면에서 고른 브러시 지름(CSS px) → 이미지 픽셀 반지름
+  function brushRadius() {
+    var cssW = el.view.clientWidth || S.W;
+    var ratio = S.W / Math.max(1, cssW);
+    return Math.max(2, (S.brush / 2) * ratio);
+  }
+
+  function makeOp(shape, pts) {
+    var op = { type: S.tool, shape: shape, pts: pts || [], r: 0, block: 0, blur: 0,
+               x: 0, y: 0, w: 0, h: 0 };
+    if (S.tool === 'mosaic') op.block = blockFor(S.strength);
+    if (S.tool === 'blur') op.blur = blurFor(S.strength);
+    if (shape === 'brush') op.r = brushRadius();
+    return op;
+  }
+
+  function opsBBox(op) {
+    var r = op.shape === 'brush' ? op.r + 2 : 0;
+    var x0, y0, x1, y1;
+    if (op.shape === 'rect') {
+      x0 = Math.min(op.x, op.x + op.w); x1 = Math.max(op.x, op.x + op.w);
+      y0 = Math.min(op.y, op.y + op.h); y1 = Math.max(op.y, op.y + op.h);
+    } else {
+      x0 = 1e9; y0 = 1e9; x1 = -1e9; y1 = -1e9;
+      for (var i = 0; i < op.pts.length; i++) {
+        var p = op.pts[i];
+        if (p.x < x0) x0 = p.x; if (p.x > x1) x1 = p.x;
+        if (p.y < y0) y0 = p.y; if (p.y > y1) y1 = p.y;
+      }
+      x0 -= r; y0 -= r; x1 += r; y1 += r;
+    }
+    x0 = clamp(Math.floor(x0), 0, S.W); y0 = clamp(Math.floor(y0), 0, S.H);
+    x1 = clamp(Math.ceil(x1), 0, S.W);  y1 = clamp(Math.ceil(y1), 0, S.H);
+    if (x1 - x0 < 1 || y1 - y0 < 1) return null;
+    return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+  }
+
+  function strokePath(c, pts, r) {
+    if (pts.length < 2) {
+      c.beginPath();
+      c.arc(pts[0].x, pts[0].y, Math.max(1, r), 0, Math.PI * 2);
+      c.fill();
+      return;
+    }
+    c.beginPath();
+    c.moveTo(pts[0].x, pts[0].y);
+    for (var i = 1; i < pts.length; i++) c.lineTo(pts[i].x, pts[i].y);
+    c.lineWidth = Math.max(1, r * 2);
+    c.lineCap = 'round';
+    c.lineJoin = 'round';
+    c.stroke();
+  }
+
+  function paintMask(c, op) {
+    c.save();
+    c.fillStyle = '#fff';
+    c.strokeStyle = '#fff';
+    if (op.shape === 'rect') {
+      c.fillRect(op.x, op.y, op.w, op.h);
+    } else {
+      strokePath(c, op.pts, op.r);
+    }
+    c.restore();
+  }
+
+  /**
+   * op 하나를 ctx 에 적용한다.
+   * source: 효과를 계산할 원본 캔버스(기본값 = ctx.canvas)
+   */
+  function drawOp(ctx, op, source) {
+    var bb = opsBBox(op);
+    if (!bb) return;
+    source = source || ctx.canvas;
+
+    if (op.type === 'box') {
+      ctx.save();
+      ctx.fillStyle = '#0b0b0f';
+      ctx.strokeStyle = '#0b0b0f';
+      if (op.shape === 'rect') {
+        ctx.fillRect(bb.x, bb.y, bb.w, bb.h);
+      } else {
+        strokePath(ctx, op.pts, op.r);
+      }
+      ctx.restore();
+      return;
+    }
+
+    var layer = newCanvas(bb.w, bb.h);
+    var lc = layer.getContext('2d');
+
+    if (op.type === 'mosaic') {
+      var bs = Math.max(2, Math.round(op.block));
+      var gx0 = Math.floor(bb.x / bs) * bs;
+      var gy0 = Math.floor(bb.y / bs) * bs;
+      var gx1 = gx0 + Math.ceil((bb.x + bb.w - gx0) / bs) * bs;
+      var gy1 = gy0 + Math.ceil((bb.y + bb.h - gy0) / bs) * bs;
+      var tw = Math.max(1, Math.round((gx1 - gx0) / bs));
+      var th = Math.max(1, Math.round((gy1 - gy0) / bs));
+      var tiny = newCanvas(tw, th);
+      var tc = tiny.getContext('2d');
+      tc.imageSmoothingEnabled = true;
+      if ('imageSmoothingQuality' in tc) tc.imageSmoothingQuality = 'high';
+      tc.drawImage(source, gx0, gy0, tw * bs, th * bs, 0, 0, tw, th);
+      lc.imageSmoothingEnabled = false;
+      lc.drawImage(tiny, 0, 0, tw, th, gx0 - bb.x, gy0 - bb.y, tw * bs, th * bs);
+    } else {
+      var pad = Math.ceil(op.blur * 2) + 2;
+      lc.filter = 'blur(' + op.blur.toFixed(1) + 'px)';
+      lc.drawImage(source, bb.x - pad, bb.y - pad, bb.w + pad * 2, bb.h + pad * 2,
+                   -pad, -pad, bb.w + pad * 2, bb.h + pad * 2);
+      lc.filter = 'none';
+    }
+
+    lc.globalCompositeOperation = 'destination-in';
+    lc.save();
+    lc.translate(-bb.x, -bb.y);
+    paintMask(lc, op);
+    lc.restore();
+
+    ctx.drawImage(layer, bb.x, bb.y);
+  }
+
+  /* =========================================================
+     2. 화면 · 좌표 매핑
+     ========================================================= */
+
+  function layoutView() {
+    if (!S.img) return;
+    var avail = el.canvasStage.clientWidth || el.canvasWrap.clientWidth || 640;
+    var cs = window.getComputedStyle(el.canvasStage);
+    avail = Math.max(180, avail - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0));
+    var maxH = Math.min(window.innerHeight * (window.innerWidth <= 1080 ? 0.52 : 0.64), 700);
+    var k = Math.min(avail / S.W, maxH / S.H);
+    if (!isFinite(k) || k <= 0) k = 0.25;
+    k = Math.min(k, 2);                                 // 작은 사진은 최대 2배까지
+    var cssW = Math.max(60, Math.round(S.W * k));
+    var cssH = Math.max(40, Math.round(S.H * k));
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    S.dpr = dpr;
+
+    [el.view, el.overlay].forEach(function (cv) {
+      cv.style.width = cssW + 'px';
+      cv.style.height = cssH + 'px';
+      cv.width = Math.round(cssW * dpr);
+      cv.height = Math.round(cssH * dpr);
+    });
+
+    drawView();
+    drawOverlay();
+  }
+
+  var viewRaf = 0;
+  function scheduleViewRender() {
+    if (viewRaf) return;
+    viewRaf = requestAnimationFrame(function () { viewRaf = 0; drawView(); });
+  }
+
+  function drawView() {
+    if (!S.img) return;
+    var c = S.vctx;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.clearRect(0, 0, el.view.width, el.view.height);
+    if ('imageSmoothingQuality' in c) c.imageSmoothingQuality = 'high';
+    c.drawImage(S.work, 0, 0, el.view.width, el.view.height);
+  }
+
+  function drawOverlay() {
+    var c = S.octx;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.clearRect(0, 0, el.overlay.width, el.overlay.height);
+    if (!S.img) return;
+    var k = el.overlay.width / S.W;
+    var lw = 2 * S.dpr;
+
+    if (S.drag && S.drag.moved) {
+      var a = S.drag.a, b = S.drag.b;
+      var x = Math.min(a.x, b.x) * k, y = Math.min(a.y, b.y) * k;
+      var w = Math.abs(b.x - a.x) * k, h = Math.abs(b.y - a.y) * k;
+      c.save();
+      c.fillStyle = S.tool === 'box' ? 'rgba(11,11,15,.72)' : 'rgba(91,87,240,.24)';
+      c.fillRect(x, y, w, h);
+      c.lineWidth = lw;
+      c.strokeStyle = 'rgba(255,255,255,.95)';
+      c.setLineDash([6 * S.dpr, 4 * S.dpr]);
+      c.strokeRect(x + lw / 2, y + lw / 2, Math.max(0, w - lw), Math.max(0, h - lw));
+      c.setLineDash([]);
+      c.strokeStyle = 'rgba(91,87,240,.95)';
+      c.lineWidth = Math.max(1, lw / 2);
+      c.strokeRect(x + lw / 2, y + lw / 2, Math.max(0, w - lw), Math.max(0, h - lw));
+      c.restore();
+    }
+
+    if (S.shape === 'brush' && S.hover && !S.drag) {
+      var rr = (S.brush / 2) * S.dpr;
+      c.save();
+      c.beginPath();
+      c.arc(S.hover.x * k, S.hover.y * k, rr, 0, Math.PI * 2);
+      c.lineWidth = 2 * S.dpr;
+      c.strokeStyle = 'rgba(255,255,255,.95)';
+      c.stroke();
+      c.beginPath();
+      c.arc(S.hover.x * k, S.hover.y * k, Math.max(1, rr - 1.5 * S.dpr), 0, Math.PI * 2);
+      c.strokeStyle = 'rgba(20,22,28,.65)';
+      c.lineWidth = 1.5 * S.dpr;
+      c.stroke();
+      c.restore();
+    }
+  }
+
+  // 화면 좌표 → 이미지 픽셀 좌표 (표시 크기와 실제 해상도의 비율을 정확히 반영)
+  function toImagePoint(ev) {
+    var r = el.view.getBoundingClientRect();
+    var x = (ev.clientX - r.left) * (S.W / Math.max(1, r.width));
+    var y = (ev.clientY - r.top) * (S.H / Math.max(1, r.height));
+    return { x: clamp(x, 0, S.W), y: clamp(y, 0, S.H) };
+  }
+
+  /* =========================================================
+     3. 렌더 · 실행 취소
+     ========================================================= */
+
+  function renderAll() {
+    if (!S.img) return;
+    var c = S.wctx;
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.clearRect(0, 0, S.W, S.H);
+    c.drawImage(S.img, 0, 0, S.W, S.H);
+    for (var i = 0; i < S.ops.length; i++) drawOp(c, S.ops[i], S.work);
+    drawView();
+  }
+
+  function commitOp(op) {
+    S.ops.push(op);
+    S.ver++;
+    renderAll();
+    drawOverlay();
+    syncUI();
+    scheduleEstimate();
+  }
+
+  function undo() {
+    if (!S.ops.length) return;
+    S.ops.pop();
+    S.ver++;
+    renderAll();
+    drawOverlay();
+    syncUI();
+    scheduleEstimate();
+    track('undo_redact', { remain: S.ops.length });
+  }
+
+  function resetAll() {
+    if (!S.ops.length) return;
+    S.ops = [];
+    S.ver++;
+    renderAll();
+    drawOverlay();
+    syncUI();
+    scheduleEstimate();
+    track('reset_redact', {});
+    toast('가리기 기록을 지우고 원본으로 되돌렸습니다.');
+  }
+
+  /* =========================================================
+     4. 포인터 입력 (마우스 + 터치 + 펜)
+     ========================================================= */
+
+  function onPointerDown(ev) {
+    if (!S.img) return;
+    if (ev.button !== undefined && ev.button !== 0) return;
+    ev.preventDefault();
+    try { el.overlay.setPointerCapture(ev.pointerId); } catch (e) {}
+
+    var p = toImagePoint(ev);
+    if (S.shape === 'rect') {
+      S.drag = { a: p, b: p, moved: false };
+      drawOverlay();
+    } else {
+      S.strokeBase = newCanvas(S.W, S.H);
+      S.strokeBase.getContext('2d').drawImage(S.work, 0, 0);
+      S.stroke = { op: makeOp('brush', [p]), last: p };
+      drawOp(S.wctx, { type: S.stroke.op.type, shape: 'brush', pts: [p], r: S.stroke.op.r,
+                       block: S.stroke.op.block, blur: S.stroke.op.blur }, S.strokeBase);
+      scheduleViewRender();
+    }
+  }
+
+  function onPointerMove(ev) {
+    if (!S.img) return;
+    var p = toImagePoint(ev);
+
+    if (S.drag) {
+      S.drag.b = p;
+      var dx = Math.abs(p.x - S.drag.a.x), dy = Math.abs(p.y - S.drag.a.y);
+      if (dx > 1 || dy > 1) S.drag.moved = true;
+      drawOverlay();
+      return;
+    }
+
+    if (S.stroke) {
+      var last = S.stroke.last;
+      var d = Math.hypot(p.x - last.x, p.y - last.y);
+      var minStep = Math.max(2, S.stroke.op.r * 0.35);
+      if (d < minStep) return;
+      drawOp(S.wctx, { type: S.stroke.op.type, shape: 'brush', pts: [last, p], r: S.stroke.op.r,
+                       block: S.stroke.op.block, blur: S.stroke.op.blur }, S.strokeBase);
+      S.stroke.op.pts.push(p);
+      S.stroke.last = p;
+      scheduleViewRender();
+      return;
+    }
+
+    if (S.shape === 'brush') {
+      S.hover = p;
+      drawOverlay();
+    }
+  }
+
+  function onPointerUp(ev) {
+    if (!S.img) return;
+    try { el.overlay.releasePointerCapture(ev.pointerId); } catch (e) {}
+
+    if (S.drag) {
+      var d = S.drag;
+      S.drag = null;
+      drawOverlay();
+      if (!d.moved) return;
+      var x = Math.min(d.a.x, d.b.x), y = Math.min(d.a.y, d.b.y);
+      var w = Math.abs(d.b.x - d.a.x), h = Math.abs(d.b.y - d.a.y);
+      if (w < 3 || h < 3) return;
+      var op = makeOp('rect');
+      op.x = x; op.y = y; op.w = w; op.h = h;
+      commitOp(op);
+      track('use_redact_tool', { tool: op.type, shape: 'rect', w: Math.round(w), h: Math.round(h) });
+      return;
+    }
+
+    if (S.stroke) {
+      var st = S.stroke;
+      S.stroke = null;
+      S.strokeBase = null;
+      commitOp(st.op);
+      track('use_redact_tool', { tool: st.op.type, shape: 'brush', points: st.op.pts.length });
+    }
+  }
+
+  function onPointerLeave() {
+    if (S.hover) { S.hover = null; drawOverlay(); }
+  }
+
+  el.overlay.addEventListener('pointerdown', onPointerDown);
+  el.overlay.addEventListener('pointermove', onPointerMove);
+  el.overlay.addEventListener('pointerup', onPointerUp);
+  el.overlay.addEventListener('pointercancel', onPointerUp);
+  el.overlay.addEventListener('pointerleave', onPointerLeave);
+  el.overlay.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  el.overlay.addEventListener('touchstart', function (e) { e.preventDefault(); }, { passive: false });
+
+  /* =========================================================
+     5. 사진 불러오기
+     ========================================================= */
+
+  function showLoading(on) {
+    el.stageLoading.classList.toggle('is-hidden', !on);
+  }
+
+  function setupImage(img, bytes, name, natW, natH) {
+    natW = natW || img.naturalWidth || img.width;
+    natH = natH || img.naturalHeight || img.height;
+    if (!natW || !natH) { toast('사진 크기를 읽지 못했습니다.'); showLoading(false); return; }
+
+    var sc = Math.min(1, MAX_SIDE / Math.max(natW, natH), Math.sqrt(MAX_AREA / (natW * natH)));
+    S.W = Math.max(1, Math.round(natW * sc));
+    S.H = Math.max(1, Math.round(natH * sc));
+    S.work = newCanvas(S.W, S.H);
+    S.wctx = S.work.getContext('2d');
+    S.wctx.drawImage(img, 0, 0, S.W, S.H);
+    S.img = img;
+    S.ops = [];
+    S.ver++;
+    S.origBytes = bytes || 0;
+    S.baseName = baseName(name);
+    S.blob = null; S.blobKey = '';
+
+    el.dropzone.classList.add('is-hidden');
+    el.quickSteps.classList.add('is-hidden');
+    el.canvasWrap.classList.remove('is-hidden');
+    document.body.classList.add('has-image');
+    el.stickyBar.classList.add('is-ready');
+
+    var meta = S.W + ' × ' + S.H;
+    if (sc < 1) meta += ' · 원본 ' + natW + '×' + natH + '에서 축소';
+    el.imgMeta.textContent = meta;
+
+    if (S.format === 'webp' && !S.webpOK) setFormat('jpeg');
+
+    layoutView();
+    renderAll();
+    syncUI();
+    updateEstimate(true);
+    showLoading(false);
+    track('load_photo', { w: S.W, h: S.H, bytes: S.origBytes });
+  }
+
+  function loadFile(file) {
+    if (!file) return;
+    var isImg = (file.type && file.type.indexOf('image/') === 0) ||
+                /\.(jpe?g|png|webp|gif|bmp|avif|heic|heif)$/i.test(file.name || '');
+    if (!isImg) { toast('사진 파일이 아닙니다. JPG·PNG·WebP 사진을 선택해 주세요.'); return; }
+
+    showLoading(true);
+    var url = URL.createObjectURL(file);
+    var img = new Image();
+    img.onload = function () {
+      try {
+        setupImage(img, file.size, file.name);
+      } catch (e) {
+        showLoading(false);
+        toast('사진을 여는 중 문제가 생겼습니다. 다른 사진으로 다시 시도해 주세요.');
+        if (window.console && console.error) console.error('[safe-photo] setup failed', e);
+      }
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      track('upload_photo', { type: (file.type || 'unknown').split('/')[1] || 'unknown' });
+    };
+    img.onerror = function () {
+      showLoading(false);
+      URL.revokeObjectURL(url);
+      toast('이 브라우저에서 열 수 없는 형식입니다. JPG나 PNG로 변환해 주세요.');
+    };
+    img.src = url;
+  }
+
+  el.pickBtn.addEventListener('click', function () { el.fileInput.click(); });
+  el.fileInput.addEventListener('change', function () {
+    if (this.files && this.files[0]) loadFile(this.files[0]);
+    this.value = '';
+  });
+  el.changeBtn.addEventListener('click', function () { el.fileInput.click(); });
+
+  /* ---------- 드래그 & 드롭 ---------- */
+  ['dragenter', 'dragover'].forEach(function (t) {
+    el.dropzone.addEventListener(t, function (e) {
+      e.preventDefault(); e.stopPropagation();
+      el.dropzone.classList.add('is-over');
+    });
+  });
+  ['dragleave', 'dragend'].forEach(function (t) {
+    el.dropzone.addEventListener(t, function (e) {
+      e.preventDefault(); e.stopPropagation();
+      el.dropzone.classList.remove('is-over');
+    });
+  });
+  el.dropzone.addEventListener('drop', function (e) {
+    e.preventDefault(); e.stopPropagation();
+    el.dropzone.classList.remove('is-over');
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+  });
+  // 캔버스 위로 파일을 떨어뜨려도 사진 교체
+  ['dragover', 'drop'].forEach(function (t) {
+    el.canvasStage.addEventListener(t, function (e) {
+      e.preventDefault();
+      if (t === 'drop' && e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+        loadFile(e.dataTransfer.files[0]);
+      }
+    });
+  });
+  // 페이지 전체에서 기본 동작(새 탭에서 열기) 방지
+  window.addEventListener('dragover', function (e) { e.preventDefault(); });
+  window.addEventListener('drop', function (e) { e.preventDefault(); });
+
+  /* ---------- 붙여넣기 ---------- */
+  document.addEventListener('paste', function (e) {
+    if (!e.clipboardData) return;
+    var items = e.clipboardData.items || [];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].kind === 'file' && items[i].type.indexOf('image/') === 0) {
+        var f = items[i].getAsFile();
+        if (f) { loadFile(f); toast('붙여넣은 사진을 열었습니다.'); return; }
+      }
+    }
+  });
+
+  /* =========================================================
+     6. 샘플 이미지 생성 (서버 없이 체험)
+     ========================================================= */
+  function buildSampleCanvas() {
+    var W = 1400, H = 1000;
+    var c = newCanvas(W, H);
+    var x = c.getContext('2d');
+    var F = '"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif';
+
+    // 책상 배경
+    var g = x.createLinearGradient(0, 0, W, H);
+    g.addColorStop(0, '#bda98a');
+    g.addColorStop(0.5, '#96805f');
+    g.addColorStop(1, '#5d4f37');
+    x.fillStyle = g;
+    x.fillRect(0, 0, W, H);
+
+    // 배경 결
+    for (var i = 0; i < 900; i++) {
+      x.fillStyle = 'rgba(0,0,0,' + (Math.random() * 0.05) + ')';
+      var bw = 20 + Math.random() * 160;
+      x.fillRect(Math.random() * W, Math.random() * H, bw, 1.4);
+    }
+
+    // 옆에 놓인 다른 종이
+    x.save();
+    x.translate(1120, 760);
+    x.rotate(0.16);
+    x.shadowColor = 'rgba(0,0,0,.35)'; x.shadowBlur = 22; x.shadowOffsetY = 8;
+    x.fillStyle = '#f3efe4';
+    x.fillRect(-170, -280, 340, 560);
+    x.shadowColor = 'transparent';
+    x.restore();
+
+    // 서류
+    x.save();
+    x.translate(700, 505);
+    x.rotate(-0.028);
+    x.translate(-700, -505);
+    x.shadowColor = 'rgba(0,0,0,.45)'; x.shadowBlur = 36; x.shadowOffsetY = 16;
+    x.fillStyle = '#fdfdfb';
+    x.fillRect(240, 105, 920, 800);
+    x.shadowColor = 'transparent'; x.shadowBlur = 0; x.shadowOffsetY = 0;
+
+    x.fillStyle = '#15161d';
+    x.font = '800 42px ' + F;
+    x.fillText('개인정보 수집·이용 동의서', 292, 205);
+
+    x.fillStyle = '#8b8d9a';
+    x.font = '500 21px ' + F;
+    x.fillText('체험용 샘플 문서 · 실제 개인정보가 아닙니다', 292, 240);
+
+    x.strokeStyle = '#dbdde6'; x.lineWidth = 2;
+    x.beginPath(); x.moveTo(292, 266); x.lineTo(1108, 266); x.stroke();
+
+    var rows = [
+      ['성명', '김샘플'],
+      ['생년월일', '1989. 07. 06.'],
+      ['휴대전화', '010-1234-5678'],
+      ['주소', '서울특별시 예시구 샘플로 123'],
+      ['상세주소', '101동 1004호'],
+      ['계좌번호', '110-123-456789'],
+      ['차량번호', '12가 3456']
+    ];
+    var y = 336;
+    for (var r = 0; r < rows.length; r++) {
+      x.fillStyle = '#767988';
+      x.font = '600 22px ' + F;
+      x.fillText(rows[r][0], 292, y);
+      x.fillStyle = '#15161d';
+      x.font = '600 27px ' + F;
+      x.fillText(rows[r][1], 492, y);
+      x.strokeStyle = '#eef0f5'; x.lineWidth = 1.5;
+      x.beginPath(); x.moveTo(292, y + 24); x.lineTo(1108, y + 24); x.stroke();
+      y += 66;
+    }
+
+    x.fillStyle = '#767988';
+    x.font = '600 20px ' + F;
+    x.fillText('위 개인정보는 서비스 제공을 위해 수집·이용에 동의합니다.', 292, y + 22);
+
+    // 서명
+    x.strokeStyle = '#2f3242'; x.lineWidth = 3;
+    x.beginPath();
+    x.moveTo(880, y + 92); x.bezierCurveTo(910, y + 44, 940, y + 130, 968, y + 74);
+    x.bezierCurveTo(990, y + 34, 1010, y + 110, 1042, y + 68);
+    x.stroke();
+    x.fillStyle = '#767988'; x.font = '500 19px ' + F;
+    x.fillText('서명', 800, y + 96);
+
+    // 도장
+    x.strokeStyle = 'rgba(200,50,60,.75)'; x.lineWidth = 4;
+    x.beginPath(); x.arc(1010, y + 150, 46, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = 'rgba(200,50,60,.75)';
+    x.font = '700 22px ' + F;
+    x.textAlign = 'center';
+    x.fillText('샘플', 1010, y + 158);
+    x.textAlign = 'left';
+    x.restore();
+
+    // 전체 워터마크
+    x.save();
+    x.globalAlpha = 0.14;
+    x.fillStyle = '#ffffff';
+    x.font = '900 88px ' + F;
+    x.translate(700, 900);
+    x.rotate(-0.055);
+    x.textAlign = 'center';
+    x.fillText('SAMPLE', 0, 0);
+    x.restore();
+
+    return c;
+  }
+
+  function sampleBlob() {
+    return new Promise(function (resolve) {
+      if (S.sampleCanvas) { S.sampleCanvas.toBlob(function (b) { resolve(b); }, 'image/jpeg', 0.9); return; }
+      var c = buildSampleCanvas();
+      S.sampleCanvas = c;
+      c.toBlob(function (b) { resolve(b); }, 'image/jpeg', 0.9);
+    });
+  }
+
+  function loadSample() {
+    showLoading(true);
+    sampleBlob().then(function (blob) {
+      if (!blob) { showLoading(false); toast('샘플을 만들지 못했습니다.'); return; }
+      S.sampleBlob = blob;
+      var url = URL.createObjectURL(blob);
+      var img = new Image();
+      img.onload = function () {
+        setupImage(img, blob.size, 'sample-document.jpg');
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        toast('샘플 문서를 열었습니다. 이름·전화번호를 가려 보세요.');
+        track('load_sample', {});
+      };
+      img.onerror = function () {
+        showLoading(false);
+        URL.revokeObjectURL(url);
+        toast('샘플을 여는 중 문제가 생겼습니다.');
+      };
+      img.src = url;
+    });
+  }
+
+  el.sampleBtn.addEventListener('click', loadSample);
+  el.sampleBtn2.addEventListener('click', loadSample);
+
+  /* =========================================================
+     7. 컨트롤 (도구 · 모양 · 강도 · 브러시)
+     ========================================================= */
+  var TOOL_HINT = {
+    mosaic: { rect: '가릴 부분을 사각형으로 드래그하면 그 자리가 픽셀 블록으로 바뀝니다.',
+              brush: '브러시로 문지르면 지나간 자리가 픽셀 블록으로 바뀝니다.' },
+    blur:   { rect: '가릴 부분을 사각형으로 드래그하면 부드럽게 흐려집니다.',
+              brush: '브러시로 문지르면 지나간 자리가 흐려집니다.' },
+    box:    { rect: '가릴 부분을 사각형으로 드래그하면 검게 덮습니다. 서류·번호판에 가장 안전합니다.',
+              brush: '브러시로 칠하면 칠한 자리를 검게 덮습니다.' }
+  };
+  var STRENGTH_HINT = {
+    mosaic: '숫자가 클수록 픽셀 칸이 굵어져 더 강하게 가려집니다. (권장 4~7)',
+    blur: '숫자가 클수록 더 뿌옇게 흐려집니다. (권장 5~8)',
+    box: '검정 가림은 강도 조절이 필요 없습니다. 영역을 완전히 덮습니다.'
+  };
+  var STRENGTH_LABEL = { mosaic: '픽셀 칸 크기', blur: '흐림 정도', box: '가리기 강도' };
+
+  function syncUI() {
+    var has = !!S.img;
+    el.undoBtn.disabled = !has || !S.ops.length;
+    el.resetBtn.disabled = !has || !S.ops.length;
+    el.downloadBtn.disabled = !has;
+    el.sbSave.disabled = !has;
+    el.opCount.classList.toggle('is-hidden', !has || !S.ops.length);
+    el.opCount.textContent = '가린 곳 ' + S.ops.length;
+
+    el.strengthRow.classList.toggle('is-hidden', S.tool === 'box');
+    el.brushRow.classList.toggle('is-hidden', S.shape !== 'brush');
+    el.canvasStage.classList.toggle('is-brush', S.shape === 'brush');
+
+    el.strengthLabel.textContent = STRENGTH_LABEL[S.tool];
+    el.strengthHint.textContent = STRENGTH_HINT[S.tool];
+    el.strengthOut.textContent = S.strength;
+    el.brushOut.textContent = S.brush;
+    el.toolTip.textContent = (S.shape === 'brush' ? '브러시: ' : '사각형: ') + TOOL_HINT[S.tool][S.shape];
+
+    el.qualityOut.textContent = S.quality + '%';
+    el.fmtNote.textContent = FMT_NOTE[S.format];
+    el.maxWidth.value = String(S.maxW);
+  }
+
+  el.toolSeg.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-tool]');
+    if (!b) return;
+    S.tool = b.dataset.tool;
+    Array.prototype.forEach.call(el.toolSeg.querySelectorAll('button'), function (x) {
+      x.classList.toggle('is-active', x === b);
+    });
+    syncUI();
+    track('select_tool', { tool: S.tool });
+  });
+
+  el.shapeSeg.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-shape]');
+    if (!b) return;
+    S.shape = b.dataset.shape;
+    S.hover = null;
+    Array.prototype.forEach.call(el.shapeSeg.querySelectorAll('button'), function (x) {
+      x.classList.toggle('is-active', x === b);
+    });
+    drawOverlay();
+    syncUI();
+    track('select_shape', { shape: S.shape });
+  });
+
+  el.strength.addEventListener('input', function () {
+    S.strength = +this.value;
+    syncUI();
+  });
+  el.brush.addEventListener('input', function () {
+    S.brush = +this.value;
+    syncUI();
+    if (S.hover) drawOverlay();
+  });
+
+  /* =========================================================
+     8. 저장 형식 · 품질 · 크기 · 예상 용량
+     ========================================================= */
+
+  function setFormat(f) {
+    S.format = (f === 'webp' && !S.webpOK) ? 'jpeg' : f;
+    Array.prototype.forEach.call(el.fmtSeg.querySelectorAll('button'), function (x) {
+      x.classList.toggle('is-active', x.dataset.fmt === S.format);
+    });
+    el.quality.disabled = (S.format === 'png');
+    var qp = el.qPresets.querySelectorAll('button');
+    Array.prototype.forEach.call(qp, function (x) { x.style.opacity = S.format === 'png' ? '.5' : ''; });
+    syncUI();
+    scheduleEstimate();
+  }
+
+  el.fmtSeg.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-fmt]');
+    if (!b || b.disabled) return;
+    setFormat(b.dataset.fmt);
+    track('select_format', { format: S.format });
+  });
+
+  el.quality.addEventListener('input', function () {
+    S.quality = +this.value;
+    markPreset(null);
+    syncUI();
+    scheduleEstimate();
+  });
+
+  function markPreset(q) {
+    Array.prototype.forEach.call(el.qPresets.querySelectorAll('button'), function (x) {
+      x.classList.toggle('is-active', q !== null && +x.dataset.q === q);
+    });
+  }
+
+  el.qPresets.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-q]');
+    if (!b) return;
+    S.quality = +b.dataset.q;
+    el.quality.value = String(S.quality);
+    markPreset(S.quality);
+    syncUI();
+    scheduleEstimate();
+    track('select_quality_preset', { quality: S.quality });
+  });
+
+  el.maxWidth.addEventListener('change', function () {
+    S.maxW = +this.value;
+    scheduleEstimate();
+    track('select_max_width', { width: S.maxW });
+  });
+
+  function outputSize() {
+    if (!S.maxW || S.W <= S.maxW) return { w: S.W, h: S.H, scaled: false };
+    var k = S.maxW / S.W;
+    return { w: S.maxW, h: Math.max(1, Math.round(S.H * k)), scaled: true };
+  }
+
+  function buildOutput() {
+    var o = outputSize();
+    var c = newCanvas(o.w, o.h);
+    var x = c.getContext('2d');
+    if (S.format === 'jpeg') {
+      x.fillStyle = '#ffffff';
+      x.fillRect(0, 0, o.w, o.h);
+    }
+    if ('imageSmoothingQuality' in x) x.imageSmoothingQuality = 'high';
+    x.drawImage(S.work, 0, 0, S.W, S.H, 0, 0, o.w, o.h);
+    return c;
+  }
+
+  function encode() {
+    return new Promise(function (resolve) {
+      var c = buildOutput();
+      var mime = MIME[S.format];
+      var q = (S.format === 'png') ? undefined : (S.quality / 100);
+      if (c.toBlob) {
+        c.toBlob(function (b) { resolve(b); }, mime, q);
+      } else {
+        try {
+          var data = c.toDataURL(mime, q);
+          var bin = atob(data.split(',')[1]);
+          var arr = new Uint8Array(bin.length);
+          for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+          resolve(new Blob([arr], { type: mime }));
+        } catch (e) { resolve(null); }
+      }
+    });
+  }
+
+  function settingsKey() {
+    return [S.W, S.H, S.ver, S.format, S.quality, S.maxW].join('|');
+  }
+
+  function scheduleEstimate() {
+    if (!S.img) return;
+    clearTimeout(S.estTimer);
+    el.estOut.textContent = '계산 중…';
+    S.estTimer = setTimeout(runEstimate, 320);
+  }
+
+  function updateEstimate(immediate) {
+    if (!S.img) {
+      el.estOrig.textContent = '—';
+      el.estOut.textContent = '—';
+      el.estMeta.textContent = '사진을 올리면 실제 저장 용량을 계산합니다';
+      el.estPct.classList.add('is-hidden');
+      el.sbSize.textContent = '—';
+      el.sbMeta.textContent = '사진을 올려 주세요';
+      return;
+    }
+    el.estOrig.textContent = fmtBytes(S.origBytes);
+    clearTimeout(S.estTimer);
+    if (immediate) runEstimate();
+    else scheduleEstimate();
+  }
+
+  function runEstimate() {
+    if (!S.img) return;
+    var seq = ++S.estSeq;
+    var key = settingsKey();
+    el.estOut.textContent = '계산 중…';
+    encode().then(function (blob) {
+      if (seq !== S.estSeq || !blob) {
+        if (seq === S.estSeq) el.estOut.textContent = '—';
+        return;
+      }
+      S.blob = blob;
+      S.blobKey = key;
+      var o = outputSize();
+      el.estOut.textContent = fmtBytes(blob.size);
+      el.estMeta.textContent = o.w + ' × ' + o.h + ' · ' +
+        (S.format === 'png' ? 'PNG (무손실)' : S.format.toUpperCase() + ' ' + S.quality + '%');
+
+      if (S.origBytes > 0) {
+        var pct = Math.round((1 - blob.size / S.origBytes) * 100);
+        el.estPct.classList.remove('is-hidden');
+        el.estPct.textContent = (pct > 0 ? '−' : '+') + Math.abs(pct) + '%';
+        el.estPct.classList.toggle('is-big', pct <= 0);
+      } else {
+        el.estPct.classList.add('is-hidden');
+      }
+
+      el.sbSize.textContent = fmtBytes(blob.size) + (S.origBytes > 0 ? ' · ' + Math.max(0, Math.round((1 - blob.size / S.origBytes) * 100)) + '%↓' : '');
+      el.sbMeta.textContent = o.w + ' × ' + o.h + ' · ' + (S.format === 'png' ? 'PNG' : S.format.toUpperCase() + ' ' + S.quality + '%');
+    });
+  }
+
+  /* =========================================================
+     9. 저장
+     ========================================================= */
+  var downloading = false;
+
+  function download() {
+    if (!S.img) { toast('먼저 사진을 올려 주세요.'); return; }
+    if (downloading) return;
+    downloading = true;
+    el.downloadBtn.disabled = true;
+    el.downloadBtn.textContent = '저장 준비 중…';
+
+    var key = settingsKey();
+    var p;
+    if (S.blob && S.blobKey === key) {
+      p = Promise.resolve(S.blob);
+    } else {
+      p = encode().then(function (b) { S.blob = b; S.blobKey = key; return b; });
+    }
+
+    p.then(function (blob) {
+      if (!blob) throw new Error('encode failed');
+      var o = outputSize();
+      var name = S.baseName + '-안심.' + EXT[S.format];
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = name;
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 4000);
+
+      toast('저장 완료 · ' + fmtBytes(blob.size) + ' · EXIF가 제거된 파일입니다.');
+      track('download_safe_photo', {
+        format: S.format,
+        bytes: blob.size,
+        width: o.w,
+        height: o.h,
+        redactions: S.ops.length
+      });
+    }).catch(function () {
+      toast('저장에 실패했습니다. 다른 형식으로 다시 시도해 주세요.');
+    }).then(function () {
+      downloading = false;
+      el.downloadBtn.disabled = !S.img;
+      el.downloadBtn.textContent = '안심 사진 저장하기';
+    });
+  }
+
+  el.downloadBtn.addEventListener('click', download);
+  el.sbSave.addEventListener('click', download);
+
+  /* =========================================================
+     10. 기타 UI (실행 취소 · 초기화 · 광고 · 모달 · 단축키)
+     ========================================================= */
+  el.undoBtn.addEventListener('click', undo);
+  el.resetBtn.addEventListener('click', resetAll);
+
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target && e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
+      if (!el.undoBtn.disabled) { e.preventDefault(); undo(); }
+    }
+    if (e.key === 'Escape' && S.drag) {
+      S.drag = null;
+      drawOverlay();
+    }
+  });
+
+  var ro = null;
+  if (window.ResizeObserver) {
+    var rafId = 0;
+    ro = new ResizeObserver(function () {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(function () { if (S.img) layoutView(); });
+    });
+    ro.observe(el.canvasWrap);
+  } else {
+    window.addEventListener('resize', function () { if (S.img) layoutView(); });
+  }
+  window.addEventListener('orientationchange', function () {
+    setTimeout(function () { if (S.img) layoutView(); }, 220);
+  });
+
+  /* ---------- 광고 영역 ---------- */
+  (function initAd() {
+    if (AD_SLOT_ID) {
+      el.adSlot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    }
+    var hidden = false;
+    el.adToggle.addEventListener('click', function () {
+      hidden = !hidden;
+      el.adSlot.classList.toggle('is-hidden', hidden);
+      el.adToggle.textContent = hidden ? '다시 보기' : '숨기기';
+    });
+  })();
+
+  /* ---------- 모달 ---------- */
+  var MODALS = { about: $('modalAbout'), privacy: $('modalPrivacy') };
+  function openModal(name) {
+    var d = MODALS[name];
+    if (!d) return;
+    if (typeof d.showModal === 'function') d.showModal();
+    else d.setAttribute('open', '');
+    track('open_modal', { modal: name });
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-modal]');
+    if (t) { e.preventDefault(); openModal(t.dataset.modal); return; }
+    var c = e.target.closest('[data-close]');
+    if (c) {
+      var d = c.closest('dialog');
+      if (d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    }
+  });
+  Object.keys(MODALS).forEach(function (k) {
+    var d = MODALS[k];
+    d.addEventListener('click', function (e) {
+      if (e.target === d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    });
+  });
+
+  /* ---------- 초기 상태 ---------- */
+  syncUI();
+  updateEstimate(false);
+})();
+</script>
+</body>
+</html>

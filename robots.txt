@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mydaesu-lab.github.io/thumb-maker/sitemap.xml
+Sitemap: https://mydaesu-lab.github.io/sitemap.xml
