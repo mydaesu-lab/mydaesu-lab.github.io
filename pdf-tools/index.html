@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>서버 전송 0% 안심 PDF 합치기 · 페이지 추출기 | 무료 PDF 편집</title>
+<meta name="description" content="PDF 여러 개를 한 파일로 합치고, 필요한 페이지만 골라 빼거나 추출하고, 스캔한 JPG·PNG 사진도 PDF로 바꿔 합치세요. 페이지 회전과 N쪽씩 나눠 ZIP 저장까지 무료. 파일은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다.">
+<meta name="keywords" content="PDF 합치기, PDF 병합, PDF 페이지 삭제, PDF 페이지 추출, PDF 나누기, PDF 자르기, PDF 회전, 이미지 PDF 변환, JPG PDF 변환, 사진 PDF 만들기, 무료 PDF 편집, 서버 전송 없는 PDF, 이력서 PDF 합치기, 증명서 PDF 합치기, 스캔 PDF 합치기, 주민등록등본 PDF 합치기">
+<meta name="author" content="안심 PDF 도구">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="안심 PDF 도구">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="서버 전송 0% 안심 PDF 합치기 · 페이지 추출기 | 무료 PDF 편집">
+<meta property="og:description" content="PDF 합치기 · 페이지 빼기 · 나누기 · 회전을 브라우저에서만. 파일이 서버로 전송되지 않고, 설치·회원가입·워터마크가 없습니다.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/pdf-tools/preview.png">
+<meta property="og:image:alt" content="안심 PDF 합치기 · 페이지 빼기 도구 화면 예시">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/pdf-tools/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="서버 전송 0% 안심 PDF 합치기 · 페이지 추출기">
+<meta name="twitter:description" content="PDF 합치기 · 페이지 빼기 · 나누기 · 회전. 설치 없이 브라우저에서만, 파일은 서버로 가지 않습니다.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/pdf-tools/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/pdf-tools/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "안심 PDF 합치기 · 페이지 빼기",
+      "alternateName": "서버 전송 0% PDF 합치기 · 페이지 추출기 · PDF 나누기",
+      "url": "https://mydaesu-lab.github.io/pdf-tools/",
+      "image": "https://mydaesu-lab.github.io/pdf-tools/preview.png",
+      "description": "PDF 여러 개를 한 파일로 합치고, 필요한 페이지만 골라 빼거나 추출하고, 페이지를 회전하고, N쪽씩 나눠 ZIP으로 저장하는 무료 도구. JPG·PNG 사진도 PDF 페이지로 바꿔 합칠 수 있으며, 파일은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다.",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "PDF 합치기 · 페이지 추출 · 나누기",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "featureList": [
+        "PDF 여러 개를 순서대로 합쳐 한 파일로 저장",
+        "JPG·PNG 사진을 PDF 페이지로 변환해 함께 합치기",
+        "파일 순서 바꾸기와 개별 빼기, 전체 쪽수·용량 확인",
+        "페이지 카드로 남길 페이지 고르기·빼기",
+        "1-3, 5 같은 범위 입력으로 한 번에 선택·제외·회전",
+        "페이지 90° 회전 후 저장",
+        "남긴 페이지만 새 PDF로 저장",
+        "N쪽씩 나눠 ZIP 한 파일로 저장",
+        "샘플 PDF로 가입 없이 바로 체험"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "PDF가 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 파일 선택, 합치기, 페이지 추출, 회전, 저장까지 모두 이용자의 브라우저 안에서 처리됩니다. PDF 파일이 서버로 업로드되지 않고, 서버에 문서를 보관하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다. 회사 문서·계약서·증명서처럼 외부에 올리기 부담스러운 파일에 특히 안전합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "합친 PDF의 화질이나 글자가 바뀌나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. PDF 합치기와 페이지 추출은 페이지를 이미지로 다시 그리지 않고 원본 페이지를 그대로 복사합니다. 글자는 글자로, 벡터는 벡터로, 스캔 이미지는 원본 해상도 그대로 유지되며 다시 압축하지 않습니다. 용량도 원본들의 합과 비슷합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "암호가 걸린 PDF도 열 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "암호로 잠긴 PDF는 열 수 없습니다. 이런 파일은 PDF 뷰어에서 암호를 입력해 잠금을 해제한 뒤 저장하고, 그 파일을 이 도구에 넣어 주세요. 열 수 없는 파일은 목록에서 빼고 이유를 알려 드립니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "휴대폰으로 찍은 사진도 PDF로 만들 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "네. JPG·PNG 사진을 넣으면 한 장이 한 페이지가 되어 PDF에 합쳐집니다. 신분증·영수증처럼 사진으로 찍은 서류를 한 파일로 묶어 제출할 때 쓰세요. 사진 페이지는 A4 크기에 맞추거나 사진 비율 그대로 만들 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "PDF를 몇 쪽까지 다룰 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "한 번에 파일 30개까지 넣을 수 있고, 쪽수는 기기 메모리가 허락하는 만큼 다룰 수 있습니다. 보통 수백 쪽 문서도 문제없이 처리되지만, 아주 큰 파일은 처리 시간이 길어질 수 있습니다. 처리 중에는 진행 표시가 나타납니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "무료인가요? 워터마크가 붙나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "모든 기능을 무료로 쓸 수 있고 회원가입·설치가 필요 없습니다. 결과 PDF에 워터마크나 광고 페이지가 끼어들지 않습니다. 운영 비용은 편집기 아래의 광고 영역으로 충당하며, 광고는 문서 처리와 무관합니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%235b57f0'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif'%3E%F0%9F%93%84%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --danger:#c02626;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff}
+  .pb-text{min-width:0}
+  .sib-strip{display:contents}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:860px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 15px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .chip.good{color:#0f6b4c;background:#e7f7f0}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn:disabled{opacity:.45;cursor:not-allowed}
+  .mini-btn.danger:hover:not(:disabled){background:#fff5f5;border-color:#f3c9c9;color:#b91c1c}
+  .mini-btn.primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(91,87,240,.28)}
+  .mini-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#514cdd,#7f4fef);color:#fff;border-color:transparent}
+  .mini-btn.primary:disabled{background:#c9cbe0;box-shadow:none;color:#fff}
+  .stage-body{position:relative}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;gap:5px;background:#f2f3f9;border-radius:13px;padding:5px;margin-bottom:13px}
+  .tabs button{flex:1 1 0;min-width:0;border:0;background:transparent;border-radius:9px;padding:10px 8px;font:inherit;font-size:13px;font-weight:800;color:#6b7183;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.2;transition:background .14s,color .14s,box-shadow .14s}
+  .tabs button span{font-size:14px;line-height:1}
+  .tabs button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+
+  .dropzone{border:1.5px dashed #cfcbf2;border-radius:15px;background:linear-gradient(180deg,#fbfaff,#f7f7fd);padding:26px 18px;text-align:center;transition:border-color .16s,background .16s}
+  .dropzone.is-over{border-color:#7c78f5;background:#f3f1ff}
+  .dropzone.compact{padding:16px 14px}
+  .dz-icon{font-size:30px;line-height:1;margin-bottom:8px}
+  .dz-title{margin:0 0 4px;font-size:14.5px;font-weight:800;letter-spacing:-.02em}
+  .dz-sub{margin:0 0 14px;font-size:12px;color:var(--muted);line-height:1.6}
+  .dz-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .dz-note{margin:13px 0 0;font-size:11px;color:#8f95a6;line-height:1.55}
+  .quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}
+  .qs{display:flex;gap:8px;align-items:flex-start;background:#fbfbfe;border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+  .qs-num{flex:0 0 auto;width:18px;height:18px;border-radius:6px;background:var(--accent-soft);color:#514bd8;font-size:10.5px;font-weight:900;display:grid;place-items:center;line-height:1}
+  .qs-t{font-size:11.5px;font-weight:800;line-height:1.35;letter-spacing:-.01em;min-width:0}
+  .qs-d{display:block;font-style:normal;font-size:10.5px;color:var(--muted);font-weight:500;margin-top:1px;line-height:1.35}
+
+  .stage-loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(20,22,28,.82);border-radius:14px;color:#fff;font-size:12.5px;font-weight:700;gap:10px;z-index:5;text-align:center}
+  .spinner{width:22px;height:22px;border-radius:50%;border:2.5px solid rgba(255,255,255,.28);border-top-color:#fff;animation:spin .8s linear infinite;margin:0 auto 8px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------- file list ---------- */
+  .files{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .file-row{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:8px 9px;background:#fff;min-width:0}
+  .file-idx{flex:0 0 auto;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:10.5px;font-weight:900;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+  .file-thumb{flex:0 0 auto;width:36px;height:36px;border-radius:8px;object-fit:cover;background:#f1f2f8;display:grid;place-items:center;font-size:16px;overflow:hidden}
+  .file-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .file-main{flex:1 1 auto;min-width:0}
+  .file-name{display:block;font-size:12.5px;font-weight:700;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .file-meta{display:block;font-size:10.5px;color:var(--muted);margin-top:1px;font-variant-numeric:tabular-nums}
+  .file-acts{flex:0 0 auto;display:flex;gap:4px}
+  .icon-btn{width:27px;height:27px;border:1px solid var(--line);background:#fff;border-radius:7px;font:inherit;font-size:11px;font-weight:700;color:var(--ink-2);cursor:pointer;display:grid;place-items:center;line-height:1;transition:background .13s,color .13s,border-color .13s}
+  .icon-btn:hover:not(:disabled){background:#f5f6fb;color:#4b45c9;border-color:#dcd9ff}
+  .icon-btn.del:hover:not(:disabled){background:#fff5f5;color:var(--danger);border-color:#f3c9c9}
+  .icon-btn:disabled{opacity:.3;cursor:not-allowed}
+
+  .add-more{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px;align-items:center}
+  .add-more .hint{margin:0}
+
+  /* ---------- page cards ---------- */
+  .page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:9px;margin-top:12px}
+  .page-card{position:relative;border:1px solid var(--line);border-radius:12px;background:#fff;padding:7px 6px 6px;text-align:center;cursor:pointer;min-width:0;transition:border-color .14s,background .14s,opacity .14s}
+  .page-card:hover{border-color:#cdc8ff;background:#fcfbff}
+  .page-card.is-off{opacity:.55;border-color:#f0c9c9;background:#fff7f7}
+  .page-card.is-off:hover{border-color:#e3a7a7;background:#fff2f2}
+  .page-stage{display:grid;place-items:center;height:var(--sheet-h,94px);margin-bottom:6px}
+  .page-sheet{position:relative;background:linear-gradient(180deg,#fff,#f7f8fc);border:1px solid #e0e4ef;border-radius:4px;box-shadow:0 3px 10px rgba(28,34,60,.10);display:flex;align-items:center;justify-content:center;max-width:100%}
+  .ps-num{font-size:19px;font-weight:800;color:#c2c7d6;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .page-card.is-off .page-sheet{background:linear-gradient(180deg,#fff5f5,#fdeaea);border-color:#f0c9c9}
+  .page-card.is-off .ps-num{color:#e0a5a5}
+  .ps-x{display:none}
+  .page-card.is-off .ps-x{display:grid;place-items:center;position:absolute;inset:0;font-size:22px;font-weight:800;color:#d97373;background:rgba(255,255,255,.35)}
+  .ps-rot{position:absolute;top:2px;right:2px;font-size:9px;font-weight:800;color:#4b45c9;background:#eeecff;border-radius:4px;padding:1px 3px;line-height:1.2}
+  .page-meta{font-size:10px;color:var(--muted);line-height:1.35;font-variant-numeric:tabular-nums}
+  .page-meta b{color:var(--ink-2);font-weight:800}
+  .page-rot{width:100%;margin-top:4px;border:1px solid var(--line);background:#f7f8fc;border-radius:6px;padding:4px 0;font:inherit;font-size:10.5px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}
+  .page-rot:hover{background:#eeecff;color:#4b45c9;border-color:#dcd9ff}
+  .legend{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:10px}
+  .legend b{color:var(--ink-2);font-weight:700}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:5px;vertical-align:1px}
+  .dot.on{background:#b9b4ff}
+  .dot.off{background:#e8a7a7}
+  .split-empty{margin-top:12px}
+
+  /* ---------- panel ---------- */
+  .panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px 18px}
+  .pblock{padding:13px 2px 14px;border-bottom:1px dashed var(--line)}
+  .pblock:last-of-type{border-bottom:0;padding-bottom:2px}
+  .block-title{display:flex;align-items:center;gap:8px;margin:2px 0 11px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+  .step{font-size:10px;font-weight:800;color:#6d68e8;background:var(--accent-soft);border-radius:6px;padding:2px 5px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:#f2f3f9;border-radius:12px;padding:4px}
+  .seg button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:inherit;font-size:12.5px;font-weight:700;color:#6b7183;cursor:pointer;transition:background .14s,color .14s,box-shadow .14s;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1.2;min-width:0}
+  .seg button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .seg button:disabled{opacity:.45;cursor:not-allowed}
+  .seg.seg-sm button{font-size:12px;padding:8px 5px}
+  .row-note{font-size:11px;color:var(--muted);margin:7px 0 0;line-height:1.5}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .field{margin-top:12px}
+  .field:first-child{margin-top:0}
+  .field-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .field-head .field-label{margin:0}
+  .mini-note{font-size:10.5px;color:var(--muted);text-align:right;line-height:1.3}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  .input::placeholder{color:#a8adbc}
+  select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b8194' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s}
+  .chip-btn:hover:not(:disabled){border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn:disabled{opacity:.45;cursor:not-allowed}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-primary:disabled{background:#c9cbe0;box-shadow:none;cursor:not-allowed}
+  .btn-soft{background:var(--accent-soft);color:#4b45c9;border-color:#e2e0ff}
+  .btn-soft:hover:not(:disabled){background:#e7e5ff}
+  .btn-soft:disabled{opacity:.5;cursor:not-allowed}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+  .hint.warn{color:var(--warn)}
+  .estimate{margin-top:0;border:1px solid var(--line);border-radius:13px;padding:10px 12px;background:linear-gradient(180deg,#fbfaff,#fff)}
+  .panel-cta{position:static;margin:2px 0 0;padding:0}
+  .panel-cta .btn-block{margin-top:11px}
+  .panel-cta .hint{margin-top:6px}
+  .est-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .est-line b{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .est-arrow{color:#b3b7c6;font-weight:700}
+  .est-foot{margin-top:6px;font-size:10.5px;color:var(--muted);line-height:1.45}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .lead{margin:0 0 9px;max-width:900px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p b{color:var(--ink);font-weight:700}
+  .tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .panel{position:static;padding:4px 15px 14px}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .tips{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-work{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .sib-strip{display:flex;flex:1 1 100%;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .sib-strip::-webkit-scrollbar{display:none}
+    .badge-strip .sib-strip .sibling-link{flex:0 0 auto}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .stage-card{padding:12px 11px 13px}
+    .tabs button{font-size:11.5px;padding:9px 6px;gap:4px}
+    .tabs button span{font-size:13px}
+    .dz-actions .btn{flex:1 1 auto}
+    .qs{padding:8px 9px}
+    .qs-d{display:none}
+    .page-grid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:7px}
+    .page-stage{height:74px;--sheet-h:74px}
+    .file-thumb{width:32px;height:32px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s !important;transition-duration:.001s !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/pdf-tools/">
+      <span class="brand-mark" aria-hidden="true">📄</span>
+      <span class="brand-text">
+        <b>안심 PDF 도구</b>
+        <i>합치기 · 페이지 빼기 · 나누기 · 회전</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>100% 내 브라우저에서 처리</b> · 서버 전송 0% · 파일 저장 안 됨</span></span>
+      <div class="sib-strip">
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/" title="대성랩 무료 웹툴 전체 보기">🏠 전체 툴</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+      </div>
+    </div>
+    <h1>서버 전송 0% 안심 <span>PDF 합치기 · 페이지 빼기</span></h1>
+    <p class="hero-sub">이력서·증명서·계약서 PDF를 <b>한 파일로 합치고</b>, 필요한 <b>페이지만 남기거나 빼고</b>, 거꾸로 스캔된 페이지를 <b>회전</b>하세요. 사진으로 찍은 서류도 PDF가 되어 함께 합쳐집니다. 파일은 <b>서버로 전송되지 않고</b> 이 브라우저 안에서만 처리되며, 어디에도 저장되지 않습니다.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 작업 영역 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="tabs" role="tablist" aria-label="PDF 작업 선택">
+          <button type="button" id="tabMerge" role="tab" aria-selected="true" aria-controls="paneMerge" data-tab="merge" class="is-active"><span aria-hidden="true">📄</span>PDF 합치기</button>
+          <button type="button" id="tabSplit" role="tab" aria-selected="false" aria-controls="paneSplit" data-tab="split"><span aria-hidden="true">✂️</span>페이지 빼기·나누기</button>
+        </div>
+
+        <!-- ---------- 합치기 ---------- -->
+        <div class="pane" id="paneMerge" role="tabpanel" aria-labelledby="tabMerge">
+          <div class="stage-head">
+            <div class="stage-title">
+              <span>합칠 파일</span>
+              <span class="chip grey" id="mChipFiles">파일을 넣어 주세요</span>
+              <span class="chip is-hidden" id="mChipPages">—</span>
+            </div>
+            <div class="stage-actions">
+              <button class="mini-btn primary" id="mSaveTop" type="button" disabled>PDF 저장</button>
+              <button class="mini-btn" id="mAddBtn" type="button" disabled>+ 파일 추가</button>
+              <button class="mini-btn danger" id="mClearBtn" type="button" disabled>모두 지우기</button>
+            </div>
+          </div>
+
+          <div class="stage-body" id="mStageBody">
+            <div class="dropzone" id="mDropzone">
+              <div class="dz-icon" aria-hidden="true">📄</div>
+              <p class="dz-title">PDF나 사진을 끌어다 놓으세요</p>
+              <p class="dz-sub">PDF · JPG · PNG · 최대 30개<br>여러 개를 한 번에 선택해도 됩니다</p>
+              <div class="dz-actions">
+                <button class="btn btn-primary" id="mPickBtn" type="button">PDF 파일 선택</button>
+                <button class="btn btn-soft" id="mSampleBtn" type="button">샘플 PDF로 체험하기</button>
+              </div>
+              <p class="dz-note">넣은 파일은 이 브라우저 메모리에서만 열리고, 어디에도 업로드되지 않습니다.</p>
+              <input type="file" id="mFileInput" accept="application/pdf,.pdf,image/jpeg,image/png,image/webp" multiple class="is-hidden">
+            </div>
+
+            <div class="quick-steps" id="mQuickSteps">
+              <div class="qs"><span class="qs-num">1</span><span class="qs-t">PDF·사진 넣기<em class="qs-d">최대 30개</em></span></div>
+              <div class="qs"><span class="qs-num">2</span><span class="qs-t">순서 바꾸기<em class="qs-d">▲▼ 버튼</em></span></div>
+              <div class="qs"><span class="qs-num">3</span><span class="qs-t">한 파일로 저장<em class="qs-d">PDF</em></span></div>
+            </div>
+
+            <div class="is-hidden" id="mFilesWrap">
+              <div class="files" id="mFiles" aria-label="합칠 파일 목록"></div>
+              <div class="add-more">
+                <button class="mini-btn" id="mAddBtn2" type="button">+ 파일 추가</button>
+                <button class="mini-btn" id="mSampleBtn2" type="button">샘플 다시 열기</button>
+                <span class="hint">위아래 화살표로 순서를 바꾸면 합쳐지는 순서가 바뀝니다.</span>
+              </div>
+            </div>
+
+            <div class="stage-loading is-hidden" id="mLoading"><div><div class="spinner"></div><span id="mLoadingText">PDF 만드는 중…</span></div></div>
+          </div>
+        </div>
+
+        <!-- ---------- 페이지 빼기 ---------- -->
+        <div class="pane is-hidden" id="paneSplit" role="tabpanel" aria-labelledby="tabSplit">
+          <div class="stage-head">
+            <div class="stage-title">
+              <span>페이지</span>
+              <span class="chip grey" id="sChip">PDF를 넣어 주세요</span>
+              <span class="chip good is-hidden" id="sChipKeep">—</span>
+            </div>
+            <div class="stage-actions">
+              <button class="mini-btn primary" id="sSaveTop" type="button" disabled>PDF 저장</button>
+              <button class="mini-btn" id="sOpenBtn" type="button" disabled>원본 보기</button>
+              <button class="mini-btn danger" id="sClearBtn" type="button" disabled>닫기</button>
+            </div>
+          </div>
+
+          <div class="stage-body" id="sStageBody">
+            <div class="dropzone split-empty" id="sDropzone">
+              <div class="dz-icon" aria-hidden="true">✂️</div>
+              <p class="dz-title">페이지를 뺄 PDF 하나를 넣으세요</p>
+              <p class="dz-sub">쪽마다 카드가 생깁니다 · 누르면 빼고, 다시 누르면 되돌립니다</p>
+              <div class="dz-actions">
+                <button class="btn btn-primary" id="sPickBtn" type="button">PDF 파일 선택</button>
+                <button class="btn btn-soft" id="sSampleBtn" type="button">샘플 PDF로 체험하기</button>
+              </div>
+              <p class="dz-note">탭을 닫으면 목록과 함께 메모리에서 사라집니다.</p>
+              <input type="file" id="sFileInput" accept="application/pdf,.pdf" class="is-hidden">
+            </div>
+
+            <div class="quick-steps" id="sQuickSteps">
+              <div class="qs"><span class="qs-num">1</span><span class="qs-t">PDF 한 개 넣기<em class="qs-d">카드로 표시</em></span></div>
+              <div class="qs"><span class="qs-num">2</span><span class="qs-t">뺄 페이지 고르기<em class="qs-d">1-3, 5 범위도</em></span></div>
+              <div class="qs"><span class="qs-num">3</span><span class="qs-t">남긴 페이지만 저장<em class="qs-d">회전·나누기</em></span></div>
+            </div>
+
+            <div class="is-hidden" id="sPagesWrap">
+              <div class="page-grid" id="sPages" aria-label="페이지 목록"></div>
+              <div class="legend">
+                <span><i class="dot on"></i><b>남길 페이지</b> · 누르면 빠집니다</span>
+                <span><i class="dot off"></i><b>뺄 페이지</b> · 누르면 다시 들어옵니다</span>
+              </div>
+              <div class="add-more">
+                <button class="mini-btn" id="sChangeBtn" type="button">다른 PDF 열기</button>
+                <button class="mini-btn" id="sSampleBtn2" type="button">샘플 다시 열기</button>
+                <span class="hint" id="sTip">카드의 &lsquo;↻ 회전&rsquo;은 그 페이지만 90° 돌립니다.</span>
+              </div>
+            </div>
+
+            <div class="stage-loading is-hidden" id="sLoading"><div><div class="spinner"></div>PDF 읽는 중…</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 합치기 설정 ============ -->
+    <aside class="panel" id="panelMerge" aria-label="합치기 설정">
+      <section class="pblock">
+        <div class="block-title"><span class="step">1</span> 사진을 PDF로 넣을 때</div>
+        <span class="field-label">사진 페이지 크기</span>
+        <div class="seg seg-sm" id="mImgSeg" role="group" aria-label="사진 페이지 크기">
+          <button type="button" data-img="a4" class="is-active">A4에 맞추기</button>
+          <button type="button" data-img="native">사진 비율 그대로</button>
+        </div>
+        <p class="row-note" id="mImgNote"><b>A4</b> 한 장에 사진을 꽉 차게 넣습니다. 서류 제출용에 좋습니다.</p>
+      </section>
+
+      <section class="pblock">
+        <div class="block-title"><span class="step">2</span> 결과 확인</div>
+        <div class="estimate" aria-live="polite">
+          <div class="est-line">
+            <span>합친 쪽수</span><b id="mEstPages">—</b>
+            <span class="est-arrow" aria-hidden="true">·</span>
+            <span>원본</span><b id="mEstSize">—</b>
+          </div>
+          <div class="est-foot" id="mEstMeta">파일을 넣으면 쪽수와 용량을 계산합니다</div>
+        </div>
+        <p class="hint">PDF는 페이지를 그림으로 다시 그리지 않고 <b>원본 그대로</b> 복사하므로 글자·화질이 변하지 않습니다.</p>
+      </section>
+
+      <div class="panel-cta">
+        <button class="btn btn-primary btn-block" id="mDownloadBtn" type="button" disabled>합쳐서 PDF 저장</button>
+        <p class="hint tiny center">파일명: 합친문서-날짜-시간.pdf · 워터마크 없음</p>
+      </div>
+    </aside>
+
+    <!-- ============ 페이지 빼기 설정 ============ -->
+    <aside class="panel is-hidden" id="panelSplit" aria-label="페이지 선택 설정">
+      <section class="pblock">
+        <div class="block-title"><span class="step">1</span> 페이지 고르기</div>
+        <div class="chips" role="group" aria-label="전체 선택">
+          <button class="chip-btn" id="sAllBtn" type="button" disabled>전체 남기기</button>
+          <button class="chip-btn" id="sNoneBtn" type="button" disabled>전체 빼기</button>
+          <button class="chip-btn" id="sInvBtn" type="button" disabled>선택 반전</button>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="sRange">범위로 한 번에 (예: <code>1-3, 5</code>)</label>
+          <input class="input" id="sRange" type="text" inputmode="numeric" placeholder="1-3, 5" autocomplete="off" disabled>
+          <div class="chips" role="group" aria-label="범위 적용">
+            <button class="chip-btn" id="sRangeOnly" type="button" disabled>이 범위만 남기기</button>
+            <button class="chip-btn" id="sRangeDrop" type="button" disabled>이 범위 빼기</button>
+            <button class="chip-btn" id="sRangeRot" type="button" disabled>이 범위 90° 회전</button>
+          </div>
+          <p class="row-note" id="sRangeNote">쉼표로 여러 개를 넣을 수 있습니다. 카드를 눌러도 됩니다.</p>
+        </div>
+      </section>
+
+      <section class="pblock">
+        <div class="block-title"><span class="step">2</span> 회전</div>
+        <p class="row-note" style="margin-top:0">거꾸로 스캔된 페이지는 카드의 <b>&lsquo;↻ 회전&rsquo;</b>을 눌러 90°씩 돌리세요. 저장할 때 적용됩니다.</p>
+        <button class="btn btn-soft btn-block" id="sRotReset" type="button" disabled>회전 모두 되돌리기</button>
+      </section>
+
+      <section class="pblock">
+        <div class="block-title"><span class="step">3</span> 나누기</div>
+        <div class="field">
+          <label class="field-label" for="sChunk">몇 쪽씩 나눌까요</label>
+          <select class="input" id="sChunk">
+            <option value="1">1쪽씩 (한 쪽에 파일 하나)</option>
+            <option value="2" selected>2쪽씩</option>
+            <option value="3">3쪽씩</option>
+            <option value="5">5쪽씩</option>
+            <option value="10">10쪽씩</option>
+          </select>
+        </div>
+        <button class="btn btn-soft btn-block" id="sZipBtn" type="button" disabled>나눈 PDF를 ZIP 하나로</button>
+        <p class="hint tiny">남긴 페이지만 순서대로 잘라 담습니다. ZIP 안에 part-01.pdf, part-02.pdf … 로 들어갑니다.</p>
+      </section>
+
+      <div class="panel-cta">
+        <div class="estimate" aria-live="polite">
+          <div class="est-line">
+            <span>남긴 페이지</span><b id="sEstKeep">—</b>
+            <span class="est-arrow" aria-hidden="true">·</span>
+            <span>전체</span><b id="sEstAll">—</b>
+          </div>
+          <div class="est-foot" id="sEstMeta">PDF를 넣으면 쪽수를 계산합니다</div>
+        </div>
+        <button class="btn btn-primary btn-block" id="sDownloadBtn" type="button" disabled>남긴 페이지만 PDF로 저장</button>
+        <p class="hint tiny center">파일명: 추출문서-날짜-시간.pdf · 원본은 그대로 남습니다</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 (편집기 아래 1곳) ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 문서 처리와 무관하며, 넣은 PDF는 광고로도 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">🔒</span> 왜 브라우저 전용 PDF 툴이 안전한가</h2>
+      <p class="lead">PDF 합치기·페이지 추출을 검색하면 대부분의 사이트가 <b>파일을 자기 서버로 올린 뒤</b> 처리하고 결과를 내려 줍니다. 편리하지만, 그 순간 이력서·주민등록등본·계약서·급여명세서가 내 컴퓨터를 떠나 다른 회사 서버에 쌓이게 됩니다. 이 도구는 반대로 동작합니다. 합치기·추출·회전에 쓰는 라이브러리(<code>pdf-lib</code>)를 이 사이트에서 직접 내려받아 <b>내 브라우저 안에서 실행</b>하고, 파일은 한 번도 네트워크로 나가지 않습니다. 서버에 파일을 받는 기능 자체가 없으니 유출될 것도 남지 않습니다.</p>
+      <ul class="facts">
+        <li><b>0%</b><span>서버 전송<br>파일은 기기 밖으로 나가지 않음</span></li>
+        <li><b>원본 그대로</b><span>글자·화질 재압축 없음<br>페이지를 그대로 복사</span></li>
+        <li><b>30개</b><span>한 번에 합칠 수 있는<br>파일 수</span></li>
+        <li><b>무료</b><span>회원가입·워터마크<br>없음</span></li>
+      </ul>
+      <p class="lead" style="margin-top:16px">이 도구는 PDF의 <b>내용을 읽거나 해석하지 않습니다</b>. 페이지를 쪽 단위로 복사하고 회전할 뿐이며, 문서 안의 글자를 추출하거나 어디로 보내지 않습니다. 브라우저 탭을 닫으면 메모리에 있던 파일도 함께 사라집니다.</p>
+    </article>
+
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">💡</span> 상황별 PDF 합치기·페이지 빼기 팁 4가지</h2>
+      <p class="lead">입사 지원·관공서 제출·스캔 정리에서 자주 쓰는 방법만 정리했습니다.</p>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>이력서 + 자격증 + 경력증명서를 한 파일로</h3>
+          <p>채용 사이트는 보통 <b>PDF 1개</b>만 받습니다. 이력서 → 경력증명서 → 자격증 순으로 넣고 <b>▲▼</b>로 순서를 확인한 뒤 한 번에 합치세요. 순서가 곧 서류 순서이므로, 첫 파일이 표지처럼 보이게 두면 읽는 사람이 편합니다. 파일명은 <b>&lsquo;이름_지원서류_2026&rsquo;</b>처럼 바꿔 저장하면 담당자가 구분하기 쉽습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>사진으로 찍은 신분증·영수증을 PDF로</h3>
+          <p>휴대폰으로 찍은 서류 사진은 <b>JPG·PNG 그대로 넣으면 한 장이 한 페이지</b>가 됩니다. 제출처가 A4 규격을 요구하면 <b>&lsquo;A4에 맞추기&rsquo;</b>를, 사진 비율을 살리고 싶으면 <b>&lsquo;사진 비율 그대로&rsquo;</b>를 고르세요. 사진이 너무 밝거나 기울었다면 먼저 사진 앱에서 보정한 뒤 넣는 편이 깔끔합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>필요한 페이지만 남기고 용량 줄이기</h3>
+          <p>수십 쪽짜리 안내문에서 제출할 2~3쪽만 필요한 경우, <b>페이지 빼기·나누기</b> 탭에서 범위 칸에 <code>4-6</code>을 넣고 <b>&lsquo;이 범위만 남기기&rsquo;</b>를 누르세요. 남은 페이지만 새 PDF가 되고 원본은 그대로 남습니다. 스캔본에 끼어든 빈 페이지나 광고 페이지는 카드를 눌러 빼면 됩니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>한 파일을 여러 개로 나눠 제출</h3>
+          <p>증빙자료를 항목별로 따로 내야 할 때는 <b>3번 &lsquo;나누기&rsquo;</b>에서 쪽 수를 정하고 ZIP으로 받으세요. 남긴 페이지만 순서대로 잘려 <code>part-01.pdf</code>, <code>part-02.pdf</code> … 로 담기고, 압축을 풀면 각각 따로 제출할 수 있습니다. 거꾸로 스캔된 페이지는 나누기 전에 <b>↻ 회전</b>으로 바로잡아 두세요.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문 (FAQ)</h2>
+      <p class="lead">파일을 넣기 전에 가장 많이 묻는 것들만 모았습니다.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>PDF가 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 파일 선택, 합치기, 페이지 추출, 회전, 저장까지 모두 <b>이용자의 브라우저 안에서</b> 처리됩니다. 파일이 서버로 업로드되지 않고, 서버에 문서를 보관하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다. 회사 문서·계약서·증명서처럼 외부에 올리기 부담스러운 파일에 특히 안전합니다. 자세한 내용은 <button class="inline-link" type="button" data-modal="privacy">개인정보처리방침</button>에서 확인할 수 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>합친 PDF의 화질이나 글자가 바뀌나요?</summary>
+          <div class="faq-body"><p>아니요. 합치기와 페이지 추출은 페이지를 <b>이미지로 다시 그리지 않고 원본 페이지를 그대로 복사</b>합니다. 글자는 글자로, 표와 도형은 벡터로, 스캔 이미지는 원본 해상도 그대로 유지되며 다시 압축하지 않습니다. 용량도 원본들의 합과 비슷합니다. 다만 사진을 PDF로 넣을 때는 사진 자체가 한 페이지가 되므로, 사진 파일 크기가 그대로 반영됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>암호가 걸린 PDF도 열 수 있나요?</summary>
+          <div class="faq-body"><p>암호로 잠긴 PDF는 열 수 없습니다. 이런 파일은 PDF 뷰어에서 <b>암호를 입력해 잠금을 해제한 뒤 저장</b>하고, 그 파일을 이 도구에 넣어 주세요. 열 수 없는 파일은 목록에서 빼고 이유를 알려 드립니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>휴대폰으로 찍은 사진도 PDF로 만들 수 있나요?</summary>
+          <div class="faq-body"><p>네. <b>JPG·PNG</b> 사진을 넣으면 한 장이 한 페이지가 되어 PDF에 합쳐집니다. 신분증·영수증처럼 사진으로 찍은 서류를 한 파일로 묶어 제출할 때 쓰세요. 사진 페이지는 <b>A4 크기에 맞추거나 사진 비율 그대로</b> 만들 수 있습니다. 아이폰 HEIC 사진은 브라우저가 읽을 수 있는 경우에만 열리며, 열리지 않으면 사진 앱에서 JPG로 내보낸 뒤 넣어 주세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>페이지 순서를 바꾸거나 특정 페이지만 빼려면?</summary>
+          <div class="faq-body"><p>합치기 탭에서는 파일 목록의 <b>▲▼</b>로 순서를 바꾸고 <b>✕</b>로 파일을 뺍니다. 한 PDF 안에서 특정 페이지만 빼려면 <b>페이지 빼기·나누기</b> 탭에서 그 페이지 카드를 누르세요. 카드가 흐려지며 &lsquo;뺄 페이지&rsquo;가 되고, 저장하면 그 페이지만 빠진 PDF가 만들어집니다. <b>선택 반전</b>을 누르면 고른 페이지만 남기는 방식으로 바꿀 수도 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>PDF를 몇 쪽까지 다룰 수 있나요?</summary>
+          <div class="faq-body"><p>한 번에 <b>파일 30개</b>까지 넣을 수 있고, 쪽수는 기기 메모리가 허락하는 만큼 다룰 수 있습니다. 보통 수백 쪽 문서도 문제없이 처리되지만, 아주 큰 파일은 처리 시간이 길어질 수 있습니다. 처리 중에는 진행 표시가 나타나고, 끝나면 자동으로 다운로드됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>무료인가요? 워터마크가 붙나요?</summary>
+          <div class="faq-body"><p>모든 기능을 무료로 쓸 수 있고 회원가입·설치가 필요 없습니다. 결과 PDF에 <b>워터마크나 광고 페이지가 끼어들지 않습니다</b>. 운영 비용은 편집기 아래의 <b>광고 영역</b>으로 충당하며, 광고는 문서 처리와 무관합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>휴대폰에서도 PDF를 합칠 수 있나요?</summary>
+          <div class="faq-body"><p>네. 모바일 브라우저에서도 파일 선택·합치기·페이지 빼기·저장이 모두 됩니다. 화면 아래에 <b>고정된 저장 바</b>가 있어 목록을 보면서 바로 저장할 수 있습니다. 저장한 PDF는 휴대폰의 다운로드 폴더에 들어갑니다.</p></div>
+        </details>
+      </div>
+      <p class="content-cta">페이지 순서와 남길 페이지만 정하면 한 파일로 저장됩니다. <a href="#top">편집기로 돌아가기 ↑</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">📄</span>
+      <div>
+        <p class="foot-name" id="footName">안심 PDF 도구</p>
+        <p class="foot-desc">PDF 합치기 · 페이지 빼기 · 나누기 · 회전을 브라우저에서 처리하는 무료 도구</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="서비스 정보">
+      <button class="foot-link" type="button" data-modal="about">서비스 소개</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/">🏠 전체 툴</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+    </nav>
+    <p class="foot-copy">© 2026 안심 PDF 도구 · 문서는 내 기기 밖으로 나가지 않아요</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 저장 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbTitle">—</b>
+    <span id="sbMeta">파일을 넣어 주세요</span>
+  </div>
+  <button class="btn btn-primary" id="sbSave" type="button" disabled>PDF 저장</button>
+</div>
+
+<!-- ============ 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>안심 PDF 도구</b>는 PDF를 합치고, 페이지를 빼고, 나누고, 회전해야 할 때 쓰는 무료 도구입니다. 원래 이런 작업은 편집 프로그램을 설치하거나 파일을 웹사이트 서버에 올려야 했습니다. 이 도구는 <b>파일을 넣기 → 고르기 → 저장</b> 세 단계로 줄였고, 파일은 서버로 보내지 않습니다.</p>
+
+      <h3>이렇게 동작합니다</h3>
+      <ul>
+        <li>PDF를 읽고 쓰는 라이브러리(<code>pdf-lib</code>)를 이 사이트가 직접 내려받아 <b>브라우저 안에서 실행</b>합니다. 파일 처리를 위해 외부로 요청을 보내지 않습니다.</li>
+        <li>합치기와 추출은 페이지를 <b>그대로 복사</b>합니다. 글자·벡터·스캔 이미지를 다시 그리거나 압축하지 않습니다.</li>
+        <li>회전은 페이지의 회전 값만 바꿔 저장하므로, 내용을 다시 인코딩하지 않습니다.</li>
+        <li>사진(JPG·PNG)은 PDF 페이지로 변환되어 합쳐집니다.</li>
+        <li>나누기는 남긴 페이지를 정한 쪽 수로 잘라 <b>ZIP 한 파일</b>에 담아 드립니다.</li>
+      </ul>
+
+      <h3>담을 수 있는 것</h3>
+      <ul>
+        <li>합치기 — PDF + JPG·PNG 사진, 최대 30개, 순서 바꾸기·개별 빼기</li>
+        <li>페이지 빼기 — 카드로 남길/뺄 페이지 선택, <code>1-3, 5</code> 범위 입력, 전체 선택·반전</li>
+        <li>회전 — 페이지마다 90° 단위, 저장 시 적용</li>
+        <li>나누기 — 1·2·3·5·10쪽씩 나눠 ZIP 저장</li>
+        <li>샘플 PDF 2종으로 가입 없이 바로 체험</li>
+      </ul>
+
+      <h3>알아 두세요</h3>
+      <p>결과는 <b>새 파일</b>로 저장됩니다. 원본 파일은 이 도구가 수정하지 않고, 브라우저 메모리에만 잠시 열립니다. 암호로 잠긴 PDF는 열 수 없으니 잠금을 해제한 뒤 넣어 주세요.</p>
+
+      <h3>운영</h3>
+      <p>이 도구는 무료로 제공되며, 운영 비용은 화면의 광고 영역으로 충당합니다. 광고는 <b>편집기 아래</b>에만 표시되고, 원하지 않으면 &lsquo;숨기기&rsquo;로 접을 수 있습니다.</p>
+      <p>서비스 개선 의견이나 오류 제보는 사이트 운영자에게 알려 주세요.</p>
+      <p class="modal-note">안심 PDF 도구 · 회원가입 없는 브라우저 기반 PDF 도구 · 2026년 운영</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>안심 PDF 도구(이하 &lsquo;사이트&rsquo;)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 합치거나 나누려고 넣은 PDF·사진도 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 문서는 서버로 전송되지 않습니다</h3>
+      <p>파일 선택, PDF 합치기, 페이지 추출·회전·나누기, 파일 저장까지 모든 과정이 <b>이용자의 브라우저(클라이언트) 안에서</b> 처리됩니다. PDF 파일이 서버로 업로드되지 않으며, 서버에 문서를 저장하는 공간도 없습니다. 브라우저 탭을 닫으면 메모리에서 사라집니다.</p>
+
+      <h3>3. 문서 내용을 읽지 않습니다</h3>
+      <p>사이트는 PDF의 글자·이미지를 분석하거나 추출하지 않습니다. 페이지를 쪽 단위로 복사하고 회전 값을 바꾸는 처리만 하며, 문서 내용은 화면에도 표시되지 않고 외부로 전송되지 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보</h3>
+      <p>넣은 파일과 선택 상태는 브라우저 메모리에만 있으며, 사이트는 파일이나 목록을 브라우저 저장소(localStorage)에도 저장하지 않습니다. 페이지를 새로 고치면 처음 상태로 돌아갑니다.</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: G-GFRNHP2GC4)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·전화번호·이메일 등 개인을 식별하는 정보나 <b>PDF 파일·문서 내용</b>은 Analytics로 전송되지 않습니다. 사이트가 보내는 이벤트는 &lsquo;합치기 저장, 추출 저장, 샘플 열기&rsquo; 같은 동작 이름과 파일 수·쪽수 같은 숫자뿐입니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 PDF 합치기·추출 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>PDF 처리 라이브러리는 이 사이트가 직접 제공하는 파일(<code>/pdf-tools/vendor/pdf-lib.min.js</code>)을 사용하며, 문서 처리 과정에서 외부 서비스로 데이터를 보내지 않습니다. 다만 화면 글꼴을 표시하기 위해 Google Fonts와 jsDelivr(프리텐다드)에서 스타일 파일을 불러오며, 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있습니다. 각 서비스의 개인정보처리방침이 적용되며, 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 26일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="vendor/pdf-lib.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 기본 설정
+     ========================================================= */
+  var AD_SLOT_ID = '';              // AdSense 광고 단위 ID. 비워 두면 안내용 자리만 표시됩니다.
+  var MAX_FILES = 30;               // 한 번에 합칠 수 있는 최대 파일 수
+  var MAX_PAGES = 2000;             // 합친 결과의 안내 기준 쪽수
+  var A4 = [595.28, 841.89];        // A4 (pt)
+  var IMG_NOTE = {
+    a4: '<b>A4</b> 한 장에 사진을 꽉 차게 넣습니다. 서류 제출용에 좋습니다.',
+    native: '<b>사진 비율 그대로</b> 페이지를 만듭니다. 긴 사진·캡처에 좋습니다.'
+  };
+  var S = {
+    tab: 'merge',
+    files: [],                      // { id, kind:'pdf'|'img', name, size, bytes, mime, pages, w, h, url }
+    imgFit: 'a4',
+    seq: 1,
+    // split
+    splitName: '', splitBytes: null, splitDoc: null,
+    pages: [],                      // { w, h, baseRot }
+    keep: [], rot: [],
+    busy: false
+  };
+
+  var LIB = window.PDFLib || null;
+  var PDFLib = LIB;
+
+  function $(id) { return document.getElementById(id); }
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function stamp() {
+    var d = new Date();
+    return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()) + '-' + pad2(d.getHours()) + pad2(d.getMinutes());
+  }
+  function fmtBytes(b) {
+    if (!b || b < 0) return '—';
+    if (b < 1024) return b + ' B';
+    if (b < 1024 * 1024) return (b / 1024).toFixed(b < 10240 ? 1 : 0) + 'KB';
+    return (b / 1048576).toFixed(2) + 'MB';
+  }
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계는 실패해도 기능에 영향 없음 */ }
+  }
+  function toast(msg) {
+    el.toast.textContent = msg;
+    el.toast.classList.add('is-on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.toast.classList.remove('is-on'); }, 3000);
+  }
+
+  var el = {
+    tabMerge: $('tabMerge'), tabSplit: $('tabSplit'),
+    paneMerge: $('paneMerge'), paneSplit: $('paneSplit'),
+    panelMerge: $('panelMerge'), panelSplit: $('panelSplit'),
+    // merge
+    mDropzone: $('mDropzone'), mQuickSteps: $('mQuickSteps'), mFilesWrap: $('mFilesWrap'), mFiles: $('mFiles'),
+    mChipFiles: $('mChipFiles'), mChipPages: $('mChipPages'),
+    mSaveTop: $('mSaveTop'), mAddBtn: $('mAddBtn'), mAddBtn2: $('mAddBtn2'), mClearBtn: $('mClearBtn'),
+    mPickBtn: $('mPickBtn'), mSampleBtn: $('mSampleBtn'), mSampleBtn2: $('mSampleBtn2'),
+    mFileInput: $('mFileInput'), mLoading: $('mLoading'), mLoadingText: $('mLoadingText'),
+    mImgSeg: $('mImgSeg'), mImgNote: $('mImgNote'),
+    mEstPages: $('mEstPages'), mEstSize: $('mEstSize'), mEstMeta: $('mEstMeta'),
+    mDownloadBtn: $('mDownloadBtn'),
+    // split
+    sDropzone: $('sDropzone'), sQuickSteps: $('sQuickSteps'), sPagesWrap: $('sPagesWrap'), sPages: $('sPages'),
+    sChip: $('sChip'), sChipKeep: $('sChipKeep'),
+    sSaveTop: $('sSaveTop'), sOpenBtn: $('sOpenBtn'), sClearBtn: $('sClearBtn'), sChangeBtn: $('sChangeBtn'),
+    sPickBtn: $('sPickBtn'), sSampleBtn: $('sSampleBtn'), sSampleBtn2: $('sSampleBtn2'),
+    sFileInput: $('sFileInput'), sLoading: $('sLoading'),
+    sAllBtn: $('sAllBtn'), sNoneBtn: $('sNoneBtn'), sInvBtn: $('sInvBtn'),
+    sRange: $('sRange'), sRangeOnly: $('sRangeOnly'), sRangeDrop: $('sRangeDrop'), sRangeRot: $('sRangeRot'), sRangeNote: $('sRangeNote'),
+    sRotReset: $('sRotReset'), sChunk: $('sChunk'), sZipBtn: $('sZipBtn'),
+    sEstKeep: $('sEstKeep'), sEstAll: $('sEstAll'), sEstMeta: $('sEstMeta'),
+    sDownloadBtn: $('sDownloadBtn'),
+    // etc
+    stickyBar: $('stickyBar'), sbTitle: $('sbTitle'), sbMeta: $('sbMeta'), sbSave: $('sbSave'),
+    toast: $('toast'), adSlot: $('adSlot'), adToggle: $('adToggle')
+  };
+
+  if (!LIB) {
+    el.mLoadingText = el.mLoadingText || null;
+    toast('PDF 라이브러리를 불러오지 못했습니다. 새로고침해 주세요.');
+    document.querySelectorAll('.btn, .mini-btn').forEach(function (b) { if (!b.hasAttribute('data-modal')) b.disabled = true; });
+  }
+
+  function showLoading(which, on) {
+    var node = which === 'split' ? el.sLoading : el.mLoading;
+    node.classList.toggle('is-hidden', !on);
+  }
+
+  /* =========================================================
+     1. 탭
+     ========================================================= */
+  function setTab(name) {
+    S.tab = name;
+    var isMerge = name === 'merge';
+    el.tabMerge.classList.toggle('is-active', isMerge);
+    el.tabSplit.classList.toggle('is-active', !isMerge);
+    el.tabMerge.setAttribute('aria-selected', isMerge ? 'true' : 'false');
+    el.tabSplit.setAttribute('aria-selected', isMerge ? 'false' : 'true');
+    el.paneMerge.classList.toggle('is-hidden', !isMerge);
+    el.paneSplit.classList.toggle('is-hidden', isMerge);
+    el.panelMerge.classList.toggle('is-hidden', !isMerge);
+    el.panelSplit.classList.toggle('is-hidden', isMerge);
+    updateBars();
+  }
+  el.tabMerge.addEventListener('click', function () { setTab('merge'); });
+  el.tabSplit.addEventListener('click', function () { setTab('split'); });
+
+  /* =========================================================
+     2. 합치기 — 파일 넣기
+     ========================================================= */
+  function isPdf(file) {
+    return file.type === 'application/pdf' || /\.pdf$/i.test(file.name || '');
+  }
+  function isImage(file) {
+    return /^image\/(jpeg|png|webp|gif|bmp)$/i.test(file.type) || /\.(jpe?g|png|webp|gif|bmp)$/i.test(file.name || '');
+  }
+
+  async function loadPdfItem(name, bytes, size) {
+    var doc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true, updateMetadata: false });
+    if (typeof doc.isEncrypted === 'boolean' && doc.isEncrypted) {
+      throw new Error('encrypted');
+    }
+    return {
+      id: S.seq++, kind: 'pdf', name: name, bytes: bytes, size: size || bytes.length,
+      mime: 'application/pdf', pages: doc.getPageCount(), w: 0, h: 0, url: ''
+    };
+  }
+
+  async function imageToEmbeddable(file) {
+    var mime = (file.type || '').toLowerCase();
+    if (mime === 'image/jpeg' || mime === 'image/png') {
+      var bytes = new Uint8Array(await file.arrayBuffer());
+      var bmp = await createImageBitmap(new Blob([bytes], { type: mime }));
+      var dims = { w: bmp.width, h: bmp.height };
+      try { bmp.close(); } catch (e) {}
+      return { bytes: bytes, mime: mime, w: dims.w, h: dims.h, url: URL.createObjectURL(file) };
+    }
+    // webp·gif·bmp 등은 캔버스로 JPEG 변환
+    var img = await new Promise(function (resolve, reject) {
+      var i = new Image();
+      var u = URL.createObjectURL(file);
+      i.onload = function () { resolve({ img: i, url: u }); };
+      i.onerror = function () { URL.revokeObjectURL(u); reject(new Error('decode')); };
+      i.src = u;
+    });
+    var c = document.createElement('canvas');
+    c.width = img.img.naturalWidth || img.img.width;
+    c.height = img.img.naturalHeight || img.img.height;
+    var x = c.getContext('2d');
+    x.fillStyle = '#ffffff';
+    x.fillRect(0, 0, c.width, c.height);
+    x.drawImage(img.img, 0, 0);
+    var blob = await new Promise(function (r) { c.toBlob(r, 'image/jpeg', 0.92); });
+    var outBytes = new Uint8Array(await blob.arrayBuffer());
+    return { bytes: outBytes, mime: 'image/jpeg', w: c.width, h: c.height, url: img.url };
+  }
+
+  async function addFiles(fileList) {
+    var files = Array.prototype.slice.call(fileList || []);
+    if (!files.length) return;
+    if (!LIB) { toast('PDF 라이브러리를 불러오지 못했습니다. 새로고침해 주세요.'); return; }
+    var room = MAX_FILES - S.files.length;
+    if (room <= 0) { toast('한 번에 ' + MAX_FILES + '개까지 넣을 수 있습니다.'); return; }
+    if (files.length > room) {
+      toast('한 번에 ' + MAX_FILES + '개까지라서 ' + room + '개만 넣었습니다.');
+      files = files.slice(0, room);
+    }
+    showLoading('merge', true);
+    el.mLoadingText.textContent = '파일 확인 중…';
+    var added = 0, skipped = [];
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i];
+      try {
+        if (isPdf(f)) {
+          var bytes = new Uint8Array(await f.arrayBuffer());
+          S.files.push(await loadPdfItem(f.name || '문서.pdf', bytes, f.size));
+          added++;
+        } else if (isImage(f)) {
+          var img = await imageToEmbeddable(f);
+          S.files.push({
+            id: S.seq++, kind: 'img', name: f.name || '사진', bytes: img.bytes, size: f.size || img.bytes.length,
+            mime: img.mime, pages: 1, w: img.w, h: img.h, url: img.url
+          });
+          added++;
+        } else {
+          skipped.push((f.name || '파일') + ' (PDF·사진 아님)');
+        }
+      } catch (err) {
+        skipped.push((f.name || '파일') + (err && err.message === 'encrypted' ? ' (암호 걸린 PDF)' : ' (열 수 없음)'));
+      }
+    }
+    showLoading('merge', false);
+    renderFiles();
+    if (added) {
+      track('pdf_add_files', { count: added, kind: files.length === 1 && isPdf(files[0]) ? 'pdf' : 'mixed' });
+      toast(added + '개를 넣었습니다.');
+    }
+    if (skipped.length) {
+      toast(skipped.length === 1 ? (skipped[0] + ' — 넣지 못했습니다.') : (skipped.length + '개 파일을 넣지 못했습니다: ' + skipped[0]));
+    }
+  }
+
+  function renderFiles() {
+    var has = S.files.length > 0;
+    el.mFiles.innerHTML = '';
+    S.files.forEach(function (it, i) {
+      var row = document.createElement('div');
+      row.className = 'file-row';
+      row.dataset.i = i;
+      var thumb = it.kind === 'img' && it.url
+        ? '<span class="file-thumb"><img src="' + it.url + '" alt=""></span>'
+        : '<span class="file-thumb" aria-hidden="true">' + (it.kind === 'pdf' ? '📄' : '🖼️') + '</span>';
+      var meta = it.kind === 'pdf'
+        ? (it.pages + '쪽 · PDF · ' + fmtBytes(it.size))
+        : ('사진 1장 · ' + it.w + '×' + it.h + 'px · ' + fmtBytes(it.size));
+      row.innerHTML =
+        '<span class="file-idx">' + (i + 1) + '</span>' +
+        thumb +
+        '<span class="file-main"><span class="file-name">' + escHtml(it.name) + '</span>' +
+        '<span class="file-meta">' + meta + '</span></span>' +
+        '<span class="file-acts">' +
+          '<button class="icon-btn" type="button" data-act="up" title="위로" aria-label="위로"' + (i === 0 ? ' disabled' : '') + '>▲</button>' +
+          '<button class="icon-btn" type="button" data-act="down" title="아래로" aria-label="아래로"' + (i === S.files.length - 1 ? ' disabled' : '') + '>▼</button>' +
+          '<button class="icon-btn del" type="button" data-act="del" title="빼기" aria-label="빼기">✕</button>' +
+        '</span>';
+      el.mFiles.appendChild(row);
+    });
+
+    el.mDropzone.classList.toggle('is-hidden', has);
+    el.mQuickSteps.classList.toggle('is-hidden', has);
+    el.mFilesWrap.classList.toggle('is-hidden', !has);
+    el.mAddBtn.disabled = !has || !LIB;
+    el.mClearBtn.disabled = !has;
+    el.mSaveTop.disabled = !has || !LIB;
+    el.mDownloadBtn.disabled = !has || !LIB;
+
+    var pages = 0, size = 0;
+    S.files.forEach(function (it) { pages += it.pages || 0; size += it.size || 0; });
+    el.mChipFiles.textContent = has ? (S.files.length + '개 파일') : '파일을 넣어 주세요';
+    el.mChipFiles.classList.toggle('grey', !has);
+    el.mChipPages.classList.toggle('is-hidden', !has);
+    el.mChipPages.textContent = pages + '쪽';
+    el.mEstPages.textContent = has ? (pages + '쪽') : '—';
+    el.mEstSize.textContent = has ? fmtBytes(size) : '—';
+    el.mEstMeta.textContent = has
+      ? ('결과 파일명: 합친문서-' + stamp() + '.pdf')
+      : '파일을 넣으면 쪽수와 용량을 계산합니다';
+    if (has && pages > MAX_PAGES) {
+      el.mEstMeta.textContent = '쪽수가 많아 처리에 시간이 걸릴 수 있습니다';
+    }
+    updateBars();
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function moveFile(i, dir) {
+    var j = i + dir;
+    if (j < 0 || j >= S.files.length) return;
+    var t = S.files[i];
+    S.files[i] = S.files[j];
+    S.files[j] = t;
+    renderFiles();
+  }
+  function removeFile(i) {
+    var it = S.files[i];
+    if (it && it.url) { try { URL.revokeObjectURL(it.url); } catch (e) {} }
+    S.files.splice(i, 1);
+    renderFiles();
+  }
+
+  el.mFiles.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var row = btn.closest('.file-row');
+    if (!row) return;
+    var i = parseInt(row.dataset.i, 10);
+    if (btn.dataset.act === 'up') moveFile(i, -1);
+    else if (btn.dataset.act === 'down') moveFile(i, 1);
+    else if (btn.dataset.act === 'del') removeFile(i);
+  });
+
+  function pickMerge() { el.mFileInput.click(); }
+  el.mPickBtn.addEventListener('click', pickMerge);
+  el.mAddBtn.addEventListener('click', pickMerge);
+  el.mAddBtn2.addEventListener('click', pickMerge);
+  el.mFileInput.addEventListener('change', function () {
+    addFiles(el.mFileInput.files);
+    el.mFileInput.value = '';
+  });
+  el.mClearBtn.addEventListener('click', function () {
+    S.files.forEach(function (it) { if (it.url) { try { URL.revokeObjectURL(it.url); } catch (e) {} } });
+    S.files = [];
+    renderFiles();
+    toast('파일을 모두 뺐습니다.');
+  });
+
+  var mDropTargets = [el.mDropzone, $('mStageBody')];
+  bindDrop(mDropTargets, el.mDropzone, function (files) { addFiles(files); });
+
+  function bindDrop(targets, zone, cb) {
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      targets.forEach(function (t) {
+        t.addEventListener(evt, function (e) {
+          e.preventDefault(); e.stopPropagation();
+          zone.classList.add('is-over');
+        });
+      });
+    });
+    ['dragleave', 'dragend'].forEach(function (evt) {
+      targets.forEach(function (t) {
+        t.addEventListener(evt, function (e) {
+          e.preventDefault(); e.stopPropagation();
+          zone.classList.remove('is-over');
+        });
+      });
+    });
+    targets.forEach(function (t) {
+      t.addEventListener('drop', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        zone.classList.remove('is-over');
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) cb(e.dataTransfer.files);
+      });
+    });
+  }
+
+  /* ---------- 합치기 실행 ---------- */
+  function imgPageSize(w, h) {
+    if (S.imgFit === 'a4') {
+      var landscape = w > h;
+      return landscape ? [A4[1], A4[0]] : [A4[0], A4[1]];
+    }
+    var pw = w * 72 / 96, ph = h * 72 / 96;
+    var maxSide = Math.max(pw, ph), cap = A4[1];
+    if (maxSide > cap) { var f = cap / maxSide; pw *= f; ph *= f; }
+    return [Math.max(72, pw), Math.max(72, ph)];
+  }
+
+  async function buildMerged() {
+    var out = await PDFLib.PDFDocument.create();
+    for (var i = 0; i < S.files.length; i++) {
+      var it = S.files[i];
+      el.mLoadingText.textContent = '합치는 중… (' + (i + 1) + '/' + S.files.length + ')';
+      if (it.kind === 'pdf') {
+        var src = await PDFLib.PDFDocument.load(it.bytes, { ignoreEncryption: true, updateMetadata: false });
+        var copied = await out.copyPages(src, src.getPageIndices());
+        copied.forEach(function (p) { out.addPage(p); });
+      } else {
+        var img = it.mime === 'image/png' ? await out.embedPng(it.bytes) : await out.embedJpg(it.bytes);
+        var size = imgPageSize(it.w, it.h);
+        var page = out.addPage(size);
+        var pad = S.imgFit === 'a4' ? 0 : 0;
+        var box = { w: size[0] - pad * 2, h: size[1] - pad * 2 };
+        var s = Math.min(box.w / img.width, box.h / img.height);
+        var dw = img.width * s, dh = img.height * s;
+        page.drawImage(img, { x: (size[0] - dw) / 2, y: (size[1] - dh) / 2, width: dw, height: dh });
+      }
+    }
+    out.setTitle('합친문서');
+    out.setProducer('안심 PDF 도구 (mydaesu-lab.github.io/pdf-tools)');
+    out.setCreator('안심 PDF 도구');
+    out.setCreationDate(new Date());
+    out.setModificationDate(new Date());
+    return await out.save();
+  }
+
+  function download(bytes, filename, mime) {
+    var blob = new Blob([bytes], { type: mime || 'application/octet-stream' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+      if (a.parentNode) a.parentNode.removeChild(a);
+    }, 4000);
+  }
+
+  async function saveMerged() {
+    if (!S.files.length || S.busy) return;
+    S.busy = true;
+    el.mDownloadBtn.disabled = el.mSaveTop.disabled = true;
+    showLoading('merge', true);
+    el.mLoadingText.textContent = 'PDF 만드는 중…';
+    try {
+      var bytes = await buildMerged();
+      var pages = 0, size = 0;
+      S.files.forEach(function (it) { pages += it.pages || 0; size += it.size || 0; });
+      download(bytes, '합친문서-' + stamp() + '.pdf', 'application/pdf');
+      track('pdf_merge_download', { files: S.files.length, pages: pages, bytes: bytes.length });
+      toast(pages + '쪽 PDF를 저장했습니다.');
+    } catch (err) {
+      console.error(err);
+      toast('PDF를 만들지 못했습니다. 파일을 확인하고 다시 시도해 주세요.');
+    } finally {
+      showLoading('merge', false);
+      S.busy = false;
+      renderFiles();
+    }
+  }
+
+  el.mDownloadBtn.addEventListener('click', saveMerged);
+  el.mSaveTop.addEventListener('click', saveMerged);
+
+  el.mImgSeg.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-img]');
+    if (!b) return;
+    S.imgFit = b.dataset.img;
+    el.mImgSeg.querySelectorAll('button').forEach(function (x) { x.classList.toggle('is-active', x === b); });
+    el.mImgNote.innerHTML = IMG_NOTE[S.imgFit];
+  });
+
+  /* =========================================================
+     3. 샘플 PDF 만들기
+     ========================================================= */
+  function hexToRgb(hex) {
+    var h = hex.replace('#', '');
+    return PDFLib.rgb(parseInt(h.substr(0, 2), 16) / 255, parseInt(h.substr(2, 2), 16) / 255, parseInt(h.substr(4, 2), 16) / 255);
+  }
+
+  async function buildSample(spec) {
+    var doc = await PDFLib.PDFDocument.create();
+    var bold = await doc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+    var reg = await doc.embedFont(PDFLib.StandardFonts.HelveticaOblique);
+    var accent = hexToRgb(spec.color);
+    for (var i = 1; i <= spec.pages; i++) {
+      var landscape = (spec.landscape || []).indexOf(i) >= 0;
+      var W = landscape ? A4[1] : A4[0];
+      var H = landscape ? A4[0] : A4[1];
+      var page = doc.addPage([W, H]);
+      page.drawRectangle({ x: 0, y: H - 104, width: W, height: 104, color: accent });
+      page.drawText('SAMPLE DOCUMENT ' + spec.id, { x: 52, y: H - 62, size: 21, font: bold, color: PDFLib.rgb(1, 1, 1) });
+      page.drawText('Page ' + i + ' / ' + spec.pages + '  -  ' + (landscape ? 'Landscape' : 'Portrait'), {
+        x: 52, y: H - 86, size: 10.5, font: reg, color: PDFLib.rgb(0.92, 0.92, 1)
+      });
+      page.drawText(String(i), { x: 48, y: H - 330, size: 150, font: bold, color: PDFLib.rgb(0.94, 0.94, 0.97) });
+      for (var k = 0; k < 10; k++) {
+        var w = (W - 104) - (k % 3) * 70;
+        page.drawRectangle({ x: 52, y: H - 380 - k * 26, width: w, height: 9, color: PDFLib.rgb(0.87, 0.88, 0.92) });
+      }
+      page.drawText('Made in your browser for testing. Nothing was uploaded.', {
+        x: 52, y: 46, size: 9, font: reg, color: PDFLib.rgb(0.61, 0.63, 0.7)
+      });
+    }
+    return await doc.save();
+  }
+
+  var SAMPLES = {
+    A: { id: 'A', pages: 3, color: '#5b57f0', landscape: [] },
+    B: { id: 'B', pages: 2, color: '#0f9d6e', landscape: [] },
+    S: { id: 'S', pages: 5, color: '#8b5cf6', landscape: [2] }
+  };
+
+  async function addSampleMerge() {
+    if (!LIB) return;
+    showLoading('merge', true);
+    el.mLoadingText.textContent = '샘플 PDF 만드는 중…';
+    try {
+      var a = await buildSample(SAMPLES.A);
+      var b = await buildSample(SAMPLES.B);
+      S.files.push(await loadPdfItem('샘플-문서A.pdf', a, a.length));
+      S.files.push(await loadPdfItem('샘플-문서B.pdf', b, b.length));
+      renderFiles();
+      track('pdf_load_sample', { where: 'merge' });
+      toast('샘플 PDF 2개를 넣었습니다. 바로 저장해 보세요.');
+    } catch (err) {
+      console.error(err);
+      toast('샘플을 만들지 못했습니다.');
+    } finally {
+      showLoading('merge', false);
+    }
+  }
+  el.mSampleBtn.addEventListener('click', addSampleMerge);
+  el.mSampleBtn2.addEventListener('click', addSampleMerge);
+
+  /* =========================================================
+     4. 페이지 빼기 — PDF 열기
+     ========================================================= */
+  async function openSplitPdf(name, bytes) {
+    if (!LIB) { toast('PDF 라이브러리를 불러오지 못했습니다. 새로고침해 주세요.'); return; }
+    showLoading('split', true);
+    try {
+      var doc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true, updateMetadata: false });
+      if (typeof doc.isEncrypted === 'boolean' && doc.isEncrypted) throw new Error('encrypted');
+      var pages = doc.getPages();
+      S.splitDoc = doc;
+      S.splitBytes = bytes;
+      S.splitName = name;
+      S.pages = pages.map(function (p) {
+        var sz = p.getSize();
+        var rot = p.getRotation().angle || 0;
+        return { w: sz.width, h: sz.height, baseRot: ((rot % 360) + 360) % 360 };
+      });
+      S.keep = S.pages.map(function () { return true; });
+      S.rot = S.pages.map(function () { return 0; });
+      renderSplit();
+      track('pdf_open_split', { pages: S.pages.length });
+    } catch (err) {
+      console.error(err);
+      toast(err && err.message === 'encrypted'
+        ? '암호가 걸린 PDF는 열 수 없습니다. 잠금을 해제한 뒤 다시 넣어 주세요.'
+        : 'PDF를 열지 못했습니다. 파일이 손상되었거나 지원하지 않는 형식입니다.');
+    } finally {
+      showLoading('split', false);
+    }
+  }
+
+  function sizeName(w, h) {
+    var s = [Math.min(w, h), Math.max(w, h)];
+    var known = [
+      { n: 'A3', v: [841.89, 1190.55] }, { n: 'A4', v: [595.28, 841.89] },
+      { n: 'A5', v: [419.53, 595.28] }, { n: 'B4', v: [708.66, 1000.63] },
+      { n: 'B5', v: [498.9, 708.66] }, { n: 'Letter', v: [612, 792] },
+      { n: 'Legal', v: [612, 1008] }
+    ];
+    for (var i = 0; i < known.length; i++) {
+      if (Math.abs(s[0] - known[i].v[0]) < 6 && Math.abs(s[1] - known[i].v[1]) < 6) return known[i].n;
+    }
+    var mmW = Math.round(w * 25.4 / 72), mmH = Math.round(h * 25.4 / 72);
+    return mmW + '×' + mmH + 'mm';
+  }
+
+  function renderSplit() {
+    var has = S.pages.length > 0;
+    el.sDropzone.classList.toggle('is-hidden', has);
+    el.sQuickSteps.classList.toggle('is-hidden', has);
+    el.sPagesWrap.classList.toggle('is-hidden', !has);
+
+    var enabled = has && !S.busy && LIB;
+    el.sSaveTop.disabled = !enabled;
+    el.sDownloadBtn.disabled = !enabled;
+    el.sZipBtn.disabled = !enabled;
+    el.sOpenBtn.disabled = !has;
+    el.sClearBtn.disabled = !has;
+    el.sChangeBtn.disabled = !has;
+    el.sAllBtn.disabled = !enabled;
+    el.sNoneBtn.disabled = !enabled;
+    el.sInvBtn.disabled = !enabled;
+    el.sRotReset.disabled = !enabled;
+    el.sRange.disabled = !enabled;
+    el.sRangeOnly.disabled = !enabled;
+    el.sRangeDrop.disabled = !enabled;
+    el.sRangeRot.disabled = !enabled;
+
+    el.sPages.innerHTML = '';
+    if (!has) {
+      el.sChip.textContent = 'PDF를 넣어 주세요';
+      el.sChip.classList.add('grey');
+      el.sChipKeep.classList.add('is-hidden');
+      el.sEstKeep.textContent = '—';
+      el.sEstAll.textContent = '—';
+      el.sEstMeta.textContent = 'PDF를 넣으면 쪽수를 계산합니다';
+      updateBars();
+      return;
+    }
+
+    var keepCount = 0;
+    S.pages.forEach(function (m, i) {
+      var on = S.keep[i];
+      if (on) keepCount++;
+      var rot = S.rot[i] || 0;
+      var totalRot = ((m.baseRot + rot) % 360 + 360) % 360;
+      var swap = totalRot === 90 || totalRot === 270;
+      var dw = swap ? m.h : m.w, dh = swap ? m.w : m.h;
+      var style = dw >= dh
+        ? 'width:100%;height:auto;aspect-ratio:' + dw + '/' + dh
+        : 'height:var(--sheet-h,94px);width:auto;aspect-ratio:' + dw + '/' + dh;
+      var card = document.createElement('div');
+      card.className = 'page-card' + (on ? '' : ' is-off');
+      card.dataset.i = i;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-pressed', on ? 'true' : 'false');
+      card.setAttribute('aria-label', (i + 1) + '쪽 ' + (on ? '남김' : '뺌'));
+      card.innerHTML =
+        '<div class="page-stage"><div class="page-sheet" style="' + style + '">' +
+          '<span class="ps-num">' + (i + 1) + '</span>' +
+          (totalRot ? '<span class="ps-rot">↻' + totalRot + '°</span>' : '') +
+          '<span class="ps-x" aria-hidden="true">✕</span>' +
+        '</div></div>' +
+        '<div class="page-meta"><b>' + (i + 1) + '쪽</b> · ' + sizeName(m.w, m.h) + '</div>' +
+        '<button class="page-rot" type="button" data-rot="' + i + '" aria-label="' + (i + 1) + '쪽 90도 회전">↻ 회전</button>';
+      el.sPages.appendChild(card);
+    });
+
+    el.sChip.textContent = S.splitName + ' · ' + S.pages.length + '쪽';
+    el.sChip.classList.remove('grey');
+    el.sChipKeep.classList.remove('is-hidden');
+    el.sChipKeep.textContent = keepCount + '쪽 남김';
+    el.sEstKeep.textContent = keepCount + '쪽';
+    el.sEstAll.textContent = S.pages.length + '쪽';
+    el.sEstMeta.textContent = keepCount === S.pages.length
+      ? '뺄 페이지를 고르지 않았습니다 (전체 그대로 저장됩니다)'
+      : (S.pages.length - keepCount) + '쪽을 뺍니다';
+    updateBars();
+  }
+
+  el.sPages.addEventListener('click', function (e) {
+    var rotBtn = e.target.closest('button[data-rot]');
+    if (rotBtn) {
+      var ri = parseInt(rotBtn.dataset.rot, 10);
+      S.rot[ri] = ((S.rot[ri] || 0) + 90) % 360;
+      renderSplit();
+      return;
+    }
+    var card = e.target.closest('.page-card');
+    if (!card) return;
+    var i = parseInt(card.dataset.i, 10);
+    S.keep[i] = !S.keep[i];
+    renderSplit();
+  });
+  el.sPages.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var card = e.target.closest('.page-card');
+    if (!card) return;
+    e.preventDefault();
+    var i = parseInt(card.dataset.i, 10);
+    S.keep[i] = !S.keep[i];
+    renderSplit();
+  });
+
+  function pickSplit() { el.sFileInput.click(); }
+  el.sPickBtn.addEventListener('click', pickSplit);
+  el.sChangeBtn.addEventListener('click', pickSplit);
+  el.sFileInput.addEventListener('change', function () {
+    var f = el.sFileInput.files && el.sFileInput.files[0];
+    el.sFileInput.value = '';
+    if (!f) return;
+    f.arrayBuffer().then(function (buf) { openSplitPdf(f.name || '문서.pdf', new Uint8Array(buf)); });
+  });
+  bindDrop([el.sDropzone, $('sStageBody')], el.sDropzone, function (files) {
+    var f = files[0];
+    if (f) f.arrayBuffer().then(function (buf) { openSplitPdf(f.name || '문서.pdf', new Uint8Array(buf)); });
+  });
+
+  async function addSampleSplit() {
+    if (!LIB) return;
+    showLoading('split', true);
+    try {
+      var bytes = await buildSample(SAMPLES.S);
+      await openSplitPdf('샘플-문서S.pdf', bytes);
+      track('pdf_load_sample', { where: 'split' });
+      toast('샘플 PDF 5쪽을 열었습니다. 2쪽은 가로 페이지예요.');
+    } catch (err) {
+      console.error(err);
+      toast('샘플을 만들지 못했습니다.');
+    } finally {
+      showLoading('split', false);
+    }
+  }
+  el.sSampleBtn.addEventListener('click', addSampleSplit);
+  el.sSampleBtn2.addEventListener('click', addSampleSplit);
+
+  el.sClearBtn.addEventListener('click', function () {
+    S.splitDoc = null; S.splitBytes = null; S.splitName = '';
+    S.pages = []; S.keep = []; S.rot = [];
+    el.sRange.value = '';
+    renderSplit();
+    toast('PDF를 닫았습니다.');
+  });
+  el.sOpenBtn.addEventListener('click', function () {
+    if (!S.splitBytes) return;
+    var blob = new Blob([S.splitBytes], { type: 'application/pdf' });
+    var url = URL.createObjectURL(blob);
+    window.open(url, '_blank', 'noopener');
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+  });
+
+  /* ---------- 선택 도구 ---------- */
+  el.sAllBtn.addEventListener('click', function () {
+    S.keep = S.pages.map(function () { return true; });
+    renderSplit();
+  });
+  el.sNoneBtn.addEventListener('click', function () {
+    S.keep = S.pages.map(function () { return false; });
+    renderSplit();
+  });
+  el.sInvBtn.addEventListener('click', function () {
+    S.keep = S.keep.map(function (k) { return !k; });
+    renderSplit();
+  });
+  el.sRotReset.addEventListener('click', function () {
+    S.rot = S.pages.map(function () { return 0; });
+    renderSplit();
+    toast('회전을 모두 되돌렸니다.');
+  });
+
+  function parseRange(str, max) {
+    var out = [], bad = false;
+    String(str || '').split(/[,\s]+/).forEach(function (seg) {
+      seg = seg.trim();
+      if (!seg) return;
+      var m = /^(\d+)\s*[-~]\s*(\d+)$/.exec(seg);
+      if (m) {
+        var a = parseInt(m[1], 10), b = parseInt(m[2], 10);
+        if (a > b) { var t = a; a = b; b = t; }
+        a = Math.max(1, a); b = Math.min(max, b);
+        for (var i = a; i <= b; i++) out.push(i - 1);
+        if (b < parseInt(m[2], 10) || a > parseInt(m[1], 10)) bad = true;
+      } else if (/^\d+$/.test(seg)) {
+        var n = parseInt(seg, 10);
+        if (n >= 1 && n <= max) out.push(n - 1); else bad = true;
+      } else {
+        bad = true;
+      }
+    });
+    var uniq = [];
+    out.sort(function (x, y) { return x - y; });
+    out.forEach(function (v) { if (uniq.indexOf(v) < 0) uniq.push(v); });
+    return { idx: uniq, bad: bad };
+  }
+
+  function withRange(action) {
+    if (!S.pages.length) return;
+    var r = parseRange(el.sRange.value, S.pages.length);
+    if (!r.idx.length) {
+      toast('1~' + S.pages.length + ' 사이의 페이지를 넣어 주세요. 예: 1-3, 5');
+      return;
+    }
+    if (r.bad) toast('일부 범위는 무시했습니다 (1~' + S.pages.length + '쪽까지).');
+    if (action === 'only') {
+      S.keep = S.pages.map(function (_, i) { return r.idx.indexOf(i) >= 0; });
+    } else if (action === 'drop') {
+      r.idx.forEach(function (i) { S.keep[i] = false; });
+    } else if (action === 'rot') {
+      r.idx.forEach(function (i) { S.rot[i] = ((S.rot[i] || 0) + 90) % 360; });
+    }
+    renderSplit();
+    track('pdf_range_apply', { action: action, count: r.idx.length });
+  }
+  el.sRangeOnly.addEventListener('click', function () { withRange('only'); });
+  el.sRangeDrop.addEventListener('click', function () { withRange('drop'); });
+  el.sRangeRot.addEventListener('click', function () { withRange('rot'); });
+  el.sRange.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); withRange('only'); }
+  });
+
+  /* ---------- 저장 · 나누기 ---------- */
+  async function buildExtracted(indices) {
+    var src = S.splitDoc;
+    var out = await PDFLib.PDFDocument.create();
+    indices.forEach(function (i) {
+      var p = src.getPage(i);
+      var total = (((S.pages[i].baseRot + (S.rot[i] || 0)) % 360) + 360) % 360;
+      p.setRotation(PDFLib.degrees(total));
+    });
+    var copied = await out.copyPages(src, indices);
+    copied.forEach(function (p) { out.addPage(p); });
+    out.setProducer('안심 PDF 도구 (mydaesu-lab.github.io/pdf-tools)');
+    out.setCreator('안심 PDF 도구');
+    out.setCreationDate(new Date());
+    out.setModificationDate(new Date());
+    return await out.save();
+  }
+
+  function keptIndices() {
+    var idx = [];
+    S.keep.forEach(function (k, i) { if (k) idx.push(i); });
+    return idx;
+  }
+
+  async function saveSplit() {
+    if (!S.splitDoc || S.busy) return;
+    var idx = keptIndices();
+    if (!idx.length) { toast('남길 페이지가 없습니다. 카드를 눌러 페이지를 골라 주세요.'); return; }
+    S.busy = true;
+    renderSplit();
+    showLoading('split', true);
+    try {
+      var bytes = await buildExtracted(idx);
+      download(bytes, '추출문서-' + stamp() + '.pdf', 'application/pdf');
+      track('pdf_split_download', { mode: 'pdf', kept: idx.length, total: S.pages.length });
+      toast(idx.length + '쪽 PDF를 저장했습니다.');
+    } catch (err) {
+      console.error(err);
+      toast('PDF를 만들지 못했습니다. 다시 시도해 주세요.');
+    } finally {
+      showLoading('split', false);
+      S.busy = false;
+      renderSplit();
+    }
+  }
+  el.sDownloadBtn.addEventListener('click', saveSplit);
+  el.sSaveTop.addEventListener('click', saveSplit);
+
+  /* ---------- ZIP (무압축 저장 방식) ---------- */
+  var CRC_TABLE = (function () {
+    var t = new Uint32Array(256);
+    for (var n = 0; n < 256; n++) {
+      var c = n;
+      for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+      t[n] = c >>> 0;
+    }
+    return t;
+  })();
+  function crc32(u8) {
+    var c = 0xFFFFFFFF;
+    for (var i = 0; i < u8.length; i++) c = CRC_TABLE[(c ^ u8[i]) & 0xFF] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  }
+  function zipStore(entries) {
+    var enc = new TextEncoder();
+    var chunks = [], central = [], offset = 0;
+    var now = new Date();
+    var dosTime = ((now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1)) & 0xFFFF;
+    var dosDate = (((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate()) & 0xFFFF;
+
+    entries.forEach(function (e) {
+      var name = enc.encode(e.name);
+      var data = e.bytes;
+      var crc = crc32(data);
+      var lh = new Uint8Array(30 + name.length);
+      var lv = new DataView(lh.buffer);
+      lv.setUint32(0, 0x04034b50, true);
+      lv.setUint16(4, 20, true);
+      lv.setUint16(6, 0x0800, true);
+      lv.setUint16(8, 0, true);
+      lv.setUint16(10, dosTime, true);
+      lv.setUint16(12, dosDate, true);
+      lv.setUint32(14, crc, true);
+      lv.setUint32(18, data.length, true);
+      lv.setUint32(22, data.length, true);
+      lv.setUint16(26, name.length, true);
+      lv.setUint16(28, 0, true);
+      lh.set(name, 30);
+      chunks.push(lh, data);
+
+      var cd = new Uint8Array(46 + name.length);
+      var cv = new DataView(cd.buffer);
+      cv.setUint32(0, 0x02014b50, true);
+      cv.setUint16(4, 20, true);
+      cv.setUint16(6, 20, true);
+      cv.setUint16(8, 0x0800, true);
+      cv.setUint16(10, 0, true);
+      cv.setUint16(12, dosTime, true);
+      cv.setUint16(14, dosDate, true);
+      cv.setUint32(16, crc, true);
+      cv.setUint32(20, data.length, true);
+      cv.setUint32(24, data.length, true);
+      cv.setUint16(28, name.length, true);
+      cv.setUint16(30, 0, true);
+      cv.setUint16(32, 0, true);
+      cv.setUint16(34, 0, true);
+      cv.setUint16(36, 0, true);
+      cv.setUint32(38, 0, true);
+      cv.setUint32(42, offset, true);
+      cd.set(name, 46);
+      central.push(cd);
+      offset += lh.length + data.length;
+    });
+
+    var cdSize = central.reduce(function (a, b) { return a + b.length; }, 0);
+    var eocd = new Uint8Array(22);
+    var ev = new DataView(eocd.buffer);
+    ev.setUint32(0, 0x06054b50, true);
+    ev.setUint16(4, 0, true);
+    ev.setUint16(6, 0, true);
+    ev.setUint16(8, entries.length, true);
+    ev.setUint16(10, entries.length, true);
+    ev.setUint32(12, cdSize, true);
+    ev.setUint32(16, offset, true);
+    ev.setUint16(20, 0, true);
+
+    var total = offset + cdSize + eocd.length;
+    var out = new Uint8Array(total);
+    var pos = 0;
+    chunks.concat(central).forEach(function (c) { out.set(c, pos); pos += c.length; });
+    out.set(eocd, pos);
+    return out;
+  }
+
+  async function saveZip() {
+    if (!S.splitDoc || S.busy) return;
+    var idx = keptIndices();
+    if (!idx.length) { toast('남길 페이지가 없습니다. 카드를 눌러 페이지를 골라 주세요.'); return; }
+    var chunk = parseInt(el.sChunk.value, 10) || 1;
+    S.busy = true;
+    renderSplit();
+    showLoading('split', true);
+    try {
+      var entries = [];
+      for (var s = 0; s < idx.length; s += chunk) {
+        var group = idx.slice(s, s + chunk);
+        var bytes = await buildExtracted(group);
+        entries.push({ name: 'part-' + pad2(entries.length + 1) + '.pdf', bytes: bytes });
+      }
+      var zip = zipStore(entries);
+      download(zip, '나눈문서-' + stamp() + '.zip', 'application/zip');
+      track('pdf_split_download', { mode: 'zip', kept: idx.length, total: S.pages.length, parts: entries.length });
+      toast(entries.length + '개 PDF로 나눠 ZIP에 담았습니다.');
+    } catch (err) {
+      console.error(err);
+      toast('나누기 파일을 만들지 못했습니다. 다시 시도해 주세요.');
+    } finally {
+      showLoading('split', false);
+      S.busy = false;
+      renderSplit();
+    }
+  }
+  el.sZipBtn.addEventListener('click', saveZip);
+
+  /* =========================================================
+     5. 모바일 고정 바
+     ========================================================= */
+  function updateBars() {
+    var isMerge = S.tab === 'merge';
+    var ready = false;
+    if (isMerge && S.files.length) {
+      var pages = 0, size = 0;
+      S.files.forEach(function (it) { pages += it.pages || 0; size += it.size || 0; });
+      el.sbTitle.textContent = pages + '쪽';
+      el.sbMeta.textContent = S.files.length + '개 파일 · ' + fmtBytes(size);
+      el.sbSave.textContent = '합쳐서 PDF 저장';
+      ready = true;
+    } else if (!isMerge && S.pages.length) {
+      var keep = keptIndices().length;
+      el.sbTitle.textContent = keep + '쪽 남김';
+      el.sbMeta.textContent = '전체 ' + S.pages.length + '쪽 · ' + S.splitName;
+      el.sbSave.textContent = 'PDF로 저장';
+      ready = true;
+    }
+    el.stickyBar.classList.toggle('is-ready', ready && !S.busy);
+    el.sbSave.disabled = !ready || S.busy;
+    document.body.classList.toggle('has-work', ready);
+  }
+  el.sbSave.addEventListener('click', function () {
+    if (S.tab === 'merge') saveMerged(); else saveSplit();
+  });
+
+  /* =========================================================
+     6. 광고 영역
+     ========================================================= */
+  (function initAd() {
+    if (AD_SLOT_ID) {
+      el.adSlot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    }
+    var hidden = false;
+    el.adToggle.addEventListener('click', function () {
+      hidden = !hidden;
+      el.adSlot.classList.toggle('is-hidden', hidden);
+      el.adToggle.textContent = hidden ? '다시 보기' : '숨기기';
+    });
+  })();
+
+  /* =========================================================
+     7. 모달
+     ========================================================= */
+  var MODALS = { about: $('modalAbout'), privacy: $('modalPrivacy') };
+  function openModal(name) {
+    var d = MODALS[name];
+    if (!d) return;
+    if (typeof d.showModal === 'function') d.showModal();
+    else d.setAttribute('open', '');
+    track('open_modal', { modal: name });
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-modal]');
+    if (t) { e.preventDefault(); openModal(t.dataset.modal); return; }
+    var c = e.target.closest('[data-close]');
+    if (c) {
+      var d = c.closest('dialog');
+      if (d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    }
+  });
+  Object.keys(MODALS).forEach(function (k) {
+    var d = MODALS[k];
+    d.addEventListener('click', function (e) {
+      if (e.target === d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    });
+  });
+
+  /* ---------- 초기 상태 ---------- */
+  el.mImgNote.innerHTML = IMG_NOTE[S.imgFit];
+  renderFiles();
+  renderSplit();
+  setTab('merge');
+})();
+</script>
+</body>
+</html>
