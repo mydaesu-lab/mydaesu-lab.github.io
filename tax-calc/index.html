@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연말정산 · 고향사랑기부제 절세 계산기 | 2026 연말정산 환급액 시뮬레이터</title>
+<meta name="description" content="2026년 귀속 연말정산 절세 계산기. 총급여를 넣으면 고향사랑기부제 세액공제(10만원 100%·20만원까지 44%), 연금저축·IRP 16.5%/13.2%, 신용카드 25% 문턱과 체크카드 전환 효과를 바로 계산합니다. 12월 31일 전에 챙길 환급액을 숫자로 확인하세요. 입력값은 서버에 저장되지 않습니다.">
+<meta name="keywords" content="연말정산 계산기, 2026 연말정산, 고향사랑기부제, 고향사랑기부금 세액공제, 고향사랑기부제 답례품, 연금저축 세액공제, IRP 세액공제, 연말정산 환급액, 13월의 월급, 신용카드 소득공제, 체크카드 소득공제, 카드 25% 법칙, 월세 세액공제, 절세 계산기, 연말정산 미리보기, 총급여 5500만원, 세액공제 계산기">
+<meta name="author" content="연말정산 절세 계산기">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="연말정산 절세 계산기">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="연말정산 · 고향사랑기부제 절세 계산기 | 2026 환급액 시뮬레이터">
+<meta property="og:description" content="총급여만 넣으면 고향사랑기부제·연금저축·IRP·카드 25% 문턱까지 2026년 기준으로 바로 계산. 12월 31일 전에 챙길 환급액과 답례품 혜택을 한눈에.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/tax-calc/preview.png">
+<meta property="og:image:alt" content="연말정산 · 고향사랑기부제 절세 계산기 화면 예시">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/tax-calc/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="연말정산 · 고향사랑기부제 절세 계산기">
+<meta name="twitter:description" content="고향사랑기부 20만원이면 세액공제 14만 4,000원 + 답례품 6만원. 연금저축·IRP와 카드 25% 문턱까지 2026년 기준으로 계산하세요.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/tax-calc/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/tax-calc/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "연말정산 · 고향사랑기부제 절세 계산기",
+      "alternateName": "2026 연말정산 환급액 시뮬레이터 - 고향사랑기부제·연금저축·IRP·카드 소득공제",
+      "url": "https://mydaesu-lab.github.io/tax-calc/",
+      "image": "https://mydaesu-lab.github.io/tax-calc/preview.png",
+      "description": "총급여를 입력하면 2026년 기준 고향사랑기부제 세액공제와 답례품 가치, 연금저축·IRP 세액공제(16.5%/13.2%), 신용카드 25% 문턱과 체크카드 전환 효과를 즉시 계산하는 무료 도구. 입력값은 서버로 전송되지 않고 브라우저에서만 계산됩니다.",
+      "applicationCategory": "FinanceApplication",
+      "applicationSubCategory": "연말정산 · 절세 시뮬레이터",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "featureList": [
+        "총급여 슬라이더와 프리셋으로 즉시 계산",
+        "고향사랑기부제 세액공제·답례품 30%·실질 이득 계산",
+        "연금저축·IRP 900만원 한도, 16.5% / 13.2% 자동 적용",
+        "신용카드 25% 문턱과 체크카드 전환 추가 공제 계산",
+        "12월 말까지 챙길 예상 환급·혜택 합계와 요약 복사",
+        "모든 계산은 브라우저에서만 (입력값 서버 전송 없음)"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "고향사랑기부제는 2026년에 무엇이 달라졌나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "2026년 1월 1일 이후 기부분부터 10만원 초과 20만원 이하 구간의 세액공제율이 15%에서 40%로 올랐습니다. 10만원까지는 기부금의 110분의 100(지방소득세 포함 실질 100%), 10만원 초과 20만원 이하 구간은 40%(지방소득세 포함 44%), 20만원 초과 2,000만원 이하 구간은 15%(지방소득세 포함 16.5%)입니다. 20만원을 기부하면 세액공제 14만 4,000원에 답례품 6만원(기부액의 30%)을 더해 20만 4,000원의 혜택이 됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "고향사랑기부금 세액공제는 지방소득세까지 포함한 금액인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "법 조문의 공제율은 소득세 기준입니다. 10만원 이하 100%(110분의 100), 10만원 초과 20만원 이하 40%, 20만원 초과 15%가 소득세에서 빠지고, 소득세가 줄어든 만큼 지방소득세(소득세의 10%)도 함께 줄어듭니다. 그래서 지방소득세를 포함한 실질 공제율은 각각 100%, 44%, 16.5%가 됩니다. 본 계산기는 지방소득세를 포함한 금액으로 표시합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "고향사랑기부 답례품은 얼마까지 받을 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "기부액의 30% 이내입니다(고향사랑 기부금에 관한 법률 시행령 제5조). 10만원이면 3만원, 20만원이면 6만원, 50만원이면 15만원 상당의 지역 특산품을 고를 수 있습니다. 답례품은 현금이 아니라 물품·서비스이므로 실제 체감 가치는 고르는 품목에 따라 달라질 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "연금저축과 IRP는 얼마까지 세액공제되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "연금저축은 연 600만원, IRP 등과 합산하면 연 900만원까지 세액공제 대상입니다. 총급여 5,500만원 이하(종합소득금액 4,500만원 이하)는 16.5%, 초과하면 13.2%의 공제율이 적용되며 두 비율 모두 지방소득세를 포함한 수치입니다. 900만원을 채우면 각각 최대 148만 5,000원, 118만 8,000원의 세액공제 효과가 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "신용카드 25% 문턱은 무엇인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "신용카드·체크카드·현금영수증 사용액 합계가 총급여의 25%를 넘는 순간부터, 넘는 금액에 대해 소득공제가 시작됩니다. 총급여 5,000만원이면 1,250만원까지는 공제가 0원이고, 그 초과분부터 신용카드 15%, 체크카드·현금영수증 30%, 전통시장·대중교통 40%가 적용됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "체크카드로 바꾸면 얼마나 더 돌려받나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "25% 문턱을 이미 넘겼다면 체크카드 사용분은 신용카드의 두 배인 30%로 소득공제됩니다. 100만원을 신용카드 대신 체크카드로 쓰면 소득공제가 30만원 늘고, 한계세율 16.5% 구간이면 세금이 약 4만 9,500원 줄어듭니다. 다만 카드 소득공제는 총급여 7,000만원 이하 300만원, 초과 250만원의 기본 한도가 있어 한도를 넘으면 효과가 사라집니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "계산 결과가 실제 환급액과 같나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 본 계산기는 참고용 시뮬레이션이며 실제 결정세액은 홈택스 연말정산 간소화 기준을 따릅니다. 부양가족·의료비·교육비·기부금 등 다른 공제와 이미 낸 세금에 따라 실제 환급액은 달라지고, 세액공제는 결정세액을 한도로 하므로 세금이 적으면 공제를 다 쓰지 못할 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 연봉과 지출 정보가 저장되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 총급여, 기부금, 연금 납입액, 카드 사용액은 서버로 전송되지 않고 브라우저 메모리에서만 계산됩니다. 회원가입도 없고, 브라우저를 닫으면 입력값은 사라집니다. 방문 통계(GA4)와 광고(AdSense)만 익명으로 동작합니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%235b57f0'/%3E%3Ctext x='50' y='73' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif'%3E%F0%9F%A7%AE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --gold:#c2740a;
+    --gold-soft:#fff4e2;
+    --good:#0f9d6e;
+    --good-soft:#e7f7f0;
+    --blue:#2563eb;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff}
+  .pb-text{min-width:0}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:840px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 8px;display:grid;grid-template-columns:minmax(0,1fr) 396px;gap:18px;align-items:start}
+  .inputs{display:flex;flex-direction:column;gap:14px;min-width:0}
+
+  /* ---------- calculator cards ---------- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px 19px;min-width:0}
+  .card-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}
+  .card-head h2{margin:0;font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .step{font-size:10px;font-weight:800;color:#6d68e8;background:var(--accent-soft);border-radius:6px;padding:2px 6px;letter-spacing:.04em;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  .head-pill{margin-left:auto;font-size:11px;font-weight:800;color:#4b45c9;background:#f1f0ff;border-radius:999px;padding:4px 9px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .head-pill.gold{color:#9a5b00;background:var(--gold-soft)}
+  .head-pill.good{color:#0b6f4f;background:var(--good-soft)}
+
+  .amount-row{display:flex;align-items:center;justify-content:flex-start;gap:10px 16px;flex-wrap:wrap;margin-bottom:8px}
+  .money-field{display:inline-flex;align-items:baseline;gap:5px;background:#fbfbfe;border:1px solid var(--line);border-radius:12px;padding:7px 12px;min-width:0;transition:border-color .15s,box-shadow .15s}
+  .money-field:focus-within{border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.13)}
+  .money-field input{width:104px;border:0;background:transparent;font:inherit;font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--ink);text-align:right;padding:0;font-variant-numeric:tabular-nums}
+  .money-field input:focus{outline:none}
+  .money-field .unit{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;flex:0 0 auto}
+  .amount-hint{font-size:11.5px;color:var(--muted);line-height:1.5;min-width:0}
+  .amount-hint b{color:var(--ink-2);font-weight:700}
+
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:24px;background:transparent;cursor:pointer;margin:2px 0 0;display:block}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,#d9d4ff,#c3bcff)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-7px;border-radius:50%;background:#fff;border:2.5px solid #6b63f0;box-shadow:0 2px 6px rgba(60,50,180,.25)}
+  input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:#ded9ff}
+  input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:#fff;border:2.5px solid #6b63f0}
+  input[type=range]:focus-visible{outline:2px solid #b9b4ff;outline-offset:3px;border-radius:8px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s;font-variant-numeric:tabular-nums}
+  .chip-btn:hover{border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+  .stat{background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:10px 11px;min-width:0}
+  .stat span{display:block;font-size:10.5px;font-weight:700;color:var(--muted);line-height:1.35;margin-bottom:2px;word-break:keep-all}
+  .stat b{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.03em;line-height:1.3;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .stat b.gold{color:var(--gold)}
+  .stat b.good{color:var(--good)}
+  .stat b.blue{color:var(--blue)}
+  .stat em{display:block;font-style:normal;font-size:10px;color:var(--muted);margin-top:2px;line-height:1.35}
+
+  .row-note{font-size:11.5px;color:var(--muted);margin:11px 0 0;line-height:1.62;word-break:keep-all}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .row-note .hl{color:#4b45c9;font-weight:800}
+  .row-note.good{color:#0b6f4f;background:var(--good-soft);border-radius:9px;padding:7px 10px}
+  .row-note.warn{color:#9a3412;background:#fff4ec;border-radius:9px;padding:7px 10px}
+
+  /* tier strip (고향사랑) */
+  .tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:12px}
+  .tier{border:1px solid var(--line);border-radius:10px;padding:7px 9px;background:#fff;min-width:0}
+  .tier.active{background:#fff8ec;border-color:#f0d5a8}
+  .tier u{display:block;text-decoration:none;font-size:10px;font-weight:700;color:var(--muted);line-height:1.3}
+  .tier b{display:block;font-size:12px;font-weight:800;color:var(--ink-2);font-variant-numeric:tabular-nums;margin-top:1px}
+  .tier.active b{color:#9a5b00}
+
+  /* progress (카드) */
+  .meter{margin-top:13px}
+  .meter-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:11.5px;font-weight:700;color:var(--ink-2);margin-bottom:5px;flex-wrap:wrap}
+  .meter-head .num{font-weight:800;color:#4b45c9}
+  .meter-track{height:9px;border-radius:999px;background:#eef0f7;overflow:hidden;position:relative}
+  .meter-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#a5a0ff,#6b63f0);transition:width .18s ease}
+  .meter-fill.good{background:linear-gradient(90deg,#5ecfa6,#0f9d6e)}
+  .meter-foot{display:flex;justify-content:space-between;gap:10px;font-size:10.5px;color:var(--muted);margin-top:4px;flex-wrap:wrap}
+  .card-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
+  .field{min-width:0}
+  .field label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px}
+  .field .money-field{display:flex;width:100%;padding:6px 10px}
+  .field .money-field input{width:100%;min-width:0;flex:1 1 auto;font-size:16px;text-align:right}
+  .field .money-field .unit{font-size:11px}
+
+  /* ---------- result ---------- */
+  .result{position:sticky;top:74px;min-width:0;background:linear-gradient(165deg,#1c1e2e 0%,#262942 58%,#2d2b52 100%);color:#fff;border-radius:24px;box-shadow:0 22px 48px rgba(18,22,52,.30);padding:22px 20px 18px;overflow:hidden}
+  .result::after{content:"";position:absolute;width:260px;height:260px;right:0;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.38),rgba(139,92,246,0) 70%);pointer-events:none}
+  .res-kicker{position:relative;font-size:11.5px;font-weight:700;color:#b9b9d8;letter-spacing:.01em}
+  .res-total{position:relative;margin:4px 0 2px;font-size:clamp(28px,3.6vw,36px);font-weight:800;letter-spacing:-.05em;line-height:1.15;color:#fff;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .res-total small{font-size:.5em;font-weight:700;color:#c9c9e6;letter-spacing:-.02em}
+  .res-sub{position:relative;font-size:11.5px;color:#a9aac9;line-height:1.5;margin-bottom:14px}
+  .res-bar{position:relative;display:flex;height:10px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.09);margin-bottom:14px}
+  .res-bar span{display:block;height:100%;width:0;transition:width .2s ease}
+  .res-bar .b1{background:#f0b45c}
+  .res-bar .b2{background:#7c78f5}
+  .res-bar .b3{background:#4dc79a}
+  .res-bar .b4{background:#5cb8e6}
+  .res-rows{position:relative;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .res-row{display:flex;align-items:flex-start;gap:9px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:9px 11px;min-width:0}
+  .res-dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;margin-top:6px}
+  .res-dot.d1{background:#f0b45c}
+  .res-dot.d2{background:#7c78f5}
+  .res-dot.d3{background:#4dc79a}
+  .res-dot.d4{background:#5cb8e6}
+  .res-row .rt{flex:1 1 auto;min-width:0}
+  .res-row b{display:block;font-size:12px;font-weight:800;letter-spacing:-.01em;color:#fff}
+  .res-row i{display:block;font-style:normal;font-size:10.5px;color:#a9aac9;line-height:1.45;margin-top:1px;word-break:keep-all}
+  .res-row strong{flex:0 0 auto;font-size:13px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-align:right;color:#fff;padding-top:1px;white-space:nowrap}
+  .res-row .plus{color:#8fe3bd}
+  .res-note{position:relative;margin:12px 0 0;font-size:10.5px;line-height:1.55;color:#a9aac9;word-break:keep-all}
+  .res-note b{color:#dcdcf2;font-weight:700}
+  .res-copy{position:relative;margin-top:13px;width:100%;border:0;border-radius:12px;padding:13px 14px;font:inherit;font-size:13.5px;font-weight:800;letter-spacing:-.01em;color:#241f63;background:linear-gradient(135deg,#ffffff,#e9e7ff);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:transform .12s ease,box-shadow .16s ease}
+  .res-copy:hover{box-shadow:0 10px 24px rgba(0,0,0,.22)}
+  .res-copy:active{transform:translateY(1px)}
+  .res-foot{position:relative;margin:8px 0 0;font-size:10px;line-height:1.5;color:#8c8dae;text-align:center;word-break:keep-all}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:10px auto 0;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:22px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .content-title .em{font-size:18px;line-height:1}
+  .lead{margin:0 0 10px;max-width:900px;font-size:13.5px;line-height:1.8;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .lead .hl{color:#4b45c9;font-weight:800}
+  .section-h3{margin:22px 0 8px;font-size:14.5px;font-weight:800;letter-spacing:-.02em}
+  .section-h3:first-of-type{margin-top:16px}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip-box{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip-box h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip-box p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip-box p b{color:var(--ink);font-weight:700}
+  .tip-box code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+
+  .tbl-cap{margin:14px 0 0;font-size:11px;line-height:1.55;color:var(--muted)}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 13px;border:1px solid var(--line);border-radius:12px}
+  table.tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}
+  table.tbl th,table.tbl td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  table.tbl th{background:#fafbff;font-weight:800;color:var(--ink-2);white-space:nowrap;font-size:11.5px}
+  table.tbl td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.tbl tr:last-child td{border-bottom:0}
+  table.tbl td b{color:#4b45c9}
+
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body p + p{margin-top:7px}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+
+  .disclaimer{margin:16px 0 0;padding:12px 14px;border:1px solid #f0e2cf;background:#fffbf3;border-radius:11px;font-size:11.5px;line-height:1.65;color:#7a5b2e;word-break:keep-all}
+  .disclaimer b{color:#6b4c1d}
+  .source-list{margin:10px 0 0;padding-left:17px;font-size:11px;line-height:1.7;color:var(--muted)}
+  .source-list li{margin-bottom:3px}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-kicker{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info b{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.03em}
+  .sticky-bar .btn{flex:0 0 auto;padding:11px 14px;font-size:12.5px;border-radius:11px;border:0;font-weight:800;color:#fff;background:linear-gradient(135deg,#5b57f0,#8b5cf6);cursor:pointer}
+
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;line-height:1.2}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-2)}
+  .link-btn{border:0;background:none;color:#6b63f0;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .link-btn:hover{background:#f2f1ff}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 22px;gap:14px}
+    .result{position:static}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .tips{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body{padding-bottom:74px}
+    .sticky-bar{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .table-scroll{overflow-x:visible}
+    table.tbl{min-width:0;font-size:11px}
+    table.tbl th,table.tbl td{padding:7px 7px}
+    table.tbl th{font-size:10.5px;white-space:normal}
+    table.tbl td.num{white-space:normal}
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .layout{padding:12px 12px 18px;gap:12px}
+    .card{padding:15px 14px 16px;border-radius:17px}
+    .card-head h2{font-size:14px}
+    .head-pill{font-size:10.5px;padding:3px 8px}
+    .money-field input{width:88px;font-size:18px}
+    .stat-grid{gap:6px}
+    .stat{padding:8px 8px;border-radius:11px}
+    .stat span{font-size:9.5px}
+    .stat b{font-size:12.5px}
+    .stat em{font-size:9px}
+    .result{border-radius:19px;padding:18px 15px 15px}
+    .res-total{font-size:30px}
+    .res-row{padding:8px 9px;gap:7px}
+    .res-row strong{font-size:12px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 96px);margin:auto auto 80px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 96px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+  }
+  @media (max-width:380px){
+    .stat b{font-size:11.5px}
+    .money-field input{width:76px;font-size:17px}
+    .chip-btn{padding:6px 9px;font-size:11px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s !important;transition-duration:.001s !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/tax-calc/">
+      <span class="brand-mark" aria-hidden="true">🧮</span>
+      <span class="brand-text">
+        <b>연말정산 절세 계산기</b>
+        <i>고향사랑기부제 · 연금저축·IRP · 카드 25% 문턱</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>입력한 연봉·지출 정보는 서버에 저장되지 않아요</b> · 브라우저에서만 계산</span></span>
+      <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+    </div>
+    <h1>연말정산 · <span>고향사랑기부제</span> 절세 계산기</h1>
+    <p class="hero-sub">총급여만 넣으면 <b>고향사랑기부제 세액공제</b>, <b>연금저축·IRP</b>, <b>신용카드 25% 문턱</b>까지 2026년 기준으로 바로 계산합니다. 슬라이더를 움직이는 순간 결과가 바뀌고, 12월 31일 전에 더 챙길 수 있는 <b>예상 환급 + 혜택</b>을 한 장으로 정리해 드려요.</p>
+  </section>
+
+  <section class="layout" id="app" aria-label="절세 계산기">
+    <!-- ================= 입력 ================= -->
+    <div class="inputs">
+
+      <!-- 1. 총급여 -->
+      <section class="card" aria-labelledby="h-gross">
+        <div class="card-head">
+          <span class="step">1</span>
+          <h2 id="h-gross">총급여(연봉)</h2>
+          <span class="head-pill" id="ratePill">16.5% 구간</span>
+        </div>
+        <div class="amount-row">
+          <div class="money-field">
+            <input id="grossInput" type="text" inputmode="numeric" autocomplete="off" value="5,000" aria-label="총급여 만원 단위">
+            <span class="unit">만원</span>
+          </div>
+          <span class="amount-hint" id="grossHint">비과세를 뺀 총급여 기준 · <b>5,500만원 이하</b>라 공제율 16.5%</span>
+        </div>
+        <input type="range" id="grossRange" min="1200" max="20000" step="100" value="5000" aria-label="총급여 슬라이더">
+        <div class="chips" role="group" aria-label="총급여 프리셋">
+          <button class="chip-btn" type="button" data-gross="4000">4,000만</button>
+          <button class="chip-btn" type="button" data-gross="5000">5,000만</button>
+          <button class="chip-btn" type="button" data-gross="5500">5,500만</button>
+          <button class="chip-btn" type="button" data-gross="6500">6,500만</button>
+          <button class="chip-btn" type="button" data-gross="8000">8,000만</button>
+          <button class="chip-btn" type="button" data-gross="10000">1억</button>
+          <button class="chip-btn" type="button" data-gross="15000">1억 5천</button>
+        </div>
+        <p class="row-note">총급여 <b>5,500만원</b>을 넘으면 연금계좌 세액공제율이 16.5%에서 <b>13.2%</b>로 내려갑니다. 카드 소득공제 문턱과 한도도 총급여에 따라 달라져요.</p>
+      </section>
+
+      <!-- 2. 고향사랑기부제 -->
+      <section class="card" aria-labelledby="h-hometown">
+        <div class="card-head">
+          <span class="step">2</span>
+          <h2 id="h-hometown">고향사랑기부제</h2>
+          <span class="head-pill gold">2026년 공제율 확대</span>
+        </div>
+        <div class="amount-row">
+          <div class="money-field">
+            <input id="hometownInput" type="text" inputmode="numeric" autocomplete="off" value="20" aria-label="고향사랑기부 금액 만원 단위">
+            <span class="unit">만원</span>
+          </div>
+          <span class="amount-hint" id="hometownHint">20만원 = <b>10만원 100% + 10만원 40%</b> 구간</span>
+        </div>
+        <input type="range" id="hometownRange" min="0" max="500" step="1" value="20" aria-label="고향사랑기부 금액 슬라이더">
+        <div class="chips" role="group" aria-label="기부 금액 프리셋">
+          <button class="chip-btn" type="button" data-hometown="0">0원</button>
+          <button class="chip-btn is-active" type="button" data-hometown="10">10만</button>
+          <button class="chip-btn" type="button" data-hometown="20">20만</button>
+          <button class="chip-btn" type="button" data-hometown="50">50만</button>
+          <button class="chip-btn" type="button" data-hometown="100">100만</button>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><span>세액공제 (지방세 포함)</span><b class="blue num" id="hometownCredit">144,000원</b><em id="hometownCreditRate">실질 44%</em></div>
+          <div class="stat"><span>답례품 가치 (30%)</span><b class="gold num" id="hometownGift">60,000원</b><em>지역 특산품</em></div>
+          <div class="stat"><span>실질 이득</span><b class="good num" id="hometownNet">+4,000원</b><em id="hometownNetRate">기부 대비</em></div>
+        </div>
+        <div class="tiers" aria-hidden="true">
+          <div class="tier" id="tier1"><u>10만원 이하</u><b>100% 공제</b></div>
+          <div class="tier" id="tier2"><u>10만~20만원</u><b>40% (44%)</b></div>
+          <div class="tier" id="tier3"><u>20만원 초과</u><b>15% (16.5%)</b></div>
+        </div>
+        <p class="row-note" id="hometownNote">10만원까지는 낸 만큼, 10만원 초과 20만원까지는 40%(지방소득세 포함 44%)가 돌아옵니다. <b>답례품 30%</b>까지 더하면 20만원 기부가 가장 이득이에요.</p>
+      </section>
+
+      <!-- 3. 연금저축 · IRP -->
+      <section class="card" aria-labelledby="h-pension">
+        <div class="card-head">
+          <span class="step">3</span>
+          <h2 id="h-pension">연금저축 · IRP</h2>
+          <span class="head-pill" id="pensionRatePill">16.5% 적용</span>
+        </div>
+        <div class="amount-row">
+          <div class="money-field">
+            <input id="pensionInput" type="text" inputmode="numeric" autocomplete="off" value="600" aria-label="연금저축 IRP 납입액 만원 단위">
+            <span class="unit">만원</span>
+          </div>
+          <span class="amount-hint">연금저축 600 + IRP 300 = <b>합산 900만원</b>까지</span>
+        </div>
+        <input type="range" id="pensionRange" min="0" max="900" step="10" value="600" aria-label="연금저축 IRP 납입액 슬라이더">
+        <div class="chips" role="group" aria-label="납입액 프리셋">
+          <button class="chip-btn" type="button" data-pension="0">0원</button>
+          <button class="chip-btn" type="button" data-pension="300">300만</button>
+          <button class="chip-btn is-active" type="button" data-pension="600">600만</button>
+          <button class="chip-btn" type="button" data-pension="900">900만</button>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><span>예상 세액공제</span><b class="blue num" id="pensionCredit">990,000원</b><em id="pensionCreditNote">지방소득세 포함</em></div>
+          <div class="stat"><span>적용 공제율</span><b class="num" id="pensionRateText">16.5%</b><em id="pensionRateNote">총급여 5,500만 이하</em></div>
+          <div class="stat"><span>남은 공제 한도</span><b class="num" id="pensionLeft">300만원</b><em>900만원 기준</em></div>
+        </div>
+        <p class="row-note" id="pensionNote">연금저축만 넣으면 <b>600만원</b>까지, IRP를 더하면 <b>900만원</b>까지 공제됩니다. 12월 31일까지 실제 입금된 금액만 2026년 귀속으로 인정돼요.</p>
+      </section>
+
+      <!-- 4. 카드 -->
+      <section class="card" aria-labelledby="h-card">
+        <div class="card-head">
+          <span class="step">4</span>
+          <h2 id="h-card">카드 황금비율 체크</h2>
+          <span class="head-pill good" id="cardStatusPill">문턱 통과</span>
+        </div>
+        <div class="card-inputs">
+          <div class="field">
+            <label for="creditInput">신용카드 (연간)</label>
+            <div class="money-field"><input id="creditInput" type="text" inputmode="numeric" autocomplete="off" value="1,500" aria-label="신용카드 연간 사용액 만원"><span class="unit">만원</span></div>
+          </div>
+          <div class="field">
+            <label for="checkInput">체크·현금영수증 (연간)</label>
+            <div class="money-field"><input id="checkInput" type="text" inputmode="numeric" autocomplete="off" value="500" aria-label="체크카드 현금영수증 연간 사용액 만원"><span class="unit">만원</span></div>
+          </div>
+        </div>
+        <div class="meter">
+          <div class="meter-head"><span>총급여 25% 문턱</span><span class="num" id="cardMeterLabel">2,000만 / 1,250만원</span></div>
+          <div class="meter-track"><div class="meter-fill" id="cardMeterFill"></div></div>
+          <div class="meter-foot"><span id="cardMeterLeft">문턱 750만원 초과</span><span id="cardMeterRight">공제율 신용 15% · 체크 30%</span></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><span>예상 소득공제</span><b class="blue num" id="cardDeduction">112만 5,000원</b><em id="cardDeductionNote">한도 300만원</em></div>
+          <div class="stat"><span>예상 절세</span><b class="good num" id="cardSaving">18만 5,625원</b><em id="cardSavingNote">한계세율 16.5%</em></div>
+          <div class="stat"><span>한도까지 남은 금액</span><b class="num" id="cardLimitLeft">187만 5,000원</b><em>기본공제 한도</em></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="meter-head"><span>12월에 체크카드로 더 쓴다면</span><span class="num" id="extraOut">+100만원</span></div>
+          <input type="range" id="extraRange" min="0" max="500" step="10" value="100" aria-label="12월 추가 체크카드 사용액">
+          <div class="meter-foot" style="margin-top:5px"><span id="extraEffect">소득공제 +30만원</span><span id="extraSaving">절세 +4만 9,500원</span></div>
+        </div>
+        <p class="row-note" id="cardNote">25% 문턱을 넘긴 뒤에는 <b>체크카드·현금영수증이 신용카드의 두 배(30%)</b>로 공제됩니다. 전통시장·대중교통은 40%까지 올라가요.</p>
+      </section>
+
+    </div>
+
+    <!-- ================= 결과 ================= -->
+    <aside class="result" id="result" aria-label="절세 결과 요약">
+      <div class="res-kicker">12월 말까지 추가로 챙길 수 있는</div>
+      <div class="res-total" id="totalBig">137만 9,625원</div>
+      <div class="res-sub" id="totalSub">세액공제 113만 4,000원 + 카드 절세 18만 5,625원 + 답례품 6만원</div>
+      <div class="res-bar" aria-hidden="true"><span class="b1" id="bar1"></span><span class="b2" id="bar2"></span><span class="b3" id="bar3"></span><span class="b4" id="bar4"></span></div>
+      <ul class="res-rows">
+        <li class="res-row">
+          <span class="res-dot d1" aria-hidden="true"></span>
+          <div class="rt"><b>고향사랑기부</b><i id="rowHometownSub">세액공제 14만 4,000원 + 답례품 6만원</i></div>
+          <strong class="num" id="rowHometown">20만 4,000원</strong>
+        </li>
+        <li class="res-row">
+          <span class="res-dot d2" aria-hidden="true"></span>
+          <div class="rt"><b>연금저축 · IRP</b><i id="rowPensionSub">600만원 × 16.5%</i></div>
+          <strong class="num" id="rowPension">99만원</strong>
+        </li>
+        <li class="res-row">
+          <span class="res-dot d3" aria-hidden="true"></span>
+          <div class="rt"><b>카드 소득공제</b><i id="rowCardSub">소득공제 112만 5,000원 × 16.5%</i></div>
+          <strong class="num" id="rowCard">18만 5,625원</strong>
+        </li>
+        <li class="res-row is-hidden" id="rowExtra">
+          <span class="res-dot d4" aria-hidden="true"></span>
+          <div class="rt"><b>12월 추가 체크카드</b><i id="rowExtraSub">100만원 추가 × 15%</i></div>
+          <strong class="num" id="rowExtraAmount">2만 4,750원</strong>
+        </li>
+      </ul>
+      <p class="res-note" id="resNote">세액공제는 <b>결정세액 한도</b> 안에서만 돌려받습니다. 연금 납입액은 돌려받는 돈이 아니라 노후 자산으로 남는 돈이에요.</p>
+      <button class="res-copy" id="copyBtn" type="button">📋 내 절세 요약 복사하기</button>
+      <p class="res-foot">참고용 시뮬레이션 · 실제 환급액은 홈택스 연말정산 간소화 기준</p>
+    </aside>
+  </section>
+
+  <!-- ================= 광고 ================= -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 들어가는 자리입니다</b>
+        <span>계산 기능과 무관하며, 입력값은 광고주에게 전달되지 않습니다.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 본문 가이드 ================= -->
+  <div class="content">
+
+    <section class="content-card" id="guide">
+      <h2 class="content-title"><span class="em" aria-hidden="true">📌</span> 2026년 연말정산, 12월에 바꿀 수 있는 것</h2>
+      <p class="lead">연말정산은 1월에 회사에 서류를 내는 순간 끝나는 것처럼 보이지만, 사실 <b>12월 31일까지의 선택</b>이 결과를 거의 다 정합니다. 고향사랑기부금을 언제 얼마나 내는지, 연금계좌에 얼마를 넣는지, 남은 한 달을 체크카드로 쓰는지에 따라 돌려받는 금액이 달라집니다. 이 계산기는 그 세 가지를 <b>2026년 귀속 세법 기준</b>으로 즉시 계산합니다.</p>
+      <ul class="facts">
+        <li><b>20만원</b><span>고향사랑기부, 세액공제 14만 4,000원 + 답례품 6만원</span></li>
+        <li><b>900만원</b><span>연금저축·IRP 합산 세액공제 한도</span></li>
+        <li><b>25%</b><span>카드 소득공제가 시작되는 총급여 문턱</span></li>
+        <li><b>12/31</b><span>2026년 귀속으로 인정되는 마지막 날</span></li>
+      </ul>
+
+      <h3 class="section-h3">12월 절세 체크리스트</h3>
+      <ul class="tips">
+        <li class="tip-box">
+          <span class="tip-num">01</span>
+          <h3>고향사랑기부는 20만원이 황금 구간</h3>
+          <p>10만원까지는 100%, 10만원 초과 20만원까지는 40%(지방소득세 포함 44%)가 돌아옵니다. 20만원을 기부하면 세액공제 14만 4,000원에 답례품 6만원(30%)까지 더해져 <b>실질 이득이 +4,000원</b>입니다. 20만원을 넘기면 초과분은 16.5%만 돌아오니, 여러 지역에 나눠 20만원씩 내는 편이 유리합니다.</p>
+        </li>
+        <li class="tip-box">
+          <span class="tip-num">02</span>
+          <h3>연금저축 600만원 먼저, 그다음 IRP</h3>
+          <p>연금저축 단독 한도는 600만원, IRP와 합치면 900만원입니다. 중간에 돈을 꺼낼 가능성이 있다면 인출이 비교적 자유로운 <b>연금저축을 600만원까지</b> 채우고, 남은 300만원을 IRP로 넣는 순서가 무난합니다. 55세 전 해지하면 세액공제 받은 원금과 수익에 16.5%가 과세됩니다.</p>
+        </li>
+        <li class="tip-box">
+          <span class="tip-num">03</span>
+          <h3>카드 문턱은 '합계'로 넘긴다</h3>
+          <p>신용카드·체크카드·현금영수증을 <b>합친 금액</b>이 총급여의 25%를 넘으면 그 초과분부터 공제됩니다. 문턱을 못 넘으면 공제는 0원이니, 12월에 남은 금액이 있다면 문턱부터 채우고 그다음 결제수단을 체크카드로 바꾸는 것이 순서입니다.</p>
+        </li>
+        <li class="tip-box">
+          <span class="tip-num">04</span>
+          <h3>카드 공제 한도도 확인</h3>
+          <p>기본 한도는 총급여 7,000만원 이하 <b>300만원</b>, 초과 <b>250만원</b>입니다(자녀 수에 따라 350·400만원). 전통시장·대중교통·문화체육 사용분은 별도로 <b>300만원(7,000만원 초과 200만원)</b>까지 추가 공제되니, 한도가 남아 있다면 그쪽 지출을 늘리는 편이 효율적입니다.</p>
+        </li>
+        <li class="tip-box">
+          <span class="tip-num">05</span>
+          <h3>월세 세액공제도 12월에 정리</h3>
+          <p>무주택 세대주(요건을 갖추면 세대원)이고 총급여 8,000만원 이하라면 월세액의 <b>15%</b>(총급여 5,500만원 이하 <b>17%</b>)를 연 1,000만원 한도로 돌려받습니다. 계약서 주소와 주민등록 주소가 같아야 하고, 계좌이체 내역을 증빙으로 내야 합니다.</p>
+        </li>
+        <li class="tip-box">
+          <span class="tip-num">06</span>
+          <h3>세액공제는 '낸 세금'까지만</h3>
+          <p>세액공제는 산출세액에서 직접 빼는 방식이라, 공제 합계가 결정세액보다 크면 초과분은 사라집니다(이월 없음). 소득이 적거나 부양가족·의료비 공제가 큰 해에는 카드 소득공제처럼 <b>과세표준을 줄이는 공제</b>가 더 쓸모 있을 수 있습니다.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-card" id="hometown-guide">
+      <h2 class="content-title"><span class="em" aria-hidden="true">🏡</span> 2026년 고향사랑기부제, 무엇이 달라졌나</h2>
+      <p class="lead">고향사랑기부제는 내 주민등록지가 아닌 지방자치단체에 기부하면 <b>세액공제</b>와 <b>답례품</b>을 받는 제도입니다. 2026년 1월 1일 이후 기부분부터 <b>10만원 초과 20만원 이하 구간의 공제율이 15%에서 40%로</b> 올랐습니다(조세특례제한법 제58조, 2025. 12. 23. 개정). 10만원까지는 종전과 같이 100% 공제입니다.</p>
+      <p class="tbl-cap">2026년 귀속 고향사랑기부금 세액공제 (지방소득세 포함 기준)</p>
+      <div class="table-scroll">
+        <table class="tbl">
+          <thead><tr><th>기부 금액</th><th>소득세 공제</th><th>지방소득세 포함</th><th>답례품(30%)</th></tr></thead>
+          <tbody>
+            <tr><td>10만원</td><td class="num">90,909원</td><td class="num"><b>100,000원</b></td><td class="num">30,000원</td></tr>
+            <tr><td>20만원</td><td class="num">90,909 + 40,000원</td><td class="num"><b>144,000원</b></td><td class="num">60,000원</td></tr>
+            <tr><td>50만원</td><td class="num">130,909 + 45,000원</td><td class="num"><b>193,500원</b></td><td class="num">150,000원</td></tr>
+            <tr><td>100만원</td><td class="num">130,909 + 120,000원</td><td class="num"><b>276,000원</b></td><td class="num">300,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead"><b>왜 44%인가요?</b> 법 조문의 40%는 소득세 기준입니다. 소득세가 4만원 줄면 그 10%인 지방소득세 4,000원도 함께 줄어서, 실제로 주머니에 돌아오는 금액은 4만 4,000원이 됩니다. 20만원 초과분도 소득세 15% + 지방소득세 1.5% = <b>16.5%</b>가 됩니다. 계산기 결과는 모두 지방소득세를 포함한 금액입니다.</p>
+      <p class="lead">기부 한도는 개인당 연 <b>2,000만원</b>이고, 법인은 기부할 수 없습니다. 세액공제는 기부자 본인 것만 인정되며 이월공제가 없습니다. 답례품은 기부액의 <b>30% 이내</b>에서 지역 특산품으로 받습니다. 2026년 8월 정부 세제개편안에는 일부 비수도권 우대지역의 10만~20만원 구간 공제율을 50%로 올리는 안이 담겼지만, 2027년 이후 기부분을 전제로 한 국회 심사 사항이라 2026년 귀속에는 적용되지 않습니다.</p>
+    </section>
+
+    <section class="content-card" id="pension-guide">
+      <h2 class="content-title"><span class="em" aria-hidden="true">🏦</span> 연금저축 vs IRP, 어디에 먼저 넣을까</h2>
+      <p class="lead">두 계좌 모두 노후 자금을 넣으면 세액공제를 받지만, <b>한도와 인출 자유도</b>가 다릅니다. 총급여 5,500만원 이하(종합소득금액 4,500만원 이하)는 16.5%, 초과하면 13.2%가 적용되고, 두 비율 모두 지방소득세를 포함한 수치입니다.</p>
+      <p class="tbl-cap">2026년 연금계좌 세액공제 (지방소득세 포함)</p>
+      <div class="table-scroll">
+        <table class="tbl">
+          <thead><tr><th>구분</th><th>공제 한도</th><th>5,500만원 이하</th><th>5,500만원 초과</th></tr></thead>
+          <tbody>
+            <tr><td>연금저축 단독</td><td class="num">600만원</td><td class="num">99만원</td><td class="num">79만 2,000원</td></tr>
+            <tr><td>IRP 포함 합산</td><td class="num">900만원</td><td class="num"><b>148만 5,000원</b></td><td class="num"><b>118만 8,000원</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead"><b>연금저축</b>은 소득이 없어도 가입할 수 있고, 상품에 따라 중도 인출이 가능합니다. <b>IRP</b>는 소득이 있는 근로자·퇴직급여 수령자 등이 가입하고, 무주택자의 주택 구입 같은 법정 사유가 아니면 중도 인출이 어렵습니다. 그래서 일반적으로 <b>연금저축 600만원 → IRP 300만원</b> 순서로 채웁니다. 세액공제 한도를 넘겨 넣은 돈도 운용수익 과세이연 혜택은 받을 수 있고, 납입 한도는 합산 연 1,800만원입니다.</p>
+      <p class="lead">주의할 점은 <b>12월 31일까지 실제 입금</b>된 금액만 2026년 귀속으로 인정된다는 것입니다. 금융사별 마감 시간이 다르니 12월 마지막 주에는 미리 넣어 두세요. 55세 전 해지하거나 연금 외 형태로 인출하면 세액공제 받은 금액과 운용수익에 16.5%가 과세됩니다.</p>
+    </section>
+
+    <section class="content-card" id="card-guide">
+      <h2 class="content-title"><span class="em" aria-hidden="true">💳</span> 카드 25% 법칙, 숫자로 이해하기</h2>
+      <p class="lead">신용카드·직불카드·현금영수증 사용액을 모두 합쳐 <b>총급여의 25%</b>를 넘는 순간부터 소득공제가 시작됩니다. 총급여 5,000만원이면 1,250만원까지는 공제 0원, 그 초과분부터 결제수단별 공제율이 적용됩니다.</p>
+      <p class="tbl-cap">2026년 귀속 신용카드 등 소득공제</p>
+      <div class="table-scroll">
+        <table class="tbl">
+          <thead><tr><th>구분</th><th>공제율</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>신용카드</td><td class="num">15%</td><td>문턱 초과분 기준</td></tr>
+            <tr><td>체크카드·현금영수증</td><td class="num"><b>30%</b></td><td>신용카드의 두 배</td></tr>
+            <tr><td>전통시장</td><td class="num">40%</td><td>추가공제 한도 별도</td></tr>
+            <tr><td>대중교통</td><td class="num">40%</td><td>추가공제 한도 별도</td></tr>
+            <tr><td>도서·공연·영화·수영장·체력단련장</td><td class="num">30%</td><td>총급여 7,000만원 이하만</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead">공제 한도는 총급여 7,000만원 이하 <b>300만원</b>, 초과 <b>250만원</b>이고, 부양자녀가 있으면 1명 350만원·2명 이상 400만원까지 늘어납니다(7,000만원 초과는 275만원·300만원). 전통시장·대중교통·문화체육 사용분은 기본 한도와 별도로 <b>300만원(7,000만원 초과 200만원)</b>까지 추가 공제됩니다.</p>
+      <p class="lead">카드 소득공제는 세금을 직접 깎는 세액공제가 아니라 <b>과세표준을 줄이는 소득공제</b>입니다. 그래서 실제 절세 효과는 한계세율만큼, 대략 공제액의 6~16.5% 수준입니다. 계산기의 '예상 절세'는 총급여로 추정한 한계세율(지방소득세 포함)을 곱해 보여 줍니다.</p>
+    </section>
+
+    <section class="content-card" id="faq">
+      <h2 class="content-title"><span class="em" aria-hidden="true">❓</span> 자주 묻는 질문</h2>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>고향사랑기부제는 2026년에 무엇이 달라졌나요?</summary>
+          <div class="faq-body"><p>2026년 1월 1일 이후 기부분부터 <b>10만원 초과 20만원 이하 구간의 세액공제율이 15%에서 40%</b>로 올랐습니다. 10만원까지는 기부금의 110분의 100(지방소득세 포함 실질 100%), 10만원 초과 20만원 이하 구간은 40%(지방소득세 포함 44%), 20만원 초과 2,000만원 이하 구간은 15%(지방소득세 포함 16.5%)입니다.</p><p>20만원을 기부하면 세액공제 14만 4,000원에 답례품 6만원(기부액의 30%)을 더해 <b>20만 4,000원의 혜택</b>이 됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>고향사랑기부금 세액공제는 지방소득세까지 포함한 금액인가요?</summary>
+          <div class="faq-body"><p>법 조문의 공제율은 소득세 기준입니다. 10만원 이하 100%, 10만원 초과 20만원 이하 40%, 20만원 초과 15%가 소득세에서 빠지고, 소득세가 줄어든 만큼 지방소득세(소득세의 10%)도 함께 줄어듭니다. 그래서 지방소득세를 포함한 실질 공제율은 각각 <b>100% · 44% · 16.5%</b>가 됩니다. 본 계산기는 지방소득세를 포함한 금액으로 표시합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>고향사랑기부 답례품은 얼마까지 받을 수 있나요?</summary>
+          <div class="faq-body"><p>기부액의 <b>30% 이내</b>입니다(고향사랑 기부금에 관한 법률 시행령 제5조). 10만원이면 3만원, 20만원이면 6만원, 50만원이면 15만원 상당의 지역 특산품을 고를 수 있습니다. 답례품은 현금이 아니라 물품·서비스이므로 실제 체감 가치는 고르는 품목에 따라 달라질 수 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>연금저축과 IRP는 얼마까지 세액공제되나요?</summary>
+          <div class="faq-body"><p>연금저축은 연 <b>600만원</b>, IRP 등과 합산하면 연 <b>900만원</b>까지 세액공제 대상입니다. 총급여 5,500만원 이하(종합소득금액 4,500만원 이하)는 16.5%, 초과하면 13.2%가 적용되며 두 비율 모두 지방소득세를 포함한 수치입니다. 900만원을 채우면 각각 최대 148만 5,000원, 118만 8,000원의 세액공제 효과가 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>신용카드 25% 문턱은 무엇인가요?</summary>
+          <div class="faq-body"><p>신용카드·체크카드·현금영수증 사용액 합계가 총급여의 25%를 넘는 순간부터, 넘는 금액에 대해 소득공제가 시작됩니다. 총급여 5,000만원이면 1,250만원까지는 공제가 0원이고, 그 초과분부터 신용카드 15%, 체크카드·현금영수증 30%, 전통시장·대중교통 40%가 적용됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>체크카드로 바꾸면 얼마나 더 돌려받나요?</summary>
+          <div class="faq-body"><p>25% 문턱을 이미 넘겼다면 체크카드 사용분은 신용카드의 두 배인 30%로 소득공제됩니다. 100만원을 신용카드 대신 체크카드로 쓰면 소득공제가 30만원 늘고, 한계세율 16.5% 구간이면 세금이 약 4만 9,500원 줄어듭니다. 다만 기본 한도(총급여 7,000만원 이하 300만원)를 넘으면 효과가 사라집니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>계산 결과가 실제 환급액과 같나요?</summary>
+          <div class="faq-body"><p>아니요. 본 계산기는 참고용 시뮬레이션이며 <b>실제 결정세액은 홈택스 연말정산 간소화 기준</b>을 따릅니다. 부양가족·의료비·교육비·기부금 등 다른 공제와 이미 낸 세금에 따라 실제 환급액은 달라지고, 세액공제는 결정세액을 한도로 하므로 세금이 적으면 공제를 다 쓰지 못할 수 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>입력한 연봉과 지출 정보가 저장되나요?</summary>
+          <div class="faq-body"><p>아니요. 총급여, 기부금, 연금 납입액, 카드 사용액은 서버로 전송되지 않고 브라우저 메모리에서만 계산됩니다. 회원가입도 없고, 브라우저를 닫으면 입력값은 사라집니다. 방문 통계(GA4)와 광고(AdSense)만 익명으로 동작합니다.</p></div>
+        </details>
+      </div>
+
+      <p class="disclaimer"><b>면책 안내</b> · 본 계산기는 참고용 시뮬레이션이며 실제 결정세액은 홈택스 연말정산 간소화 기준을 따릅니다. 2026년 귀속 세법(조세특례제한법 제58조·제95조의2·제126조의2, 소득세법 제55조·제59조)을 기준으로 작성했으며, 근로소득공제·기본공제·4대보험료(약 9%)·카드 소득공제만 반영한 간이 추정입니다. 부양가족, 의료비·교육비, 사업소득, 중도 인출 계획 등 개인 사정은 반영되지 않습니다.</p>
+      <ul class="source-list">
+        <li>조세특례제한법 제58조(고향사랑 기부금에 대한 세액공제 등) · 제126조의2(신용카드 등 사용금액에 대한 소득공제) · 제95조의2(월세액 세액공제)</li>
+        <li>고향사랑 기부금에 관한 법률 및 같은 법 시행령 제5조(답례품 30%)</li>
+        <li>국세청 연말정산 안내 · 고향사랑e음(ilovegohyang.go.kr) 사업안내</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">🧮</span>
+      <div>
+        <p class="foot-name">연말정산 절세 계산기</p>
+        <p class="foot-desc">고향사랑기부제 · 연금저축·IRP · 카드 25% 문턱을 한 번에</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="바로가기">
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <button class="foot-link" type="button" data-modal="about">서비스 정보</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+    </nav>
+    <p class="foot-copy">© 2026 mydaesu-lab · 계산은 브라우저에서만 이루어지며 입력값을 저장하지 않습니다. 세법은 매년 바뀌므로 실제 신고 전 국세청 안내를 확인하세요.</p>
+  </div>
+</footer>
+
+<!-- 모바일 하단 요약 바 -->
+<div class="sticky-bar" id="stickyBar" role="region" aria-label="예상 환급 요약">
+  <div class="sb-info">
+    <span class="sb-kicker">예상 환급 + 혜택</span>
+    <b id="sbTotal">137만 9,625원</b>
+  </div>
+  <button class="btn" id="sbCopy" type="button">요약 복사</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- 서비스 정보 모달 -->
+<dialog class="modal" id="modalAbout">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2>서비스 정보</h2>
+      <button class="modal-close" type="button" data-close aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>무엇을 계산하나요?</h3>
+      <p>총급여를 기준으로 2026년 귀속 연말정산의 주요 절세 항목을 즉시 계산합니다. ① 고향사랑기부금 세액공제와 답례품 가치, ② 연금저축·IRP 세액공제(16.5% / 13.2%), ③ 신용카드 25% 문턱과 체크카드 전환 효과를 한 화면에서 비교할 수 있습니다.</p>
+      <h3>어떤 기준을 쓰나요?</h3>
+      <ul>
+        <li>고향사랑기부금: 조세특례제한법 제58조, 2026년 1월 1일 이후 기부분(10만원 이하 100/110, 10만~20만원 40%, 20만원 초과 15%, 지방소득세 포함 표시)</li>
+        <li>연금계좌: 연금저축 600만원 · IRP 합산 900만원 한도, 16.5% / 13.2%(지방소득세 포함)</li>
+        <li>카드: 총급여 25% 초과분에 신용 15% · 체크/현금 30%, 기본 한도 300만원(7,000만원 초과 250만원)</li>
+      </ul>
+      <p>결정세액은 근로소득공제·기본공제·4대보험료(약 9%)·카드 소득공제만 반영한 간이 추정이며, 부양가족·의료비·교육비 등 다른 공제는 반영하지 않습니다.</p>
+      <h3>요금과 회원가입</h3>
+      <p>모든 기능을 무료로 쓸 수 있고 회원가입·설치가 필요 없습니다. 운영 비용은 페이지의 광고 영역으로 충당하며, 광고는 계산 기능과 무관합니다.</p>
+      <h3>문의</h3>
+      <p>오류 제보나 개선 요청은 <a href="https://github.com/mydaesu-lab/mydaesu-lab.github.io/issues" target="_blank" rel="noopener">GitHub 저장소 이슈</a>로 남겨 주세요.</p>
+      <p class="modal-note">최종 확인: 2026년 11월 25일 · 세법 개정 시 계산 기준이 달라질 수 있습니다.</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- 개인정보처리방침 모달 -->
+<dialog class="modal" id="modalPrivacy">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2>개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. 입력값은 서버로 보내지 않습니다</h3>
+      <p>총급여, 고향사랑기부금, 연금 납입액, 카드 사용액은 <b>이용자의 브라우저 메모리에서만</b> 계산됩니다. 서버로 전송되거나 저장되지 않으며, 브라우저 탭을 닫으면 사라집니다. 계산 결과를 복사하면 이용자의 클립보드에만 들어갑니다.</p>
+      <h3>2. 방문 통계 (Google Analytics 4)</h3>
+      <p>방문자 수와 유입 경로를 익명으로 확인하기 위해 GA4(<code>G-GFRNHP2GC4</code>)를 사용합니다. 접속 기록·기기·브라우저 정보가 Google에 수집될 수 있으며, 계산기에 입력한 금액은 전송하지 않습니다. 브라우저의 쿠키 차단이나 추적 방지 기능으로 거부할 수 있습니다.</p>
+      <h3>3. 광고 (Google AdSense)</h3>
+      <p>페이지에는 Google AdSense(<code>ca-pub-9437997408751622</code>) 광고가 표시됩니다. Google과 광고 파트너는 쿠키를 사용해 이전 방문 기록에 기반한 광고를 제공할 수 있습니다. 맞춤 광고는 <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google 광고 설정</a>에서 끌 수 있습니다.</p>
+      <h3>4. 수집하지 않는 것</h3>
+      <p>이름·전화번호·주민등록번호·계좌번호 등 개인을 식별할 수 있는 정보는 요구하지도, 수집하지도 않습니다. 로그인이 없으므로 계정 정보도 없습니다.</p>
+      <h3>5. 문의</h3>
+      <p>개인정보 관련 문의는 <a href="https://github.com/mydaesu-lab/mydaesu-lab.github.io/issues" target="_blank" rel="noopener">GitHub 저장소 이슈</a>로 연락해 주세요.</p>
+      <p class="modal-note">시행일: 2026년 11월 25일</p>
+    </div>
+  </div>
+</dialog>
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 기준값 (2026년 귀속)
+     ========================================================= */
+  var AD_SLOT_ID = '';                  // AdSense 광고 단위 ID (비우면 안내용 자리)
+  var PENSION_LOW = 0.165;              // 총급여 5,500만원 이하 (지방소득세 포함)
+  var PENSION_HIGH = 0.132;             // 총급여 5,500만원 초과 (지방소득세 포함)
+  var PENSION_CAP = 9000000;            // 연금저축 600 + IRP 300
+  var HOMETOWN_CAP = 20000000;          // 고향사랑기부 연간 한도
+  var GIFT_RATE = 0.30;                 // 답례품 상한
+  var CARD_RATE = 0.25;                 // 카드 소득공제 문턱
+
+  function $(id) { return document.getElementById(id); }
+
+  /* ---------- 숫자 표기 ---------- */
+  function won(n) {
+    n = Math.round(n || 0);
+    return n.toLocaleString('ko-KR') + '원';
+  }
+  function man(n) {
+    n = Math.round(n || 0);
+    var sign = n < 0 ? '-' : '';
+    n = Math.abs(n);
+    var m = Math.floor(n / 10000), r = n % 10000;
+    if (m === 0) return sign + won(r);
+    return sign + m.toLocaleString('ko-KR') + '만' + (r ? ' ' + r.toLocaleString('ko-KR') + '원' : '원');
+  }
+  function manUnit(n) { return Math.round((n || 0) / 10000).toLocaleString('ko-KR') + '만원'; }
+  function pct(v, digits) { return (v * 100).toFixed(digits == null ? 0 : digits) + '%'; }
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+
+  /* =========================================================
+     1. 세금 계산 (간이 추정)
+     ========================================================= */
+  function laborDeduction(g) {
+    var d;
+    if (g <= 5000000) d = g * 0.7;
+    else if (g <= 15000000) d = 3500000 + (g - 5000000) * 0.4;
+    else if (g <= 45000000) d = 7500000 + (g - 15000000) * 0.15;
+    else if (g <= 100000000) d = 12000000 + (g - 45000000) * 0.05;
+    else d = 14750000 + (g - 100000000) * 0.02;
+    return Math.min(d, 20000000);
+  }
+
+  function progressiveTax(base) {
+    if (base <= 0) return 0;
+    var b = [
+      [14000000, 0.06, 0],
+      [50000000, 0.15, 840000],
+      [88000000, 0.24, 6240000],
+      [150000000, 0.35, 15360000],
+      [300000000, 0.38, 37060000],
+      [500000000, 0.40, 94060000],
+      [Infinity, 0.42, 174060000]
+    ];
+    for (var i = 0; i < b.length; i++) {
+      if (base <= b[i][0]) {
+        var lower = i === 0 ? 0 : b[i - 1][0];
+        return b[i][2] + (base - lower) * b[i][1];
+      }
+    }
+    return 0;
+  }
+
+  function bracketRate(base) {
+    if (base <= 14000000) return 0.06;
+    if (base <= 50000000) return 0.15;
+    if (base <= 88000000) return 0.24;
+    if (base <= 150000000) return 0.35;
+    if (base <= 300000000) return 0.38;
+    if (base <= 500000000) return 0.40;
+    return 0.42;
+  }
+
+  // 부양가족·의료비 등을 뺀 간이 결정세액 (지방소득세 포함)
+  function estimateTax(gross, cardDeduction) {
+    var taxable = Math.max(0, gross - laborDeduction(gross) - 1500000 - gross * 0.094 - (cardDeduction || 0));
+    var incomeTax = progressiveTax(taxable);
+    var cap = gross <= 33000000 ? 740000 : (gross <= 70000000 ? 660000 : (gross <= 120000000 ? 500000 : 200000));
+    var laborCredit = Math.min(incomeTax * (gross <= 33000000 ? 0.55 : 0.30), cap);
+    var decided = Math.max(0, incomeTax - laborCredit);
+    return {
+      taxable: taxable,
+      incomeTax: incomeTax,
+      laborCredit: laborCredit,
+      decided: decided,
+      decidedLocal: decided * 1.1
+    };
+  }
+
+  /* ---------- 고향사랑기부금 ---------- */
+  function calcHometown(donation) {
+    var d = clamp(donation || 0, 0, HOMETOWN_CAP);
+    var incomeTax;
+    if (d <= 100000) {
+      incomeTax = d * 100 / 110;
+    } else if (d <= 200000) {
+      incomeTax = 100000 * 100 / 110 + (d - 100000) * 0.40;
+    } else {
+      incomeTax = 100000 * 100 / 110 + 100000 * 0.40 + (d - 200000) * 0.15;
+    }
+    var credit = incomeTax * 1.1;          // 지방소득세 포함
+    var gift = d * GIFT_RATE;              // 답례품 30%
+    return {
+      donation: d,
+      incomeTax: incomeTax,
+      credit: credit,
+      gift: gift,
+      net: credit + gift - d,
+      rate: d > 0 ? credit / d : 0
+    };
+  }
+
+  /* ---------- 연금저축 · IRP ---------- */
+  function calcPension(gross, paid) {
+    var rate = gross <= 55000000 ? PENSION_LOW : PENSION_HIGH;
+    var applied = Math.min(clamp(paid || 0, 0, 18000000), PENSION_CAP);
+    return {
+      rate: rate,
+      paid: clamp(paid || 0, 0, 18000000),
+      applied: applied,
+      credit: applied * rate,
+      left: Math.max(0, PENSION_CAP - applied),
+      over: Math.max(0, (paid || 0) - PENSION_CAP)
+    };
+  }
+
+  /* ---------- 신용카드 등 소득공제 ---------- */
+  function calcCard(gross, creditUse, checkUse) {
+    var credit = Math.max(0, creditUse || 0);
+    var check = Math.max(0, checkUse || 0);
+    var total = credit + check;
+    var minUse = gross * CARD_RATE;
+    var excess = Math.max(0, total - minUse);
+    var raw;
+    if (excess <= credit) raw = excess * 0.15;
+    else raw = credit * 0.15 + (excess - credit) * 0.30;
+    var baseLimit = gross <= 70000000 ? 3000000 : 2500000;
+    var deduction = Math.min(raw, baseLimit);
+    return {
+      credit: credit,
+      check: check,
+      total: total,
+      minUse: minUse,
+      excess: excess,
+      raw: raw,
+      deduction: deduction,
+      baseLimit: baseLimit,
+      limitLeft: Math.max(0, baseLimit - deduction),
+      reached: total > 0 && total >= minUse,
+      need: Math.max(0, minUse - total)
+    };
+  }
+
+  /* ---------- 종합 ---------- */
+  function calcAll(s) {
+    var gross = s.gross;
+    var ht = calcHometown(s.hometown);
+    var pen = calcPension(gross, s.pension);
+    var card = calcCard(gross, s.credit, s.check);
+    var tax = estimateTax(gross, card.deduction);
+    var marginal = bracketRate(tax.taxable) * 1.1;
+    var cardSaving = card.deduction * marginal;
+
+    var cardAfter = calcCard(gross, s.credit, s.check + s.extra);
+    var extraDeduction = Math.max(0, cardAfter.deduction - card.deduction);
+    var extraSaving = extraDeduction * marginal;
+
+    var creditWanted = ht.credit + pen.credit;
+    var available = tax.decidedLocal;
+    var creditApplied = Math.min(creditWanted, available);
+    var ratio = creditWanted > 0 ? creditApplied / creditWanted : 1;
+    var capped = creditWanted > available + 1;
+
+    var htApplied = ht.credit * ratio;
+    var penApplied = pen.credit * ratio;
+    var total = creditApplied + cardSaving + ht.gift + extraSaving;
+
+    return {
+      gross: gross,
+      hometown: ht,
+      pension: pen,
+      card: card,
+      cardAfter: cardAfter,
+      extraDeduction: extraDeduction,
+      extraSaving: extraSaving,
+      tax: tax,
+      marginal: marginal,
+      cardSaving: cardSaving,
+      creditWanted: creditWanted,
+      creditApplied: creditApplied,
+      htApplied: htApplied,
+      penApplied: penApplied,
+      capped: capped,
+      total: total
+    };
+  }
+
+  /* =========================================================
+     2. 상태와 화면
+     ========================================================= */
+  var S = {
+    gross: 50000000,
+    hometown: 200000,
+    pension: 6000000,
+    credit: 15000000,
+    check: 5000000,
+    extra: 1000000
+  };
+
+  var el = {
+    grossInput: $('grossInput'), grossRange: $('grossRange'), grossHint: $('grossHint'), ratePill: $('ratePill'),
+    hometownInput: $('hometownInput'), hometownRange: $('hometownRange'), hometownHint: $('hometownHint'),
+    hometownCredit: $('hometownCredit'), hometownCreditRate: $('hometownCreditRate'),
+    hometownGift: $('hometownGift'), hometownNet: $('hometownNet'), hometownNetRate: $('hometownNetRate'),
+    hometownNote: $('hometownNote'), tier1: $('tier1'), tier2: $('tier2'), tier3: $('tier3'),
+    pensionInput: $('pensionInput'), pensionRange: $('pensionRange'),
+    pensionRatePill: $('pensionRatePill'), pensionCredit: $('pensionCredit'), pensionCreditNote: $('pensionCreditNote'),
+    pensionRateText: $('pensionRateText'), pensionRateNote: $('pensionRateNote'),
+    pensionLeft: $('pensionLeft'), pensionNote: $('pensionNote'),
+    creditInput: $('creditInput'), checkInput: $('checkInput'), extraRange: $('extraRange'), extraOut: $('extraOut'),
+    extraEffect: $('extraEffect'), extraSaving: $('extraSaving'),
+    cardStatusPill: $('cardStatusPill'), cardMeterLabel: $('cardMeterLabel'), cardMeterFill: $('cardMeterFill'),
+    cardMeterLeft: $('cardMeterLeft'), cardMeterRight: $('cardMeterRight'),
+    cardDeduction: $('cardDeduction'), cardDeductionNote: $('cardDeductionNote'),
+    cardSaving: $('cardSaving'), cardSavingNote: $('cardSavingNote'),
+    cardLimitLeft: $('cardLimitLeft'), cardNote: $('cardNote'),
+    totalBig: $('totalBig'), totalSub: $('totalSub'), bar1: $('bar1'), bar2: $('bar2'), bar3: $('bar3'),
+    rowHometown: $('rowHometown'), rowHometownSub: $('rowHometownSub'),
+    rowPension: $('rowPension'), rowPensionSub: $('rowPensionSub'),
+    rowCard: $('rowCard'), rowCardSub: $('rowCardSub'),
+    rowExtra: $('rowExtra'), rowExtraSub: $('rowExtraSub'), rowExtraAmount: $('rowExtraAmount'), bar4: $('bar4'),
+    resNote: $('resNote'), copyBtn: $('copyBtn'), sbTotal: $('sbTotal'), sbCopy: $('sbCopy'),
+    toast: $('toast'), adSlot: $('adSlot'), adToggle: $('adToggle')
+  };
+
+  var toastTimer = null;
+  function toast(msg) {
+    el.toast.textContent = msg;
+    el.toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.toast.classList.remove('is-on'); }, 3000);
+  }
+
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계 실패는 기능에 영향 없음 */ }
+  }
+
+  function syncGross() {
+    el.grossInput.value = (S.gross / 10000).toLocaleString('ko-KR');
+    el.grossRange.value = Math.min(20000, S.gross / 10000);
+  }
+  function syncHometown() {
+    el.hometownInput.value = (S.hometown / 10000).toLocaleString('ko-KR');
+    el.hometownRange.value = S.hometown / 10000;
+  }
+  function syncPension() {
+    el.pensionInput.value = (S.pension / 10000).toLocaleString('ko-KR');
+    el.pensionRange.value = S.pension / 10000;
+  }
+  function syncCard() {
+    el.creditInput.value = (S.credit / 10000).toLocaleString('ko-KR');
+    el.checkInput.value = (S.check / 10000).toLocaleString('ko-KR');
+    el.extraRange.value = S.extra / 10000;
+  }
+
+  function markChips(attr, value) {
+    var btns = document.querySelectorAll('[data-' + attr + ']');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('is-active', Number(btns[i].getAttribute('data-' + attr)) === value);
+    }
+  }
+
+  function render() {
+    var r = calcAll(S);
+
+    /* --- 총급여 --- */
+    var low = r.gross <= 55000000;
+    el.ratePill.textContent = (low ? '16.5%' : '13.2%') + ' 구간';
+    el.grossHint.innerHTML = low
+      ? '비과세를 뺀 총급여 기준 · <b>5,500만원 이하</b>라 공제율 16.5%'
+      : '비과세를 뺀 총급여 기준 · <b>5,500만원 초과</b>라 공제율 13.2%';
+
+    /* --- 고향사랑기부 --- */
+    var ht = r.hometown;
+    el.hometownCredit.textContent = man(ht.credit);
+    el.hometownCreditRate.textContent = ht.donation > 0 ? ('평균 ' + Math.round(ht.rate * 100) + '% · 지방세 포함') : '기부 금액 0원';
+    el.hometownGift.textContent = man(ht.gift);
+    el.hometownNet.textContent = (ht.net > 0 ? '+' : '') + man(ht.net);
+    el.hometownNet.classList.toggle('good', ht.net >= 0);
+    el.hometownNet.classList.toggle('gold', ht.net < 0);
+    el.hometownNetRate.textContent = ht.donation > 0 ? '기부 대비 ' + Math.round(ht.net / ht.donation * 100) + '%' : '기부 대비';
+
+    if (ht.donation === 0) {
+      el.hometownHint.innerHTML = '기부 금액을 올리면 <b>세액공제 + 답례품</b>이 바로 계산됩니다';
+      el.hometownNote.innerHTML = '기부 금액을 올려 보세요. <b>20만원</b>까지가 가장 이득인 구간입니다.';
+    } else if (ht.donation <= 100000) {
+      el.hometownHint.innerHTML = manUnit(ht.donation) + ' = <b>10만원 이하 100%</b> 구간';
+      el.hometownNote.innerHTML = '10만원까지는 낸 만큼 돌아옵니다. 20만원까지 채우면 추가 10만원에 <b>40%(지방세 포함 44%)</b>가 붙어요.';
+    } else if (ht.donation <= 200000) {
+      el.hometownHint.innerHTML = manUnit(ht.donation) + ' = <b>10만원 100% + 나머지 40%</b> 구간';
+      el.hometownNote.innerHTML = '20만원 기부 시 세액공제 <b>' + man(calcHometown(200000).credit) + '</b> + 답례품 <b>' + man(calcHometown(200000).gift) + '</b> = 실질 이득 <b>' + man(calcHometown(200000).net) + '</b>.';
+    } else {
+      el.hometownHint.innerHTML = manUnit(ht.donation) + ' = 20만원 초과분은 <b>16.5%</b> 구간';
+      el.hometownNote.innerHTML = '20만원을 넘는 금액은 <b>지방세 포함 16.5%</b>만 돌아옵니다. 다른 지역에 20만원씩 나눠 기부하는 편이 유리해요.';
+    }
+    var t = ht.donation;
+    el.tier1.classList.toggle('active', t > 0 && t <= 100000);
+    el.tier2.classList.toggle('active', t > 100000 && t <= 200000);
+    el.tier3.classList.toggle('active', t > 200000);
+
+    /* --- 연금저축 · IRP --- */
+    var pen = r.pension;
+    el.pensionRatePill.textContent = pct(pen.rate, 1) + ' 적용';
+    el.pensionCredit.textContent = man(pen.credit);
+    el.pensionCreditNote.textContent = pen.applied < pen.paid ? ('한도 900만원까지만 반영') : '지방소득세 포함';
+    el.pensionRateText.textContent = pct(pen.rate, 1);
+    el.pensionRateNote.textContent = low ? '총급여 5,500만 이하' : '총급여 5,500만 초과';
+    el.pensionLeft.textContent = pen.left > 0 ? manUnit(pen.left) : '한도 소진';
+    if (pen.paid === 0) {
+      el.pensionNote.innerHTML = '한 푼도 넣지 않으면 공제는 0원입니다. <b>12월 31일까지 입금</b>한 금액만 2026년 귀속으로 인정돼요.';
+    } else if (pen.paid > PENSION_CAP) {
+      el.pensionNote.innerHTML = '세액공제는 <b>900만원까지만</b> 인정됩니다. 초과 납입분은 다음 해로 넘기려면 금융사에 신청해야 해요.';
+    } else if (pen.applied < pen.paid) {
+      el.pensionNote.innerHTML = '900만원을 넘는 금액은 공제되지 않습니다. 초과분은 이월 신청을 확인하세요.';
+    } else {
+      el.pensionNote.innerHTML = '연금저축만 넣으면 <b>600만원</b>까지, IRP를 더하면 <b>900만원</b>까지 공제됩니다. 12월 31일까지 실제 입금된 금액만 인정돼요.';
+    }
+
+    /* --- 카드 --- */
+    var card = r.card;
+    el.cardStatusPill.textContent = card.reached ? '문턱 통과' : '문턱 미달';
+    el.cardStatusPill.classList.toggle('good', card.reached);
+    el.cardStatusPill.classList.toggle('gold', !card.reached);
+    var ratio = card.minUse > 0 ? card.total / card.minUse : 0;
+    el.cardMeterFill.style.width = Math.min(100, ratio * 100).toFixed(1) + '%';
+    el.cardMeterFill.classList.toggle('good', card.reached);
+    el.cardMeterLabel.textContent = manUnit(card.total) + ' / ' + manUnit(card.minUse);
+    el.cardMeterLeft.textContent = card.reached
+      ? ('문턱 ' + manUnit(card.excess) + ' 초과')
+      : ('문턱까지 ' + manUnit(card.need) + ' 남음');
+    el.cardMeterRight.textContent = card.reached ? '공제율 신용 15% · 체크 30%' : '아직 공제 0원';
+
+    el.cardDeduction.textContent = man(card.deduction);
+    el.cardDeductionNote.textContent = '한도 ' + manUnit(card.baseLimit);
+    el.cardSaving.textContent = man(r.cardSaving);
+    el.cardSavingNote.textContent = '한계세율 ' + pct(r.marginal, 1);
+    el.cardLimitLeft.textContent = card.limitLeft > 0 ? man(card.limitLeft) : '한도 소진';
+
+    if (!card.reached) {
+      el.cardNote.innerHTML = '아직 <b>총급여의 25%</b> 문턱을 넘지 못해 공제가 0원입니다. 남은 ' + manUnit(card.need) + '을 먼저 채우면 그때부터 공제가 시작돼요.';
+    } else if (card.limitLeft <= 0) {
+      el.cardNote.innerHTML = '기본 한도 <b>' + manUnit(card.baseLimit) + '</b>를 모두 채웠습니다. 전통시장·대중교통 사용분은 별도 한도로 추가 공제됩니다.';
+    } else if (card.credit > card.excess) {
+      el.cardNote.innerHTML = '지금은 신용카드 사용액(' + manUnit(card.credit) + ')이 25% 초과분(' + manUnit(card.excess) + ')보다 커서, 추가 사용분에는 <b>15%</b>가 적용됩니다. 신용카드 사용액을 문턱(' + manUnit(card.minUse) + ') 이하로 낮추면 초과분 전액이 <b>30%</b>로 올라가요.';
+    } else {
+      el.cardNote.innerHTML = '초과분이 신용카드 사용액을 넘어 추가 사용분에 <b>30%</b>가 적용됩니다. 남은 한도는 ' + manUnit(card.limitLeft) + '이에요.';
+    }
+
+    var extra = S.extra;
+    el.extraOut.textContent = extra > 0 ? '+' + manUnit(extra) : '추가 없음';
+    if (extra <= 0) {
+      el.extraEffect.textContent = '추가 사용 없음';
+      el.extraSaving.textContent = '절세 0원';
+    } else if (r.extraDeduction <= 0) {
+      el.extraEffect.textContent = '한도 소진 · 추가 공제 없음';
+      el.extraSaving.textContent = '절세 0원';
+    } else if (!card.reached && card.need > extra) {
+      el.extraEffect.textContent = '문턱까지 ' + manUnit(card.need - extra) + ' 남음';
+      el.extraSaving.textContent = '아직 공제 0원';
+    } else {
+      el.extraEffect.textContent = '소득공제 +' + man(r.extraDeduction) + ' (' + pct(r.extraDeduction / extra, 0) + ')';
+      el.extraSaving.textContent = '절세 +' + man(r.extraSaving);
+    }
+
+    /* --- 결과 --- */
+    el.totalBig.textContent = man(r.total);
+    el.sbTotal.textContent = man(r.total);
+    el.totalSub.textContent = '세액공제 ' + man(r.creditApplied) + ' + 카드 절세 ' + man(r.cardSaving + r.extraSaving) + ' + 답례품 ' + man(ht.gift);
+
+    var sum = r.total > 0 ? r.total : 1;
+    el.bar1.style.width = (ht.gift / sum * 100).toFixed(1) + '%';
+    el.bar2.style.width = (r.creditApplied / sum * 100).toFixed(1) + '%';
+    el.bar3.style.width = (r.cardSaving / sum * 100).toFixed(1) + '%';
+    el.bar4.style.width = (r.extraSaving / sum * 100).toFixed(1) + '%';
+
+    el.rowHometown.textContent = man(r.htApplied + ht.gift);
+    el.rowHometownSub.textContent = '세액공제 ' + man(r.htApplied) + ' + 답례품 ' + man(ht.gift) + (ht.net > 0 ? ' · 실질 이득 +' + man(ht.net) : '');
+    el.rowPension.textContent = man(r.penApplied);
+    el.rowPensionSub.textContent = (pen.applied > 0 ? manUnit(pen.applied) + ' × ' + pct(pen.rate, 1) : '납입 없음');
+    el.rowCard.textContent = man(r.cardSaving);
+    el.rowCardSub.textContent = '소득공제 ' + man(card.deduction) + ' × ' + pct(r.marginal, 1);
+    var showExtra = S.extra > 0 && r.extraDeduction > 0;
+    el.rowExtra.classList.toggle('is-hidden', !showExtra);
+    if (showExtra) {
+      el.rowExtraAmount.textContent = man(r.extraSaving);
+      el.rowExtraSub.textContent = manUnit(S.extra) + ' 추가 → 소득공제 +' + man(r.extraDeduction) + ' × ' + pct(r.marginal, 1);
+    }
+
+    if (r.capped) {
+      el.resNote.innerHTML = '세액공제 합계가 추정 결정세액(<b>' + man(r.tax.decidedLocal) + '</b>)을 넘어 한도까지만 반영했습니다. 실제 한도는 부양가족·의료비 등 다른 공제에 따라 달라집니다.';
+      el.resNote.style.color = '#ffd9a8';
+    } else {
+      el.resNote.innerHTML = '세액공제는 <b>결정세액 한도</b> 안에서만 돌려받습니다. 연금 납입액은 돌려받는 돈이 아니라 노후 자산으로 남는 돈이에요.';
+      el.resNote.style.color = '';
+    }
+  }
+
+  /* =========================================================
+     3. 입력 이벤트
+     ========================================================= */
+  function readNum(input, min, max) {
+    var raw = String(input.value).replace(/[^0-9]/g, '');
+    if (!raw) return null;
+    return clamp(parseInt(raw, 10), min, max);
+  }
+
+  el.grossInput.addEventListener('input', function () {
+    var v = readNum(el.grossInput, 1200, 30000);
+    if (v === null) return;
+    S.gross = v * 10000;
+    el.grossRange.value = Math.min(20000, v);
+    render();
+  });
+  el.grossInput.addEventListener('blur', function () {
+    var v = readNum(el.grossInput, 1200, 30000);
+    S.gross = (v === null ? 5000 : v) * 10000;
+    syncGross(); render();
+  });
+  el.grossRange.addEventListener('input', function () {
+    S.gross = Number(el.grossRange.value) * 10000;
+    syncGross(); markChips('gross', S.gross / 10000); render();
+  });
+
+  el.hometownInput.addEventListener('input', function () {
+    var v = readNum(el.hometownInput, 0, 2000);
+    if (v === null) return;
+    S.hometown = v * 10000;
+    el.hometownRange.value = v;
+    render();
+  });
+  el.hometownInput.addEventListener('blur', function () {
+    var v = readNum(el.hometownInput, 0, 2000);
+    S.hometown = (v === null ? 0 : v) * 10000;
+    syncHometown(); markChips('hometown', S.hometown / 10000); render();
+  });
+  el.hometownRange.addEventListener('input', function () {
+    S.hometown = Number(el.hometownRange.value) * 10000;
+    syncHometown(); markChips('hometown', S.hometown / 10000); render();
+  });
+
+  el.pensionInput.addEventListener('input', function () {
+    var v = readNum(el.pensionInput, 0, 1800);
+    if (v === null) return;
+    S.pension = v * 10000;
+    el.pensionRange.value = Math.min(900, v);
+    render();
+  });
+  el.pensionInput.addEventListener('blur', function () {
+    var v = readNum(el.pensionInput, 0, 1800);
+    S.pension = (v === null ? 0 : v) * 10000;
+    syncPension(); markChips('pension', S.pension / 10000); render();
+  });
+  el.pensionRange.addEventListener('input', function () {
+    S.pension = Number(el.pensionRange.value) * 10000;
+    syncPension(); markChips('pension', S.pension / 10000); render();
+  });
+
+  el.creditInput.addEventListener('input', function () {
+    var v = readNum(el.creditInput, 0, 50000);
+    if (v === null) return;
+    S.credit = v * 10000; render();
+  });
+  el.creditInput.addEventListener('blur', function () {
+    var v = readNum(el.creditInput, 0, 50000);
+    S.credit = (v === null ? 0 : v) * 10000; syncCard(); render();
+  });
+  el.checkInput.addEventListener('input', function () {
+    var v = readNum(el.checkInput, 0, 50000);
+    if (v === null) return;
+    S.check = v * 10000; render();
+  });
+  el.checkInput.addEventListener('blur', function () {
+    var v = readNum(el.checkInput, 0, 50000);
+    S.check = (v === null ? 0 : v) * 10000; syncCard(); render();
+  });
+  el.extraRange.addEventListener('input', function () {
+    S.extra = Number(el.extraRange.value) * 10000; render();
+  });
+
+  /* ---------- 프리셋 ---------- */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-gross], button[data-hometown], button[data-pension]');
+    if (!b) return;
+    if (b.hasAttribute('data-gross')) {
+      S.gross = Number(b.getAttribute('data-gross')) * 10000;
+      syncGross(); markChips('gross', S.gross / 10000);
+      track('calc_tax_preset', { target: 'gross', value: S.gross / 10000 });
+    } else if (b.hasAttribute('data-hometown')) {
+      S.hometown = Number(b.getAttribute('data-hometown')) * 10000;
+      syncHometown(); markChips('hometown', S.hometown / 10000);
+      track('calc_tax_preset', { target: 'hometown', value: S.hometown / 10000 });
+    } else if (b.hasAttribute('data-pension')) {
+      S.pension = Number(b.getAttribute('data-pension')) * 10000;
+      syncPension(); markChips('pension', S.pension / 10000);
+      track('calc_tax_preset', { target: 'pension', value: S.pension / 10000 });
+    }
+    render();
+  });
+
+  /* =========================================================
+     4. 요약 복사
+     ========================================================= */
+  function summaryText() {
+    var r = calcAll(S);
+    var ht = r.hometown, pen = r.pension, card = r.card;
+    var lines = [];
+    lines.push('🧮 2026 연말정산 절세 요약');
+    lines.push('총급여 ' + manUnit(r.gross) + ' · 연금계좌 공제율 ' + pct(pen.rate, 1) + (pen.rate === PENSION_LOW ? ' (5,500만원 이하)' : ' (5,500만원 초과)'));
+    lines.push('');
+    if (ht.donation > 0) {
+      lines.push('· 고향사랑기부 ' + manUnit(ht.donation) + ' → 세액공제 ' + man(r.htApplied) + ' + 답례품 ' + man(ht.gift) + (ht.net >= 0 ? ' (실질 이득 +' + man(ht.net) + ')' : ' (실질 부담 ' + man(-ht.net) + ')'));
+    } else {
+      lines.push('· 고향사랑기부 0원 → 세액공제 0원');
+    }
+    lines.push('· 연금저축·IRP ' + manUnit(pen.applied) + ' → 세액공제 ' + man(r.penApplied));
+    lines.push('· 카드 사용 ' + manUnit(card.total) + ' (신용 ' + manUnit(card.credit) + ' / 체크·현금 ' + manUnit(card.check) + ') → 소득공제 ' + man(card.deduction) + ', 절세 약 ' + man(r.cardSaving));
+    if (S.extra > 0) {
+      lines.push('· 12월 추가 체크카드 ' + manUnit(S.extra) + ' → 소득공제 +' + man(r.extraDeduction) + ', 절세 +' + man(r.extraSaving));
+    }
+    lines.push('');
+    lines.push('12월 말까지 챙길 예상 환급 + 혜택: ' + man(r.total));
+    if (r.capped) lines.push('(세액공제는 추정 결정세액 ' + man(r.tax.decidedLocal) + ' 한도까지만 반영)');
+    lines.push('https://mydaesu-lab.github.io/tax-calc/');
+    return lines.join('\n');
+  }
+
+  function copySummary() {
+    var text = summaryText();
+    function done() {
+      toast('절세 요약을 복사했어요. 카톡·메모에 붙여 넣어 보세요.');
+      track('copy_tax_summary', { total: Math.round(calcAll(S).total), gross: S.gross });
+    }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) done();
+      else toast('복사가 차단되었습니다. 화면의 숫자를 직접 확인해 주세요.');
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+  }
+  el.copyBtn.addEventListener('click', copySummary);
+  el.sbCopy.addEventListener('click', copySummary);
+
+  /* =========================================================
+     5. 광고 · 모달
+     ========================================================= */
+  (function initAd() {
+    if (AD_SLOT_ID) {
+      el.adSlot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    }
+    var hidden = false;
+    el.adToggle.addEventListener('click', function () {
+      hidden = !hidden;
+      el.adSlot.classList.toggle('is-hidden', hidden);
+      el.adToggle.textContent = hidden ? '다시 보기' : '숨기기';
+    });
+  })();
+
+  var MODALS = { about: $('modalAbout'), privacy: $('modalPrivacy') };
+  function openModal(name) {
+    var d = MODALS[name];
+    if (!d) return;
+    if (typeof d.showModal === 'function') d.showModal();
+    else d.setAttribute('open', '');
+    track('open_modal', { modal: name });
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-modal]');
+    if (t) { e.preventDefault(); openModal(t.getAttribute('data-modal')); return; }
+    var c = e.target.closest('[data-close]');
+    if (c) {
+      var d = c.closest('dialog');
+      if (d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    }
+  });
+  Object.keys(MODALS).forEach(function (k) {
+    var d = MODALS[k];
+    d.addEventListener('click', function (e) {
+      if (e.target === d) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); }
+    });
+  });
+
+  /* =========================================================
+     6. 초기화 · 테스트용 API
+     ========================================================= */
+  syncGross(); syncHometown(); syncPension(); syncCard();
+  markChips('gross', S.gross / 10000);
+  markChips('hometown', S.hometown / 10000);
+  markChips('pension', S.pension / 10000);
+  markChips('hometown', S.hometown / 10000);
+  render();
+
+  window.__taxCalc = {
+    state: S,
+    calc: calcAll,
+    hometown: calcHometown,
+    pension: calcPension,
+    card: calcCard,
+    tax: estimateTax,
+    summary: summaryText,
+    set: function (patch) {
+      Object.keys(patch).forEach(function (k) { S[k] = patch[k]; });
+      syncGross(); syncHometown(); syncPension(); syncCard(); render();
+    },
+    render: render
+  };
+})();
+</script>
+</body>
+</html>
