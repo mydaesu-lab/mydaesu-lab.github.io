@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>스마트스토어·배달앱 마진 계산기 | 수수료·부가세·순수익 계산 · 제로박스</title>
+<meta name="description" content="스마트스토어·쿠팡과 배민·쿠팡이츠·요기요 수수료, 택배비·배달비, 광고비, 부가세까지 넣으면 1건 판매 순수익과 마진율이 바로 나옵니다. 손익분기 ROAS와 목표 마진율에 맞는 권장 판매가 역산, 하루 주문 건수 기준 월 예상 순수익까지 한 화면에서. 입력한 판매가·원가 정보는 서버에 저장되지 않습니다.">
+<meta name="keywords" content="마진 계산기, 마진율 계산기, 스마트스토어 마진 계산기, 스마트스토어 수수료, 스마트스토어 판매수수료, Npay 수수료, 쿠팡 수수료, 쿠팡 판매수수료, 로켓그로스 수수료, 배달앱 수수료, 배민 수수료, 배민 중개이용료, 쿠팡이츠 수수료, 요기요 수수료, 배달앱 마진, 음식점 마진, 순수익 계산, 부가세 계산, 일반과세자 부가세, 간이과세자 부가세, 손익분기 ROAS, ROAS 계산, 원가율, 권장 판매가, 무료배송 마진, 제로박스">
+<meta name="author" content="제로박스 (ZeroBox)">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제로박스 (ZeroBox)">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="스마트스토어·배달앱 마진 계산기 | 수수료·부가세·순수익">
+<meta property="og:description" content="수수료·택배비·배달비·광고비·부가세를 넣으면 1건 판매 순수익과 마진율, 손익분기 ROAS, 목표 마진율 권장 판매가까지 바로 계산합니다.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/margin-calc/preview.png">
+<meta property="og:image:alt" content="스마트스토어·배달앱 마진 계산기 화면 — 1건 판매 순수익과 마진율을 보여 주는 요약 카드">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/margin-calc/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="스마트스토어·배달앱 마진 계산기 | 제로박스">
+<meta name="twitter:description" content="수수료·배달비·광고비·부가세까지 넣은 1건 순수익과 마진율, 손익분기 ROAS, 권장 판매가 역산까지 무료로.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/margin-calc/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/margin-calc/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "스마트스토어·배달앱 마진 계산기",
+      "alternateName": "제로박스 마진 계산기 · 마진율 계산기 · 배달앱 수수료 계산기",
+      "url": "https://mydaesu-lab.github.io/margin-calc/",
+      "image": "https://mydaesu-lab.github.io/margin-calc/preview.png",
+      "description": "스마트스토어·쿠팡·로켓그로스와 배민·쿠팡이츠·요기요의 수수료, 택배비·배달비, 광고비, 부가세를 반영해 1건 판매 순수익과 마진율·원가율을 계산하는 무료 도구. 손익분기 ROAS와 목표 마진율에 맞는 권장 판매가 역산, 하루 주문 건수 기준 월 예상 순수익까지 계산합니다. 모든 계산은 브라우저 안에서만 이루어집니다.",
+      "applicationCategory": "FinanceApplication",
+      "applicationSubCategory": "마진율 · 수수료 · 부가세 · 순수익 계산",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": { "@type": "Organization", "name": "제로박스 (ZeroBox)", "url": "https://mydaesu-lab.github.io/" },
+      "featureList": [
+        "쇼핑몰·스마트스토어 탭과 배달앱 탭 2가지 계산기",
+        "스마트스토어·쿠팡 일반·쿠팡 로켓그로스·직접 입력 채널 프리셋",
+        "배민·쿠팡이츠·요기요·직접 입력 프리셋",
+        "판매가·배송비·매입 원가·택배비·마켓 수수료·광고비 입력",
+        "일반과세자·간이과세자·면세 부가세 유형별 순수익 계산",
+        "1건 판매 순수익과 마진율·원가율 표시",
+        "손익분기 ROAS와 현재 ROAS 계산",
+        "목표 마진율에 맞는 권장 판매가 역산",
+        "하루 예상 주문 건수 기준 월 예상 순수익 계산",
+        "요약 문구 1클릭 복사, 샘플로 체험하기"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "마진율은 어떻게 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이 계산기의 마진율은 순수익 ÷ 총매출 × 100입니다. 총매출은 고객이 낸 돈(판매가 + 고객 부담 배송비)이고, 순수익은 총매출에서 매입 원가·택배비·포장비·마켓 수수료·광고비와 납부할 부가세를 모두 뺀 금액입니다. 수수료와 광고비를 넣지 않은 단순 마진(판매가 대비 원가)과는 값이 다르니, 실제로 남는 돈을 보려면 이 계산기처럼 비용을 모두 넣어야 합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "부가세는 순수익에 어떻게 반영되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "일반과세자를 선택하면 매출세액(매출 × 10/110)에서 매입세액(원가·택배비·수수료·광고비 × 10/110)을 뺀 차액을 납부 부가세로 계산합니다. 수수료와 택배비에 붙은 부가세는 매입세액으로 돌려받는 것을 전제로 하므로 실질 비용이 부가세만큼 줄어듭니다. 간이과세자는 매입세액 공제가 없어 매출의 1.5%를 부가세로 내는 것으로 계산하고, 면세는 부가세가 없으며 매입 부가세가 그대로 비용으로 남습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "손익분기 ROAS는 무엇인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "광고비를 더 써도 손해가 되지 않는 마지막 선을 ROAS로 표시한 값입니다. 손익분기 ROAS = 총매출 ÷ (현재 광고비 + 현재 순수익) × 100으로 계산하며, 실제 ROAS가 이 값보다 낮으면 광고로 번 매출이 오히려 손해라는 뜻입니다. 예를 들어 총매출 3만 원, 광고비 3천 원, 순수익 1만 원이면 손익분기 광고비는 1만 3천 원이고 손익분기 ROAS는 231%입니다. 현재 ROAS가 1,000%라면 아직 여유가 있는 것입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "스마트스토어 수수료 기본값 5.6%는 어디서 나온 값인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "스마트스토어는 판매수수료와 네이버페이 주문관리수수료(Npay 수수료)가 함께 붙습니다. 2025년 6월 개편 이후 판매수수료는 일반 유입 3%(부가세 포함), 판매자 마케팅 링크 유입 1%이고, Npay 수수료는 연 매출 등급에 따라 1.947%(영세)~3.630%(일반)입니다. 중소1 등급 기준 3% + 2.563% = 5.6%를 기본값으로 넣었습니다. 영세는 약 4.9%, 일반 등급은 약 6.6%이니 내 등급에 맞게 바꿔 주세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "배달앱 중개이수료 기본값 7.5%는 무슨 뜻인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "배민·쿠팡이츠의 중개이용료는 2026년 상생요금제 기준 매출 구간에 따라 2.0~7.8%이고 부가세 별도로 표시됩니다. 부가세 10%를 더하면 실제 정산서에서 빠지는 비율은 표시 요율의 1.1배이므로, 가장 많이 적용되는 6.8% 구간을 실제 차감 기준 7.5%로 환산해 넣었습니다. 요기요는 9.7%가 기본이라 10.7%로 넣었습니다. 내 가게에 적용되는 구간은 사장님센터 정산서의 중개이용료 줄에서 확인하는 것이 가장 정확합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "무료배송이면 배송비를 어떻게 넣나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "고객 부담 배송비를 0원으로 두고, 실제로 내가 쓰는 택배비와 포장비를 '실제 택배비 + 포장비' 칸에 넣으면 됩니다. 고객에게 배송비를 받는 경우에는 받는 금액을 고객 부담 배송비에 넣고, 같은 금액을 실제 택배비에도 넣어 주세요. 고객 배송비에도 마켓 수수료가 붙는 경우가 많으므로 '배송비에도 수수료 부과'를 체크해 두면 계산이 정확해집니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "목표 마진율 역산은 어떻게 쓰나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "지금 원가와 비용 구조를 그대로 두고 목표 마진율을 정하면, 그 마진이 남는 판매가를 계산해 줍니다. 목표 마진율을 30%로 두었을 때 권장 판매가가 지금 판매가보다 높다면 가격을 올리거나 원가·광고비를 줄여야 하고, 낮다면 가격을 내려도 같은 마진이 남는다는 뜻입니다. 수수료율과 부가세 구조상 목표 마진율이 도달 불가능하면 계산되지 않고 안내 문구가 표시됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 판매가·원가 정보가 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 마진·수수료·부가세 계산은 모두 이용자의 브라우저 안에서 자바스크립트로 처리되며, 입력한 판매가·원가·광고비는 어디로도 전송되지 않습니다. 사이트에는 그 값을 저장하는 기능 자체가 없고, 새로고침하면 입력값도 사라집니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%235b57f0'/%3E%3Ctext x='50' y='72' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --danger:#c02626;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff}
+  .pb-text{min-width:0}
+  .sib-strip{display:flex;flex:1 1 100%;flex-wrap:wrap;gap:8px}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:860px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 15px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .chip.good{color:#0f6b4c;background:#e7f7f0}
+  .chip.warn{color:#8a5300;background:#fff3dc}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn.primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(91,87,240,.28)}
+  .mini-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#514cdd,#7f4fef);color:#fff;border-color:transparent}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;gap:5px;background:#f2f3f9;border-radius:13px;padding:5px;margin-bottom:13px}
+  .tabs button{flex:1 1 0;min-width:0;border:0;background:transparent;border-radius:9px;padding:10px 8px;font:inherit;font-size:13px;font-weight:800;color:#6b7183;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.2;transition:background .14s,color .14s,box-shadow .14s}
+  .tabs button span.t-ico{font-size:14px;line-height:1}
+  .tabs button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+
+  /* ---------- fields ---------- */
+  .field{margin-top:12px}
+  .field:first-child{margin-top:0}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  .input::placeholder{color:#a8adbc}
+  .row-note{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.6}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s}
+  .chip-btn:hover:not(:disabled){border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:#f2f3f9;border-radius:12px;padding:4px}
+  .seg button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:inherit;font-size:12.5px;font-weight:700;color:#6b7183;cursor:pointer;transition:background .14s,color .14s,box-shadow .14s;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1.2;min-width:0}
+  .seg button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .seg.seg-sm button{font-size:11.5px;padding:7px 4px}
+
+  /* ---------- panel ---------- */
+  .panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px 18px}
+  .pblock{padding:13px 2px 14px;border-bottom:1px dashed var(--line)}
+  .pblock:last-of-type{border-bottom:0;padding-bottom:2px}
+  .block-title{display:flex;align-items:center;gap:8px;margin:2px 0 11px;font-size:13px;font-weight:800;letter-spacing:-.01em}
+  .step{font-size:10px;font-weight:800;color:#6d68e8;background:var(--accent-soft);border-radius:6px;padding:2px 5px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .link-btn{border:0;background:none;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .content-title + .lead{margin-top:9px}
+  .lead{margin:0 0 9px;max-width:900px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p + p{margin-top:6px}
+  .tip p b{color:var(--ink);font-weight:700}
+  .tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body p + p{margin-top:7px}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  /* ===== 마진 계산기 전용 ===== */
+  .inbox{border:1px solid var(--line);border-radius:14px;padding:11px 11px 12px;background:#fbfbfe}
+  .inbox + .inbox{margin-top:9px}
+  .inbox-head{display:flex;align-items:center;gap:7px;margin:0 0 9px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .inbox-head .dot{width:7px;height:7px;border-radius:50%;background:#5b57f0;flex:0 0 auto}
+  .inbox-head.w .dot{background:#e0653a}
+  .inbox-head.g .dot{background:#0f9d6e}
+  .inbox-head small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .field-grid .field{margin-top:0}
+  .with-unit{position:relative}
+  .with-unit .input{padding-right:36px;font-variant-numeric:tabular-nums;font-size:13.5px;font-weight:700}
+  .with-unit > i{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-style:normal;font-size:11px;font-weight:700;color:var(--muted);pointer-events:none}
+  .chips.tight{margin-top:6px;gap:5px}
+  .chip-btn.tiny{padding:5px 8px;font-size:10.5px}
+
+  /* 채널 프리셋 카드 */
+  .ch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .ch-card{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 10px 8px;font:inherit;cursor:pointer;min-width:0;transition:border-color .14s,background .14s,box-shadow .14s}
+  .ch-card:hover{border-color:#cdc8ff;background:#fbfaff}
+  .ch-card b{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .ch-card span{font-size:13px;font-weight:800;color:#4b45c9;font-variant-numeric:tabular-nums;line-height:1.25}
+  .ch-card i{font-style:normal;font-size:10px;color:var(--muted);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .ch-card.is-active{border-color:#b7b1ff;background:#f7f6ff;box-shadow:0 0 0 2px rgba(91,87,240,.13)}
+  .ch-card.is-active span{color:#3f39c9}
+  .check{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1.4}
+  .check input{flex:0 0 auto;width:15px;height:15px;accent-color:#5b57f0;margin:0;cursor:pointer}
+
+  /* 슬라이더 */
+  .slider-field{border:1px solid var(--line);border-radius:11px;background:#fff;padding:8px 11px 4px}
+  .slider-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:11.5px;font-weight:700;color:var(--ink-2)}
+  .slider-top > span:last-child{display:inline-flex;align-items:baseline;gap:3px;flex:0 0 auto}
+  .slider-top .unit{font-size:11.5px;font-weight:700;color:var(--muted)}
+  input[type=range]{-webkit-appearance:none;appearance:none;display:block;width:100%;height:20px;margin:5px 0 2px;background:transparent;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:#e7e9f0}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-6px;border-radius:50%;background:#fff;border:2px solid #5b57f0;box-shadow:0 2px 6px rgba(91,87,240,.32)}
+  input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:#e7e9f0}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #5b57f0;box-shadow:0 2px 6px rgba(91,87,240,.32)}
+  .slider-field .input{border:0;background:transparent;padding:0;font-size:14px;font-weight:800;color:#4b45c9;width:58px;max-width:58px;text-align:right;font-variant-numeric:tabular-nums}
+  .slider-field .input:focus{box-shadow:none}
+
+  /* 큰 카드 */
+  .big-card{border:1px solid var(--line);border-radius:16px;padding:14px 15px 13px;background:linear-gradient(150deg,#f7f6ff 0%,#ffffff 62%)}
+  .big-cap{font-size:11px;font-weight:800;color:#6b7183;letter-spacing:.01em;display:flex;align-items:center;gap:5px}
+  .big-num{margin:4px 0 1px;font-size:33px;line-height:1.05;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:#3f39c9}
+  .big-num small{font-size:15px;font-weight:800;margin-left:2px;color:#6d68e8}
+  .big-num.is-neg{color:#c02626}
+  .big-num.is-neg small{color:#d2453a}
+  .big-sub{margin:3px 0 0;font-size:11.5px;line-height:1.55;color:var(--muted)}
+  .big-sub b{color:var(--ink-2);font-weight:800}
+  .bar{height:8px;border-radius:99px;background:#eceef6;overflow:hidden;margin-top:10px}
+  .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#5b57f0,#8b5cf6);transition:width .2s ease}
+  .bar-legend{display:flex;justify-content:space-between;gap:8px;margin-top:5px;font-size:10px;color:#9aa0b0;font-variant-numeric:tabular-nums}
+
+  /* kv 행 */
+  .kv{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);line-height:1.45}
+  .kv:first-child{border-top:0;padding-top:0}
+  .kv b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .kv b.warn{color:#b45309}
+  .kv b.good{color:#0f9d6e}
+  .kv b.neg{color:#c02626}
+
+  /* 다크 요약 카드 */
+  .sum-card{margin-top:13px;border-radius:16px;padding:15px 15px 14px;background:linear-gradient(158deg,#20233a 0%,#2b2f47 100%);color:#eef0f8;box-shadow:0 16px 34px rgba(20,24,60,.24)}
+  .sum-card h3{margin:0 0 2px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:#fff;display:flex;align-items:center;gap:6px}
+  .sum-sub{margin:0 0 11px;font-size:10.5px;line-height:1.5;color:#9ba1bd}
+  .sum-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.09)}
+  .sum-row:first-of-type{border-top:0;padding-top:0}
+  .sum-k{font-size:11px;color:#9ba1bd;line-height:1.45;min-width:0}
+  .sum-k b{display:block;font-size:12px;font-weight:800;color:#fff;margin-bottom:1px}
+  .sum-v{text-align:right;font-size:13.5px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.25}
+  .sum-v small{display:block;font-size:10px;font-weight:600;color:#8f96b2;margin-top:2px}
+  .sum-v.low{color:#7ee0b8}
+  .sum-v.high{color:#ffc48a}
+  .sum-v.neg{color:#ff9b9b}
+  .sum-verdict{margin-top:11px;border-radius:11px;padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);font-size:11.5px;line-height:1.6;color:#dfe3f2}
+  .sum-verdict b{display:block;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+  .sum-verdict b em{font-style:normal;color:#7ee0b8}
+  .sum-verdict b em.neg{color:#ff9b9b}
+  .sum-foot{margin:9px 0 0;font-size:10px;line-height:1.55;color:#868daa}
+
+  /* 구성 비율 바 */
+  .comp{display:flex;height:9px;border-radius:99px;overflow:hidden;background:#eceef6;margin-top:11px}
+  .comp i{display:block;height:100%;width:0;transition:width .2s ease}
+  .comp .c1{background:#8b5cf6}
+  .comp .c2{background:#5b57f0}
+  .comp .c3{background:#f0a13a}
+  .comp .c4{background:#e0653a}
+  .comp .c5{background:#c02626}
+  .comp .c6{background:#0f9d6e}
+  .comp-legend{display:flex;flex-wrap:wrap;gap:3px 10px;margin-top:7px;font-size:10px;color:var(--muted);line-height:1.5}
+  .comp-legend em{font-style:normal;display:inline-flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums}
+  .comp-legend em::before{content:"";width:7px;height:7px;border-radius:2px;background:currentColor;flex:0 0 auto}
+  .comp-legend .c1{color:#8b5cf6}
+  .comp-legend .c2{color:#5b57f0}
+  .comp-legend .c3{color:#f0a13a}
+  .comp-legend .c4{color:#e0653a}
+  .comp-legend .c5{color:#c02626}
+  .comp-legend .c6{color:#0f9d6e}
+
+  /* 목표 마진율 역산 */
+  .target-box{margin-top:12px;border:1px solid #dcd9ff;border-radius:15px;padding:12px 12px 11px;background:linear-gradient(150deg,#f8f7ff,#ffffff 70%)}
+  .tb-head{display:flex;align-items:center;gap:6px;margin:0 0 9px;font-size:12px;font-weight:800;letter-spacing:-.01em;color:#3f39c9}
+  .tb-res{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px;padding-top:9px;border-top:1px dashed #e2e0ff}
+  .tb-res span{font-size:11px;font-weight:700;color:#6b7183;line-height:1.4}
+  .tb-res b{font-size:19px;font-weight:800;color:#3f39c9;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap;line-height:1.15}
+  .tb-res b small{display:block;font-size:10.5px;font-weight:700;color:#7b8194;letter-spacing:0;margin-top:2px}
+  .tb-res b.is-neg{color:#c02626}
+
+  /* 안내 박스 */
+  .note-box{margin-top:11px;border:1px solid #ffe1b8;background:#fff8ec;border-radius:12px;padding:10px 12px;font-size:11.5px;line-height:1.65;color:#7a4b00}
+  .note-box b{color:#8a5300;font-weight:800}
+  .note-box.green{border-color:#c8ebe0;background:#eefaf4;color:#166b4d}
+  .note-box.green b{color:#0f6b4c}
+
+  .monthly{margin-top:11px;border:1px solid var(--line);border-radius:14px;padding:11px 12px 12px;background:#fbfbfe}
+  .monthly-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:11.5px;font-weight:700;color:var(--ink-2);margin-bottom:7px}
+  .monthly-top b{font-size:15px;font-weight:800;color:#4b45c9;font-variant-numeric:tabular-nums}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .panel{position:static;padding:4px 15px 14px}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-work{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:21px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .sib-strip{display:flex;flex:1 1 100%;gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .sib-strip::-webkit-scrollbar{display:none}
+    .badge-strip .sib-strip .sibling-link{flex:0 0 auto}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .stage-card{padding:12px 11px 13px}
+    .tabs button{font-size:11.5px;padding:9px 5px;gap:4px}
+    .tabs button span.t-ico{font-size:13px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+    .stage-title .chip{display:none}
+    .field-grid{grid-template-columns:1fr}
+    .big-num{font-size:29px}
+    .sum-v{font-size:12.5px}
+  }
+  @media (max-width:400px){
+    .tabs button{font-size:11px;gap:3px}
+    .tabs button span.t-ico{display:none}
+    .ch-grid{grid-template-columns:1fr 1fr}
+    .ch-card{padding:8px 8px 7px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001s !important;transition-duration:.001s !important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/margin-calc/">
+      <span class="brand-mark" aria-hidden="true">💰</span>
+      <span class="brand-text">
+        <b>마진 계산기</b>
+        <i>제로박스 · 스마트스토어 · 배달앱</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>입력한 판매가·원가 정보는 서버에 저장되지 않아요</b> · 100% 브라우저 계산</span></span>
+      <div class="sib-strip">
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/" title="제로박스 무료 웹툴 전체 보기">🏠 전체 툴</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+      </div>
+    </div>
+    <h1>판매가에서 <span>수수료·부가세</span>를 빼면 얼마가 남을까</h1>
+    <p class="hero-sub">스마트스토어·쿠팡과 배민·쿠팡이츠·요기요의 <b>수수료</b>, 택배비·배달비, 광고비, <b>부가세</b>까지 넣으면 1건 판매 <b>순수익과 마진율</b>이 바로 나옵니다. <b>손익분기 ROAS</b>와 목표 마진율에 맞는 <b>권장 판매가 역산</b>까지, 숫자만 바꾸면 즉시 다시 계산됩니다.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 입력 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-head">
+          <div class="stage-title">조건 입력 <span class="chip grey">입력하면 바로 계산</span></div>
+          <div class="stage-actions" id="shopActions">
+            <button class="mini-btn primary" type="button" id="shopSampleBtn">✨ 샘플로 체험하기</button>
+            <button class="mini-btn" type="button" id="shopResetBtn">초기화</button>
+          </div>
+          <div class="stage-actions is-hidden" id="delivActions">
+            <button class="mini-btn primary" type="button" id="delivSampleBtn">✨ 샘플로 체험하기</button>
+            <button class="mini-btn" type="button" id="delivResetBtn">초기화</button>
+          </div>
+        </div>
+
+        <div class="tabs" id="mainTabs" role="tablist" aria-label="계산기 종류">
+          <button type="button" id="tabShop" role="tab" aria-selected="true" aria-controls="paneShop" class="is-active"><span class="t-ico" aria-hidden="true">🛒</span>쇼핑몰·스마트스토어</button>
+          <button type="button" id="tabDeliv" role="tab" aria-selected="false" aria-controls="paneDeliv"><span class="t-ico" aria-hidden="true">🛵</span>배달앱</button>
+        </div>
+
+        <!-- ================= 탭 1: 쇼핑몰·스마트스토어 ================= -->
+        <div class="pane" id="paneShop" role="tabpanel" aria-labelledby="tabShop">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>판매 채널<small>수수료 참고값</small></p>
+            <div class="ch-grid" id="shopChannels" role="group" aria-label="판매 채널 선택">
+              <button class="ch-card is-active" type="button" data-ch="smartstore"><b>스마트스토어</b><span>5.6%</span><i>판매 3% + Npay 2.563%</i></button>
+              <button class="ch-card" type="button" data-ch="coupang"><b>쿠팡 일반</b><span>10.8%</span><i>카테고리별 평균값</i></button>
+              <button class="ch-card" type="button" data-ch="rocket"><b>쿠팡 로켓그로스</b><span>10.8%</span><i>+ 입출고·보관·배송비</i></button>
+              <button class="ch-card" type="button" data-ch="custom"><b>직접 입력</b><span>내 요율</span><i>정산서 값 그대로</i></button>
+            </div>
+            <div class="field-grid" style="margin-top:9px">
+              <div class="field">
+                <label class="field-label" for="mFee">마켓 수수료율</label>
+                <div class="with-unit">
+                  <input class="input" id="mFee" type="number" inputmode="decimal" step="0.1" min="0" max="40" autocomplete="off" data-live="shop" value="5.6">
+                  <i>%</i>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">수수료 부과 기준</span>
+                <label class="check" for="mFeeShip" style="margin-top:0;height:41px">
+                  <input type="checkbox" id="mFeeShip" data-live="shop" checked>
+                  배송비에도 부과
+                </label>
+              </div>
+            </div>
+            <p class="row-note" id="shopChannelNote">판매수수료 <b>3%</b>(부가세 포함) + 네이버페이 주문관리수수료 <b>2.563%</b>(중소1 등급)를 더한 값이에요. 영세 4.9% · 일반 등급 6.6%이니 내 등급으로 바꿔 주세요.</p>
+          </div>
+
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>무엇에 얼마에 파나요<small>판매가 · 배송비</small></p>
+            <div class="field">
+              <label class="field-label" for="mPrice">판매가 (부가세 포함)</label>
+              <div class="with-unit">
+                <input class="input" id="mPrice" type="text" inputmode="numeric" autocomplete="off" data-live="shop" value="29,900">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="판매가 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-set="mPrice" data-val="9900">9,900</button>
+                <button class="chip-btn tiny" type="button" data-set="mPrice" data-val="19900">19,900</button>
+                <button class="chip-btn tiny" type="button" data-set="mPrice" data-val="29900">29,900</button>
+                <button class="chip-btn tiny" type="button" data-set="mPrice" data-val="49900">49,900</button>
+                <button class="chip-btn tiny" type="button" data-set="mPrice" data-val="99000">99,000</button>
+              </div>
+            </div>
+            <div class="field" style="margin-top:9px">
+              <label class="field-label" for="mShip">고객 부담 배송비</label>
+              <div class="with-unit">
+                <input class="input" id="mShip" type="text" inputmode="numeric" autocomplete="off" data-live="shop" value="3,000">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="고객 배송비 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-set="mShip" data-val="0">무료배송</button>
+                <button class="chip-btn tiny" type="button" data-set="mShip" data-val="2500">2,500</button>
+                <button class="chip-btn tiny" type="button" data-set="mShip" data-val="3000">3,000</button>
+                <button class="chip-btn tiny" type="button" data-set="mShip" data-val="4000">4,000</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="inbox w">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>원가와 비용<small>한 개 기준</small></p>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="mCost">매입 원가</label>
+                <div class="with-unit">
+                  <input class="input" id="mCost" type="text" inputmode="numeric" autocomplete="off" data-live="shop" value="12,000">
+                  <i>원</i>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="mShipCost">실제 택배비 + 포장비</label>
+                <div class="with-unit">
+                  <input class="input" id="mShipCost" type="text" inputmode="numeric" autocomplete="off" data-live="shop" value="3,500">
+                  <i>원</i>
+                </div>
+              </div>
+            </div>
+            <div class="field" style="margin-top:9px">
+              <label class="field-label" for="mAd">광고비 (한 개당)</label>
+              <div class="with-unit">
+                <input class="input" id="mAd" type="text" inputmode="numeric" autocomplete="off" data-live="shop" value="3,000">
+                <i>원</i>
+              </div>
+              <p class="row-note">한 달 광고비 ÷ 그 광고로 판 건수로 넣으면 건당 광고비가 됩니다. 광고를 안 하면 0으로 두세요.</p>
+            </div>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>부가세 유형<small>순수익이 달라져요</small></p>
+            <div class="seg seg-sm" id="shopTaxSeg" role="group" aria-label="부가세 유형">
+              <button type="button" data-tax="general" class="is-active">일반과세자 10%</button>
+              <button type="button" data-tax="simple">간이과세자</button>
+              <button type="button" data-tax="exempt">면세</button>
+            </div>
+            <p class="row-note" id="shopTaxNote">매출세액에서 매입세액을 뺀 차액을 납부하는 것으로 계산합니다. 수수료·택배비·광고비에 붙은 부가세는 매입세액으로 공제돼요.</p>
+          </div>
+        </div>
+
+        <!-- ================= 탭 2: 배달앱 ================= -->
+        <div class="pane is-hidden" id="paneDeliv" role="tabpanel" aria-labelledby="tabDeliv">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>배달 채널<small>수수료 참고값</small></p>
+            <div class="ch-grid" id="delivChannels" role="group" aria-label="배달앱 선택">
+              <button class="ch-card is-active" type="button" data-ch="baemin"><b>배달의민족</b><span>7.5%</span><i>중개 6.8% + 부가세</i></button>
+              <button class="ch-card" type="button" data-ch="coupangeats"><b>쿠팡이츠</b><span>7.5%</span><i>중개 6.8% + 부가세</i></button>
+              <button class="ch-card" type="button" data-ch="yogiyo"><b>요기요</b><span>10.7%</span><i>중개 9.7% + 부가세</i></button>
+              <button class="ch-card" type="button" data-ch="custom"><b>직접 입력</b><span>내 요율</span><i>정산서 값 그대로</i></button>
+            </div>
+            <div class="field-grid" style="margin-top:9px">
+              <div class="field">
+                <label class="field-label" for="dBroke">중개이용료</label>
+                <div class="with-unit">
+                  <input class="input" id="dBroke" type="number" inputmode="decimal" step="0.1" min="0" max="40" autocomplete="off" data-live="deliv" value="7.5">
+                  <i>%</i>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="dPay">결제수수료</label>
+                <div class="with-unit">
+                  <input class="input" id="dPay" type="number" inputmode="decimal" step="0.1" min="0" max="10" autocomplete="off" data-live="deliv" value="3.0">
+                  <i>%</i>
+                </div>
+              </div>
+            </div>
+            <p class="row-note" id="delivChannelNote">2026년 상생요금제 기준 중개이용료 <b>6.8%</b>(부가세 별도)를 실제 정산 차감률 <b>7.5%</b>로 환산했어요. 내 가게 적용 구간은 사장님센터 정산서에서 확인하세요.</p>
+          </div>
+
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>주문 한 건 금액<small>고객이 내는 돈</small></p>
+            <div class="field">
+              <label class="field-label" for="dPrice">음식 판매가 (메뉴 금액)</label>
+              <div class="with-unit">
+                <input class="input" id="dPrice" type="text" inputmode="numeric" autocomplete="off" data-live="deliv" value="15,000">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="음식 판매가 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-set="dPrice" data-val="9900">9,900</button>
+                <button class="chip-btn tiny" type="button" data-set="dPrice" data-val="15000">15,000</button>
+                <button class="chip-btn tiny" type="button" data-set="dPrice" data-val="20000">20,000</button>
+                <button class="chip-btn tiny" type="button" data-set="dPrice" data-val="30000">30,000</button>
+              </div>
+            </div>
+            <div class="field-grid" style="margin-top:9px">
+              <div class="field">
+                <label class="field-label" for="dTip">고객 배달팁</label>
+                <div class="with-unit">
+                  <input class="input" id="dTip" type="text" inputmode="numeric" autocomplete="off" data-live="deliv" value="0">
+                  <i>원</i>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field-label" for="dDeliv">매장 부담 배달비</label>
+                <div class="with-unit">
+                  <input class="input" id="dDeliv" type="text" inputmode="numeric" autocomplete="off" data-live="deliv" value="2,900">
+                  <i>원</i>
+                </div>
+              </div>
+            </div>
+            <div class="field" style="margin-top:9px">
+              <label class="field-label" for="dCoupon">매장 부담 쿠폰 할인</label>
+              <div class="with-unit">
+                <input class="input" id="dCoupon" type="text" inputmode="numeric" autocomplete="off" data-live="deliv" value="0">
+                <i>원</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="inbox w">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>재료와 포장<small>한 건 기준</small></p>
+            <div class="field">
+              <label class="field-label" for="dCost">식자재 원가</label>
+              <div class="with-unit">
+                <input class="input" id="dCost" type="text" inputmode="decimal" autocomplete="off" data-live="deliv" value="30">
+                <i id="costUnit">%</i>
+              </div>
+              <div class="seg seg-sm" id="costModeSeg" role="group" aria-label="식자재 원가 입력 방식" style="margin-top:7px">
+                <button type="button" data-mode="pct" class="is-active">음식가의 %</button>
+                <button type="button" data-mode="won">원 단위</button>
+              </div>
+            </div>
+            <div class="field" style="margin-top:9px">
+              <label class="field-label" for="dPack">포장비 (용기·봉투)</label>
+              <div class="with-unit">
+                <input class="input" id="dPack" type="text" inputmode="numeric" autocomplete="off" data-live="deliv" value="700">
+                <i>원</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>부가세 유형<small>순수익이 달라져요</small></p>
+            <div class="seg seg-sm" id="delivTaxSeg" role="group" aria-label="부가세 유형">
+              <button type="button" data-tax="general" class="is-active">일반과세자 10%</button>
+              <button type="button" data-tax="simple">간이과세자</button>
+              <button type="button" data-tax="exempt">면세</button>
+            </div>
+            <p class="row-note" id="delivTaxNote">매출세액에서 매입세액을 뺀 차액을 납부하는 것으로 계산합니다. 음식점업 간이과세자는 업종 부가율에 따라 매출의 1% 안팎입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 결과 패널 ============ -->
+    <aside class="panel" aria-label="계산 결과">
+      <div id="panelShop">
+        <div class="pblock">
+          <div class="big-card">
+            <p class="big-cap"><span aria-hidden="true">🛒</span> 1개 판매 순수익</p>
+            <p class="big-num" id="shopProfit">11,416<small>원</small></p>
+            <p class="big-sub" id="shopProfitSub">마진율 <b>34.7%</b> · 원가율 <b>40.1%</b></p>
+            <div class="comp" id="shopComp" aria-hidden="true">
+              <i class="c1" style="width:0"></i><i class="c2" style="width:0"></i><i class="c3" style="width:0"></i><i class="c4" style="width:0"></i><i class="c5" style="width:0"></i><i class="c6" style="width:0"></i>
+            </div>
+            <div class="comp-legend" id="shopCompLegend">
+              <em class="c1">원가</em><em class="c2">택배·포장</em><em class="c3">수수료</em><em class="c4">광고</em><em class="c5">부가세</em><em class="c6">순수익</em>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="kv"><span>마진율 (순수익 ÷ 총매출)</span><b id="kvMargin">34.7%</b></div>
+            <div class="kv"><span>원가율 (매입 원가 ÷ 판매가)</span><b id="kvCost">40.1%</b></div>
+            <div class="kv"><span>손익분기 ROAS</span><b id="kvBeRoas">288%</b></div>
+            <div class="kv"><span>현재 ROAS</span><b id="kvRoas">1,097%</b></div>
+          </div>
+
+          <div class="sum-card">
+            <h3><span aria-hidden="true">📦</span> 1개 판매 손익</h3>
+            <p class="sum-sub" id="shopSumSub">일반과세자 기준 · 부가세 포함 금액</p>
+            <div class="sum-row">
+              <div class="sum-k"><b>총매출</b><span id="shopRevSub">판매가 29,900 + 배송비 3,000</span></div>
+              <div class="sum-v" id="shopRev">32,900원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>매입 원가</b><span id="shopCostSub">부가세 포함</span></div>
+              <div class="sum-v" id="shopCost">-12,000원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>택배비 · 포장비</b><span>실제 나가는 배송비</span></div>
+              <div class="sum-v" id="shopShip">-3,500원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>마켓 수수료</b><span id="shopFeeSub">5.6%</span></div>
+              <div class="sum-v" id="shopFee">-1,842원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>광고비</b><span>한 개당</span></div>
+              <div class="sum-v" id="shopAd">-3,000원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b id="shopVatLabel">납부 부가세</b><span id="shopVatSub">매출세액 − 매입세액</span></div>
+              <div class="sum-v" id="shopVat">-1,142원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>순수익</b><span>실제로 남는 돈</span></div>
+              <div class="sum-v low" id="shopNet">11,416원</div>
+            </div>
+            <div class="sum-verdict" id="shopVerdict">
+              <b id="shopVerdictB">1개 팔면 <em>11,416원</em>이 남아요</b>
+              <span id="shopVerdictSub">월 100개면 114만 원 · 광고비를 빼면 14,144원이에요.</span>
+            </div>
+            <p class="sum-foot">반품·교환 배송비, 부가세 신고 비용, 플랫폼 프로모션 분담은 넣지 않은 값입니다.</p>
+          </div>
+
+          <div class="target-box">
+            <p class="tb-head"><span aria-hidden="true">🎯</span> 목표 마진율이면 얼마에 팔아야 할까</p>
+            <div class="slider-field">
+              <div class="slider-top">
+                <span>목표 마진율</span>
+                <span><input class="input" id="mTarget" type="number" inputmode="numeric" step="1" min="1" max="60" autocomplete="off" data-live="shop" value="30"><span class="unit">%</span></span>
+              </div>
+              <input type="range" id="mTargetRange" min="1" max="60" step="1" value="30" aria-label="목표 마진율 슬라이더">
+            </div>
+            <div class="tb-res">
+              <span>권장 판매가<small id="targetBase" hidden></small></span>
+              <b id="targetPrice">—</b>
+            </div>
+            <p class="hint" id="targetHint">지금 판매가 대비 얼마나 달라지는지 보여 드려요.</p>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="button" id="shopCopy">📋 요약 복사하기</button>
+          <p class="hint center">카톡·메모장에 붙여 넣어 원가를 조정해 보세요.</p>
+        </div>
+      </div>
+
+      <div id="panelDeliv" class="is-hidden">
+        <div class="pblock">
+          <div class="big-card">
+            <p class="big-cap"><span aria-hidden="true">🛵</span> 주문 1건 순수익</p>
+            <p class="big-num" id="delivProfit">4,841<small>원</small></p>
+            <p class="big-sub" id="delivProfitSub">마진율 <b>32.3%</b> · 수수료·배달비 <b>29.8%</b></p>
+            <div class="comp" id="delivComp" aria-hidden="true">
+              <i class="c1" style="width:0"></i><i class="c2" style="width:0"></i><i class="c3" style="width:0"></i><i class="c4" style="width:0"></i><i class="c5" style="width:0"></i><i class="c6" style="width:0"></i>
+            </div>
+            <div class="comp-legend" id="delivCompLegend">
+              <em class="c1">식자재</em><em class="c2">포장</em><em class="c3">수수료</em><em class="c4">배달비</em><em class="c5">부가세</em><em class="c6">순수익</em>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="kv"><span>마진율 (순수익 ÷ 주문금액)</span><b id="kvDelivMargin">32.3%</b></div>
+            <div class="kv"><span>수수료 · 배달비 차감액</span><b id="kvDeduct">4,475원</b></div>
+            <div class="kv"><span>주문금액 대비 차감 비중</span><b id="kvDeductRatio">29.8%</b></div>
+            <div class="kv"><span>배달 한 건당 플랫폼 몫</span><b id="kvPlatform">3,925원</b></div>
+          </div>
+
+          <div class="sum-card">
+            <h3><span aria-hidden="true">🍱</span> 주문 1건 손익</h3>
+            <p class="sum-sub" id="delivSumSub">일반과세자 기준 · 고객 결제 금액</p>
+            <div class="sum-row">
+              <div class="sum-k"><b>주문금액</b><span id="delivRevSub">음식 15,000 + 배달팁 0</span></div>
+              <div class="sum-v" id="delivRev">15,000원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>중개이용료</b><span id="delivBrokeSub">7.5%</span></div>
+              <div class="sum-v" id="delivBroke">-1,125원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>결제수수료</b><span id="delivPaySub">3.0%</span></div>
+              <div class="sum-v" id="delivPay">-450원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>매장 부담 배달비</b><span>라이더·플랫폼 배달</span></div>
+              <div class="sum-v" id="delivDeliv">-2,900원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>식자재 원가</b><span id="delivCostSub">음식가의 30%</span></div>
+              <div class="sum-v" id="delivCost">-4,500원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>포장비 · 쿠폰</b><span id="delivPackSub">용기 700 · 쿠폰 0</span></div>
+              <div class="sum-v" id="delivPack">-700원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b id="delivVatLabel">납부 부가세</b><span>매출세액 − 매입세액</span></div>
+              <div class="sum-v" id="delivVat">-484원</div>
+            </div>
+            <div class="sum-row">
+              <div class="sum-k"><b>순수익</b><span>실제로 남는 돈</span></div>
+              <div class="sum-v low" id="delivNet">4,841원</div>
+            </div>
+            <div class="sum-verdict" id="delivVerdict">
+              <b id="delivVerdictB">한 건에 <em>4,841원</em>이 남아요</b>
+              <span id="delivVerdictSub">하루 30건이면 한 달 436만 원이 남아요.</span>
+            </div>
+            <p class="sum-foot">임대료·인건비·광고비 같은 고정비는 넣지 않은 건당 기여이익입니다.</p>
+          </div>
+
+          <div class="monthly">
+            <div class="slider-field" style="border:0;padding:0;background:transparent">
+              <div class="slider-top">
+                <span>하루 예상 주문 건수</span>
+                <span><input class="input" id="dOrders" type="number" inputmode="numeric" step="1" min="0" max="300" autocomplete="off" data-live="deliv" value="30"><span class="unit">건</span></span>
+              </div>
+              <input type="range" id="dOrdersRange" min="0" max="200" step="1" value="30" aria-label="하루 예상 주문 건수 슬라이더">
+            </div>
+            <div class="monthly-top" style="margin-top:8px;margin-bottom:0">
+              <span>월 예상 순수익 <small style="font-weight:600;color:var(--muted)">(30일 기준)</small></span>
+              <b id="delivMonthly">436만 원</b>
+            </div>
+            <p class="hint" id="delivMonthlySub">월 주문 900건 · 월 매출 1,350만 원 기준이에요.</p>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="button" id="delivCopy">📋 요약 복사하기</button>
+          <p class="hint center">한 건 손익과 월 예상치를 한 줄로 정리해 복사합니다.</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 계산 기능과 무관하며, 입력한 판매가·원가 정보는 광고로 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+    <article class="content-card" id="guide">
+      <h2 class="content-title"><span aria-hidden="true">🧮</span> 온라인 마진율과 부가세 계산법</h2>
+      <p class="lead">매출이 늘어도 통장에 남는 돈이 그대로일 때가 있습니다. 판매가에서 눈에 보이는 원가만 빼고 계산했기 때문입니다. 온라인 판매의 <b>순수익</b>은 아래처럼 수수료·배송비·광고비·부가세를 모두 뺀 값입니다.</p>
+      <p class="lead"><code>순수익 = 총매출 − (매입 원가 + 택배·포장 + 수수료 + 광고비) − 납부 부가세</code><br><code>마진율 = 순수익 ÷ 총매출 × 100</code></p>
+      <ul class="facts">
+        <li><b>2탭</b><span>쇼핑몰과 배달앱<br>따로 계산</span></li>
+        <li><b>3종</b><span>일반·간이·면세<br>부가세 반영</span></li>
+        <li><b>0원</b><span>회원가입·설치 없이<br>모든 기능 무료</span></li>
+        <li><b>360px~</b><span>휴대폰부터<br>넓은 PC 화면까지</span></li>
+      </ul>
+      <p class="lead" style="margin-top:14px">부가세는 판매자 유형에 따라 계산이 달라집니다. <b>일반과세자</b>라면 매출세액(매출 × 10/110)에서 매입세액(원가·택배비·수수료·광고비 × 10/110)을 뺀 차액을 냅니다. 수수료와 택배비에 붙은 부가세를 돌려받으니 실질 비용은 부가세를 뺀 금액이고, 이 도구도 그렇게 계산합니다. 예를 들어 판매가 30,000원, 매입 원가 12,000원, 택배비 3,000원, 수수료 5.6%(1,680원), 광고비 2,000원이면 매입 합계는 18,680원, 납부 부가세는 2,727 − 1,698 = <b>1,029원</b>, 순수익은 <b>10,291원</b>(마진율 34.3%)입니다.</p>
+      <p class="lead"><b>간이과세자</b>는 매입세액 공제가 없습니다. 업종별 부가율(소매 15%, 음식점 10% 등)에 10%를 곱한 금액을 내므로 소매는 매출의 <b>1.5%</b> 안팎을 부가세로 잡아 두면 됩니다. 이 도구는 소매 기준 1.5%로 계산하고, 음식점은 1% 안팎이라는 안내를 함께 표시합니다. <b>면세</b> 사업자는 부가세를 내지 않지만 매입 부가세를 돌려받지 못하므로, 원가에 포함된 부가세가 그대로 비용으로 남습니다.</p>
+      <p class="lead">수수료율을 볼 때 가장 자주 틀리는 부분은 <b>부가세 포함 여부</b>입니다. 배달앱 요율표는 대부분 부가세 별도로 표시되므로, 6.8%라고 적힌 중개이용료는 정산서에서 7.5%로 빠집니다. 그래서 이 계산기의 수수료 칸은 <b>정산서에서 실제로 빠지는 비율</b>을 넣도록 만들었습니다.</p>
+    </article>
+
+    <article class="content-card" id="roas">
+      <h2 class="content-title"><span aria-hidden="true">📈</span> 손익분기 ROAS 이해하기</h2>
+      <p class="lead"><b>ROAS</b>는 광고로 번 매출을 광고비로 나눈 값입니다. 매출 3만 원을 만들기 위해 광고비 3천 원을 썼다면 ROAS는 1,000%입니다. 문제는 ROAS가 높아도 남는 돈이 없을 수 있다는 점입니다. 수수료와 배달비, 원가가 매출의 대부분을 가져가면 광고비 3천 원이 마지막 남은 이익을 통째로 먹습니다.</p>
+      <p class="lead">그래서 필요한 값이 <b>손익분기 ROAS</b>입니다. 광고비를 더 써도 손해가 되지 않는 마지막 선을 뜻하며, 이렇게 계산합니다.</p>
+      <p class="lead"><code>손익분기 ROAS = 총매출 ÷ (현재 광고비 + 현재 순수익) × 100</code></p>
+      <p class="lead">총매출 3만 원, 광고비 3천 원, 순수익 1만 원이라면 광고비가 1만 3천 원까지 늘어도 본전이므로 손익분기 ROAS는 <b>231%</b>입니다. 지금 ROAS가 1,000%라면 광고비를 더 써도 여유가 있고, 반대로 현재 ROAS가 231%보다 낮다면 광고가 이익을 깎고 있다는 뜻입니다. 광고를 늘릴지 줄일지는 이 두 숫자의 간격으로 판단하면 됩니다.</p>
+      <p class="lead">주의할 점이 하나 있습니다. ROAS는 광고비가 <b>매출을 얼마나 만들었는지</b>만 보여 줄 뿐, 그 매출이 남았는지는 말해 주지 않습니다. 같은 ROAS 500%라도 마진율 40%인 상품은 이익이 남고, 마진율 15%인 상품은 손해입니다. 그래서 ROAS와 마진율을 함께 봐야 합니다.</p>
+    </article>
+
+    <article class="content-card" id="tips">
+      <h2 class="content-title"><span aria-hidden="true">🛵</span> 배달앱 수수료·배달비 점검 팁</h2>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>요율표가 아니라 건당 차감액으로 본다</h3>
+          <p>2만 원 주문에 중개이용료 7.8%(부가세 별도)가 붙으면 실제 차감은 1,716원, 여기에 업주 부담 배달비 3,400원을 더하면 <b>5,116원</b>이 먼저 빠집니다. 주문금액의 <b>25.6%</b>입니다. 요율만 보면 7.8%지만, 통장에서 사라지는 돈은 4분의 1이 넘습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>내 가게의 차등수수료 구간을 확인한다</h3>
+          <p>배민·쿠팡이츠는 2026년 상생요금제 기준 매출 상위 35% 구간이 7.8%, 중위가 6.8%, 하위 20%가 2.0%입니다. 요기요는 9.7%에서 조건을 채우면 4.7%까지 내려갑니다. 요율표의 최고값을 넣고 손익을 짜면 실제보다 나쁘게, 최저값을 넣으면 좋게 계산됩니다. <b>사장님센터 정산서의 중개이용료 줄</b>에서 적용 구간을 먼저 확인하세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>배달비는 객단가로 희석된다</h3>
+          <p>배달비는 주문금액과 상관없는 고정비입니다. 1만 2,000원 주문에 3,400원이면 28.3%지만, 2만 4,000원 주문이면 14.2%로 떨어집니다. 세트 구성이나 최소주문금액을 조정하는 것이 수수료율 1%p를 깎는 것보다 효과가 큰 이유입니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>정부 조사에서도 평균은 8%대였다</h3>
+          <p>2026년 2월 중소벤처기업부가 입점업체 808곳을 조사한 결과 매출 1순위 앱의 평균 중개수수료는 <b>8.2%</b>, 주문당 평균 배달비는 <b>3,333원</b>이었습니다. 2% 구간을 적용받았다는 가게는 한 곳도 없었습니다. 최저 요율 광고보다 내 정산서 숫자가 기준입니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">05</span>
+          <h3>포장 주문과 쿠폰 분담도 비용이다</h3>
+          <p>포장 주문에도 수수료가 붙습니다(배민·쿠팡이츠 6.8%, 요기요 7.7% 수준). 매장이 부담하는 쿠폰과 할인은 매출을 그대로 깎으므로, 쿠폰을 돌릴 때는 할인 후 금액으로 이 계산기를 다시 돌려 보세요. 주문은 늘고 건당 이익이 줄어 총이익이 제자리인 경우가 흔합니다.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card" id="tips-shop">
+      <h2 class="content-title"><span aria-hidden="true">🛒</span> 쇼핑몰·스마트스토어 수수료 점검 팁</h2>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>스마트스토어는 두 층으로 빠진다</h3>
+          <p>2025년 6월 개편 이후 판매수수료는 일반 유입 <b>3%</b>, 판매자 마케팅 링크·네이버 광고 유입 <b>1%</b>입니다(부가세 포함). 여기에 네이버페이 주문관리수수료가 연 매출 등급별로 1.947%(영세)~3.630%(일반) 붙습니다. 합치면 약 4.9~6.6%이고, 중소1 등급 기준이 이 계산기의 기본값 5.6%입니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>쿠팡은 카테고리 요율을 먼저 본다</h3>
+          <p>쿠팡 판매수수료는 카테고리마다 달라 4~15%까지 벌어집니다. 흔히 쓰는 평균값이 10%대라 기본값을 10.8%로 두었지만, 내 카테고리 요율이 6%라면 그대로 두는 순간 마진을 4%p 이상 낮게 보게 됩니다. 로켓그로스는 판매수수료 외에 입출고·보관·배송 이용료가 따로 붙으므로, 그 금액을 <b>실제 택배비+포장비</b> 칸에 넣으세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>무료배송은 공짜가 아니다</h3>
+          <p>무료배송은 고객 배송비를 0원으로 두고 실제 택배비를 비용에 넣는 것입니다. 판매가 19,900원에 택배비 3,200원이 나가면 마진에서 16%가 사라집니다. 배송비를 받는 상품이라면 받는 금액을 고객 배송비에 넣고, 배송비에도 수수료가 붙는지 체크해 두어야 실제 정산과 맞습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>광고비는 건당으로 나눠 넣는다</h3>
+          <p>한 달 광고비 30만 원으로 100건을 팔았다면 건당 3,000원입니다. 광고비를 빼고 마진을 계산하면 광고를 켠 순간 이익이 사라지는 구조를 놓치게 됩니다. 이 계산기의 <b>손익분기 ROAS</b>는 그 여유가 얼마인지 보여 줍니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">05</span>
+          <h3>반품과 프로모션 몫을 따로 잡아 둔다</h3>
+          <p>이 계산기는 반품·교환 배송비, 플랫폼 프로모션 분담, 부가세 신고 비용을 넣지 않았습니다. 반품률이 5%라면 그만큼 손실이 섞이므로, 계산한 마진율에서 2~3%p를 여유로 빼 두는 편이 안전합니다. 세무 신고와 공제 판단은 세무사와 확인하세요.</p>
+        </li>
+      </ol>
+      <p class="content-cta">수수료율과 부가세 기준은 2026년 11월에 공개된 자료를 참고했습니다. 요율은 플랫폼이 바꿀 수 있으니 계약·정산 전에 각 플랫폼 공지와 내 정산서를 확인하세요. 이 페이지의 계산 결과는 참고용이며 실제 정산액과 다를 수 있습니다.</p>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문</h2>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>마진율은 어떻게 계산하나요?</summary>
+          <div class="faq-body"><p>이 계산기의 마진율은 <b>순수익 ÷ 총매출 × 100</b>입니다. 총매출은 고객이 낸 돈(판매가 + 고객 부담 배송비)이고, 순수익은 여기서 매입 원가·택배비·포장비·마켓 수수료·광고비와 납부할 부가세를 모두 뺀 금액입니다. 원가만 빼고 계산하는 단순 마진과 값이 다르니, 실제로 남는 돈을 보려면 비용을 모두 넣어야 합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>부가세는 순수익에 어떻게 반영되나요?</summary>
+          <div class="faq-body"><p>일반과세자를 고르면 매출세액(매출 × 10/110)에서 매입세액(원가·택배비·수수료·광고비 × 10/110)을 뺀 차액을 납부 부가세로 계산합니다. 간이과세자는 매입세액 공제가 없어 매출의 1.5%를 내는 것으로, 면세는 부가세가 없고 매입 부가세가 그대로 비용으로 남는 것으로 계산합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>손익분기 ROAS는 무엇인가요?</summary>
+          <div class="faq-body"><p>광고비를 더 써도 손해가 되지 않는 마지막 선을 ROAS로 나타낸 값입니다. <b>총매출 ÷ (현재 광고비 + 현재 순수익) × 100</b>으로 계산하며, 실제 ROAS가 이보다 낮으면 광고가 이익을 깎고 있다는 뜻입니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>스마트스토어 수수료 기본값 5.6%는 어디서 나온 값인가요?</summary>
+          <div class="faq-body"><p>판매수수료 3%(일반 유입, 부가세 포함)와 네이버페이 주문관리수수료 2.563%(중소1 등급)를 더한 값입니다. 영세는 3% + 1.947%로 약 4.9%, 일반 등급은 3% + 3.630%로 약 6.6%입니다. 내 등급은 스마트스토어센터의 '나의 수수료 정보'에서 확인할 수 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>배달앱 중개이용료 기본값 7.5%는 무슨 뜻인가요?</summary>
+          <div class="faq-body"><p>배민·쿠팡이츠 중개이용료 6.8%(부가세 별도)에 부가세 10%를 더해 실제 정산에서 빠지는 7.5%로 환산한 값입니다. 요기요는 9.7%에 부가세를 더한 10.7%를 넣었습니다. 내 가게 적용 구간은 정산서에서 확인하는 것이 가장 정확합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>무료배송이면 배송비를 어떻게 넣나요?</summary>
+          <div class="faq-body"><p>고객 부담 배송비를 0원으로 두고 실제 택배비·포장비를 해당 칸에 넣으면 됩니다. 배송비를 받는 경우에는 받는 금액을 고객 배송비에, 같은 금액을 실제 택배비에도 넣고, 배송비에 수수료가 붙으면 '배송비에도 부과'를 체크하세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>목표 마진율 역산은 어떻게 쓰나요?</summary>
+          <div class="faq-body"><p>원가와 비용 구조를 그대로 두고 목표 마진율을 정하면 그 마진이 남는 판매가를 계산합니다. 권장 판매가가 지금보다 높다면 가격을 올리거나 원가·광고비를 줄여야 하고, 낮다면 가격을 내려도 같은 마진이 남습니다. 수수료와 부가세 구조상 도달할 수 없는 목표라면 계산 대신 안내 문구가 나옵니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>입력한 판매가·원가 정보가 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 모든 계산은 브라우저 안에서만 처리되고, 입력한 값은 어디로도 전송되지 않습니다. 사이트에는 그 값을 저장하는 기능이 없고, 새로고침하면 처음 상태로 돌아갑니다.</p></div>
+        </details>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">📦</span>
+      <div>
+        <p class="foot-name" id="footName">제로박스 (ZeroBox)</p>
+        <p class="foot-desc">가입·설치·서버 전송 없이 사진·문서·QR·계산을 내 기기에서만 다루는 무료 웹툴</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="바로가기">
+      <button class="foot-link" type="button" data-modal="about">서비스 소개</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/">🏠 전체 툴</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+    </nav>
+    <p class="foot-copy">© 2026 제로박스 (ZeroBox) · 입력한 판매가·원가 정보는 내 기기 밖으로 나가지 않아요</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbValue">11,416원</b>
+    <span id="sbLabel">1개 판매 순수익 · 마진율 34.7%</span>
+  </div>
+  <button class="btn btn-primary" type="button" id="sbCopy">📋 요약 복사</button>
+</div>
+
+<!-- ============ 서비스 정보 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>스마트스토어·배달앱 마진 계산기</b>는 제로박스(ZeroBox)가 만든 무료 도구입니다. 판매가에서 수수료와 배송비, 광고비, 부가세를 빼고 실제로 남는 돈을 확인하도록 만들었습니다.</p>
+
+      <h3>이런 때 씁니다</h3>
+      <ul>
+        <li>스마트스토어·쿠팡에 올릴 상품의 판매가를 정할 때</li>
+        <li>배달앱 수수료와 배달비를 빼면 한 건에 얼마가 남는지 볼 때</li>
+        <li>광고를 늘려도 되는지 손익분기 ROAS로 판단할 때</li>
+        <li>목표 마진율에 맞는 판매가를 역산할 때</li>
+      </ul>
+
+      <h3>계산 방식</h3>
+      <p>순수익 = 총매출 − (매입 원가 + 택배·포장 + 수수료 + 광고비) − 납부 부가세. 마진율 = 순수익 ÷ 총매출 × 100. 부가세는 일반과세자(매출세액 − 매입세액), 간이과세자(매출의 1.5%), 면세(0원) 중에서 고른 방식으로 계산합니다.</p>
+
+      <h3>값의 출처</h3>
+      <p>수수료 기본값은 2026년 11월에 공개된 스마트스토어·쿠팡·배달앱 요율 자료를 참고했습니다. 채널 프리셋은 시작점일 뿐이며, 플랫폼은 요율을 바꿀 수 있습니다. 실제 정산액은 각 플랫폼의 내 정산서로 확인하세요.</p>
+
+      <p class="modal-note">이 도구의 결과는 참고용입니다. 세금 신고와 공제 판단은 세무 전문가와 상의하세요. 입력값은 저장되지 않습니다.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>스마트스토어·배달앱 마진 계산기(제로박스, 이하 &lsquo;사이트&rsquo;)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 계산기에 입력한 판매가·원가·수수료·광고비도 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 입력한 금액은 서버로 전송되지 않습니다</h3>
+      <p>마진·수수료·부가세 계산은 모두 <b>이용자의 브라우저(클라이언트) 안에서</b> 처리됩니다. 입력한 값이 서버로 업로드되지 않으며, 서버에 저장하는 공간도 없습니다. 브라우저 탭을 닫거나 새로 고치면 메모리에서 사라집니다.</p>
+
+      <h3>3. 사업 정보의 성격</h3>
+      <p>이 도구에 입력하는 값은 이용자가 스스로 넣는 <b>가정치</b>이며, 계좌번호·카드번호·주민등록번호 같은 민감한 정보를 입력할 필요가 없습니다. 사이트는 어떤 쇼핑몰·배달 플랫폼과도 연결되지 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보</h3>
+      <p>입력값과 계산 결과는 화면에만 존재하며, 사이트는 이를 브라우저 저장소(localStorage)에 저장하지 않습니다. 페이지를 새로 고치면 처음 상태로 돌아갑니다. (광고 영역을 접은 상태만 기기에 기억됩니다.)</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: <code>G-GFRNHP2GC4</code>)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·전화번호·이메일 같은 개인 정보나 <b>입력한 판매가·원가·수수료·광고비</b>는 Analytics로 전송되지 않습니다. 사이트가 보내는 이벤트는 &lsquo;샘플 사용, 요약 복사, 탭 전환, 채널 선택&rsquo; 같은 동작 이름과 탭 종류 같은 값뿐입니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 계산 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>계산 기능은 외부 서비스로 데이터를 보내지 않습니다. 다만 화면 글꼴을 표시하기 위해 Google Fonts와 jsDelivr(프리텐다드)에서 스타일 파일을 불러오며, 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있습니다. 각 서비스의 개인정보처리방침이 적용되며, 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 26일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 기본 설정 · 유틸
+     ========================================================= */
+  var AD_SLOT_ID = '';                       // AdSense 광고 단위 ID. 비워 두면 안내용 자리만 표시됩니다.
+  var AD_KEY = 'zerobox.ad.hidden';
+
+  var DEFAULT_SHOP = {
+    mPrice: '29,900', mShip: '3,000', mCost: '12,000', mShipCost: '3,500', mAd: '3,000', mFee: '5.6', mTarget: '30'
+  };
+  var SAMPLE_SHOP = {
+    mPrice: '19,900', mShip: '0', mCost: '8,500', mShipCost: '3,200', mAd: '2,500', mFee: '5.6', mTarget: '30'
+  };
+  var DEFAULT_DELIV = {
+    dPrice: '15,000', dTip: '0', dDeliv: '2,900', dCost: '30', dPack: '700', dCoupon: '0',
+    dBroke: '7.5', dPay: '3.0', dOrders: '30'
+  };
+  var SAMPLE_DELIV = {
+    dPrice: '18,000', dTip: '0', dDeliv: '2,900', dCost: '30', dPack: '800', dCoupon: '2,000',
+    dBroke: '7.5', dPay: '3.0', dOrders: '45'
+  };
+
+  var SHOP_MONEY = ['mPrice', 'mShip', 'mCost', 'mShipCost', 'mAd'];
+  var DELIV_MONEY = ['dPrice', 'dTip', 'dDeliv', 'dPack', 'dCoupon'];
+
+  var SHOP_CH = {
+    smartstore: { fee: '5.6', ship: true, note: '판매수수료 <b>3%</b>(부가세 포함) + 네이버페이 주문관리수수료 <b>2.563%</b>(중소1 등급)를 더한 값이에요. 영세 4.9% · 일반 등급 6.6%이니 내 등급으로 바꿔 주세요.' },
+    coupang: { fee: '10.8', ship: true, note: '쿠팡 판매수수료는 <b>카테고리별로 4~15%</b>로 달라요. 평균값 10.8%를 넣었으니 내 카테고리 요율로 바꿔 주세요.' },
+    rocket: { fee: '10.8', ship: true, note: '로켓그로스는 판매수수료 외에 <b>입출고·보관·배송 이용료</b>가 따로 붙어요. 그 금액을 실제 택배비+포장비 칸에 넣어 주세요.' },
+    custom: { fee: null, ship: true, note: '정산서의 수수료 합계를 그대로 넣으세요. 부가세가 포함된 실제 차감 비율이면 됩니다.' }
+  };
+  var DELIV_CH = {
+    baemin: { broke: '7.5', pay: '3.0', deliv: 2900, note: '2026년 상생요금제 기준 중개이용료 <b>6.8%</b>(부가세 별도)를 실제 정산 차감률 <b>7.5%</b>로 환산했어요. 내 가게 적용 구간은 사장님센터 정산서에서 확인하세요.' },
+    coupangeats: { broke: '7.5', pay: '3.0', deliv: 2900, note: '배민과 같은 상생요금제로 중개이용료 <b>6.8%</b>(부가세 별도) → 실제 차감 <b>7.5%</b>. 결제대행 수수료 3%와 업주 부담 배달비가 함께 빠져요.' },
+    yogiyo: { broke: '10.7', pay: '3.0', deliv: 2900, note: '요기요 라이트 기본 중개이용료 <b>9.7%</b>(부가세 별도)를 실제 차감률 <b>10.7%</b>로 환산했어요. 조건을 채우면 4.7%까지 내려가요.' },
+    custom: { broke: null, pay: null, deliv: null, note: '정산서의 중개이용료·결제수수료·배달비를 그대로 넣으세요. 비율은 실제 차감 기준이면 됩니다.' }
+  };
+
+  var tab = 'shop';
+  var shopTax = 'general';
+  var delivTax = 'general';
+  var costMode = 'pct';
+  var shop = {};
+  var deliv = {};
+
+  function $(id) { return document.getElementById(id); }
+  function numVal(id) {
+    var el = $(id); if (!el) return 0;
+    var t = String(el.value).replace(/[^0-9.-]/g, '');
+    var v = parseFloat(t);
+    return isFinite(v) ? v : 0;
+  }
+  function wonNum(n) { return Math.round(Number(n) || 0).toLocaleString('ko-KR'); }
+  function won(n) { return wonNum(n) + '원'; }
+  function wonShort(n) {
+    var v = Math.round(Number(n) || 0);
+    var sign = v < 0 ? '-' : '';
+    v = Math.abs(v);
+    if (v < 10000) return sign + v.toLocaleString('ko-KR') + '원';
+    var eok = Math.floor(v / 100000000);
+    var man = Math.round((v % 100000000) / 10000);
+    if (man === 10000) { eok += 1; man = 0; }
+    var parts = [];
+    if (eok) parts.push(eok + '억');
+    if (man) parts.push(man.toLocaleString('ko-KR') + '만');
+    return sign + parts.join(' ') + ' 원';
+  }
+  function pct(n, d) {
+    if (d === undefined) d = 1;
+    var v = Number(n) || 0;
+    return v.toLocaleString('ko-KR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계는 실패해도 기능에 영향 없음 */ }
+  }
+  function toast(msg) {
+    var t = $('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('is-on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.remove('is-on'); }, 3200);
+  }
+  function fmtMoney(el) {
+    var digits = String(el.value).replace(/[^0-9]/g, '');
+    if (digits === '') { el.value = ''; return; }
+    digits = digits.replace(/^0+(?=\d)/, '');
+    if (digits.length > 15) digits = digits.slice(0, 15);
+    el.value = Number(digits).toLocaleString('ko-KR');
+  }
+  function clampNum(el, min, max) {
+    var v = numVal(el.id);
+    if (!isFinite(v)) v = min;
+    if (v < min) v = min;
+    if (v > max) v = max;
+    el.value = String(v);
+  }
+  function copyText(text, okMsg) {
+    function done() { toast(okMsg || '복사했어요. 붙여 넣어 확인해 보세요.'); }
+    function fallback() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.left = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        var ok = document.execCommand('copy');
+        ta.remove();
+        if (ok) done(); else toast('복사가 막혔어요. 화면의 숫자를 직접 선택해 주세요.');
+      } catch (e) {
+        toast('복사가 막혔어요. 화면의 숫자를 직접 선택해 주세요.');
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  /* 부가세: 납부세액과 비용 인식 계수 */
+  function vatOf(R, V, kind) {
+    if (kind === 'general') return R * 10 / 110 - V * 10 / 110;
+    if (kind === 'simple') return R * 0.015;
+    return 0;
+  }
+  var TAX_NAME = { general: '일반과세자', simple: '간이과세자', exempt: '면세' };
+
+  function setComp(compId, parts) {
+    var comp = $(compId);
+    if (!comp) return;
+    var bars = comp.children;
+    var total = 0;
+    parts.forEach(function (p) { total += Math.max(0, p); });
+    var scale = total > 0 ? 100 / total : 0;
+    for (var i = 0; i < bars.length; i++) {
+      var w = i < parts.length ? Math.max(0, parts[i]) * scale : 0;
+      bars[i].style.width = w.toFixed(2) + '%';
+    }
+  }
+
+  /* =========================================================
+     1. 쇼핑몰·스마트스토어
+     ========================================================= */
+  function renderShop() {
+    var P = numVal('mPrice');
+    var H = numVal('mShip');
+    var C = numVal('mCost');
+    var S = numVal('mShipCost');
+    var A = numVal('mAd');
+    var f = numVal('mFee') / 100;
+    var feeShip = $('mFeeShip') ? $('mFeeShip').checked : true;
+
+    var R = P + H;
+    var B = P + (feeShip ? H : 0);
+    var F = B * f;
+    var V = C + S + A + F;
+    var vat = vatOf(R, V, shopTax);
+    var profit = R - V - vat;
+    var margin = R > 0 ? profit / R * 100 : 0;
+    var costRatio = P > 0 ? C / P * 100 : 0;
+
+    shop = {
+      P: P, H: H, C: C, S: S, A: A, f: f, feeShip: feeShip, F: F, V: V, vat: vat,
+      profit: profit, margin: margin, costRatio: costRatio, R: R, tax: shopTax
+    };
+
+    /* 큰 숫자 */
+    var big = $('shopProfit');
+    big.innerHTML = wonNum(profit) + '<small>원</small>';
+    big.classList.toggle('is-neg', profit < 0);
+    $('shopProfitSub').innerHTML = '마진율 <b>' + pct(margin) + '%</b> · 원가율 <b>' + pct(costRatio) + '%</b>';
+
+    /* 구성 비율 */
+    var vatPos = Math.max(0, vat);
+    setComp('shopComp', [C, S, F, A, vatPos, Math.max(0, profit)]);
+
+    /* kv */
+    $('kvMargin').textContent = pct(margin) + '%';
+    $('kvMargin').className = profit < 0 ? 'neg' : (margin >= 20 ? 'good' : 'warn');
+    $('kvCost').textContent = pct(costRatio) + '%';
+    $('kvCost').className = costRatio > 60 ? 'warn' : '';
+
+    var beAd = A + profit;                       // 광고비 + 순수익 = 손익분기 광고비
+    var beRoas = beAd > 0 ? R / beAd * 100 : null;
+    var curRoas = A > 0 ? R / A * 100 : null;
+    $('kvBeRoas').textContent = beRoas === null ? '— (광고 없이 적자)' : pct(beRoas, 0) + '%';
+    $('kvBeRoas').className = beRoas === null ? 'neg' : '';
+    $('kvRoas').textContent = curRoas === null ? '광고비 0원' : pct(curRoas, 0) + '%';
+    $('kvRoas').className = (curRoas !== null && beRoas !== null) ? (curRoas < beRoas ? 'neg' : 'good') : '';
+
+    /* 손익 상세 */
+    $('shopSumSub').textContent = TAX_NAME[shopTax] + ' 기준 · 부가세 포함 금액';
+    $('shopRevSub').textContent = '판매가 ' + wonNum(P) + ' + 배송비 ' + wonNum(H);
+    $('shopRev').textContent = won(R);
+    $('shopCost').textContent = '-' + won(C);
+    $('shopShip').textContent = '-' + won(S);
+    $('shopFeeSub').textContent = pct(numVal('mFee'), 1) + '% · ' + (feeShip ? '배송비 포함' : '판매가만');
+    $('shopFee').textContent = '-' + won(F);
+    $('shopAd').textContent = '-' + won(A);
+    $('shopVatLabel').textContent = vat < -0.5 ? '부가세 환급' : '납부 부가세';
+    $('shopVatSub').textContent = shopTax === 'general' ? '매출세액 − 매입세액' : (shopTax === 'simple' ? '매출의 1.5%' : '면세 · 부가세 없음');
+    $('shopVat').textContent = Math.abs(vat) < 0.5 ? '0원' : ((vat < 0 ? '+' : '-') + won(Math.abs(vat)));
+    $('shopVat').className = 'sum-v' + (vat < 0 ? ' low' : '');
+    $('shopNet').textContent = won(profit);
+    $('shopNet').className = 'sum-v ' + (profit < 0 ? 'neg' : 'low');
+
+    var vB = $('shopVerdictB');
+    if (profit < 0) {
+      vB.innerHTML = '1개 팔면 <em class="neg">' + wonNum(Math.abs(profit)) + '원</em> 손해예요';
+    } else {
+      vB.innerHTML = '1개 팔면 <em>' + wonNum(profit) + '원</em>이 남아요';
+    }
+    var per100 = profit * 100;
+    var noAd = profit + A;
+    $('shopVerdictSub').textContent = profit < 0
+      ? '판매가를 올리거나 원가·광고비를 줄여야 해요. 목표 마진율 역산으로 권장 판매가를 확인해 보세요.'
+      : '월 100개면 ' + wonShort(per100) + ' · 광고비를 빼면 ' + wonNum(noAd) + '원이에요.';
+
+    renderTarget();
+    updateSticky();
+  }
+
+  /* 목표 마진율 역산 */
+  function renderTarget() {
+    var t = numVal('mTarget') / 100;
+    var H = numVal('mShip');
+    var C = numVal('mCost');
+    var S = numVal('mShipCost');
+    var A = numVal('mAd');
+    var f = numVal('mFee') / 100;
+    var feeShip = $('mFeeShip') ? $('mFeeShip').checked : true;
+    var curP = numVal('mPrice');
+
+    var K = C + S + A - (feeShip ? 0 : f * H);
+    var denom;
+    if (shopTax === 'general') denom = 1 - f - 1.1 * t;
+    else if (shopTax === 'simple') denom = 1 - 0.015 - t - f;
+    else denom = 1 - t - f;
+
+    var priceEl = $('targetPrice');
+    var hintEl = $('targetHint');
+    shop.targetPrice = null;
+
+    if (!(t > 0)) {
+      priceEl.innerHTML = '—';
+      priceEl.classList.remove('is-neg');
+      hintEl.textContent = '목표 마진율을 1% 이상으로 넣어 주세요.';
+      return;
+    }
+    if (denom <= 0.005 || K < 0) {
+      priceEl.innerHTML = '불가<small>구조상 도달 어려움</small>';
+      priceEl.classList.add('is-neg');
+      hintEl.textContent = '수수료율(' + pct(numVal('mFee'), 1) + '%)과 부가세 구조에서 목표 마진율 ' + pct(numVal('mTarget'), 0) + '%를 만들 수 없어요. 목표를 낮추거나 수수료·원가를 줄여야 합니다.';
+      return;
+    }
+
+    var newR = K / denom;
+    var newP = newR - H;
+
+    if (!isFinite(newR) || newP <= 0 || newR <= 0) {
+      priceEl.innerHTML = '불가<small>구조상 도달 어려움</small>';
+      priceEl.classList.add('is-neg');
+      hintEl.textContent = '이 조건에서는 목표 마진율을 만드는 판매가가 나오지 않아요. 목표를 낮춰 보세요.';
+      return;
+    }
+
+    var diff = newP - curP;
+    var diffPct = curP > 0 ? diff / curP * 100 : 0;
+    shop.targetPrice = newP;
+    priceEl.innerHTML = wonNum(newP) + '원<small>' + (diff === 0 ? '지금과 같아요' : (diff > 0 ? '지금보다 ' + wonNum(diff) + '원 ↑' : '지금보다 ' + wonNum(-diff) + '원 ↓')) + '</small>';
+    priceEl.classList.remove('is-neg');
+
+    if (diff > 0) {
+      hintEl.textContent = '판매가를 ' + pct(diffPct, 1) + '% 올려 ' + won(newP) + '에 팔면 목표 마진율 ' + pct(t * 100, 0) + '%가 남아요. 가격을 올리기 어렵다면 원가나 광고비를 줄이는 방법도 있어요.';
+    } else if (diff < 0) {
+      hintEl.textContent = '판매가를 ' + won(-diff) + ' 내려도 목표 마진율 ' + pct(t * 100, 0) + '%가 남아요. 지금 가격은 목표보다 여유가 있는 편이에요.';
+    } else {
+      hintEl.textContent = '지금 판매가가 목표 마진율 ' + pct(t * 100, 0) + '%와 딱 맞아요.';
+    }
+  }
+
+  /* =========================================================
+     2. 배달앱
+     ========================================================= */
+  function renderDeliv() {
+    var P = numVal('dPrice');
+    var T = numVal('dTip');
+    var Dv = numVal('dDeliv');
+    var Pk = numVal('dPack');
+    var Cp = numVal('dCoupon');
+    var rawCost = numVal('dCost');
+    var C = costMode === 'pct' ? P * rawCost / 100 : rawCost;
+    var fr = numVal('dBroke') / 100;
+    var pr = numVal('dPay') / 100;
+
+    var R = P + T - Cp;
+    var F = P * fr;
+    var PF = R * pr;
+    var V = C + Pk + Dv + F + PF;
+    var vat = vatOf(R, V, delivTax);
+    var profit = R - V - vat;
+    var margin = R > 0 ? profit / R * 100 : 0;
+    var deduct = F + PF + Dv;
+    var deductRatio = R > 0 ? deduct / R * 100 : 0;
+    var orders = numVal('dOrders');
+    var monthly = profit * orders * 30;
+    var monthlyRev = R * orders * 30;
+
+    deliv = {
+      P: P, T: T, Dv: Dv, Pk: Pk, Cp: Cp, C: C, rawCost: rawCost, F: F, PF: PF, V: V,
+      vat: vat, profit: profit, margin: margin, deduct: deduct, deductRatio: deductRatio,
+      orders: orders, monthly: monthly, R: R, tax: delivTax
+    };
+
+    var big = $('delivProfit');
+    big.innerHTML = wonNum(profit) + '<small>원</small>';
+    big.classList.toggle('is-neg', profit < 0);
+    $('delivProfitSub').innerHTML = '마진율 <b>' + pct(margin) + '%</b> · 수수료·배달비 <b>' + pct(deductRatio) + '%</b>';
+
+    var vatPos = Math.max(0, vat);
+    setComp('delivComp', [C, Pk, F + PF, Dv, vatPos, Math.max(0, profit)]);
+
+    $('kvDelivMargin').textContent = pct(margin) + '%';
+    $('kvDelivMargin').className = profit < 0 ? 'neg' : (margin >= 20 ? 'good' : 'warn');
+    $('kvDeduct').textContent = won(deduct);
+    $('kvDeductRatio').textContent = pct(deductRatio) + '%';
+    $('kvDeductRatio').className = deductRatio >= 30 ? 'warn' : '';
+    $('kvPlatform').textContent = won(F + PF);
+
+    $('delivSumSub').textContent = TAX_NAME[delivTax] + ' 기준 · 고객 결제 금액';
+    $('delivRevSub').textContent = '음식 ' + wonNum(P) + ' + 배달팁 ' + wonNum(T) + (Cp > 0 ? ' − 쿠폰 ' + wonNum(Cp) : '');
+    $('delivRev').textContent = won(R);
+    $('delivBrokeSub').textContent = pct(numVal('dBroke'), 1) + '% · 음식가 기준';
+    $('delivBroke').textContent = '-' + won(F);
+    $('delivPaySub').textContent = pct(numVal('dPay'), 1) + '% · 결제금액 기준';
+    $('delivPay').textContent = '-' + won(PF);
+    $('delivDeliv').textContent = '-' + won(Dv);
+    $('delivCostSub').textContent = costMode === 'pct' ? '음식가의 ' + pct(rawCost, 1) + '%' : '원 단위 입력';
+    $('delivCost').textContent = '-' + won(C);
+    $('delivPackSub').textContent = '용기 ' + wonNum(Pk) + ' · 쿠폰 ' + wonNum(Cp);
+    $('delivPack').textContent = '-' + won(Pk + Cp);
+    $('delivVatLabel').textContent = vat < -0.5 ? '부가세 환급' : '납부 부가세';
+    $('delivVat').textContent = Math.abs(vat) < 0.5 ? '0원' : ((vat < 0 ? '+' : '-') + won(Math.abs(vat)));
+    $('delivVat').className = 'sum-v' + (vat < 0 ? ' low' : '');
+    $('delivNet').textContent = won(profit);
+    $('delivNet').className = 'sum-v ' + (profit < 0 ? 'neg' : 'low');
+
+    var vB = $('delivVerdictB');
+    if (profit < 0) {
+      vB.innerHTML = '한 건에 <em class="neg">' + wonNum(Math.abs(profit)) + '원</em> 손해예요';
+    } else {
+      vB.innerHTML = '한 건에 <em>' + wonNum(profit) + '원</em>이 남아요';
+    }
+    $('delivVerdictSub').textContent = profit < 0
+      ? '주문이 늘수록 손실도 커져요. 가격·원가·배달비를 다시 점검해 보세요.'
+      : (orders > 0 ? '하루 ' + wonNum(orders) + '건이면 한 달 ' + wonShort(monthly) + '이 남아요.' : '하루 주문 건수를 넣으면 한 달 예상 순수익을 계산해요.');
+
+    $('delivMonthly').textContent = wonShort(monthly);
+    $('delivMonthlySub').textContent = '월 주문 ' + wonNum(orders * 30) + '건 · 월 매출 ' + wonShort(monthlyRev) + ' 기준이에요.';
+
+    updateSticky();
+  }
+
+  /* =========================================================
+     3. 고정 바 · 탭
+     ========================================================= */
+  function updateSticky() {
+    var bar = $('stickyBar');
+    if (!bar) return;
+    if (tab === 'shop') {
+      $('sbValue').textContent = won(shop.profit || 0);
+      $('sbLabel').textContent = '1개 판매 순수익 · 마진율 ' + pct(shop.margin || 0) + '%';
+    } else {
+      $('sbValue').textContent = won(deliv.profit || 0);
+      $('sbLabel').textContent = '주문 1건 순수익 · 마진율 ' + pct(deliv.margin || 0) + '%';
+    }
+    if (document.body.classList.contains('has-work')) bar.classList.add('is-ready');
+  }
+
+  function switchTab(next) {
+    tab = next;
+    var isShop = next === 'shop';
+    $('tabShop').classList.toggle('is-active', isShop);
+    $('tabDeliv').classList.toggle('is-active', !isShop);
+    $('tabShop').setAttribute('aria-selected', isShop ? 'true' : 'false');
+    $('tabDeliv').setAttribute('aria-selected', !isShop ? 'true' : 'false');
+    $('paneShop').classList.toggle('is-hidden', !isShop);
+    $('paneDeliv').classList.toggle('is-hidden', isShop);
+    $('panelShop').classList.toggle('is-hidden', !isShop);
+    $('panelDeliv').classList.toggle('is-hidden', isShop);
+    $('shopActions').classList.toggle('is-hidden', !isShop);
+    $('delivActions').classList.toggle('is-hidden', isShop);
+    updateSticky();
+  }
+
+  /* =========================================================
+     4. 입력 이벤트
+     ========================================================= */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-live]'), function (inp) {
+    inp.addEventListener('input', function () {
+      var isMoney = SHOP_MONEY.indexOf(inp.id) > -1 || DELIV_MONEY.indexOf(inp.id) > -1;
+      if (inp.id === 'dCost') isMoney = costMode === 'won';
+      if (isMoney) fmtMoney(inp);
+      if (inp.id === 'mTarget') $('mTargetRange').value = String(Math.max(1, Math.min(60, Math.round(numVal('mTarget') || 1))));
+      if (inp.id === 'dOrders') $('dOrdersRange').value = String(Math.max(0, Math.min(200, Math.round(numVal('dOrders') || 0))));
+      if (inp.getAttribute('data-live') === 'shop') renderShop(); else renderDeliv();
+      updateSticky();
+    });
+    inp.addEventListener('blur', function () {
+      if (inp.id === 'mFee') { clampNum(inp, 0, 40); renderShop(); }
+      if (inp.id === 'mTarget') { clampNum(inp, 1, 60); $('mTargetRange').value = inp.value; renderShop(); }
+      if (inp.id === 'dBroke') { clampNum(inp, 0, 40); renderDeliv(); }
+      if (inp.id === 'dPay') { clampNum(inp, 0, 10); renderDeliv(); }
+      if (inp.id === 'dOrders') { clampNum(inp, 0, 300); $('dOrdersRange').value = String(Math.min(200, numVal('dOrders'))); renderDeliv(); }
+      if (inp.id === 'dCost') { clampNum(inp, 0, 1000000); if (costMode === 'won') fmtMoney(inp); renderDeliv(); }
+    });
+  });
+
+  /* 빠른 입력 칩 */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-set]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-set');
+      var el = $(id);
+      if (!el) return;
+      el.value = btn.getAttribute('data-val');
+      if (SHOP_MONEY.indexOf(id) > -1 || DELIV_MONEY.indexOf(id) > -1) fmtMoney(el);
+      if (id === 'dPrice') renderDeliv(); else renderShop();
+      updateSticky();
+      track('margin_calc_preset', { preset: btn.textContent.trim().replace(/\s+/g, ''), field: id });
+    });
+  });
+
+  /* 슬라이더 ↔ 숫자 */
+  function bindRange(rangeId, numId, isInt) {
+    var r = $(rangeId), n = $(numId);
+    if (!r || !n) return;
+    r.addEventListener('input', function () {
+      n.value = isInt ? String(Math.round(parseFloat(r.value))) : String(Math.round(parseFloat(r.value) * 10) / 10);
+      if (numId === 'mTarget') renderShop(); else renderDeliv();
+      updateSticky();
+    });
+    n.addEventListener('input', function () {
+      var v = numVal(numId);
+      if (isFinite(v)) r.value = String(isInt ? Math.round(v) : v);
+    });
+  }
+  bindRange('mTargetRange', 'mTarget', true);
+  bindRange('dOrdersRange', 'dOrders', true);
+
+  /* 채널 프리셋 */
+  function setActiveCard(containerId, btn) {
+    Array.prototype.forEach.call(document.querySelectorAll('#' + containerId + ' .ch-card'), function (c) {
+      c.classList.toggle('is-active', c === btn);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('#shopChannels .ch-card'), function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-ch');
+      var ch = SHOP_CH[key];
+      setActiveCard('shopChannels', btn);
+      if (ch.fee !== null) $('mFee').value = ch.fee;
+      $('mFeeShip').checked = ch.ship;
+      $('shopChannelNote').innerHTML = ch.note;
+      renderShop();
+      track('margin_calc_preset', { preset: 'shop_' + key });
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#delivChannels .ch-card'), function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-ch');
+      var ch = DELIV_CH[key];
+      setActiveCard('delivChannels', btn);
+      if (ch.broke !== null) $('dBroke').value = ch.broke;
+      if (ch.pay !== null) $('dPay').value = ch.pay;
+      if (ch.deliv !== null) $('dDeliv').value = Number(ch.deliv).toLocaleString('ko-KR');
+      $('delivChannelNote').innerHTML = ch.note;
+      renderDeliv();
+      track('margin_calc_preset', { preset: 'deliv_' + key });
+    });
+  });
+
+  /* 부가세 유형 */
+  Array.prototype.forEach.call(document.querySelectorAll('#shopTaxSeg button'), function (b) {
+    b.addEventListener('click', function () {
+      shopTax = b.getAttribute('data-tax');
+      Array.prototype.forEach.call(document.querySelectorAll('#shopTaxSeg button'), function (x) {
+        x.classList.toggle('is-active', x === b);
+      });
+      $('shopTaxNote').innerHTML = shopTax === 'general'
+        ? '매출세액에서 매입세액을 뺀 차액을 납부하는 것으로 계산합니다. 수수료·택배비·광고비에 붙은 부가세는 매입세액으로 공제돼요.'
+        : (shopTax === 'simple'
+          ? '매입세액 공제가 없어 매출(부가세 포함)의 <b>1.5%</b>를 부가세로 내는 것으로 계산합니다. 소매업 기준이고 업종에 따라 1~3% 수준이에요.'
+          : '부가세를 내지 않는 대신 매입 부가세를 돌려받지 못합니다. 원가·수수료에 포함된 부가세가 그대로 비용으로 남아요.');
+      renderShop();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('#delivTaxSeg button'), function (b) {
+    b.addEventListener('click', function () {
+      delivTax = b.getAttribute('data-tax');
+      Array.prototype.forEach.call(document.querySelectorAll('#delivTaxSeg button'), function (x) {
+        x.classList.toggle('is-active', x === b);
+      });
+      $('delivTaxNote').innerHTML = delivTax === 'general'
+        ? '매출세액에서 매입세액을 뺀 차액을 납부하는 것으로 계산합니다. 음식점업 간이과세자는 업종 부가율에 따라 매출의 1% 안팎입니다.'
+        : (delivTax === 'simple'
+          ? '매입세액 공제가 없어 매출(부가세 포함)의 <b>1.5%</b>를 부가세로 내는 것으로 계산합니다. 음식점업은 1% 안팎이에요.'
+          : '부가세를 내지 않는 대신 매입 부가세를 돌려받지 못합니다. 식자재·수수료에 포함된 부가세가 그대로 비용으로 남아요.');
+      renderDeliv();
+    });
+  });
+
+  /* 식자재 원가 입력 방식 */
+  Array.prototype.forEach.call(document.querySelectorAll('#costModeSeg button'), function (b) {
+    b.addEventListener('click', function () {
+      var next = b.getAttribute('data-mode');
+      if (next === costMode) return;
+      var P = numVal('dPrice');
+      var raw = numVal('dCost');
+      if ($('dCost')) {
+        if (next === 'pct') {
+          $('dCost').value = P > 0 ? String(Math.round(raw / P * 1000) / 10) : '0';
+        } else {
+          $('dCost').value = String(Math.round(P * raw / 100));
+          fmtMoney($('dCost'));
+        }
+      }
+      costMode = next;
+      Array.prototype.forEach.call(document.querySelectorAll('#costModeSeg button'), function (x) {
+        x.classList.toggle('is-active', x === b);
+      });
+      $('costUnit').textContent = next === 'pct' ? '%' : '원';
+      $('dCost').setAttribute('inputmode', next === 'pct' ? 'decimal' : 'numeric');
+      renderDeliv();
+    });
+  });
+
+  /* 샘플 · 초기화 */
+  function setValues(obj) {
+    Object.keys(obj).forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.value = obj[id];
+      if (SHOP_MONEY.indexOf(id) > -1 || DELIV_MONEY.indexOf(id) > -1) fmtMoney(el);
+    });
+  }
+  $('shopSampleBtn').addEventListener('click', function () {
+    setValues(SAMPLE_SHOP);
+    $('mFeeShip').checked = true;
+    $('mTargetRange').value = '30';
+    shopTax = 'general';
+    Array.prototype.forEach.call(document.querySelectorAll('#shopTaxSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-tax') === 'general');
+    });
+    renderShop();
+    toast('무료배송 샘플 조건을 넣었어요. 금액을 내 조건으로 바꿔 보세요.');
+    track('margin_calc_preset', { preset: 'shop_sample' });
+  });
+  $('shopResetBtn').addEventListener('click', function () {
+    setValues(DEFAULT_SHOP);
+    $('mFeeShip').checked = true;
+    $('mTargetRange').value = '30';
+    shopTax = 'general';
+    Array.prototype.forEach.call(document.querySelectorAll('#shopTaxSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-tax') === 'general');
+    });
+    renderShop();
+    toast('입력값을 처음 상태로 되돌렸어요.');
+  });
+  $('delivSampleBtn').addEventListener('click', function () {
+    costMode = 'pct';
+    Array.prototype.forEach.call(document.querySelectorAll('#costModeSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-mode') === 'pct');
+    });
+    $('costUnit').textContent = '%';
+    setValues(SAMPLE_DELIV);
+    $('dOrdersRange').value = '45';
+    delivTax = 'general';
+    Array.prototype.forEach.call(document.querySelectorAll('#delivTaxSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-tax') === 'general');
+    });
+    renderDeliv();
+    toast('배민 샘플 조건을 넣었어요. 쿠폰을 2,000원 돌리는 경우입니다.');
+    track('margin_calc_preset', { preset: 'deliv_sample' });
+  });
+  $('delivResetBtn').addEventListener('click', function () {
+    costMode = 'pct';
+    Array.prototype.forEach.call(document.querySelectorAll('#costModeSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-mode') === 'pct');
+    });
+    $('costUnit').textContent = '%';
+    setValues(DEFAULT_DELIV);
+    $('dOrdersRange').value = '30';
+    delivTax = 'general';
+    Array.prototype.forEach.call(document.querySelectorAll('#delivTaxSeg button'), function (x) {
+      x.classList.toggle('is-active', x.getAttribute('data-tax') === 'general');
+    });
+    renderDeliv();
+    toast('입력값을 처음 상태로 되돌렸어요.');
+  });
+
+  /* 탭 */
+  $('tabShop').addEventListener('click', function () { switchTab('shop'); track('margin_switch_tab', { tab: 'shop' }); });
+  $('tabDeliv').addEventListener('click', function () { switchTab('deliv'); track('margin_switch_tab', { tab: 'deliv' }); });
+
+  /* =========================================================
+     5. 요약 복사
+     ========================================================= */
+  function shopSummaryText() {
+    var lines = [];
+    lines.push('[제로박스 마진 계산기] 쇼핑몰 1개 판매 기준');
+    lines.push('· 판매가 ' + won(shop.P) + ' + 고객 배송비 ' + won(shop.H) + ' = 총매출 ' + won(shop.R));
+    lines.push('· 매입 원가 ' + won(shop.C));
+    lines.push('· 택배비·포장비 ' + won(shop.S));
+    lines.push('· 마켓 수수료 ' + pct(numVal('mFee'), 1) + '% → ' + won(shop.F) + (shop.feeShip ? ' (배송비 포함)' : ' (판매가만)'));
+    lines.push('· 광고비 ' + won(shop.A));
+    lines.push('· 부가세 ' + TAX_NAME[shop.tax] + (shop.vat < -0.5 ? ' 환급 ' + won(-shop.vat) : ' 납부 ' + won(shop.vat)));
+    lines.push('→ 순수익 ' + won(shop.profit) + ' · 마진율 ' + pct(shop.margin) + '% · 원가율 ' + pct(shop.costRatio) + '%');
+    var beAd = shop.A + shop.profit;
+    lines.push('· 손익분기 ROAS ' + (beAd > 0 ? pct(shop.R / beAd * 100, 0) + '%' : '광고 없이 적자') + ' / 현재 ROAS ' + (shop.A > 0 ? pct(shop.R / shop.A * 100, 0) + '%' : '광고비 0원'));
+    lines.push('· 목표 마진율 ' + pct(numVal('mTarget'), 0) + '% 기준 권장 판매가: ' + (typeof shop.targetPrice === 'number' ? won(shop.targetPrice) : '계산 불가'));
+    lines.push('계산: https://mydaesu-lab.github.io/margin-calc/');
+    return lines.join('\n');
+  }
+  function delivSummaryText() {
+    var lines = [];
+    lines.push('[제로박스 마진 계산기] 배달앱 1건 주문 기준');
+    lines.push('· 음식 판매가 ' + won(deliv.P) + ' + 고객 배달팁 ' + won(deliv.T) + (deliv.Cp > 0 ? ' − 쿠폰 ' + won(deliv.Cp) : '') + ' = 주문금액 ' + won(deliv.R));
+    lines.push('· 중개이용료 ' + pct(numVal('dBroke'), 1) + '% → ' + won(deliv.F));
+    lines.push('· 결제수수료 ' + pct(numVal('dPay'), 1) + '% → ' + won(deliv.PF));
+    lines.push('· 매장 부담 배달비 ' + won(deliv.Dv) + ' · 포장비 ' + won(deliv.Pk) + ' · 식자재 ' + won(deliv.C));
+    lines.push('· 부가세 ' + TAX_NAME[deliv.tax] + (deliv.vat < -0.5 ? ' 환급 ' + won(-deliv.vat) : ' 납부 ' + won(deliv.vat)));
+    lines.push('→ 1건 순수익 ' + won(deliv.profit) + ' · 마진율 ' + pct(deliv.margin) + '%');
+    lines.push('· 수수료·배달비 차감 ' + won(deliv.deduct) + ' (주문금액의 ' + pct(deliv.deductRatio) + '%)');
+    lines.push('· 하루 ' + wonNum(deliv.orders) + '건 → 월 예상 순수익 ' + wonShort(deliv.monthly) + ' (30일 기준)');
+    lines.push('계산: https://mydaesu-lab.github.io/margin-calc/');
+    return lines.join('\n');
+  }
+  function doCopy() {
+    if (tab === 'shop') {
+      copyText(shopSummaryText(), '1개 판매 손익 요약을 복사했어요!');
+      track('margin_copy_summary', { tab: 'shop' });
+    } else {
+      copyText(delivSummaryText(), '배달앱 1건 손익 요약을 복사했어요!');
+      track('margin_copy_summary', { tab: 'deliv' });
+    }
+  }
+  $('shopCopy').addEventListener('click', doCopy);
+  $('delivCopy').addEventListener('click', doCopy);
+  $('sbCopy').addEventListener('click', doCopy);
+
+  /* =========================================================
+     6. 모달 · 광고
+     ========================================================= */
+  function openModal(name) {
+    var d = $(name === 'privacy' ? 'modalPrivacy' : 'modalAbout');
+    if (d && typeof d.showModal === 'function') d.showModal();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-modal]'), function (b) {
+    b.addEventListener('click', function () { openModal(b.getAttribute('data-modal')); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close]'), function (b) {
+    b.addEventListener('click', function () {
+      var d = b.closest('dialog');
+      if (d) d.close();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('dialog.modal'), function (d) {
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+  });
+
+  (function initAd() {
+    var card = $('adCard'), slot = $('adSlot'), toggle = $('adToggle');
+    if (!card || !toggle) return;
+    var hidden = false;
+    try { hidden = localStorage.getItem(AD_KEY) === '1'; } catch (e) { }
+    function apply() {
+      card.classList.toggle('is-hidden', hidden);
+      document.body.classList.toggle('ad-off', hidden);
+    }
+    if (AD_SLOT_ID) {
+      slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { }
+    }
+    toggle.addEventListener('click', function () {
+      hidden = !hidden;
+      try { localStorage.setItem(AD_KEY, hidden ? '1' : '0'); } catch (e) { }
+      apply();
+      toast(hidden ? '광고 영역을 접었어요. 기기에 기억됩니다.' : '광고 영역을 다시 표시합니다.');
+    });
+    apply();
+  })();
+
+  /* =========================================================
+     7. 시작
+     ========================================================= */
+  renderShop();
+  renderDeliv();
+  document.body.classList.add('has-work');
+  updateSticky();
+})();
+</script>
+</body>
+</html>
