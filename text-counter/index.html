@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>글자수 세기 · 자소서 바이트·줄바꿈 정리기 | 공백 포함·제외 · 제로박스</title>
+<meta name="description" content="글을 붙여넣으면 공백 포함·공백 제외 글자수, EUC-KR(한글 2바이트)·UTF-8(한글 3바이트) 바이트, 단어·문장·문단 수, 200자 원고지 매수, 읽기 시간을 실시간으로 세어 줍니다. 목표 글자수 진행바와 초과 경고, 줄바꿈·빈 줄·연속 공백·특수문자 원클릭 정리, 반복 단어 찾기와 바꾸기, 1단계 되돌리기까지. 입력한 글은 서버로 전송되지 않고 브라우저에서만 처리됩니다.">
+<meta name="keywords" content="글자수 세기, 글자수세기, 자소서 글자수, 자소서 바이트, 바이트 계산, EUC-KR 바이트, UTF-8 바이트, 공백 포함 글자수, 공백 제외 글자수, 줄바꿈 제거, 엔터 제거, 빈 줄 정리, 연속 공백 정리, 특수문자 제거, 이모지 제거, 단어 수 세기, 문장 수, 문단 수, 200자 원고지, 원고지 매수, 읽기 시간, 목표 글자수, 자기소개서 글자수, 블로그 글자수, 인스타 글자수, 단어 찾기 바꾸기, 글자수 카운터, 제로박스, ZeroBox">
+<meta name="author" content="제로박스 (ZeroBox)">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제로박스 (ZeroBox)">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="글자수 세기 · 자소서 바이트·줄바꿈 정리기 | 제로박스">
+<meta property="og:description" content="공백 포함·제외 글자수와 EUC-KR·UTF-8 바이트, 단어·문장·문단, 원고지 매수, 읽기 시간까지 실시간으로. 목표 글자수 진행바와 줄바꿈·공백·특수문자 원클릭 정리, 반복 단어 찾기·바꾸기.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/text-counter/preview.png">
+<meta property="og:image:alt" content="글자수 세기 화면 — 공백 포함 512자, 공백 제외 431자, EUC-KR 986바이트 요약 카드">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/text-counter/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="글자수 세기 · 자소서 바이트·줄바꿈 정리기 | 제로박스">
+<meta name="twitter:description" content="자소서 1,000바이트, 몇 자인지 헷갈릴 때. 공백 포함·제외 글자수와 EUC-KR·UTF-8 바이트를 붙여넣기만 하면 바로.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/text-counter/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/text-counter/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "글자수 세기 · 자소서 바이트·줄바꿈 정리기",
+      "alternateName": "제로박스 글자수 세기 · 공백 포함·제외 · EUC-KR UTF-8 바이트 계산 · 줄바꿈 정리",
+      "url": "https://mydaesu-lab.github.io/text-counter/",
+      "image": "https://mydaesu-lab.github.io/text-counter/preview.png",
+      "description": "붙여넣은 글의 공백 포함·공백 제외 글자수, EUC-KR(한글 2바이트)·UTF-8(한글 3바이트) 바이트, 단어·문장·문단 수, 200자 원고지 매수, 예상 읽기 시간을 실시간으로 계산하는 무료 도구. 목표 글자수 설정과 진행바·초과 경고, 줄바꿈 제거·빈 줄 정리·연속 공백 정리·앞뒤 공백 제거·특수문자·이모지 제거, 단어 찾기와 모두 바꾸기, 1단계 되돌리기, 전체 복사, 브라우저 임시저장을 지원합니다. 모든 계산은 브라우저 안에서만 이루어집니다.",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "글자수 세기 · 바이트 계산 · 텍스트 정리",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": { "@type": "Organization", "name": "제로박스 (ZeroBox)", "url": "https://mydaesu-lab.github.io/" },
+      "featureList": [
+        "공백 포함 글자수 · 공백 제외 글자수 실시간 계산",
+        "EUC-KR 바이트 (한글 2바이트 · 영문·숫자·공백 1바이트 · 엔터 2바이트)",
+        "UTF-8 바이트 (한글 3바이트 · 이모지 4바이트)",
+        "단어 수 · 문장 수 · 문단 수 계산",
+        "200자 원고지 매수와 예상 읽기 시간",
+        "목표 글자수 프리셋(500·700·1,000·1,500·2,000자)과 직접 입력, 진행바, 초과 경고",
+        "줄바꿈(엔터) 제거 · 빈 줄 정리 · 연속 공백 정리 · 앞뒤 공백 제거 · 특수문자·이모지 제거",
+        "단어 찾기(반복 횟수 표시)와 모두 바꾸기",
+        "1단계 되돌리기(Undo) · 전체 복사 · 샘플 · 초기화",
+        "브라우저 임시저장(localStorage) 선택 사용",
+        "입력한 글 서버 미전송 · 100% 브라우저 처리"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "자소서 글자수는 공백 포함으로 세나요, 공백 제외로 세나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "회사 입력창의 기준을 따라야 합니다. 자기소개서는 보통 바이트(1,000바이트·1,500바이트·2,000바이트)로 제한하고, 글자수로 제한하는 곳은 공백 포함을 기준으로 하는 경우가 많습니다. 이 도구는 공백 포함·공백 제외를 함께 보여 주므로, 제한 기준에 맞는 숫자를 보고 10% 정도 여유를 남겨 두면 안전합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "EUC-KR과 UTF-8 중 자소서에는 어떤 기준을 봐야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "자기소개서·정부 양식·채용 시스템은 대부분 EUC-KR(완성형) 기준으로 한글을 2바이트로 셉니다. 그래서 1,000바이트는 한글 약 500자, 2,000바이트는 한글 약 1,000자에 해당합니다. 반면 블로그 API·웹·개발 문서는 UTF-8이라 한글이 3바이트입니다. 자소서를 쓴다면 EUC-KR 숫자를 보세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "줄바꿈(엔터)도 글자수와 바이트에 들어가나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이 도구는 글자수에서 줄바꿈을 빼고 세고, EUC-KR 바이트에서는 엔터를 2바이트(CRLF)로 계산합니다. 회사 양식에 따라 엔터를 글자수에 포함하기도 하므로, 제한에 딱 맞췄다면 엔터 개수만큼 여유를 두는 편이 안전합니다. 줄바꿈 제거 버튼으로 한 번에 지울 수도 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "200자 원고지 매수는 어떻게 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "공백 포함 글자수를 200으로 나눈 값입니다. 예를 들어 512자면 2.6매, 1,000자면 5매입니다. 원고지 매수는 출판·공모전 안내에서 분량을 말할 때 쓰는 기준이라, 글자수 제한이 매수로 제시된 경우 이 값으로 확인하면 됩니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 글이 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 글자수·바이트 계산과 정리 기능은 모두 브라우저 안에서만 실행되고, 입력한 글은 서버로 보내지 않습니다. 저장 공간도 없어서 새로고침하면 사라집니다. 다만 내 브라우저 임시저장을 직접 켜면 이 기기의 localStorage에만 남습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "임시저장은 어디에 저장되나요? 공용 PC에서 써도 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "임시저장을 켜면 글이 이용자 브라우저의 localStorage에만 저장되고 사이트 서버로는 가지 않습니다. 다만 같은 브라우저를 쓰는 사람은 볼 수 있으므로, 공용 PC·도서관 컴퓨터에서는 임시저장을 끄고 사용 후 브라우저 데이터를 지우는 것이 안전합니다. 자소서에는 주민등록번호 같은 민감한 정보를 넣지 마세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "되돌리기(Undo)는 몇 번까지 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "1단계입니다. 줄바꿈 제거·빈 줄 정리·연속 공백 정리·앞뒤 공백 제거·특수문자 제거·모두 바꾸기를 실행하기 직전 상태로 한 번 되돌릴 수 있습니다. 두 번 이상 되돌리려면 브라우저의 실행 취소(Ctrl+Z)를 함께 쓰세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "이모지를 지우면 바이트가 왜 크게 줄어드나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이모지는 UTF-8에서 4바이트, EUC-KR에서는 표현할 수 없는 문자라 계산기마다 2바이트 이상으로 잡힙니다. 자소서에는 이모지가 들어가지 않는 경우가 많고, 들어가면 글자수도 바이트도 예상보다 크게 늘어납니다. 특수문자·이모지 제거 버튼으로 한 번에 지울 수 있습니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+<style>
+
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --danger:#c02626;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff}
+  .pb-text{min-width:0}
+  .sib-strip{display:flex;flex:1 1 100%;flex-wrap:wrap;gap:8px}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:900px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 15px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .chip.good{color:#0f6b4c;background:#e7f7f0}
+  .chip.warn{color:#8a5300;background:#fff3dc}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn:disabled{opacity:.45;cursor:not-allowed}
+  .mini-btn.primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(91,87,240,.28)}
+  .mini-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#514cdd,#7f4fef);color:#fff;border-color:transparent}
+
+  /* ---------- fields ---------- */
+  .field{margin-top:12px}
+  .field:first-child{margin-top:0}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .field-label small{font-weight:600;color:var(--muted);font-size:11px;margin-left:4px}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  .input::placeholder{color:#a8adbc}
+  .row-note{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.55}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s}
+  .chip-btn:hover:not(:disabled){border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+
+  /* ---------- panel ---------- */
+  .panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px 18px}
+  .pblock{padding:13px 2px 14px;border-bottom:1px dashed var(--line)}
+  .pblock:last-of-type{border-bottom:0;padding-bottom:2px}
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .link-btn{border:0;background:none;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .lead{margin:0 0 9px;max-width:900px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .lead code,.tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p b{color:var(--ink);font-weight:700}
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+  .disclaimer{margin:16px 0 0;padding:11px 13px;border:1px solid #ffe1b8;background:#fff8ec;border-radius:11px;font-size:11.5px;line-height:1.65;color:#7a4b00}
+  .disclaimer b{color:#8a5300;font-weight:800}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  /* ===== 글자수 세기 전용 ===== */
+  .ta-wrap{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+  .ta-wrap:focus-within{border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.13)}
+  .ta{display:block;width:100%;min-height:292px;max-height:62vh;border:0;padding:14px 15px;font:inherit;font-size:14px;line-height:1.86;color:var(--ink);resize:vertical;background:#fff;tab-size:4}
+  .ta:focus{outline:none}
+  .ta::placeholder{color:#a8adbc}
+  .ta-foot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;border-top:1px solid var(--line);background:#fbfbfe}
+  .ta-stats{display:flex;flex-wrap:wrap;gap:3px 11px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:0}
+  .ta-stats b{color:var(--ink-2);font-weight:800}
+  .ta-foot .mini-btn{margin-left:auto}
+
+  .draft-row{display:flex;align-items:flex-start;gap:9px;margin-top:9px;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:#fbfbfe}
+  .switch{position:relative;flex:0 0 auto;width:38px;height:22px;border-radius:999px;background:#d8dbe7;transition:background .16s;cursor:pointer;border:0;padding:0;margin-top:1px}
+  .switch::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(20,24,60,.24);transition:transform .16s}
+  .switch[aria-checked="true"]{background:linear-gradient(135deg,#5b57f0,#8b5cf6)}
+  .switch[aria-checked="true"]::after{transform:translateX(16px)}
+  .switch:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+  .draft-text{font-size:11.5px;line-height:1.55;color:var(--muted);min-width:0;flex:1 1 auto}
+  .draft-text b{color:var(--ink-2);font-weight:800}
+
+  .sec-title{display:flex;align-items:center;gap:7px;margin:14px 0 8px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .sec-title small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+
+  .goal-box{border:1px solid var(--line);border-radius:14px;padding:11px 12px 12px;background:#fbfbfe}
+  .goal-head{display:flex;align-items:center;gap:7px;margin:0 0 8px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .goal-head small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .goal-chips{display:flex;flex-wrap:wrap;gap:5px}
+  .goal-chips .chip-btn{padding:5px 9px;font-size:11px}
+  .goal-custom{display:flex;align-items:center;gap:7px;margin-top:8px}
+  .with-unit{position:relative;flex:1 1 auto;min-width:0;max-width:190px}
+  .with-unit .input{padding-right:32px;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700}
+  .with-unit > i{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-style:normal;font-size:11px;font-weight:700;color:var(--muted);pointer-events:none}
+  .goal-custom span{font-size:10.5px;color:var(--muted);line-height:1.4;min-width:0}
+
+  .clean-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .clean-btn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 10px;font:inherit;cursor:pointer;transition:border-color .14s,background .14s}
+  .clean-btn:hover:not(:disabled){border-color:#cdc8ff;background:#fbfaff}
+  .clean-btn:disabled{opacity:.5;cursor:not-allowed}
+  .clean-btn b{font-size:12px;font-weight:800;color:var(--ink);line-height:1.3}
+  .clean-btn span{font-size:10.5px;color:var(--muted);line-height:1.35}
+  .clean-btn.wide{grid-column:1/-1}
+
+  .find-box{border:1px solid var(--line);border-radius:14px;padding:11px 12px 12px;background:#fbfbfe}
+  .find-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .find-grid .field{margin-top:0}
+  .find-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .find-count{flex:1 1 150px;font-size:11px;line-height:1.5;color:var(--muted);min-width:0}
+  .find-count b{color:#4b45c9;font-weight:800;font-variant-numeric:tabular-nums}
+  .find-count.warn b{color:#b45309}
+
+  /* 결과 다크 카드 */
+  .net-card{border-radius:17px;padding:16px 16px 15px;background:linear-gradient(158deg,#20233a 0%,#2b2f47 100%);color:#eef0f8;box-shadow:0 16px 34px rgba(20,24,60,.26)}
+  .net-cap{display:flex;align-items:center;gap:6px;margin:0;font-size:11px;font-weight:800;letter-spacing:.01em;color:#a9afc9}
+  .net-cap .live{margin-left:auto;font-size:9.5px;font-weight:800;color:#7ee0b8;background:rgba(126,224,184,.13);border:1px solid rgba(126,224,184,.3);border-radius:999px;padding:2px 7px;white-space:nowrap}
+  .net-num{margin:6px 0 2px;font-size:38px;line-height:1.06;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:#fff;word-break:break-all}
+  .net-num small{font-size:15px;font-weight:800;margin-left:2px;color:#b9bdf0}
+  .net-sub{margin:2px 0 0;font-size:11.5px;line-height:1.55;color:#9ba1bd}
+  .net-sub b{color:#e7e9f6;font-weight:800}
+  .stack{margin-top:12px}
+  .stack-bar{display:flex;height:10px;border-radius:99px;overflow:hidden;background:#3a3f5c}
+  .stack-bar i{display:block;height:100%;transition:width .22s ease}
+  .stack-bar i.s1{background:linear-gradient(90deg,#6f6af5,#8b5cf6)}
+  .stack-bar i.s2{background:linear-gradient(90deg,#f0a13a,#e0653a)}
+  .stack-bar i.s3{background:linear-gradient(90deg,#2fbf92,#0f9d6e)}
+  .stack-legend{display:flex;flex-wrap:wrap;gap:5px 11px;margin-top:7px;font-size:10px;color:#9ba1bd;font-variant-numeric:tabular-nums}
+  .stack-legend span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+  .stack-legend i{width:7px;height:7px;border-radius:2px;flex:0 0 auto}
+  .stack-legend i.s1{background:#8b8cf6}
+  .stack-legend i.s2{background:#e0945a}
+  .stack-legend i.s3{background:#2fbf92}
+
+  /* 목표 진행 */
+  .goal-card{margin-top:11px;border:1px solid var(--line);border-radius:13px;padding:10px 11px 11px;background:#fbfbfe}
+  .goal-cap{display:flex;align-items:center;gap:6px;margin:0;font-size:11.5px;font-weight:800;color:var(--ink-2)}
+  .goal-cap b{margin-left:auto;font-size:11.5px;color:#4b45c9;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .goal-track{margin-top:8px;height:9px;border-radius:99px;background:#e7e9f0;overflow:hidden}
+  .goal-track i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5b57f0,#8b5cf6);transition:width .18s}
+  .goal-card.is-over .goal-track i{background:linear-gradient(90deg,#e0653a,#c02626)}
+  .goal-note{margin:7px 0 0;font-size:11px;line-height:1.55;color:var(--muted);font-variant-numeric:tabular-nums}
+  .goal-note b{color:var(--ink);font-weight:800}
+  .goal-card.is-over .goal-note b{color:#c02626}
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:2px}
+  .stat{background:#fbfbfe;border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+  .stat span{display:block;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat b{display:block;margin-top:1px;font-size:15px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat b small{font-size:10.5px;font-weight:700;color:var(--muted);margin-left:1px}
+  .stat.accent b{color:#4b45c9}
+  .byte-note{margin:9px 0 0;font-size:10.5px;line-height:1.6;color:var(--muted)}
+  .byte-note b{color:var(--ink-2);font-weight:700}
+
+  /* 정적 표 */
+  .tbl-wrap{border:1px solid var(--line);border-radius:13px;overflow:auto;background:#fff;-webkit-overflow-scrolling:touch}
+  table.tbl{width:100%;border-collapse:collapse;font-size:11.5px;font-variant-numeric:tabular-nums}
+  .tbl thead th{background:#f6f7fc;color:#5b6072;font-size:10.5px;font-weight:800;text-align:right;padding:8px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .tbl thead th:first-child{text-align:left}
+  .tbl td{padding:8px 9px;border-bottom:1px solid #f1f2f7;text-align:right;white-space:nowrap;color:var(--ink-2)}
+  .tbl td:first-child{text-align:left;font-weight:800;color:var(--ink)}
+  .tbl td.hl{font-weight:800;color:#4b45c9}
+  .tbl tbody tr:last-child td{border-bottom:0}
+  .tbl.static tr{cursor:default}
+  .tbl.static tbody tr:hover{background:transparent}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .panel{position:static;padding:4px 15px 14px}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-work{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .sib-strip{display:flex;flex:1 1 100%;flex-wrap:nowrap;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .sib-strip::-webkit-scrollbar{display:none}
+    .badge-strip .sib-strip .sibling-link{flex:0 0 auto}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .stage-title .chip{display:none}
+    .stage-card{padding:12px 12px 13px}
+    .ta{min-height:240px;font-size:13.5px}
+    .ta-stats{font-size:10.5px}
+    .clean-grid{grid-template-columns:1fr}
+    .clean-btn.wide{grid-column:auto}
+    .find-grid{grid-template-columns:1fr}
+    .net-num{font-size:34px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+    .tbl thead th,.tbl td{padding:7px 7px;font-size:11px}
+  }
+  @media (max-width:360px){
+    .hero h1{font-size:20px}
+    .net-num{font-size:30px}
+    .stat b{font-size:13.5px}
+    .stat span{font-size:10px}
+    .ta-stats{font-size:10px;gap:2px 8px}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/text-counter/">
+      <span class="brand-mark" aria-hidden="true">✍️</span>
+      <span class="brand-text">
+        <b>글자수 세기</b>
+        <i>제로박스 · 바이트 · 줄바꿈 정리 · 자소서</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>입력한 글은 서버에 저장·전송되지 않아요</b> · 100% 브라우저 처리</span></span>
+      <div class="sib-strip">
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/" title="제로박스 무료 웹툴 전체 보기">🏠 전체 툴</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+      </div>
+    </div>
+    <h1>자소서 글자수, <span>공백 포함·제외</span>와 바이트까지 한 번에</h1>
+    <p class="hero-sub">글을 붙여넣기만 하면 <b>공백 포함·공백 제외 글자수</b>, <b>EUC-KR(한글 2바이트)</b>과 <b>UTF-8(한글 3바이트)</b> 바이트, 단어·문장·문단 수, <b>200자 원고지 매수</b>, 예상 읽기 시간까지 실시간으로 세어 줍니다. <b>목표 글자수 진행바</b>로 초과 여부를 확인하고, <b>줄바꿈·빈 줄·연속 공백·특수문자 원클릭 정리</b>와 <b>반복 단어 찾기·바꾸기</b>로 자소서를 다듬어 보세요. 입력한 글은 서버로 가지 않습니다.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 입력 · 도구 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-head">
+          <div class="stage-title">
+            <span>글 입력</span>
+            <span class="chip grey" id="headChip">실시간 계산</span>
+          </div>
+          <div class="stage-actions">
+            <button class="mini-btn primary" type="button" id="sampleBtn">✨ 샘플로 체험하기</button>
+            <button class="mini-btn" type="button" id="undoBtn" disabled>↩ 되돌리기</button>
+            <button class="mini-btn" type="button" id="resetBtn">초기화</button>
+          </div>
+        </div>
+
+        <div class="ta-wrap">
+          <label class="is-hidden" for="ta">글자수를 셀 글</label>
+          <textarea class="ta" id="ta" spellcheck="false" autocomplete="off" placeholder="여기에 글을 붙여넣거나 직접 써 보세요.&#10;&#10;자기소개서, 블로그 글, 과제, 지원서 답변 모두 괜찮아요.&#10;입력하는 즉시 글자수·바이트·단어 수가 계산됩니다."></textarea>
+          <div class="ta-foot">
+            <div class="ta-stats">
+              <span>공백 포함 <b id="miniAll">0</b>자</span>
+              <span>공백 제외 <b id="miniNo">0</b>자</span>
+              <span>EUC-KR <b id="miniByte">0</b>B</span>
+            </div>
+            <button class="mini-btn primary" type="button" id="copyAll">📋 전체 복사</button>
+          </div>
+        </div>
+
+        <div class="draft-row">
+          <button class="switch" type="button" id="draftSwitch" role="switch" aria-checked="false" aria-labelledby="draftLabel"></button>
+          <span class="draft-text" id="draftLabel"><b>내 브라우저에 임시저장</b> — 켜 두면 이 기기의 브라우저 저장소(localStorage)에만 남아, 앱을 닫았다 와도 이어서 쓸 수 있어요. 서버로는 전송되지 않습니다. 공용 PC에서는 꺼 두세요.</span>
+        </div>
+
+        <p class="sec-title">🎯 목표 글자수 <small>넘으면 빨간색으로 알려 드려요</small></p>
+        <div class="goal-box">
+          <div class="goal-chips" role="group" aria-label="목표 글자수 빠른 선택">
+            <button class="chip-btn is-active" type="button" data-goal="0">제한 없음</button>
+            <button class="chip-btn" type="button" data-goal="500">500자</button>
+            <button class="chip-btn" type="button" data-goal="700">700자</button>
+            <button class="chip-btn" type="button" data-goal="1000">1,000자</button>
+            <button class="chip-btn" type="button" data-goal="1500">1,500자</button>
+            <button class="chip-btn" type="button" data-goal="2000">2,000자</button>
+          </div>
+          <div class="goal-custom">
+            <div class="with-unit">
+              <input class="input" id="goalCustom" type="text" inputmode="numeric" autocomplete="off" placeholder="직접 입력" aria-label="목표 글자수 직접 입력">
+              <i>자</i>
+            </div>
+            <span>숫자만 넣으면 바로 적용돼요.</span>
+          </div>
+        </div>
+
+        <p class="sec-title">🧹 한 번에 정리하기 <small>실행 직전으로 1번 되돌릴 수 있어요</small></p>
+        <div class="clean-grid">
+          <button class="clean-btn" type="button" data-clean="newline"><b>↵ 줄바꿈(엔터) 제거</b><span>엔터를 공백 한 칸으로</span></button>
+          <button class="clean-btn" type="button" data-clean="blank"><b>¶ 빈 줄(중복 엔터) 정리</b><span>여러 빈 줄을 한 줄로</span></button>
+          <button class="clean-btn" type="button" data-clean="space"><b>␣ 연속 공백 정리</b><span>두 칸 이상을 한 칸으로</span></button>
+          <button class="clean-btn" type="button" data-clean="trim"><b>✂ 앞뒤 공백 제거</b><span>줄 앞뒤 공백까지 정리</span></button>
+          <button class="clean-btn wide" type="button" data-clean="symbol"><b>🚫 특수문자·이모지 제거</b><span>★ ♥ 😊 ◆ 같은 기호를 지우고 한글·영문·숫자·기본 문장부호는 남겨요</span></button>
+        </div>
+
+        <p class="sec-title">🔍 단어 찾기 &amp; 바꾸기 <small>같은 단어가 몇 번 나오는지 확인</small></p>
+        <div class="find-box">
+          <div class="find-grid">
+            <div class="field">
+              <label class="field-label" for="findWord">찾을 단어 <small>예: 저는</small></label>
+              <input class="input" id="findWord" type="text" autocomplete="off" placeholder="찾을 단어">
+            </div>
+            <div class="field">
+              <label class="field-label" for="replaceWord">바꿀 단어 <small>비우면 삭제</small></label>
+              <input class="input" id="replaceWord" type="text" autocomplete="off" placeholder="바꿀 단어">
+            </div>
+          </div>
+          <div class="find-actions">
+            <span class="find-count" id="findCount">단어를 넣으면 몇 번 나오는지 세어 드려요.</span>
+            <button class="mini-btn" type="button" id="findGo">🔍 찾기</button>
+            <button class="mini-btn primary" type="button" id="replaceAll">모두 바꾸기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 결과 패널 ============ -->
+    <aside class="panel" aria-label="글자수 분석 결과">
+      <div class="pblock">
+        <div class="net-card">
+          <p class="net-cap"><span aria-hidden="true">✍️</span>공백 포함 글자수 <span class="live">실시간</span></p>
+          <p class="net-num" id="cntAll">0<small>자</small></p>
+          <p class="net-sub" id="cntSub">공백 제외 <b>0자</b> · EUC-KR <b>0B</b></p>
+          <div class="stack">
+            <div class="stack-bar" aria-hidden="true">
+              <i class="s1" id="barChar" style="width:0%"></i>
+              <i class="s2" id="barSpace" style="width:0%"></i>
+              <i class="s3" id="barLine" style="width:0%"></i>
+            </div>
+            <div class="stack-legend">
+              <span><i class="s1"></i>글자 <b id="lgChar">0</b></span>
+              <span><i class="s2"></i>공백 <b id="lgSpace">0</b></span>
+              <span><i class="s3"></i>줄바꿈 <b id="lgLine">0</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="goal-card" id="goalCard">
+          <p class="goal-cap"><span aria-hidden="true">🎯</span>목표 글자수 <b id="goalLabel">제한 없음</b></p>
+          <div class="goal-track"><i id="goalFill"></i></div>
+          <p class="goal-note" id="goalNote">목표를 정하면 남은 글자수가 표시돼요.</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat accent"><span>공백 제외 글자수</span><b id="stNoSpace">0<small>자</small></b></div>
+          <div class="stat accent"><span>EUC-KR 바이트</span><b id="stEuc">0<small>B</small></b></div>
+          <div class="stat"><span>UTF-8 바이트</span><b id="stUtf">0<small>B</small></b></div>
+          <div class="stat"><span>단어 수</span><b id="stWords">0<small>개</small></b></div>
+          <div class="stat"><span>문장 수</span><b id="stSent">0<small>문장</small></b></div>
+          <div class="stat"><span>문단 수</span><b id="stPara">0<small>문단</small></b></div>
+          <div class="stat"><span>200자 원고지</span><b id="stPaper">0<small>매</small></b></div>
+          <div class="stat"><span>예상 읽기 시간</span><b id="stRead">0<small>초</small></b></div>
+        </div>
+
+        <p class="byte-note"><b>EUC-KR</b> 한글·한자 2B, 영문·숫자·공백 1B, 엔터 2B · <b>UTF-8</b> 한글 3B, 영문 1B, 이모지 4B. 자소서·채용 시스템은 대부분 EUC-KR 기준이에요.</p>
+
+        <button class="btn btn-primary btn-block" type="button" id="copyBtn">📋 분석 요약 복사하기</button>
+        <p class="hint center">글자수·바이트·목표 달성 여부를 한 줄로 복사해 메모에 붙여 두세요.</p>
+        <p class="hint center tiny">글자수와 바이트는 회사 양식 기준에 따라 1~2 차이날 수 있어요.</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 글자수 기능과 무관하며, 입력한 글은 광고로 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+
+    <article class="content-card" id="guide">
+      <h2 class="content-title"><span aria-hidden="true">📐</span> 자소서 글자수 — 공백 포함과 공백 제외, 어느 쪽으로 세야 하나</h2>
+      <p class="lead">자기소개서 입력창은 회사마다 기준이 다릅니다. 어떤 곳은 <b>글자수(공백 포함)</b>로 제한하고, 어떤 곳은 <b>바이트(Byte)</b>로 제한합니다. 같은 1,000이라는 숫자라도 뜻이 전혀 달라서, 두 기준을 함께 보여 주는 계산기가 필요합니다. 이 도구는 <b>공백 포함·공백 제외·EUC-KR 바이트·UTF-8 바이트</b>를 동시에 세어 주니, 입력창에 적힌 기준에 맞는 숫자만 골라 보면 됩니다.</p>
+      <ul class="facts">
+        <li><b>500자</b><span>공백 포함 기준<br>자소서 한 항목</span></li>
+        <li><b>1,000B</b><span>EUC-KR 기준<br>한글 약 500자</span></li>
+        <li><b>700자</b><span>공백 포함 기준<br>조금 긴 항목</span></li>
+        <li><b>1,400B</b><span>EUC-KR 기준<br>한글 약 700자</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>공백 포함 = 띄어쓰기를 글자로 세고, 줄바꿈은 빼요</h3>
+          <p>“안녕 하세요”는 6자(공백 포함)입니다. 이 도구는 줄바꿈(엔터)을 글자수에서 빼고 세는데, 회사 양식이 엔터까지 글자로 세는 경우도 있어요. 제한에 딱 맞췄다면 <b>엔터 개수만큼 여유</b>를 두는 편이 안전합니다. 정확히 맞춰야 한다면 <b>줄바꿈(엔터) 제거</b> 버튼으로 한 번에 지우고 다시 확인하세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>공백 제외 = 띄어쓰기와 줄바꿈을 모두 빼요</h3>
+          <p>“안녕 하세요”는 공백 제외로 5자입니다. 공백 제외 기준은 주로 <b>과제·논문·번역</b>에서 쓰고, 자기소개서는 공백 포함이나 바이트 기준이 많습니다. 두 숫자의 차이가 크다면 띄어쓰기를 지나치게 많이 넣은 것은 아닌지 한 번 보세요. <b>연속 공백 정리</b> 버튼을 누르면 두 칸 이상 띄어쓰기가 한 칸으로 줄어듭니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>입력창에서 확인할 세 가지</h3>
+          <p>① <b>글자</b>인지 <b>바이트</b>인지, ② 공백 포함인지 제외인지, ③ 엔터를 포함하는지. 이 세 가지가 정해져야 숫자가 맞아떨어집니다. 헷갈릴 때는 <b>가장 엄격한 기준(바이트·공백 포함)</b>으로 맞춰 두면 어떤 양식에도 걸리지 않습니다. 제한의 90% 정도를 채우는 것이 읽기도 좋고 안전합니다.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">🧮</span> EUC-KR 2바이트 vs UTF-8 3바이트 — 자소서는 왜 바이트로 셀까</h2>
+      <p class="lead">자기소개서를 받는 채용 시스템은 오래전에 만들어진 <b>EUC-KR(완성형 한글)</b> 기반이 많습니다. 이 방식에서는 한글이 <b>2바이트</b>입니다. 반면 블로그 API·웹 페이지·개발 문서는 <b>UTF-8</b>을 쓰고, 여기서는 한글이 <b>3바이트</b>입니다. 그래서 같은 글이라도 어느 기준으로 세느냐에 따라 바이트가 1.5배까지 차이 납니다.</p>
+      <div class="tbl-wrap" style="margin-top:12px">
+        <table class="tbl static">
+          <thead>
+            <tr><th scope="col">한글 글자수</th><th scope="col">EUC-KR (자소서)</th><th scope="col">UTF-8 (웹·API)</th><th scope="col">영문·숫자 기준</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>한글 500자</td><td class="hl">약 1,000B</td><td>약 1,500B</td><td>500B</td></tr>
+            <tr><td>한글 700자</td><td class="hl">약 1,400B</td><td>약 2,100B</td><td>700B</td></tr>
+            <tr><td>한글 1,000자</td><td class="hl">약 2,000B</td><td>약 3,000B</td><td>1,000B</td></tr>
+            <tr><td>한글 1,500자</td><td class="hl">약 3,000B</td><td>약 4,500B</td><td>1,500B</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="tips" style="margin-top:14px">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>EUC-KR 계산법 — 한글 2B, 영문·숫자·공백 1B, 엔터 2B</h3>
+          <p>“안녕하세요”는 5자이면서 EUC-KR로는 <b>10바이트</b>입니다. 여기에 띄어쓰기 1바이트씩, 엔터는 2바이트(윈도우 줄바꿈 CRLF)가 붙습니다. 자소서 1,000바이트 제한이라면 <b>한글 약 500자 + 띄어쓰기·엔터</b>가 들어간다고 보면 됩니다. 실제로는 띄어쓰기 때문에 450~480자 정도가 딱 맞는 경우가 많아요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>UTF-8 계산법 — 한글 3B, 영문 1B, 이모지 4B</h3>
+          <p>“안녕하세요”는 UTF-8로 <b>15바이트</b>입니다. 블로그 글자수 제한이나 API 요청 한도를 볼 때는 이 숫자를 쓰세요. 이모지(😊)는 UTF-8에서 <b>4바이트</b>이고, 자소서 시스템에서는 아예 표현되지 않거나 2바이트 이상으로 잡힙니다. 자소서에는 이모지를 넣지 않는 것이 가장 안전합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>헷갈리면 “EUC-KR 바이트”만 보세요</h3>
+          <p>채용·정부·학교 양식은 거의 모두 EUC-KR 기준입니다. 입력창에 “1,000byte”라고 적혀 있으면 이 도구의 <b>EUC-KR 바이트</b>가 1,000 이하인지 확인하면 되고, “500자”라고 적혀 있으면 <b>공백 포함 글자수</b>를 보면 됩니다. 두 숫자를 함께 보고 있으니, 어느 쪽이든 넘치지만 않게 쓰면 됩니다.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고</b> — 회사·학교 시스템에 따라 한글을 2바이트로 세는 방식(CP949 포함)과 3바이트(UTF-8)로 세는 방식이 다릅니다. 지원 직전에 입력창의 안내 문구를 한 번 더 확인하고, 여유 있게 작성하세요.</p>
+    </article>
+
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">🧹</span> 붙여넣은 글, 3초 만에 다듬는 순서</h2>
+      <p class="lead">워드·한글·메모장에서 복사해 붙이면 눈에 보이지 않는 것들이 함께 옵니다. <b>윈도우 줄바꿈(CRLF)</b>, <b>전각 공백</b>, <b>스마트 따옴표</b>, <b>탭</b>이 섞이면 글자수와 바이트가 실제보다 크게 나옵니다. 아래 순서로 버튼만 눌러도 자소서 분량이 몇십 바이트씩 줄어듭니다. 실행 직전 상태로 <b>1단계 되돌리기</b>가 되니, 마음에 안 들면 바로 되돌리세요.</p>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>① 앞뒤 공백 제거 → ② 빈 줄 정리</h3>
+          <p>줄마다 앞뒤에 붙은 공백과, 문단 사이에 겹친 빈 줄을 먼저 정리합니다. 붙여넣기 직후에는 빈 줄이 2~3개씩 겹쳐 있는 경우가 많고, 그 엔터가 <b>2바이트씩</b> 바이트를 잡아먹습니다. 1,000바이트 제한에서 빈 줄 10개면 20바이트, 생각보다 큽니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>③ 연속 공백 정리 → ④ 필요하면 줄바꿈 제거</h3>
+          <p>두 칸 이상 띄어쓰기를 한 칸으로 줄입니다. 입력창이 엔터를 글자로 세거나, 한 문단으로만 넣어야 하는 양식이라면 <b>줄바꿈(엔터) 제거</b>로 엔터를 공백 한 칸으로 바꾸세요. 문단 구분이 사라지므로, 제출 전에 읽기 편한지 꼭 확인하세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>⑤ 특수문자·이모지 제거 → ⑥ 반복 단어 확인</h3>
+          <p>★♥😊◆ 같은 기호는 글자수는 1자여도 바이트를 크게 잡아먹고, 채용 시스템에서 깨져 보이기도 합니다. 정리한 뒤에는 <b>찾을 단어</b>에 “저는”, “귀사”, “그래서”처럼 자주 쓰는 말을 넣어 몇 번 나오는지 확인해 보세요. 다섯 번 넘게 반복되면 다른 표현으로 바꾸는 것이 좋습니다.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card">
+      <h2 class="content-title"><span aria-hidden="true">📱</span> 블로그·SNS 글자수 기준 한눈에</h2>
+      <p class="lead">자소서 말고도 글자수 제한은 곳곳에 있습니다. 플랫폼마다 세는 기준이 조금씩 다르니, 아래 숫자를 참고해 제목·본문·해시태그를 나눠 쓰면 잘리지 않습니다.</p>
+      <ul class="facts">
+        <li><b>280자</b><span>X(트위터)<br>게시물 한도</span></li>
+        <li><b>2,200자</b><span>인스타그램<br>캡션 한도</span></li>
+        <li><b>100자</b><span>유튜브<br>제목 한도</span></li>
+        <li><b>80자</b><span>메타 디스크립션<br>권장 길이</span></li>
+      </ul>
+      <ol class="tips" style="margin-top:14px">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>제목은 짧게, 본문은 첫 두 줄에 핵심</h3>
+          <p>유튜브 제목은 100자까지 넣을 수 있지만 모바일에서는 <b>30~40자</b>에서 잘립니다. 인스타그램 캡션은 2,200자까지 가능하지만, 피드에서 보이는 것은 <b>첫 두 줄</b>입니다. 제목·첫 문장을 먼저 쓰고, 이 도구로 글자수를 확인한 뒤 본문을 붙이는 순서가 편합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>해시태그는 30개까지, 띄어쓰기 없이</h3>
+          <p>인스타그램 해시태그는 게시물당 <b>30개</b>까지 붙일 수 있습니다. 해시태그도 글자수에 포함되므로, 캡션 2,200자 한도에 여유가 있는지 확인하세요. 해시태그를 붙인 뒤 <b>공백 제외 글자수</b>로 실제 노출되는 글자 양을 가늠하면 좋습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>블로그는 검색 노출을 위해 1,500자 이상</h3>
+          <p>네이버·구글 블로그 글은 보통 <b>1,500자 이상</b>일 때 검색에서 유리하다고 알려져 있습니다. 이 도구의 <b>200자 원고지 매수</b>로 보면 7.5매 이상입니다. 다만 분량보다 <b>한 주제를 끝까지 다루는 것</b>이 더 중요하니, 숫자는 참고로만 쓰세요.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문 (FAQ)</h2>
+      <p class="lead">글자수·바이트를 세다가 가장 많이 헷갈리는 것들만 모았습니다.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>자소서 글자수는 공백 포함으로 세나요, 공백 제외로 세나요?</summary>
+          <div class="faq-body"><p>회사 입력창의 기준을 따라야 합니다. 자기소개서는 보통 <b>바이트</b>(1,000·1,500·2,000바이트)로 제한하고, 글자수로 제한하는 곳은 <b>공백 포함</b>을 기준으로 하는 경우가 많습니다. 이 도구는 공백 포함·공백 제외를 함께 보여 주므로, 제한 기준에 맞는 숫자를 보고 <b>10% 정도 여유</b>를 남겨 두면 안전합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>EUC-KR과 UTF-8 중 자소서에는 어떤 기준을 봐야 하나요?</summary>
+          <div class="faq-body"><p>자기소개서·정부 양식·채용 시스템은 대부분 <b>EUC-KR(완성형)</b> 기준으로 한글을 2바이트로 셉니다. 그래서 1,000바이트는 한글 약 500자, 2,000바이트는 한글 약 1,000자에 해당합니다. 반면 블로그 API·웹·개발 문서는 <b>UTF-8</b>이라 한글이 3바이트입니다. 자소서를 쓴다면 <b>EUC-KR 숫자</b>를 보세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>줄바꿈(엔터)도 글자수와 바이트에 들어가나요?</summary>
+          <div class="faq-body"><p>이 도구는 <b>글자수에서 줄바꿈을 빼고</b> 세고, <b>EUC-KR 바이트에서는 엔터를 2바이트</b>(CRLF)로 계산합니다. 회사 양식에 따라 엔터를 글자수에 포함하기도 하므로, 제한에 딱 맞췄다면 엔터 개수만큼 여유를 두는 편이 안전합니다. <b>줄바꿈(엔터) 제거</b> 버튼으로 한 번에 지울 수도 있습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>200자 원고지 매수는 어떻게 계산하나요?</summary>
+          <div class="faq-body"><p>공백 포함 글자수를 200으로 나눈 값입니다. 예를 들어 512자면 <b>2.6매</b>, 1,000자면 <b>5매</b>입니다. 원고지 매수는 출판·공모전 안내에서 분량을 말할 때 쓰는 기준이라, 글자수 제한이 매수로 제시된 경우 이 값으로 확인하면 됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>입력한 글이 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 글자수·바이트 계산과 정리 기능은 모두 <b>브라우저 안에서만</b> 실행되고, 입력한 글은 서버로 보내지 않습니다. 저장 공간도 없어서 새로고침하면 사라집니다. 다만 <b>내 브라우저 임시저장</b>을 직접 켜면 이 기기의 localStorage에만 남습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>임시저장은 어디에 저장되나요? 공용 PC에서 써도 되나요?</summary>
+          <div class="faq-body"><p>임시저장을 켜면 글이 이용자 브라우저의 <b>localStorage</b>에만 저장되고 사이트 서버로는 가지 않습니다. 다만 같은 브라우저를 쓰는 사람은 볼 수 있으므로, <b>공용 PC·도서관 컴퓨터에서는 임시저장을 끄고</b> 사용 후 브라우저 데이터를 지우는 것이 안전합니다. 자소서에는 주민등록번호 같은 민감한 정보를 넣지 마세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>되돌리기(Undo)는 몇 번까지 되나요?</summary>
+          <div class="faq-body"><p><b>1단계</b>입니다. 줄바꿈 제거·빈 줄 정리·연속 공백 정리·앞뒤 공백 제거·특수문자 제거·모두 바꾸기를 실행하기 <b>직전 상태</b>로 한 번 되돌릴 수 있습니다. 두 번 이상 되돌리려면 브라우저의 실행 취소(Ctrl+Z)를 함께 쓰세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>이모지를 지우면 바이트가 왜 크게 줄어드나요?</summary>
+          <div class="faq-body"><p>이모지는 UTF-8에서 <b>4바이트</b>, EUC-KR에서는 표현할 수 없는 문자라 계산기마다 2바이트 이상으로 잡힙니다. 자소서에는 이모지가 들어가지 않는 경우가 많고, 들어가면 글자수도 바이트도 예상보다 크게 늘어납니다. <b>특수문자·이모지 제거</b> 버튼으로 한 번에 지울 수 있습니다.</p></div>
+        </details>
+      </div>
+      <p class="content-cta">자소서를 다듬은 뒤 블로그에 올릴 썸네일이 필요하다면 <a href="https://mydaesu-lab.github.io/thumb-maker/">썸네일 10초 생성기</a>를, 지원서에 붙일 증명사진이 필요하다면 <a href="https://mydaesu-lab.github.io/id-photo/">여권·증명사진 규격 자르기</a>를 함께 써 보세요.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">📦</span>
+      <div>
+        <p class="foot-name" id="footName">제로박스 (ZeroBox)</p>
+        <p class="foot-desc">가입·설치·서버 전송 없이 브라우저에서만 세는 무료 웹툴</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="다른 무료 도구">
+      <a class="foot-link" href="https://mydaesu-lab.github.io/">🏠 전체 툴</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+      <button class="foot-link" type="button" data-modal="about">서비스 정보</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+    </nav>
+    <p class="foot-copy">© 2026 제로박스 (ZeroBox) · 입력한 글은 내 기기 밖으로 나가지 않아요 · 글자수·바이트는 회사 양식 기준에 따라 1~2 차이날 수 있습니다</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbTitle">공백 포함 0자</b>
+    <span id="sbMeta">EUC-KR 0B · 목표 없음</span>
+  </div>
+  <button class="btn btn-primary" id="sbCopy" type="button">📋 전체 복사</button>
+</div>
+
+<!-- ============ 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>글자수 세기 · 자소서 바이트·줄바꿈 정리기</b>는 붙여넣은 글의 <b>글자수와 바이트</b>를 세고, 줄바꿈·공백·특수문자를 한 번에 정리하는 무료 도구입니다. 자기소개서 분량 맞추기, 블로그·SNS 글자수 확인, 과제 분량 확인에 쓰라고 만들었습니다.</p>
+
+      <h3>이렇게 셉니다</h3>
+      <ul>
+        <li><b>공백 포함 글자수</b> — 띄어쓰기와 특수문자를 포함하고, 줄바꿈(엔터)은 빼고 셉니다.</li>
+        <li><b>공백 제외 글자수</b> — 띄어쓰기와 줄바꿈을 모두 빼고 셉니다.</li>
+        <li><b>EUC-KR 바이트</b> — 한글·한자 2바이트, 영문·숫자·공백 1바이트, 엔터 2바이트(CRLF). 자소서·채용 시스템 기준입니다.</li>
+        <li><b>UTF-8 바이트</b> — 한글 3바이트, 영문·숫자 1바이트, 이모지 4바이트. 웹·블로그 API 기준입니다.</li>
+        <li><b>단어 수</b> — 띄어쓰기로 나눈 어절 수, <b>문장 수</b> — 마침표·물음표·느낌표·줄바꿈으로 나눈 문장 수, <b>문단 수</b> — 빈 줄로 나눈 문단 수입니다.</li>
+        <li><b>200자 원고지</b> — 공백 포함 글자수 ÷ 200, <b>읽기 시간</b> — 공백 제외 글자수를 분당 500자로 나눈 값입니다.</li>
+      </ul>
+
+      <h3>정리 기능</h3>
+      <p>줄바꿈(엔터) 제거·빈 줄 정리·연속 공백 정리·앞뒤 공백 제거·특수문자·이모지 제거를 한 번에 실행할 수 있고, 실행 직전 상태로 <b>1단계 되돌리기</b>가 됩니다. 단어 찾기로 반복 횟수를 확인하고 <b>모두 바꾸기</b>로 한 번에 교체할 수 있습니다.</p>
+
+      <h3>알아 두세요</h3>
+      <p>글자수와 바이트는 회사·학교 시스템의 기준(공백 포함 여부, 엔터 포함 여부, EUC-KR/UTF-8)에 따라 <b>1~2 차이</b>가 날 수 있습니다. 제출 전에는 입력창의 안내 문구를 확인하고 여유 있게 작성하세요. 원고지 매수와 읽기 시간은 참고용 추정값입니다.</p>
+      <p>입력한 글은 <b>서버로 전송되지 않고</b> 브라우저 안에서만 계산에 쓰입니다. 내 브라우저 임시저장을 직접 켠 경우에만 이 기기의 localStorage에 남습니다.</p>
+
+      <h3>운영</h3>
+      <p>이 도구는 무료로 제공되며, 운영 비용은 화면의 광고 영역으로 충당합니다. 광고는 <b>도구 아래</b>에만 표시되고, 원하지 않으면 &lsquo;숨기기&rsquo;로 접을 수 있습니다. 오류 제보나 개선 의견은 사이트 운영자에게 알려 주세요.</p>
+      <p class="modal-note">제로박스 (ZeroBox) · 글자수 세기 · 회원가입 없는 브라우저 기반 도구 · 2026년 운영</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>글자수 세기(제로박스, 이하 &lsquo;사이트&rsquo;)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 글자수 계산기에 입력하거나 붙여넣은 글도 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 입력한 글은 서버로 전송되지 않습니다</h3>
+      <p>글자수·바이트 계산, 줄바꿈·공백 정리, 단어 찾기·바꾸기는 모두 <b>이용자의 브라우저(클라이언트) 안에서</b> 처리됩니다. 입력한 글이 서버로 업로드되지 않으며, 서버에 저장하는 공간도 없습니다. 브라우저 탭을 닫거나 새로 고치면 메모리에서 사라집니다.</p>
+
+      <h3>3. 입력하는 글의 성격</h3>
+      <p>이 도구에 입력하는 글은 이용자가 스스로 작성하거나 붙여넣는 내용입니다. 자소서·과제에는 주민등록번호·계좌번호 같은 민감한 정보를 넣지 않는 것이 좋습니다. 사이트는 어떤 회사·기관과도 연결되지 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보 (선택)</h3>
+      <p>사이트는 기본적으로 입력한 글을 저장하지 않습니다. 다만 화면의 <b>내 브라우저에 임시저장</b> 스위치를 <b>이용자가 직접 켠 경우</b>에만, 입력한 글과 목표 글자수를 이 기기의 브라우저 저장소(localStorage)에 저장해 다음 방문 때 이어서 쓸 수 있게 합니다. 이 값은 이용자 기기 안에만 있고 사이트로 전송되지 않으며, 스위치를 끄거나 브라우저 데이터를 지우면 함께 삭제됩니다. 광고 영역을 접은 상태도 기기에 기억됩니다.</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: <code>G-GFRNHP2GC4</code>)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·전화번호·이메일 같은 개인 정보나 <b>입력한 글의 내용</b>은 Analytics로 전송되지 않습니다. 사이트가 보내는 이벤트는 &lsquo;정리 실행, 전체 복사, 목표 글자수 선택&rsquo; 같은 동작 이름과 글자수·바이트 같은 숫자 일부뿐이며, 글 내용은 포함되지 않습니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 글자수 계산 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>화면 글꼴을 표시하기 위해 Google Fonts와 jsDelivr(프리텐다드)에서 스타일 파일을 불러오며, 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있습니다. 각 서비스의 개인정보처리방침이 적용되며, 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 26일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var AD_KEY = 'zerobox.textcounter.ad.hidden';
+  var DRAFT_KEY = 'zerobox.textcounter.draft';
+  var AUTO_KEY = 'zerobox.textcounter.autosave';
+  var SAMPLE = [
+    '안녕하세요. 저는 숫자 뒤에 있는 사람을 먼저 보는 지원자입니다.',
+    '',
+    '첫째, 저는 기록으로 문제를 풀어 왔습니다. 대학 시절 동아리 회비 관리표를 만들면서 300명의 납부 패턴을 정리했고, 그 표 덕분에 미납 안내에 쓰는 시간이 절반으로 줄었습니다.',
+    '',
+    '둘째, 저는 귀사의 고객 의견을 데이터로 바꾸는 일에 기여하고 싶습니다. 상담 로그 1,200건을 읽고 불편 지점을 정리해 개선안을 제안한 경험이 있습니다.',
+    '',
+    '셋째, 저는 배운 것을 남에게 설명할 수 있을 때까지 정리합니다. 지난 2년간 120편의 업무 노트를 쌓았고, 그중 30편은 팀 위키에 공유했습니다.',
+    '',
+    '귀사에서 저는 오늘의 작은 개선을 내일의 기준으로 만드는 사람이 되겠습니다. 감사합니다.'
+  ].join('\n');
+
+  var state = { goal: 0, snapshot: null, autoSave: false };
+
+  function $(id) { return document.getElementById(id); }
+  function digits(v) { return String(v == null ? '' : v).replace(/[^\d]/g, ''); }
+  function comma(n) { return Math.round(Number(n) || 0).toLocaleString('ko-KR'); }
+  function toast(msg) {
+    var t = $('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('is-on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.remove('is-on'); }, 3400);
+  }
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계 실패는 기능에 영향 없음 */ }
+  }
+  function copyText(text, okMsg) {
+    function done() { toast(okMsg || '복사했어요. 붙여 넣어 확인해 보세요.'); }
+    function fallback() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.left = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        var ok = document.execCommand('copy');
+        ta.remove();
+        if (ok) done(); else toast('복사가 막혔어요. 화면에서 직접 선택해 주세요.');
+      } catch (e) {
+        toast('복사가 막혔어요. 화면에서 직접 선택해 주세요.');
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  /* =========================================================
+     1. 세기
+     ========================================================= */
+  var SYM_RE = /[\u2190-\u21FF\u2200-\u22FF\u2460-\u24FF\u25A0-\u25FF\u2600-\u27BF\u2900-\u297F\u2B00-\u2BFF\uFE0F\u200D\u20E3\u200B-\u200F\uFEFF]/g;
+
+  function stripSymbols(text) {
+    var out = text.replace(SYM_RE, '');
+    try { out = out.replace(/[\p{Extended_Pictographic}\p{Emoji_Modifier}]/gu, ''); } catch (e) { /* 구형 브라우저 */ }
+    try { out = out.replace(/[\u{1F1E6}-\u{1F1FF}]/gu, ''); } catch (e) { /* 구형 브라우저 */ }
+    out = out.replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+$/gm, '');
+    return out;
+  }
+
+  function analyze(raw) {
+    var text = String(raw || '').replace(/\r\n?/g, '\n');
+    var chars = Array.from(text);
+    var total = chars.length;
+    var lines = 0, i, c;
+    var spaces = 0, euc = 0;
+    for (i = 0; i < chars.length; i++) {
+      c = chars[i];
+      if (c === '\n') {
+        lines++;
+        euc += 2;
+      } else {
+        if (c === ' ' || c === '\t' || c === '\u00a0' || c === '\u3000') spaces++;
+        euc += (c.codePointAt(0) <= 0x7F ? 1 : 2);
+      }
+    }
+    var noSpace = Array.from(text.replace(/\s+/g, '')).length;
+    var withSpace = total - lines;
+    var utf = 0;
+    try { utf = new TextEncoder().encode(text).length; }
+    catch (e) { utf = euc; }
+
+    var wordList = text.trim() ? text.trim().split(/\s+/) : [];
+    var words = wordList.length;
+
+    var pieces = text.split(/[.!?。？！\n]+/);
+    var sent = 0;
+    for (i = 0; i < pieces.length; i++) { if (pieces[i].trim()) sent++; }
+
+    var blocks = text.split(/\n[ \t\u00a0]*\n+/);
+    var paras = 0;
+    for (i = 0; i < blocks.length; i++) { if (blocks[i].trim()) paras++; }
+    if (paras <= 1) {
+      var ls = text.split('\n');
+      paras = 0;
+      for (i = 0; i < ls.length; i++) { if (ls[i].trim()) paras++; }
+    }
+
+    var sec = noSpace > 0 ? Math.round(noSpace / 500 * 60) : 0;
+    return {
+      withSpace: withSpace, noSpace: noSpace, euc: euc, utf: utf,
+      words: words, sentences: sent, paragraphs: paras,
+      spaces: spaces, lines: lines, total: total,
+      paper: withSpace / 200, sec: sec
+    };
+  }
+
+  function readLabel(sec) {
+    if (sec <= 0) return { v: '0', u: '초' };
+    if (sec < 60) return { v: String(sec), u: '초' };
+    var m = Math.floor(sec / 60), s = sec % 60;
+    if (!s) return { v: String(m), u: '분' };
+    return { v: m + '분 ' + s, u: '초' };
+  }
+
+  /* =========================================================
+     2. 화면 갱신
+     ========================================================= */
+  function ta() { return $('ta'); }
+
+  function render() {
+    var text = ta().value;
+    var a = analyze(text);
+
+    $('cntAll').innerHTML = comma(a.withSpace) + '<small>자</small>';
+    $('cntSub').innerHTML = '공백 제외 <b>' + comma(a.noSpace) + '자</b> · EUC-KR <b>' + comma(a.euc) + 'B</b>';
+
+    var base = a.total || 1;
+    $('barChar').style.width = Math.min(100, a.noSpace / base * 100) + '%';
+    $('barSpace').style.width = Math.min(100, a.spaces / base * 100) + '%';
+    $('barLine').style.width = Math.min(100, a.lines / base * 100) + '%';
+    $('lgChar').textContent = comma(a.noSpace);
+    $('lgSpace').textContent = comma(a.spaces);
+    $('lgLine').textContent = comma(a.lines);
+
+    $('stNoSpace').innerHTML = comma(a.noSpace) + '<small>자</small>';
+    $('stEuc').innerHTML = comma(a.euc) + '<small>B</small>';
+    $('stUtf').innerHTML = comma(a.utf) + '<small>B</small>';
+    $('stWords').innerHTML = comma(a.words) + '<small>개</small>';
+    $('stSent').innerHTML = comma(a.sentences) + '<small>문장</small>';
+    $('stPara').innerHTML = comma(a.paragraphs) + '<small>문단</small>';
+    $('stPaper').innerHTML = (a.withSpace ? (Math.round(a.paper * 10) / 10).toFixed(1) : '0') + '<small>매</small>';
+    var rl = readLabel(a.sec);
+    $('stRead').innerHTML = rl.v + '<small>' + rl.u + '</small>';
+
+    $('miniAll').textContent = comma(a.withSpace);
+    $('miniNo').textContent = comma(a.noSpace);
+    $('miniByte').textContent = comma(a.euc);
+
+    $('sbTitle').textContent = '공백 포함 ' + comma(a.withSpace) + '자';
+    $('headChip').textContent = a.withSpace ? '공백 제외 ' + comma(a.noSpace) + '자' : '실시간 계산';
+
+    renderGoal(a);
+    updateFindCount();
+    updateUndo();
+  }
+
+  function renderGoal(a) {
+    var card = $('goalCard');
+    var fill = $('goalFill');
+    var label = $('goalLabel');
+    var note = $('goalNote');
+    var goal = state.goal;
+    var meta = 'EUC-KR ' + comma(a.euc) + 'B · ';
+
+    if (!goal) {
+      card.classList.remove('is-over');
+      fill.style.width = '0%';
+      label.textContent = '제한 없음';
+      note.textContent = '목표를 정하면 남은 글자수가 표시돼요.';
+      $('sbMeta').textContent = meta + '목표 없음';
+      return;
+    }
+
+    var over = a.withSpace > goal;
+    var pct = goal > 0 ? (a.withSpace / goal * 100) : 0;
+    card.classList.toggle('is-over', over);
+    fill.style.width = Math.max(0, Math.min(100, pct)) + '%';
+    label.textContent = comma(goal) + '자';
+    if (over) {
+      note.innerHTML = '<b>' + comma(a.withSpace - goal) + '자 초과</b>했어요 · ' + (Math.round(pct * 10) / 10) + '% 채움';
+      $('sbMeta').textContent = meta + comma(a.withSpace - goal) + '자 초과';
+    } else {
+      note.innerHTML = '<b>' + comma(goal - a.withSpace) + '자 남았어요</b> · ' + (Math.round(pct * 10) / 10) + '% 채움';
+      $('sbMeta').textContent = meta + comma(goal - a.withSpace) + '자 남음';
+    }
+  }
+
+  function setGoal(value, silent) {
+    var g = Math.max(0, Math.round(Number(value) || 0));
+    if (g > 1000000) g = 1000000;
+    state.goal = g;
+    var chips = document.querySelectorAll('[data-goal]');
+    for (var i = 0; i < chips.length; i++) {
+      chips[i].classList.toggle('is-active', Number(chips[i].getAttribute('data-goal')) === g);
+    }
+    $('goalCustom').value = g ? comma(g) : '';
+    renderGoal(analyze(ta().value));
+    saveDraftSoon();
+    if (!silent) track('text_preset_limit', { goal: g });
+  }
+
+  /* =========================================================
+     3. 되돌리기 · 정리
+     ========================================================= */
+  function updateUndo() {
+    var b = $('undoBtn');
+    if (b) b.disabled = state.snapshot === null;
+  }
+  function pushSnapshot() {
+    state.snapshot = ta().value;
+    updateUndo();
+  }
+  function undo() {
+    if (state.snapshot === null) return;
+    var cur = analyze(ta().value);
+    ta().value = state.snapshot;
+    state.snapshot = null;
+    updateUndo();
+    render();
+    saveDraftSoon();
+    toast('직전 상태로 되돌렸어요. (' + comma(cur.withSpace) + '자 → ' + comma(analyze(ta().value).withSpace) + '자)');
+    track('text_undo', {});
+  }
+
+  function applyClean(kind, fn, okMsg) {
+    var before = ta().value;
+    if (!before) { toast('먼저 글을 입력해 주세요.'); ta().focus(); return; }
+    var after = fn(before);
+    if (after === before) {
+      toast('바꿀 내용이 없어요. 이미 정리되어 있어요.');
+      return;
+    }
+    pushSnapshot();
+    ta().value = after;
+    var a0 = analyze(before), a1 = analyze(after);
+    render();
+    saveDraftSoon();
+    var dChar = a0.withSpace - a1.withSpace;
+    var dByte = a0.euc - a1.euc;
+    toast(okMsg + ' 글자 ' + comma(dChar) + '자, EUC-KR ' + comma(dByte) + 'B 줄었어요.');
+    track('text_clean_action', { action: kind, removed_chars: dChar, removed_bytes: dByte });
+  }
+
+  var CLEANERS = {
+    newline: function (t) { return t.replace(/\n[ \t]*/g, ' ').replace(/ {2,}/g, ' ').trim(); },
+    blank: function (t) { return t.replace(/\n{3,}/g, '\n\n').replace(/[ \t]+$/gm, '').trim(); },
+    space: function (t) { return t.replace(/[ \t\u00a0]{2,}/g, ' ').replace(/\u3000+/g, ' '); },
+    trim: function (t) {
+      return t.split('\n').map(function (l) { return l.replace(/^[ \t\u00a0\u3000]+|[ \t\u00a0\u3000]+$/g, ''); }).join('\n').replace(/\n{3,}/g, '\n\n').trim();
+    },
+    symbol: function (t) { return stripSymbols(t).replace(/\n{3,}/g, '\n\n').trim(); }
+  };
+
+  /* =========================================================
+     4. 찾기 · 바꾸기
+     ========================================================= */
+  function findMatches(word) {
+    var text = ta().value;
+    if (!word) return { count: 0, first: -1 };
+    var lowText = text.toLowerCase();
+    var lowWord = word.toLowerCase();
+    var count = 0, from = 0, first = -1, at;
+    while ((at = lowText.indexOf(lowWord, from)) !== -1) {
+      if (first < 0) first = at;
+      count++;
+      from = at + lowWord.length;
+      if (count > 9999) break;
+    }
+    return { count: count, first: first };
+  }
+
+  function updateFindCount() {
+    var word = $('findWord').value;
+    var el = $('findCount');
+    if (!word) {
+      el.classList.remove('warn');
+      el.textContent = '단어를 넣으면 몇 번 나오는지 세어 드려요.';
+      return;
+    }
+    var m = findMatches(word);
+    if (!m.count) {
+      el.classList.remove('warn');
+      el.innerHTML = '‘<b>' + escapeHtml(word) + '</b>’은(는) 아직 나오지 않아요.';
+      return;
+    }
+    el.classList.toggle('warn', m.count >= 5);
+    el.innerHTML = '‘<b>' + escapeHtml(word) + '</b>’ ' + comma(m.count) + '곳 발견' + (m.count >= 5 ? ' · 반복이 많아요, 다른 표현으로 바꿔 보세요.' : '');
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function escapeRegExp(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function findGo() {
+    var word = $('findWord').value;
+    if (!word) { toast('찾을 단어를 먼저 입력해 주세요.'); $('findWord').focus(); return; }
+    var m = findMatches(word);
+    if (!m.count) { toast('‘' + word + '’은(는) 글에 없어요.'); return; }
+    var el = ta();
+    el.focus();
+    el.setSelectionRange(m.first, m.first + word.length);
+    toast('첫 번째 ‘' + word + '’ 위치로 이동했어요. (' + comma(m.count) + '곳)');
+    track('text_find', { matches: m.count });
+  }
+
+  function replaceAll() {
+    var word = $('findWord').value;
+    var repl = $('replaceWord').value;
+    if (!word) { toast('찾을 단어를 먼저 입력해 주세요.'); $('findWord').focus(); return; }
+    var text = ta().value;
+    var m = findMatches(word);
+    if (!m.count) { toast('‘' + word + '’은(는) 글에 없어요.'); return; }
+    pushSnapshot();
+    var re = new RegExp(escapeRegExp(word), 'gi');
+    ta().value = text.replace(re, function () { return repl; });
+    var a = analyze(ta().value);
+    render();
+    saveDraftSoon();
+    toast('‘' + word + '’ ' + comma(m.count) + '곳을 ' + (repl ? '‘' + repl + '’' : '지우고') + ' 바꿨어요. 되돌리기로 복구할 수 있어요.');
+    track('text_replace_all', { matches: m.count, removed: repl ? 0 : 1 });
+  }
+
+  /* =========================================================
+     5. 임시저장
+     ========================================================= */
+  var saveTimer = null;
+  function saveDraftSoon() {
+    if (!state.autoSave) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ text: ta().value, goal: state.goal, at: Date.now() }));
+      } catch (e) { /* 저장소 차단 시 무시 */ }
+    }, 500);
+  }
+  function setAutoSave(on, silent) {
+    state.autoSave = !!on;
+    var sw = $('draftSwitch');
+    sw.setAttribute('aria-checked', on ? 'true' : 'false');
+    try { localStorage.setItem(AUTO_KEY, on ? '1' : '0'); } catch (e) { /* 무시 */ }
+    if (on) {
+      saveDraftSoon();
+      if (!silent) toast('임시저장을 켰어요. 이 기기의 브라우저에만 저장됩니다.');
+    } else {
+      try { localStorage.removeItem(DRAFT_KEY); } catch (e) { /* 무시 */ }
+      if (!silent) toast('임시저장을 껐어요. 저장된 초안을 지웠습니다.');
+    }
+    track('text_draft_toggle', { on: on ? 1 : 0 });
+  }
+  function restoreDraft() {
+    try {
+      if (localStorage.getItem(AUTO_KEY) !== '1') return;
+      state.autoSave = true;
+      $('draftSwitch').setAttribute('aria-checked', 'true');
+      var raw = localStorage.getItem(DRAFT_KEY);
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      if (d && typeof d.text === 'string' && d.text) {
+        ta().value = d.text;
+        if (d.goal) { state.goal = Number(d.goal) || 0; }
+        toast('지난번 작성하던 글을 이 브라우저에서 불러왔어요.');
+      }
+    } catch (e) { /* 무시 */ }
+  }
+
+  /* =========================================================
+     6. 요약 복사
+     ========================================================= */
+  function summaryText() {
+    var a = analyze(ta().value);
+    var lines = [];
+    lines.push('[글자수 세기 · 제로박스]');
+    lines.push('공백 포함 ' + comma(a.withSpace) + '자 / 공백 제외 ' + comma(a.noSpace) + '자');
+    lines.push('바이트 — EUC-KR ' + comma(a.euc) + 'B · UTF-8 ' + comma(a.utf) + 'B');
+    lines.push('단어 ' + comma(a.words) + '개 · 문장 ' + comma(a.sentences) + '개 · 문단 ' + comma(a.paragraphs) + '개');
+    lines.push('200자 원고지 ' + (a.withSpace ? (Math.round(a.paper * 10) / 10).toFixed(1) : '0') + '매 · 읽기 ' + readLabel(a.sec).v + readLabel(a.sec).u);
+    if (state.goal) {
+      var over = a.withSpace > state.goal;
+      lines.push('목표 ' + comma(state.goal) + '자 — ' + (over ? comma(a.withSpace - state.goal) + '자 초과' : comma(state.goal - a.withSpace) + '자 남음'));
+    }
+    lines.push('https://mydaesu-lab.github.io/text-counter/');
+    return lines.join('\n');
+  }
+
+  /* =========================================================
+     7. 이벤트
+     ========================================================= */
+  function bind() {
+    var el = ta();
+    el.addEventListener('input', function () {
+      render();
+      saveDraftSoon();
+    });
+
+    $('sampleBtn').addEventListener('click', function () {
+      pushSnapshot();
+      el.value = SAMPLE;
+      render();
+      saveDraftSoon();
+      toast('자소서 예시로 채웠어요. 바로 고치거나 지워서 쓰세요.');
+      track('text_sample', {});
+    });
+
+    $('resetBtn').addEventListener('click', function () {
+      if (!el.value && !state.goal) { toast('이미 비어 있어요.'); return; }
+      pushSnapshot();
+      el.value = '';
+      $('findWord').value = '';
+      $('replaceWord').value = '';
+      setGoal(0, true);
+      render();
+      saveDraftSoon();
+      toast('처음 상태로 돌렸어요. 되돌리기로 복구할 수 있어요.');
+      track('text_reset', {});
+    });
+
+    $('undoBtn').addEventListener('click', undo);
+
+    $('copyAll').addEventListener('click', function () {
+      if (!el.value) { toast('복사할 글이 없어요.'); return; }
+      copyText(el.value, '글 전체를 복사했어요.');
+      track('text_copy_all', { where: 'editor' });
+    });
+    $('sbCopy').addEventListener('click', function () {
+      if (!el.value) { toast('복사할 글이 없어요.'); return; }
+      copyText(el.value, '글 전체를 복사했어요.');
+      track('text_copy_all', { where: 'sticky' });
+    });
+    $('copyBtn').addEventListener('click', function () {
+      copyText(summaryText(), '글자수 요약을 복사했어요.');
+      track('text_copy_summary', {});
+    });
+
+    $('draftSwitch').addEventListener('click', function () {
+      setAutoSave(!state.autoSave);
+    });
+
+    document.querySelectorAll('[data-goal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setGoal(Number(btn.getAttribute('data-goal')));
+      });
+    });
+
+    var gc = $('goalCustom');
+    gc.addEventListener('input', function () {
+      var d = digits(this.value);
+      this.value = d ? Number(d).toLocaleString('ko-KR') : '';
+      setGoal(d ? Number(d) : 0, true);
+      saveDraftSoon();
+    });
+    gc.addEventListener('blur', function () {
+      if (!digits(this.value)) { this.value = ''; }
+      track('text_preset_limit', { goal: state.goal, custom: 1 });
+    });
+
+    document.querySelectorAll('[data-clean]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var kind = btn.getAttribute('data-clean');
+        var msgs = {
+          newline: '줄바꿈을 공백으로 바꿨어요.',
+          blank: '겹친 빈 줄을 한 줄로 정리했어요.',
+          space: '연속 공백을 한 칸으로 줄였어요.',
+          trim: '앞뒤 공백을 지웠어요.',
+          symbol: '특수문자·이모지를 지웠어요.'
+        };
+        applyClean(kind, CLEANERS[kind], msgs[kind] || '정리했어요.');
+      });
+    });
+
+    $('findWord').addEventListener('input', updateFindCount);
+    $('findWord').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); findGo(); }
+    });
+    $('replaceWord').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); replaceAll(); }
+    });
+    $('findGo').addEventListener('click', findGo);
+    $('replaceAll').addEventListener('click', replaceAll);
+
+    // 광고 접기
+    try {
+      if (localStorage.getItem(AD_KEY) === '1') $('adCard').classList.add('is-hidden');
+    } catch (e) { /* 저장소 차단 시 무시 */ }
+    $('adToggle').addEventListener('click', function () {
+      $('adCard').classList.add('is-hidden');
+      try { localStorage.setItem(AD_KEY, '1'); } catch (e) { /* 무시 */ }
+    });
+
+    // 모달
+    document.querySelectorAll('[data-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var d = $(btn.getAttribute('data-modal') === 'about' ? 'modalAbout' : 'modalPrivacy');
+        if (d && typeof d.showModal === 'function') d.showModal();
+      });
+    });
+    document.querySelectorAll('dialog.modal').forEach(function (d) {
+      d.addEventListener('click', function (e) {
+        if (e.target === d) d.close();
+      });
+      d.querySelectorAll('[data-close]').forEach(function (b) {
+        b.addEventListener('click', function () { d.close(); });
+      });
+    });
+
+    document.body.classList.add('has-work');
+    $('stickyBar').classList.add('is-ready');
+  }
+
+  /* =========================================================
+     8. 시작
+     ========================================================= */
+  bind();
+  restoreDraft();
+  render();
+  if (state.goal) setGoal(state.goal, true);
+})();
+</script>
+</body>
+</html>
