@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 퇴직금 · 실업급여(구직급여) · 연차수당 계산기 | 제로포켓</title>
+<meta name="description" content="2026년 기준으로 퇴직금, 실업급여(구직급여), 연차수당을 한 화면에서 계산합니다. 입사일·퇴사일로 재직일수를 자동 계산해 1일 평균임금과 퇴직금(세전)을, 2026년 구직급여 1일 상한 68,100원·하한 66,048원(최저임금 10,320원×8시간×80%)과 소정급여일수 120~270일을 적용한 실업급여를, 월 통상임금 209시간 기준 연차수당을 계산합니다. 입력값은 서버로 전송되지 않습니다.">
+<meta name="keywords" content="퇴직금 계산기, 퇴직금 계산, 2026 퇴직금, 평균임금, 1일 평균임금, 퇴직금 산정, 실업급여 계산기, 구직급여, 2026 실업급여, 실업급여 상한액, 실업급여 하한액, 구직급여일액, 소정급여일수, 고용보험, 연차수당, 연차수당 계산기, 통상임금, 통상시급, 209시간, 미사용 연차, 퇴사, 이직, 권고사직, 계약만료, 제로포켓, ZeroPocket">
+<meta name="author" content="제로포켓 (ZeroPocket)">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제로포켓 (ZeroPocket)">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="2026 퇴직금 · 실업급여 · 연차수당 계산기 | 제로포켓">
+<meta property="og:description" content="퇴사 전에 확인하는 세 가지 — 예상 퇴직금, 2026년 구직급여(상한 68,100원·하한 66,048원), 미사용 연차수당. 입사일·퇴사일만 넣으면 재직일수와 1일 평균임금까지 자동 계산합니다.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/retire-calc/preview.png">
+<meta property="og:image:alt" content="2026 퇴직금·실업급여·연차수당 계산기 화면 — 예상 퇴직금과 1일 평균임금 요약">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/retire-calc/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 퇴직금 · 실업급여 · 연차수당 계산기 | 제로포켓">
+<meta name="twitter:description" content="퇴직금·실업급여·연차수당을 2026년 기준으로 한 화면에서. 입사일·퇴사일로 재직일수 자동 계산, 구직급여 상한 68,100원·하한 66,048원 적용.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/retire-calc/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/retire-calc/">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io/ 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "2026 퇴직금 · 실업급여 · 연차수당 계산기",
+      "alternateName": "제로포켓 퇴직금 계산기 · 2026 구직급여 계산기 · 연차수당 계산기",
+      "url": "https://mydaesu-lab.github.io/retire-calc/",
+      "image": "https://mydaesu-lab.github.io/retire-calc/preview.png",
+      "description": "입사일·퇴사일과 최근 3개월 월급으로 1일 평균임금과 예상 퇴직금(세전)을 계산하고, 2026년 구직급여 1일 상한 68,100원·하한 66,048원(최저임금 10,320원 × 8시간 × 80%)과 고용보험 가입기간별 소정급여일수(120~270일)를 적용해 실업급여를, 월 통상임금 209시간 기준으로 통상시급과 연차수당을 계산하는 무료 도구. 모든 계산은 브라우저 안에서만 이루어집니다.",
+      "applicationCategory": "FinanceApplication",
+      "applicationSubCategory": "퇴직금 · 실업급여 · 연차수당 계산",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": { "@type": "Organization", "name": "제로포켓 (ZeroPocket)", "url": "https://mydaesu-lab.github.io/" },
+      "featureList": [
+        "퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365) 산식 적용",
+        "입사일·퇴사일로 재직일수와 3개월 총일수 자동 계산",
+        "연간 상여금·미사용 연차수당의 3/12 가산 반영",
+        "계속근로 1년 미만 퇴직금 지급 대상 아님 안내",
+        "2026년 구직급여 1일 상한 68,100원 · 하한 66,048원 적용",
+        "50세 미만 / 50세 이상·장애인 구분 소정급여일수 120~270일",
+        "1일 구직급여 · 월 환산(30일) · 총 예상 수령액 계산",
+        "월 통상임금 209시간 기준 통상시급·1일 통상임금 계산",
+        "미사용 연차일수로 연차수당 계산",
+        "결과 요약 복사 · 입력값 서버 미전송"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "2026년 실업급여(구직급여) 1일 상한액과 하한액은 얼마인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "2026년 1월 1일 이후에 이직한 근로자는 1일 상한액 68,100원, 하한액 66,048원이 적용됩니다. 상한액은 기초일액 상한 113,500원의 60%이고, 하한액은 2026년 최저임금 시급 10,320원 × 1일 소정근로시간 8시간 × 80%입니다. 2025년(상한 66,000원·하한 64,192원)보다 둘 다 올랐고, 상·하한 차이는 2,052원뿐입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "퇴직금은 어떻게 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)입니다. 1일 평균임금은 퇴직일 이전 3개월 동안 지급된 임금총액을 그 3개월의 총일수로 나눈 금액이고, 여기에 연간 상여금과 연차수당은 3개월분(3/12)만 가산합니다. 계속근로기간 1년 이상, 4주 평균 주 소정근로시간 15시간 이상이어야 법정 퇴직금 지급 대상입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "1년 미만으로 일하고 그만두면 퇴직금을 못 받나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "근로자퇴직급여보장법상 계속근로기간이 1년 미만이면 법정 퇴직금 지급 대상이 아닙니다. 다만 취업규칙이나 근로계약에서 1년 미만 근로자에게도 퇴직금을 지급하기로 정했다면 받을 수 있습니다. 퇴직연금(DB·DC)에 가입되어 있었다면 1년 미만이어도 적립금은 본인 몫으로 남습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "실업급여를 받으려면 얼마나 일해야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이직일 이전 18개월 동안 고용보험 피보험단위기간이 통산 180일 이상이어야 하고, 권고사직·계약만료·정리해고처럼 비자발적 사유로 이직해야 합니다. 소정급여일수는 이직 당시 만 나이와 피보험기간에 따라 120일에서 270일까지 정해집니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "연차수당은 어떤 임금으로 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "연차수당은 통상임금으로 계산합니다. 월 통상임금(기본급과 매월 정기적·일률적으로 지급되는 고정수당)을 월 소정근로시간 209시간으로 나눈 것이 통상시급이고, 여기에 1일 소정근로시간(보통 8시간)을 곱한 1일 통상임금에 미사용 연차일수를 곱합니다. 209시간은 주 40시간 근무에 주휴 8시간을 더한 월 환산 기준시간입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "퇴직금 계산에 상여금과 연차수당이 들어가나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "네. 퇴직금 산정의 기준이 되는 평균임금에는 퇴직일 이전 3개월 임금총액 외에 연간 상여금 총액의 3/12, 연차수당 지급액의 3/12를 가산합니다. 그래서 상여금이 큰 회사는 같은 월급이라도 퇴직금이 더 커집니다. 다만 이미 3개월 안에 지급된 상여금은 3개월 임금총액에 포함해 이중으로 더하지 않도록 주의해야 합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "입력한 급여와 재직 정보가 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 입사일·퇴사일, 월급, 상여금, 연차수당, 나이, 가입기간은 브라우저 메모리에서만 계산에 쓰이고 서버로 보내지 않습니다. 저장 공간도 없어서 새로고침하면 입력값이 사라집니다. 방문 통계(GA4)에는 '샘플 사용', '요약 복사', '탭 전환' 같은 동작 이름만 남고 금액은 전송되지 않습니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --danger:#c02626;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s,color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff;color:#3a34b8}
+  .sibling-link:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+  .pb-text{min-width:0}
+  .sib-strip{display:flex;flex:1 1 100%;flex-wrap:wrap;gap:8px}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:900px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 15px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .chip.good{color:#0f6b4c;background:#e7f7f0}
+  .chip.warn{color:#8a5300;background:#fff3dc}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn.primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(91,87,240,.28)}
+  .mini-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#514cdd,#7f4fef);color:#fff;border-color:transparent}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;gap:5px;background:#f2f3f9;border-radius:13px;padding:5px;margin-bottom:13px}
+  .tabs button{flex:1 1 0;min-width:0;border:0;background:transparent;border-radius:9px;padding:10px 8px;font:inherit;font-size:13px;font-weight:800;color:#6b7183;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.2;transition:background .14s,color .14s,box-shadow .14s}
+  .tabs button span.t-ico{font-size:14px;line-height:1}
+  .tabs button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .tabs button:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+
+  /* ---------- fields ---------- */
+  .field{margin-top:12px}
+  .field:first-child{margin-top:0}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .field-label small{font-weight:600;color:var(--muted);font-size:11px;margin-left:4px}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  .input::placeholder{color:#a8adbc}
+  select.input{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#8a90a3 50%),linear-gradient(135deg,#8a90a3 50%,transparent 50%);background-position:calc(100% - 17px) 18px,calc(100% - 12px) 18px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:32px}
+  input[type="date"].input{font-variant-numeric:tabular-nums;min-height:41px}
+  .row-note{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.55}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:border-color .14s,color .14s,background .14s}
+  .chip-btn:hover:not(:disabled){border-color:#cdc8ff;color:#4b45c9;background:#fbfaff}
+  .chip-btn.is-active{background:#f1efff;border-color:#c3bdff;color:#4b45c9}
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:#f2f3f9;border-radius:12px;padding:4px}
+  .seg button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:inherit;font-size:12.5px;font-weight:700;color:#6b7183;cursor:pointer;transition:background .14s,color .14s,box-shadow .14s;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1.2;min-width:0;text-align:center}
+  .seg button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .seg button small{font-size:10px;font-weight:600;color:var(--muted)}
+  .seg button.is-active small{color:#6d68e8}
+
+  /* ---------- panel ---------- */
+  .panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 18px 18px}
+  .pblock{padding:13px 2px 14px}
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .link-btn{border:0;background:none;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .lead{margin:0 0 9px;max-width:900px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .lead code,.tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p b{color:var(--ink);font-weight:700}
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+  .disclaimer{margin:16px 0 0;padding:11px 13px;border:1px solid #ffe1b8;background:#fff8ec;border-radius:11px;font-size:11.5px;line-height:1.65;color:#7a4b00}
+  .disclaimer b{color:#8a5300;font-weight:800}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  /* ===== 퇴직금·실업급여·연차수당 계산기 전용 ===== */
+  .inbox{border:1px solid var(--line);border-radius:14px;padding:11px 11px 12px;background:#fbfbfe}
+  .inbox + .inbox{margin-top:9px}
+  .inbox-head{display:flex;align-items:center;gap:7px;margin:0 0 9px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .inbox-head .dot{width:7px;height:7px;border-radius:50%;background:#5b57f0;flex:0 0 auto}
+  .inbox-head.g .dot{background:#0f9d6e}
+  .inbox-head small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .field-grid .field{margin-top:0}
+  .with-unit{position:relative}
+  .with-unit .input{padding-right:36px;font-variant-numeric:tabular-nums;font-size:14px;font-weight:700}
+  .with-unit > i{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-style:normal;font-size:11px;font-weight:700;color:var(--muted);pointer-events:none}
+  .chips.tight{margin-top:6px;gap:5px}
+  .chip-btn.tiny{padding:5px 8px;font-size:10.5px}
+
+  /* 결과 다크 카드 */
+  .net-card{margin-top:2px;border-radius:17px;padding:16px 16px 15px;background:linear-gradient(158deg,#20233a 0%,#2b2f47 100%);color:#eef0f8;box-shadow:0 16px 34px rgba(20,24,60,.26)}
+  .net-cap{display:flex;align-items:center;gap:6px;margin:0;font-size:11px;font-weight:800;letter-spacing:.01em;color:#a9afc9}
+  .net-cap .live{margin-left:auto;font-size:9.5px;font-weight:800;color:#7ee0b8;background:rgba(126,224,184,.13);border:1px solid rgba(126,224,184,.3);border-radius:999px;padding:2px 7px;white-space:nowrap}
+  .net-cap .live.warn{color:#ffd39b;background:rgba(255,211,155,.13);border-color:rgba(255,211,155,.32)}
+  .net-num{margin:6px 0 2px;font-size:34px;line-height:1.06;font-weight:800;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:#fff;word-break:break-all}
+  .net-num small{font-size:15px;font-weight:800;margin-left:2px;color:#b9bdf0}
+  .net-sub{margin:2px 0 0;font-size:11.5px;line-height:1.55;color:#9ba1bd}
+  .net-sub b{color:#e7e9f6;font-weight:800}
+
+  /* 일액 위치 바 */
+  .range{margin-top:13px}
+  .range-bar{position:relative;height:8px;border-radius:99px;background:linear-gradient(90deg,#3d4265,#4b5180);overflow:visible}
+  .range-bar i{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid #7ee0b8;transform:translate(-50%,-50%);box-shadow:0 2px 8px rgba(0,0,0,.35);transition:left .2s ease}
+  .range-legend{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font-size:9.5px;color:#9ba1bd;font-variant-numeric:tabular-nums}
+
+  /* 금액 내역 행 */
+  .kv{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);line-height:1.45}
+  .kv:first-child{border-top:0;padding-top:0}
+  .kv > span{display:inline-flex;align-items:center;gap:5px;min-width:0}
+  .kv > span em{font-style:normal;font-size:10px;font-weight:700;color:#b0b5c5;background:#f4f5fa;border-radius:4px;padding:1px 4px;flex:0 0 auto}
+  .kv b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .kv b.warn{color:#b45309}
+  .kv b.good{color:#0f9d6e}
+  .kv.total{border-top:1px solid var(--line);margin-top:2px;padding-top:9px;color:var(--ink-2);font-weight:800}
+  .kv.total b{color:#4b45c9;font-size:13.5px}
+
+  .res-title{display:flex;align-items:center;gap:6px;margin:0 0 9px;font-size:12px;font-weight:800;color:var(--ink-2)}
+  .res-title .chip{margin-left:auto}
+
+  .warn-box{margin-top:11px;border:1px solid #ffe1b8;background:#fff8ec;border-radius:11px;padding:10px 12px;font-size:11.5px;line-height:1.62;color:#7a4b00}
+  .warn-box b{color:#8a5300;font-weight:800}
+  .info-box{margin-top:11px;border:1px solid #ddd9ff;background:linear-gradient(160deg,#f8f7ff,#ffffff);border-radius:13px;padding:10px 12px 11px}
+  .info-head{display:flex;align-items:center;gap:7px;margin:0 0 8px;font-size:11.5px;font-weight:800;color:#4b45c9}
+  .info-head small{margin-left:auto;font-size:10px;font-weight:700;color:var(--muted)}
+  .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .rate-grid div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:6px 8px;line-height:1.35;min-width:0}
+  .rate-grid span{display:block;font-size:10px;font-weight:700;color:var(--muted)}
+  .rate-grid b{font-size:12.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+  .rate-grid i{display:block;font-style:normal;font-size:9.5px;color:#9aa0b0;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .info-note{margin:7px 0 0;font-size:10px;line-height:1.55;color:var(--muted)}
+  .info-note b{color:#4b45c9;font-weight:700}
+
+  /* 소정급여일수 표 */
+  .tbl-wrap{border:1px solid var(--line);border-radius:13px;overflow:auto;background:#fff;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  table.tbl{width:100%;border-collapse:collapse;font-size:11.5px;font-variant-numeric:tabular-nums}
+  .tbl thead th{background:#f6f7fc;color:#5b6072;font-size:10.5px;font-weight:800;text-align:right;padding:8px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .tbl thead th:first-child{text-align:left}
+  .tbl td{padding:8px 9px;border-bottom:1px solid #f1f2f7;text-align:right;white-space:nowrap;color:var(--ink-2)}
+  .tbl td:first-child{text-align:left;font-weight:800;color:var(--ink)}
+  .tbl tr{cursor:pointer;transition:background .12s}
+  .tbl tbody tr:hover{background:#f8f7ff}
+  .tbl tr.is-current{background:#f1efff}
+  .tbl tr.is-current td:first-child{color:#4b45c9}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td.pick{color:#4b45c9;font-weight:800;background:#f1efff}
+  .tbl-note{margin:8px 0 0;font-size:10.5px;line-height:1.6;color:var(--muted)}
+  .tbl-note b{color:var(--ink-2);font-weight:700}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .panel{position:static;padding:4px 15px 14px}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-work{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .sib-strip{display:flex;flex:1 1 100%;flex-wrap:nowrap;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .sib-strip::-webkit-scrollbar{display:none}
+    .sib-strip .sibling-link{flex:0 0 auto}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .tabs button{font-size:11.5px;padding:9px 5px;gap:4px}
+    .tabs button span.t-ico{font-size:13px}
+    .stage-title .chip{display:none}
+    .field-grid{grid-template-columns:1fr}
+    .net-num{font-size:30px}
+    .tbl thead th,.tbl td{padding:7px 7px}
+    .tbl{font-size:11px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+  }
+  @media (max-width:360px){
+    .hero h1{font-size:20px}
+    .net-num{font-size:27px}
+    .tabs button{font-size:10.5px}
+    .tabs button span.t-ico{display:none}
+    .rate-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/retire-calc/">
+      <span class="brand-mark" aria-hidden="true">📅</span>
+      <span class="brand-text">
+        <b>퇴직금 · 실업급여 · 연차수당</b>
+        <i>제로포켓 · 2026 기준 · 퇴사 준비 계산기</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>입력한 급여·재직 정보는 서버에 저장되지 않아요</b> · 100% 브라우저 계산</span></span>
+      <div class="sib-strip">
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/" title="제로포켓 무료 웹툴 전체 보기">🏠 전체 툴</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/text-counter/">✍️ 글자수 세기</a>
+      </div>
+    </div>
+    <h1>퇴사 전에 확인할 세 가지 — <span>퇴직금 · 실업급여 · 연차수당</span></h1>
+    <p class="hero-sub">입사일과 퇴사일만 넣으면 <b>재직일수와 3개월 총일수를 자동 계산</b>해 <b>1일 평균임금</b>과 <b>예상 퇴직금(세전)</b>을 보여 줍니다. 실업급여는 <b>2026년 구직급여 1일 상한 68,100원 · 하한 66,048원</b>과 가입기간별 <b>소정급여일수 120~270일</b>을 적용하고, 연차수당은 <b>월 통상임금 209시간</b> 기준으로 통상시급과 1일 통상임금을 구해 계산합니다. 입력값은 서버로 가지 않아요.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 입력 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-head">
+          <div class="stage-title">
+            <span>조건 입력</span>
+            <span class="chip grey" id="headChip">값을 바꾸면 바로 계산</span>
+          </div>
+          <div class="stage-actions">
+            <button class="mini-btn primary" type="button" id="sampleBtn">✨ 샘플로 체험하기</button>
+            <button class="mini-btn" type="button" id="resetBtn">초기화</button>
+          </div>
+        </div>
+
+        <div class="tabs" id="mainTabs" role="tablist" aria-label="계산 종류 선택">
+          <button type="button" id="tabSever" role="tab" aria-selected="true" aria-controls="paneSever" class="is-active"><span class="t-ico" aria-hidden="true">🧾</span>퇴직금</button>
+          <button type="button" id="tabUb" role="tab" aria-selected="false" aria-controls="paneUb"><span class="t-ico" aria-hidden="true">🛟</span>실업급여</button>
+          <button type="button" id="tabLeave" role="tab" aria-selected="false" aria-controls="paneLeave"><span class="t-ico" aria-hidden="true">🌴</span>연차수당</button>
+        </div>
+
+        <!-- ================= 탭 1: 퇴직금 ================= -->
+        <div class="pane" id="paneSever" role="tabpanel" aria-labelledby="tabSever">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>재직 기간<small>자동 계산</small></p>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="hireDate">입사일</label>
+                <input class="input" id="hireDate" type="date" value="2019-03-04">
+              </div>
+              <div class="field">
+                <label class="field-label" for="quitDate">퇴사일 <small>마지막 근무일 다음 날</small></label>
+                <input class="input" id="quitDate" type="date" value="2026-11-27">
+              </div>
+            </div>
+            <p class="row-note" id="tenureNote">재직일수 <b>2,825일</b> · 3개월 총일수 <b>92일</b></p>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>임금<small>세전 금액</small></p>
+            <div class="field" style="margin-top:0">
+              <label class="field-label" for="pay3">최근 3개월 월급 <small>기본급 + 수당 평균</small></label>
+              <div class="with-unit">
+                <input class="input" id="pay3" type="text" inputmode="numeric" autocomplete="off" value="3,000,000">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="월급 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-pay3="2160000">최저임금</button>
+                <button class="chip-btn tiny" type="button" data-pay3="2500000">250만</button>
+                <button class="chip-btn tiny" type="button" data-pay3="3000000">300만</button>
+                <button class="chip-btn tiny" type="button" data-pay3="4000000">400만</button>
+                <button class="chip-btn tiny" type="button" data-pay3="6000000">600만</button>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="bonus">연간 상여금 총액 <small>최근 1년 · 없으면 0</small></label>
+              <div class="with-unit">
+                <input class="input" id="bonus" type="text" inputmode="numeric" autocomplete="off" value="3,000,000">
+                <i>원</i>
+              </div>
+              <p class="row-note">연간 상여금은 <b>3/12</b>만 평균임금에 가산됩니다.</p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="leavePay">미사용 연차수당 <small>퇴직 전 지급액 · 없으면 0</small></label>
+              <div class="with-unit">
+                <input class="input" id="leavePay" type="text" inputmode="numeric" autocomplete="off" value="600,000">
+                <i>원</i>
+              </div>
+              <p class="row-note">연차수당도 <b>3/12</b>만 가산됩니다. 3개월 안에 이미 받은 상여·연차수당은 월급에 포함해 중복되지 않게 하세요.</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <p class="info-head"><span aria-hidden="true">📌</span>퇴직금 산식 <small>근로자퇴직급여보장법</small></p>
+            <p class="rate-grid" style="display:block;background:none;border:0;padding:0">
+              <span style="display:block;font-size:11.5px;line-height:1.7;color:var(--ink-2)">
+                <code style="font-family:inherit;font-weight:700;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px">1일 평균임금 × 30일 × (재직일수 ÷ 365)</code><br>
+                1일 평균임금 = (3개월 임금총액 + 상여 3/12 + 연차수당 3/12) ÷ 3개월 총일수
+              </span>
+            </p>
+            <p class="info-note">계속근로 <b>1년 이상</b>·4주 평균 주 소정근로 <b>15시간 이상</b>이어야 지급 대상입니다.</p>
+          </div>
+        </div>
+
+        <!-- ================= 탭 2: 실업급여 ================= -->
+        <div class="pane is-hidden" id="paneUb" role="tabpanel" aria-labelledby="tabUb">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>이직 전 조건<small>세전 금액</small></p>
+            <div class="field" style="margin-top:0">
+              <label class="field-label" for="ubPay">퇴직 전 3개월 평균 월급</label>
+              <div class="with-unit">
+                <input class="input" id="ubPay" type="text" inputmode="numeric" autocomplete="off" value="3,000,000">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="월급 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-ubpay="2160000">최저임금</button>
+                <button class="chip-btn tiny" type="button" data-ubpay="3000000">300만</button>
+                <button class="chip-btn tiny" type="button" data-ubpay="3500000">350만</button>
+                <button class="chip-btn tiny" type="button" data-ubpay="4500000">450만</button>
+                <button class="chip-btn tiny" type="button" data-ubpay="6000000">600만</button>
+              </div>
+              <p class="row-note">1일 평균임금은 <b>월 평균임금 ÷ 30</b>으로 잡습니다.</p>
+            </div>
+
+            <div class="field">
+              <span class="field-label">이직 당시 만 나이 <small>50세 기준</small></span>
+              <div class="seg" id="ageSeg" role="group" aria-label="이직 당시 나이 구분">
+                <button type="button" class="is-active" id="ageUnder" aria-pressed="true">50세 미만</button>
+                <button type="button" id="ageOver" aria-pressed="false">50세 이상 · 장애인</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="ubYears">고용보험 가입기간 <small>피보험기간</small></label>
+              <select class="input" id="ubYears">
+                <option value="lt1">1년 미만</option>
+                <option value="1-3">1년 이상 ~ 3년 미만</option>
+                <option value="3-5">3년 이상 ~ 5년 미만</option>
+                <option value="5-10" selected>5년 이상 ~ 10년 미만</option>
+                <option value="ge10">10년 이상</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>2026년 상·하한<small>2026. 1. 1. 이후 이직</small></p>
+            <div class="rate-grid">
+              <div><span>1일 상한액</span><b>68,100원</b><i>기초일액 113,500원 × 60%</i></div>
+              <div><span>1일 하한액</span><b>66,048원</b><i>10,320원 × 8h × 80%</i></div>
+              <div><span>2026 최저임금</span><b>10,320원</b><i>일급 82,560원 · 월 215만 6,880원</i></div>
+              <div><span>상·하한 차이</span><b>2,052원</b><i>평균임금이 높아도 차이는 작아요</i></div>
+            </div>
+            <p class="info-note">2025년은 상한 <b>66,000원</b>·하한 <b>64,192원</b>이었어요. 이직일이 2026년 1월 1일 이후여야 위 금액이 적용됩니다.</p>
+          </div>
+
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>소정급여일수 표<small>행을 누르면 적용</small></p>
+            <div class="tbl-wrap">
+              <table class="tbl" id="ubDaysTable">
+                <thead>
+                  <tr>
+                    <th scope="col">가입기간</th>
+                    <th scope="col">50세 미만</th>
+                    <th scope="col">50세 이상·장애인</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-k="lt1"><td>1년 미만</td><td>120일</td><td>120일</td></tr>
+                  <tr data-k="1-3"><td>1~3년</td><td>150일</td><td>180일</td></tr>
+                  <tr data-k="3-5"><td>3~5년</td><td>180일</td><td>210일</td></tr>
+                  <tr data-k="5-10" class="is-current"><td>5~10년</td><td>210일</td><td>240일</td></tr>
+                  <tr data-k="ge10"><td>10년 이상</td><td>240일</td><td>270일</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="tbl-note">고용보험법 <b>별표 1</b>(제50조제1항 관련) · 장애인은 나이와 관계없이 아래 칸을 적용합니다.</p>
+          </div>
+        </div>
+
+        <!-- ================= 탭 3: 연차수당 ================= -->
+        <div class="pane is-hidden" id="paneLeave" role="tabpanel" aria-labelledby="tabLeave">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>통상임금<small>세전 금액</small></p>
+            <div class="field" style="margin-top:0">
+              <label class="field-label" for="wage">월 통상임금 <small>기본급 + 고정수당</small></label>
+              <div class="with-unit">
+                <input class="input" id="wage" type="text" inputmode="numeric" autocomplete="off" value="3,000,000">
+                <i>원</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="통상임금 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-wage="2160000">최저임금</button>
+                <button class="chip-btn tiny" type="button" data-wage="3000000">300만</button>
+                <button class="chip-btn tiny" type="button" data-wage="4000000">400만</button>
+                <button class="chip-btn tiny" type="button" data-wage="5000000">500만</button>
+              </div>
+              <p class="row-note">매달 <b>정기적·일률적</b>으로 나오는 수당만 넣으세요. 실적에 따라 달라지는 성과급·상여는 통상임금이 아닙니다.</p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="hours">1일 소정근로시간 <small>월 209시간 기준</small></label>
+              <div class="with-unit">
+                <input class="input" id="hours" type="text" inputmode="numeric" autocomplete="off" value="8">
+                <i>시간</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="1일 근로시간 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-hours="8">8시간 (주 40h)</button>
+                <button class="chip-btn tiny" type="button" data-hours="7">7시간</button>
+                <button class="chip-btn tiny" type="button" data-hours="6">6시간</button>
+                <button class="chip-btn tiny" type="button" data-hours="4">4시간</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="leaveDays">미사용 연차 일수</label>
+              <div class="with-unit">
+                <input class="input" id="leaveDays" type="text" inputmode="numeric" autocomplete="off" value="10">
+                <i>일</i>
+              </div>
+              <div class="chips tight" role="group" aria-label="연차 일수 빠른 입력">
+                <button class="chip-btn tiny" type="button" data-days="1">1일</button>
+                <button class="chip-btn tiny" type="button" data-days="3">3일</button>
+                <button class="chip-btn tiny" type="button" data-days="5">5일</button>
+                <button class="chip-btn tiny" type="button" data-days="10">10일</button>
+                <button class="chip-btn tiny" type="button" data-days="15">15일</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <p class="info-head"><span aria-hidden="true">📌</span>연차수당 산식 <small>근로기준법</small></p>
+            <p style="margin:0;font-size:11.5px;line-height:1.75;color:var(--ink-2)">
+              <code style="font-family:inherit;font-weight:700;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px">통상시급 = 월 통상임금 ÷ 209</code><br>
+              <code style="font-family:inherit;font-weight:700;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px">연차수당 = 통상시급 × 1일 근로시간 × 미사용 일수</code>
+            </p>
+            <p class="info-note">209시간 = 주 40시간 + 주휴 8시간(월 환산). 1년 미만은 1개월 개근 시 1일(최대 11일), 1년 이상 15일, 3년 이상은 2년마다 1일씩 늘어 최대 25일입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 결과 패널 ============ -->
+    <aside class="panel" aria-label="계산 결과">
+      <div class="pblock">
+
+        <!-- 퇴직금 결과 -->
+        <div class="res" id="resSever">
+          <div class="net-card">
+            <p class="net-cap"><span aria-hidden="true">🧾</span>예상 퇴직금 <span class="live" id="sevBadge">세전</span></p>
+            <p class="net-num" id="sevNum">0<small>원</small></p>
+            <p class="net-sub" id="sevSub">재직 2,825일 · 1일 평균임금 0원</p>
+          </div>
+          <div style="margin-top:13px">
+            <div class="kv"><span>3개월 임금총액</span><b id="kvPay3">0원</b></div>
+            <div class="kv"><span>연간 상여금 <em>3/12</em></span><b id="kvBonus">0원</b></div>
+            <div class="kv"><span>연차수당 <em>3/12</em></span><b id="kvLeavePay">0원</b></div>
+            <div class="kv"><span>3개월 총일수</span><b id="kvPeriod">0일</b></div>
+            <div class="kv total"><span>1일 평균임금</span><b id="kvAvg">0원</b></div>
+          </div>
+          <div class="warn-box is-hidden" id="sevWarn"><b>계속근로 1년 미만</b> — 법정 퇴직금 지급 대상이 아니에요. 취업규칙·근로계약에서 정했거나 퇴직연금에 가입했다면 따로 확인해 보세요.</div>
+          <p class="hint">퇴직금은 퇴직일부터 <b>14일 이내</b>에 지급해야 합니다. 1일 통상임금이 평균임금보다 크면 통상임금으로 계산해요.</p>
+        </div>
+
+        <!-- 실업급여 결과 -->
+        <div class="res is-hidden" id="resUb">
+          <div class="net-card">
+            <p class="net-cap"><span aria-hidden="true">🛟</span>1일 구직급여 <span class="live" id="ubBadge">2026 기준</span></p>
+            <p class="net-num" id="ubNum">0<small>원</small></p>
+            <p class="net-sub" id="ubSub">소정급여일수 210일 · 총 0원</p>
+            <div class="range">
+              <div class="range-bar"><i id="ubMark" style="left:50%"></i></div>
+              <div class="range-legend"><span>하한 66,048원</span><span>상한 68,100원</span></div>
+            </div>
+          </div>
+          <div style="margin-top:13px">
+            <div class="kv"><span>1일 평균임금 <em>월÷30</em></span><b id="kvUbAvg">0원</b></div>
+            <div class="kv"><span>평균임금의 60%</span><b id="kvUbRaw">0원</b></div>
+            <div class="kv"><span>상·하한 적용</span><b id="kvUbApply">—</b></div>
+            <div class="kv total"><span>1일 구직급여</span><b id="kvUbDay">0원</b></div>
+            <div class="kv"><span>소정급여일수</span><b id="kvUbDays">210일</b></div>
+            <div class="kv"><span>월 환산 <em>30일</em></span><b id="kvUbMonth">0원</b></div>
+            <div class="kv"><span>총 예상 수령액</span><b id="kvUbTotal">0원</b></div>
+          </div>
+          <p class="hint">신청일부터 <b>7일 대기기간</b>은 지급되지 않고, 이직일 다음 날부터 <b>12개월</b> 안에 받아야 합니다.</p>
+        </div>
+
+        <!-- 연차수당 결과 -->
+        <div class="res is-hidden" id="resLeave">
+          <div class="net-card">
+            <p class="net-cap"><span aria-hidden="true">🌴</span>예상 연차수당 <span class="live" id="lvBadge">세전</span></p>
+            <p class="net-num" id="lvNum">0<small>원</small></p>
+            <p class="net-sub" id="lvSub">1일 통상임금 0원 × 0일</p>
+          </div>
+          <div style="margin-top:13px">
+            <div class="kv"><span>월 통상임금</span><b id="kvWage">0원</b></div>
+            <div class="kv"><span>월 소정근로시간 <em>209h</em></span><b id="kvMonthHours">209시간</b></div>
+            <div class="kv"><span>통상시급</span><b id="kvHourly">0원</b></div>
+            <div class="kv"><span>1일 소정근로시간</span><b id="kvDayHours">8시간</b></div>
+            <div class="kv total"><span>1일 통상임금</span><b id="kvDaily">0원</b></div>
+            <div class="kv"><span>미사용 연차</span><b id="kvLeaveDays">0일</b></div>
+          </div>
+          <p class="hint">연차수당 청구권 소멸시효는 <b>3년</b>입니다. 회사가 연차 사용을 촉진하지 않았다면 미사용분을 모두 청구할 수 있어요.</p>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="button" id="copyBtn">📋 결과 복사하기</button>
+        <p class="hint center">카톡·메모장에 붙여 넣어 회사·고용센터와 비교해 보세요.</p>
+        <p class="hint center tiny">참고용 계산입니다. 회사 규정·고용센터 결정에 따라 달라질 수 있어요.</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 계산 기능과 무관하며, 입력한 급여·재직 정보는 광고로 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+    <article class="content-card" id="guide-sever">
+      <h2 class="content-title"><span aria-hidden="true">🧾</span> 퇴직금 계산 기준 — 1일 평균임금이 전부입니다</h2>
+      <p class="lead">퇴직금은 <b>1일 평균임금 × 30일 × (재직일수 ÷ 365)</b>로 계산합니다. 근로자퇴직급여보장법 제8조가 “계속근로기간 1년에 대하여 30일분 이상의 평균임금”을 지급하도록 정하고 있어서, 재직일수가 3년이면 30일분의 3배가 쌓이는 구조입니다. 여기서 금액을 좌우하는 것은 재직일수보다 <b>1일 평균임금</b>입니다.</p>
+      <ul class="facts">
+        <li><b>3개월</b><span>평균임금 산정<br>임금총액 기간</span></li>
+        <li><b>30일분</b><span>1년 근속당<br>법정 퇴직금</span></li>
+        <li><b>3/12</b><span>상여금·연차수당<br>가산 비율</span></li>
+        <li><b>14일</b><span>퇴직 후<br>지급 기한</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>평균임금은 ‘퇴직일 이전 3개월 임금총액 ÷ 그 3개월 총일수’</h3>
+          <p>근로기준법 제2조는 평균임금을 “이를 산정하여야 할 사유가 발생한 날 이전 3개월 동안에 그 근로자에게 지급된 임금의 총액을 그 기간의 총일수로 나눈 금액”으로 정의합니다. 여기서 <b>총일수</b>가 중요합니다. 3개월을 90일로 나누는 것이 아니라 <b>달력 일수(89~92일)</b>로 나누기 때문에, 퇴사 시점에 따라 같은 월급이라도 1일 평균임금이 조금 달라집니다. 이 계산기는 퇴사일에서 3개월을 뺀 날부터 퇴사일 전날까지의 실제 일수를 셉니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>상여금·연차수당은 3개월분만 더합니다</h3>
+          <p>1년에 한두 번 받는 상여금과 연차수당은 매달 나오는 임금이 아니라서 3개월 임금총액에 그대로 들어가지 않습니다. 대신 <b>연간 상여금 총액 × 3/12</b>, <b>연차수당 지급액 × 3/12</b>를 3개월 임금총액에 가산합니다. 월 300만 원, 연 상여 300만 원, 연차수당 60만 원이면 가산액은 75만 원과 15만 원이고, 3개월 총일수 92일 기준 1일 평균임금은 <b>107,608원</b>이 됩니다. 여기에 30일과 재직일수/365를 곱하면 재직 2,825일 기준 <b>약 2,498만 원</b>이 나옵니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>1년 미만·주 15시간 미만은 법정 퇴직금 대상이 아닙니다</h3>
+          <p>근로자퇴직급여보장법 제4조는 계속근로기간 <b>1년 이상</b>, 4주를 평균해 1주 소정근로시간이 <b>15시간 이상</b>인 근로자에게 퇴직급여를 지급하도록 정합니다. 11개월만 일하고 그만두면 법정 퇴직금은 나오지 않지만, 취업규칙이나 근로계약에 별도 규정이 있으면 받을 수 있고, 퇴직연금 DC·IRP에 납입된 돈은 1년 미만이어도 본인 적립금으로 남습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>평균임금이 통상임금보다 작으면 통상임금으로</h3>
+          <p>근로기준법 제2조 제2항은 평균임금이 통상임금보다 적으면 <b>통상임금을 평균임금으로 본다</b>고 정합니다. 상여가 거의 없고 기본급 비중이 큰 직장이라면, 이 계산기의 평균임금보다 통상임금(월 통상임금 ÷ 209 × 8)이 더 클 수 있습니다. 그때는 <b>연차수당 탭에서 나온 1일 통상임금</b>과 퇴직금 탭의 1일 평균임금을 비교해 큰 쪽으로 계산하세요.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 이 계산기는 근로기준법 제2조, 근로자퇴직급여보장법 제4조·제8조와 고용노동부 퇴직금 계산 방식(3개월 임금총액 + 상여금 3/12 + 연차수당 3/12)을 따릅니다. 육아휴직·병가 등 평균임금 산정에서 제외되는 기간이 있거나, 중간정산을 받았거나, 퇴직연금에 가입한 경우에는 실제 금액이 달라집니다.</p>
+    </article>
+
+    <article class="content-card" id="guide-ub">
+      <h2 class="content-title"><span aria-hidden="true">🛟</span> 실업급여 2026년 상·하한액 — 하루 66,048~68,100원</h2>
+      <p class="lead">2026년 1월 1일 이후에 이직한 근로자의 구직급여는 <b>1일 상한 68,100원, 하한 66,048원</b>입니다. 상한액은 기초일액 상한 113,500원의 60%이고, 하한액은 2026년 최저임금 시급 <b>10,320원 × 8시간 × 80%</b>입니다. 2025년(상한 66,000원·하한 64,192원)보다 둘 다 올랐는데, 최저임금 인상으로 하한액이 종전 상한액을 넘어서면서 상한액도 함께 조정된 결과입니다. 그래서 2026년에는 <b>상·하한 차이가 2,052원</b>뿐입니다.</p>
+      <ul class="facts">
+        <li><b>68,100원</b><span>2026 1일<br>상한액</span></li>
+        <li><b>66,048원</b><span>2026 1일 하한<br>(8시간 기준)</span></li>
+        <li><b>113,500원</b><span>기초일액<br>상한</span></li>
+        <li><b>120~270일</b><span>나이·가입기간별<br>소정급여일수</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>1일 구직급여 = 1일 평균임금의 60%, 상·하한 사이로</h3>
+          <p>고용보험법 제46조는 구직급여일액을 기초일액의 100분의 60으로 정하고, 계산한 금액이 최저구직급여일액보다 적으면 최저구직급여일액을 주도록 합니다. 고용보험법 시행령 제68조는 기초일액이 <b>113,500원</b>을 넘으면 113,500원으로 보도록 해서 68,100원이 상한이 됩니다. 월 평균임금이 <b>약 340만 5,000원</b>을 넘으면 상한에, <b>약 330만 원</b> 아래면 하한에 걸린다고 보면 됩니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>소정급여일수는 나이와 가입기간으로 정해집니다</h3>
+          <p>고용보험법 별표 1에 따라 50세 미만은 가입기간 1년 미만 120일부터 10년 이상 240일까지, 50세 이상·장애인은 1년 미만 120일부터 10년 이상 <b>270일</b>까지입니다. 1년을 넘기면 같은 가입기간이라도 50세 이상이 30일 더 받습니다. 이 일수는 <b>이직일 다음 날부터 12개월</b> 안에서만 쓸 수 있어서, 신청이 늦으면 남은 일수가 있어도 사라집니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>받으려면 180일 이상, 비자발적 이직이어야</h3>
+          <p>이직일 이전 18개월 동안 피보험단위기간이 통산 <b>180일 이상</b>이어야 하고, 권고사직·계약만료·정리해고·폐업처럼 <b>비자발적 사유</b>여야 합니다. 자발적으로 그만두면 원칙적으로 받을 수 없지만, 임금 체불·괴롭힘·통근 불가 같은 정당한 사유가 있으면 인정될 수 있으니 이직확인서와 사유를 고용센터에 상담하세요. 신청은 고용24 온라인 또는 가까운 고용센터에서 합니다.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 2026년 최저임금(고용노동부고시 제2025-47호, 시급 10,320원)과 2026년 구직급여 상·하한액(기초일액 상한 113,500원)을 기준으로 한 예상 금액입니다. 실제 수급 자격과 금액은 이직확인서, 피보험단위기간, 개별 임금 내역을 바탕으로 고용센터가 결정합니다.</p>
+    </article>
+
+    <article class="content-card" id="guide-leave">
+      <h2 class="content-title"><span aria-hidden="true">🌴</span> 연차수당 통상임금 기준 — 왜 209시간으로 나눌까</h2>
+      <p class="lead">연차수당은 <b>통상임금</b>으로 계산합니다. 월 통상임금을 <b>209시간</b>으로 나눈 통상시급에 1일 소정근로시간(보통 8시간)을 곱해 1일 통상임금을 구하고, 여기에 미사용 연차일수를 곱합니다. 209시간은 주 40시간 근무에 주휴 8시간을 더한 주 48시간을 월 평균 주수(4.345주)로 환산한 값으로, 월급제 근로자의 통상시급을 구할 때 쓰는 표준 기준시간입니다.</p>
+      <ul class="facts">
+        <li><b>209시간</b><span>월 소정근로<br>기준시간</span></li>
+        <li><b>15일</b><span>1년 이상<br>기본 연차</span></li>
+        <li><b>최대 25일</b><span>3년 이상<br>가산 연차</span></li>
+        <li><b>3년</b><span>연차수당<br>소멸시효</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>통상임금에 들어가는 것과 빠지는 것</h3>
+          <p>통상임금은 <b>정기적·일률적·고정적</b>으로 지급되는 임금입니다. 기본급, 직책수당, 자격수당, 매월 같은 금액으로 나오는 식대·교통비 보조가 여기에 들어갑니다. 반대로 성과급, 경영 성과에 따른 상여, 실제 사용 여부에 따라 달라지는 실비 변상(출장비)은 통상임금이 아닙니다. 이 계산기의 첫 칸에는 <b>기본급 + 고정수당</b>만 넣으세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>하루 8시간이 아니면 1일 통상임금도 달라집니다</h3>
+          <p>단시간 근로자는 1일 소정근로시간이 8시간보다 짧습니다. 주 20시간 근무자라면 1일 4시간이 기준이어서 1일 통상임금은 통상시급의 4배입니다. 다만 월 소정근로시간(209시간)은 주 40시간 기준으로 계산한 값이므로, 근무시간이 짧은 경우 회사의 취업규칙에 정한 월 소정근로시간을 쓰기도 합니다. 계산기에서 근무시간을 바꿔 두 결과를 비교해 보세요.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>연차 일수와 소멸시효</h3>
+          <p>1년 이상 근무자는 15일, 3년 이상부터는 2년마다 1일씩 늘어 최대 25일입니다. 1년 미만은 1개월 개근할 때마다 1일이 생겨 최대 11일입니다. 연차수당 청구권의 소멸시효는 <b>3년</b>이라 3년 전 것까지 청구할 수 있고, 회사가 연차 사용 촉진 절차를 밟지 않았다면 미사용분을 수당으로 받을 수 있습니다.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 통상임금의 범위는 회사 취업규칙과 판례에 따라 달라질 수 있습니다. 정기상여금을 통상임금에 포함할지는 2024년 이후 대법원 판결과 정부 입법 논의로 기준이 바뀌고 있으므로, 큰 금액이 걸려 있다면 노무사나 고용노동부 상담(1350)으로 확인하세요.</p>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문 (FAQ)</h2>
+      <p class="lead">퇴사 앞두고 가장 많이 헷갈리는 것들만 모았습니다.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>2026년 실업급여 1일 상한액과 하한액은 얼마인가요?</summary>
+          <div class="faq-body"><p>2026년 1월 1일 이후 이직자 기준으로 <b>상한 68,100원, 하한 66,048원</b>입니다. 상한액은 기초일액 상한 113,500원의 60%, 하한액은 2026년 최저임금 10,320원 × 8시간 × 80%입니다. 2025년(66,000원·64,192원)보다 올랐고 상·하한 차이는 2,052원뿐이에요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>퇴직금은 어떻게 계산하나요?</summary>
+          <div class="faq-body"><p><b>1일 평균임금 × 30일 × (재직일수 ÷ 365)</b>입니다. 1일 평균임금은 퇴직일 이전 3개월 임금총액을 그 3개월 총일수로 나눈 금액이고, 연간 상여금과 연차수당은 각각 3/12만 더합니다. 계속근로 1년 이상, 4주 평균 주 소정근로 15시간 이상이어야 대상입니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>1년 미만으로 일하고 그만두면 퇴직금을 못 받나요?</summary>
+          <div class="faq-body"><p>법정 퇴직금은 <b>1년 미만이면 지급 대상이 아닙니다</b>. 다만 취업규칙·근로계약에 별도 규정이 있으면 받을 수 있고, 퇴직연금 DC·IRP에 납입된 적립금은 1년 미만이어도 본인 몫으로 남습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>실업급여를 받으려면 얼마나 일해야 하나요?</summary>
+          <div class="faq-body"><p>이직일 이전 18개월 동안 피보험단위기간이 통산 <b>180일 이상</b>이어야 하고, 비자발적 사유로 이직해야 합니다. 소정급여일수는 이직 당시 나이와 피보험기간에 따라 <b>120~270일</b>로 정해집니다. 이직일 다음 날부터 12개월 안에 받아야 하고, 신청 후 7일은 대기기간으로 지급되지 않습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>연차수당은 어떤 임금으로 계산하나요?</summary>
+          <div class="faq-body"><p>통상임금입니다. 월 통상임금(기본급 + 고정수당)을 <b>209시간</b>으로 나눠 통상시급을 구하고, 여기에 1일 소정근로시간(보통 8시간)과 미사용 연차일수를 곱합니다. 월 300만 원·8시간이면 통상시급 14,354원, 1일 통상임금 114,832원, 10일이면 <b>1,148,320원</b>입니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>퇴직금 계산에 상여금과 연차수당이 들어가나요?</summary>
+          <div class="faq-body"><p>네. 연간 상여금 총액과 연차수당 지급액의 <b>3/12</b>를 3개월 임금총액에 가산합니다. 다만 그 3개월 안에 이미 지급된 상여·연차수당은 월급에 포함되어 있으므로, 입력할 때 겹치지 않게 조정하세요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>입력한 급여와 재직 정보가 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 모든 계산은 <b>브라우저 안에서만</b> 이루어지고 서버로 보내지 않으며, 저장 공간도 없어 새로고침하면 입력값이 사라집니다. 방문 통계(GA4)에는 ‘샘플 사용’, ‘요약 복사’, ‘탭 전환’ 같은 동작 이름만 남습니다. 자세한 내용은 <button class="inline-link" type="button" data-modal="privacy">개인정보처리방침</button>에서 확인할 수 있어요.</p></div>
+        </details>
+      </div>
+      <p class="content-cta">퇴사 후 받을 월급이 궁금하다면 <a href="https://mydaesu-lab.github.io/salary-calc/">연봉 실수령액 계산기</a>를, 이직하며 집을 옮긴다면 <a href="https://mydaesu-lab.github.io/loan-calc/">전월세 전환율·대출 이자 계산기</a>를 함께 써 보세요.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">🎒</span>
+      <div>
+        <p class="foot-name" id="footName">제로포켓 (ZeroPocket)</p>
+        <p class="foot-desc">가입·설치·서버 전송 없이 브라우저에서만 계산하는 무료 웹툴</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="다른 무료 도구">
+      <a class="foot-link" href="https://mydaesu-lab.github.io/">🏠 전체 툴</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/text-counter/">✍️ 글자수 세기</a>
+      <button class="foot-link" type="button" data-modal="about">서비스 정보</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+    </nav>
+    <p class="foot-copy">© 2026 제로포켓 (ZeroPocket) · 입력한 급여·재직 정보는 내 기기 밖으로 나가지 않아요 · 계산 결과는 참고용입니다</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbTitle">예상 퇴직금 0원</b>
+    <span id="sbMeta">재직 2,825일 · 1일 평균임금 0원</span>
+  </div>
+  <button class="btn btn-primary" id="sbCopy" type="button">📋 복사</button>
+</div>
+
+<!-- ============ 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>퇴직금 · 실업급여 · 연차수당 계산기</b>는 퇴사를 앞두고 “얼마를 받아야 하는지”를 한 번에 확인하려고 만든 무료 도구입니다. 세 가지를 각각 탭으로 나눠, 퇴직금은 재직일수와 평균임금으로, 실업급여는 2026년 상·하한액과 소정급여일수로, 연차수당은 통상임금으로 계산합니다.</p>
+
+      <h3>이렇게 계산합니다</h3>
+      <ul>
+        <li><b>퇴직금</b> — 1일 평균임금 × 30일 × (재직일수 ÷ 365). 1일 평균임금은 (최근 3개월 임금총액 + 연간 상여금 × 3/12 + 연차수당 × 3/12) ÷ 3개월 총일수입니다. 3개월 총일수는 퇴사일에서 3개월을 뺀 날부터 퇴사일 전날까지의 실제 달력 일수(89~92일)를 셉니다.</li>
+        <li><b>실업급여(구직급여)</b> — 1일 평균임금(월 평균임금 ÷ 30)의 60%를 구하고, 2026년 기준 상한 68,100원·하한 66,048원 사이로 맞춥니다. 소정급여일수는 고용보험법 별표 1(50세 미만 120~240일, 50세 이상·장애인 120~270일)을 적용합니다.</li>
+        <li><b>연차수당</b> — 월 통상임금 ÷ 209시간 = 통상시급, 통상시급 × 1일 소정근로시간 = 1일 통상임금, × 미사용 연차일수.</li>
+      </ul>
+
+      <h3>알아 두세요</h3>
+      <p>계산 결과는 <b>참고용</b>입니다. 퇴직금은 육아휴직·병가처럼 평균임금 산정에서 빠지는 기간, 중간정산, 퇴직연금 가입 여부에 따라 달라지고, 실업급여는 이직확인서와 피보험단위기간, 이직 사유를 바탕으로 고용센터가 결정합니다. 연차수당은 회사 취업규칙과 통상임금 범위에 따라 달라질 수 있습니다.</p>
+      <p>입력한 입사일·퇴사일·급여·가입기간은 <b>서버로 전송되지 않고</b> 브라우저 안에서만 계산에 쓰입니다. 새로고침하면 입력값도 사라집니다.</p>
+
+      <h3>운영</h3>
+      <p>이 도구는 무료로 제공되며, 운영 비용은 화면의 광고 영역으로 충당합니다. 광고는 <b>도구 아래</b>에만 표시되고, 원하지 않으면 &lsquo;숨기기&rsquo;로 접을 수 있습니다. 오류 제보나 개선 의견은 사이트 운영자에게 알려 주세요.</p>
+      <p class="modal-note">제로포켓 (ZeroPocket) · 2026 퇴직금·실업급여·연차수당 계산기 · 회원가입 없는 브라우저 기반 도구</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>퇴직금·실업급여·연차수당 계산기(제로포켓, 이하 &lsquo;사이트&rsquo;)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 계산기에 입력한 입사일·퇴사일, 월급, 상여금, 연차수당, 나이 구분, 고용보험 가입기간도 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 입력한 정보는 서버로 전송되지 않습니다</h3>
+      <p>퇴직금·실업급여·연차수당 계산은 모두 <b>이용자의 브라우저(클라이언트) 안에서</b> 처리됩니다. 입력한 값이 서버로 업로드되지 않으며, 서버에 저장하는 공간도 없습니다. 브라우저 탭을 닫거나 새로 고치면 메모리에서 사라집니다.</p>
+
+      <h3>3. 급여·재직 정보의 성격</h3>
+      <p>이 도구에 입력하는 값은 이용자가 스스로 넣는 <b>가정치</b>이며, 계좌번호·카드번호·주민등록번호·사업자등록번호 같은 민감한 정보를 입력할 필요가 없습니다. 사이트는 어떤 회사·금융기관·고용센터와도 연결되지 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보</h3>
+      <p>입력값과 계산 결과는 화면에만 존재하며, 사이트는 이를 브라우저 저장소(localStorage)에 저장하지 않습니다. 페이지를 새로 고치면 처음 상태로 돌아갑니다. (광고 영역을 접은 상태만 기기에 기억됩니다.)</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: <code>G-GFRNHP2GC4</code>)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·전화번호·이메일 같은 개인 정보나 <b>입력한 급여·재직일수·가입기간</b>은 Analytics로 전송되지 않습니다. 사이트가 보내는 이벤트는 &lsquo;샘플 사용, 요약 복사, 탭 전환, 표에서 선택&rsquo; 같은 동작 이름뿐입니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 계산 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>계산 기능은 외부 서비스로 데이터를 보내지 않습니다. 다만 화면 글꼴을 표시하기 위해 Google Fonts와 jsDelivr(프리텐다드)에서 스타일 파일을 불러오며, 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있습니다. 각 서비스의 개인정보처리방침이 적용되며, 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 27일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 2026년 기준값 · 유틸
+     ========================================================= */
+  var AD_SLOT_ID = '';            // AdSense 광고 단위 ID. 비워 두면 안내용 자리만 표시됩니다.
+  var AD_KEY = 'zeropocket.retire.ad.hidden';
+
+  var MIN_WAGE = 10320;           // 2026년 최저임금 시급
+  var MIN_WAGE_DAY = 82560;       // 2026년 최저임금 일급 (8시간)
+  var MIN_WAGE_MONTH = 2156880;   // 2026년 최저임금 월 환산 (209시간)
+  var UB_UPPER = 68100;           // 2026년 구직급여 1일 상한
+  var UB_BASE_CAP = 113500;       // 2026년 기초일액 상한
+  var UB_LOWER = 66048;           // 2026년 구직급여 1일 하한 (8시간)
+  var MONTH_HOURS = 209;          // 월 소정근로시간
+
+  var UB_DAYS = {
+    under: { 'lt1': 120, '1-3': 150, '3-5': 180, '5-10': 210, 'ge10': 240 },
+    over:  { 'lt1': 120, '1-3': 180, '3-5': 210, '5-10': 240, 'ge10': 270 }
+  };
+  var UB_LABEL = { 'lt1': '1년 미만', '1-3': '1~3년', '3-5': '3~5년', '5-10': '5~10년', 'ge10': '10년 이상' };
+
+  var DEFAULTS = {
+    hire: '2019-03-04', quit: '2026-11-27',
+    pay3: 3000000, bonus: 3000000, leavePay: 600000,
+    ubPay: 3000000, age: 'under', years: '5-10',
+    wage: 3000000, hours: 8, leaveDays: 10
+  };
+  var SAMPLE = {
+    hire: '2017-06-01', quit: '2026-11-30',
+    pay3: 4200000, bonus: 8400000, leavePay: 1800000,
+    ubPay: 4100000, age: 'over', years: 'ge10',
+    wage: 4000000, hours: 8, leaveDays: 12
+  };
+
+  var state = { tab: 'sever', age: 'under', years: '5-10' };
+  var lastSever = null, lastUb = null, lastLeave = null;
+
+  function $(id) { return document.getElementById(id); }
+  function digits(v) { return String(v == null ? '' : v).replace(/[^\d]/g, ''); }
+  function numOf(el) {
+    if (!el) return 0;
+    var t = digits(el.value);
+    if (t === '') return 0;
+    t = t.replace(/^0+(?=\d)/, '');
+    var v = parseFloat(t);
+    return isFinite(v) ? v : 0;
+  }
+  function comma(n) { return Math.round(Number(n) || 0).toLocaleString('ko-KR'); }
+  function won(n) { return comma(n) + '원'; }
+  function wonShort(n) {
+    var v = Math.round(Number(n) || 0);
+    var sign = v < 0 ? '-' : '';
+    v = Math.abs(v);
+    if (v < 10000) return sign + v.toLocaleString('ko-KR') + '원';
+    var eok = Math.floor(v / 100000000);
+    var man = Math.round((v % 100000000) / 10000);
+    if (man === 10000) { eok += 1; man = 0; }
+    var parts = [];
+    if (eok) parts.push(eok + '억');
+    if (man) parts.push(man.toLocaleString('ko-KR') + '만');
+    return sign + parts.join(' ') + ' 원';
+  }
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계 실패는 기능에 영향 없음 */ }
+  }
+  function toast(msg) {
+    var t = $('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('is-on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.remove('is-on'); }, 3200);
+  }
+  function fmtMoney(el) {
+    var d = digits(el.value);
+    if (d === '') { el.value = ''; return; }
+    d = d.replace(/^0+(?=\d)/, '');
+    if (d.length > 15) d = d.slice(0, 15);
+    el.value = Number(d).toLocaleString('ko-KR');
+  }
+  function copyText(text, okMsg) {
+    function done() { toast(okMsg || '복사했어요. 붙여 넣어 확인해 보세요.'); }
+    function fallback() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.left = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        var ok = document.execCommand('copy');
+        ta.remove();
+        if (ok) done(); else toast('복사가 막혔어요. 화면의 숫자를 직접 선택해 주세요.');
+      } catch (e) {
+        toast('복사가 막혔어요. 화면의 숫자를 직접 선택해 주세요.');
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  /* =========================================================
+     1. 날짜 계산 (UTC 기준 · 한국은 서머타임 없음)
+     ========================================================= */
+  function parseDate(s) {
+    if (!s) return null;
+    var p = String(s).split('-');
+    if (p.length !== 3) return null;
+    var y = parseInt(p[0], 10), m = parseInt(p[1], 10), d = parseInt(p[2], 10);
+    if (!isFinite(y) || !isFinite(m) || !isFinite(d)) return null;
+    var dt = new Date(Date.UTC(y, m - 1, d));
+    if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== m - 1 || dt.getUTCDate() !== d) return null;
+    return dt;
+  }
+  function dayDiff(a, b) { return Math.round((b.getTime() - a.getTime()) / 86400000); }
+  function minusMonths(dt, n) {
+    var y = dt.getUTCFullYear();
+    var m = dt.getUTCMonth() - n;
+    var day = dt.getUTCDate();
+    var last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+    return new Date(Date.UTC(y, m, Math.min(day, last)));
+  }
+  function tenureText(days) {
+    if (days < 0) return '날짜를 확인해 주세요';
+    var y = Math.floor(days / 365);
+    var rest = days - y * 365;
+    var mo = Math.floor(rest / 30);
+    var d = rest - mo * 30;
+    var parts = [];
+    if (y) parts.push(y + '년');
+    if (mo) parts.push(mo + '개월');
+    if (!y && d) parts.push(d + '일');
+    return parts.length ? parts.join(' ') : '1일 미만';
+  }
+
+  /* =========================================================
+     2. 퇴직금
+     ========================================================= */
+  function calcSeverance() {
+    var hire = parseDate($('hireDate').value);
+    var quit = parseDate($('quitDate').value);
+    var pay3 = Math.max(0, numOf($('pay3')));
+    var bonus = Math.max(0, numOf($('bonus')));
+    var leavePay = Math.max(0, numOf($('leavePay')));
+
+    var days = (hire && quit) ? dayDiff(hire, quit) : 0;
+    var periodDays = quit ? dayDiff(minusMonths(quit, 3), quit) : 92;
+    if (periodDays <= 0 || periodDays > 95) periodDays = 92;
+
+    var pay3Total = pay3 * 3;
+    var bonusAdd = bonus * 3 / 12;
+    var leaveAdd = leavePay * 3 / 12;
+    var totalWage = pay3Total + bonusAdd + leaveAdd;
+    var avg = Math.floor(totalWage / periodDays);
+    var valid = days >= 365 && pay3 > 0;
+    var severance = valid ? Math.floor(avg * 30 * days / 365) : 0;
+
+    return {
+      hire: hire, quit: quit, days: days, periodDays: periodDays,
+      pay3: pay3, pay3Total: pay3Total, bonus: bonus, bonusAdd: bonusAdd,
+      leavePay: leavePay, leaveAdd: leaveAdd, totalWage: totalWage,
+      avg: avg, valid: valid, severance: severance
+    };
+  }
+
+  function renderSever() {
+    var r = calcSeverance();
+    lastSever = r;
+
+    $('sevNum').innerHTML = comma(r.severance) + '<small>원</small>';
+    $('sevSub').innerHTML = '재직 <b>' + comma(r.days) + '일</b> (' + tenureText(r.days) + ') · 1일 평균임금 <b>' + won(r.avg) + '</b>';
+    $('sevBadge').textContent = r.valid ? '세전' : '1년 미만';
+    $('sevBadge').className = 'live' + (r.valid ? '' : ' warn');
+
+    $('kvPay3').textContent = won(r.pay3Total);
+    $('kvBonus').textContent = won(r.bonusAdd);
+    $('kvLeavePay').textContent = won(r.leaveAdd);
+    $('kvPeriod').textContent = r.periodDays + '일';
+    $('kvAvg').textContent = won(r.avg);
+
+    $('sevWarn').classList.toggle('is-hidden', r.valid || r.days <= 0);
+    $('tenureNote').innerHTML = '재직일수 <b>' + comma(r.days) + '일</b> (' + tenureText(r.days) + ') · 3개월 총일수 <b>' + r.periodDays + '일</b>';
+
+    if (state.tab === 'sever') {
+      $('sbTitle').textContent = '예상 퇴직금 ' + won(r.severance);
+      $('sbMeta').textContent = '재직 ' + comma(r.days) + '일 · 1일 평균임금 ' + won(r.avg);
+      $('headChip').textContent = '재직 ' + comma(r.days) + '일';
+    }
+  }
+
+  /* =========================================================
+     3. 실업급여
+     ========================================================= */
+  function calcUnemployment() {
+    var pay = Math.max(0, numOf($('ubPay')));
+    var dailyAvg = pay / 30;
+    var baseDay = Math.min(dailyAvg, UB_BASE_CAP);
+    var raw = baseDay * 0.6;
+    var benefit = Math.min(UB_UPPER, Math.max(UB_LOWER, raw));
+    benefit = Math.floor(benefit);
+    var applied;
+    if (raw < UB_LOWER) applied = 'lower';
+    else if (dailyAvg > UB_BASE_CAP) applied = 'upper';
+    else applied = 'mid';
+    var days = UB_DAYS[state.age][state.years];
+    return {
+      pay: pay, dailyAvg: dailyAvg, baseDay: baseDay, raw: raw,
+      benefit: benefit, applied: applied, days: days,
+      month: benefit * 30, total: benefit * days
+    };
+  }
+
+  function renderUb() {
+    var r = calcUnemployment();
+    lastUb = r;
+
+    $('ubNum').innerHTML = comma(r.benefit) + '<small>원</small>';
+    $('ubSub').innerHTML = '소정급여일수 <b>' + r.days + '일</b> · 총 예상 <b>' + won(r.total) + '</b>';
+
+    var pct = (r.benefit - UB_LOWER) / (UB_UPPER - UB_LOWER) * 100;
+    $('ubMark').style.left = Math.max(2, Math.min(98, pct)) + '%';
+
+    $('kvUbAvg').textContent = won(r.dailyAvg);
+    $('kvUbRaw').textContent = won(r.raw);
+    var applyEl = $('kvUbApply');
+    if (r.applied === 'lower') { applyEl.textContent = '하한액 · 66,048원'; applyEl.className = 'warn'; }
+    else if (r.applied === 'upper') { applyEl.textContent = '상한액 · 68,100원'; applyEl.className = 'warn'; }
+    else { applyEl.textContent = '평균임금 60%'; applyEl.className = 'good'; }
+    $('kvUbDay').textContent = won(r.benefit);
+    $('kvUbDays').textContent = r.days + '일 (' + UB_LABEL[state.years] + ')';
+    $('kvUbMonth').textContent = won(r.month);
+    $('kvUbTotal').textContent = won(r.total);
+
+    // 표 강조
+    var rows = document.querySelectorAll('#ubDaysTable tbody tr');
+    for (var i = 0; i < rows.length; i++) {
+      var k = rows[i].getAttribute('data-k');
+      rows[i].classList.toggle('is-current', k === state.years);
+      var tds = rows[i].querySelectorAll('td');
+      for (var j = 0; j < tds.length; j++) tds[j].classList.remove('pick');
+      var idx = state.age === 'under' ? 1 : 2;
+      if (k === state.years && tds[idx]) tds[idx].classList.add('pick');
+    }
+
+    if (state.tab === 'ub') {
+      $('sbTitle').textContent = '1일 ' + won(r.benefit);
+      $('sbMeta').textContent = '소정 ' + r.days + '일 · 총 ' + wonShort(r.total);
+      $('headChip').textContent = '소정급여 ' + r.days + '일';
+    }
+  }
+
+  /* =========================================================
+     4. 연차수당
+     ========================================================= */
+  function calcLeave() {
+    var wage = Math.max(0, numOf($('wage')));
+    var hours = Math.max(1, Math.min(12, numOf($('hours')) || 8));
+    var days = Math.max(0, Math.min(60, numOf($('leaveDays'))));
+    var hourlyRaw = wage / MONTH_HOURS;
+    var dailyRaw = hourlyRaw * hours;
+    var hourly = Math.floor(hourlyRaw);
+    var daily = Math.floor(dailyRaw);
+    var total = Math.floor(daily * days);
+    return {
+      wage: wage, hours: hours, days: days,
+      hourlyRaw: hourlyRaw, dailyRaw: dailyRaw,
+      hourly: hourly, daily: daily, total: total
+    };
+  }
+
+  function renderLeave() {
+    var r = calcLeave();
+    lastLeave = r;
+
+    $('lvNum').innerHTML = comma(r.total) + '<small>원</small>';
+    $('lvSub').innerHTML = '1일 통상임금 <b>' + won(r.daily) + '</b> × <b>' + r.days + '일</b>';
+    $('kvWage').textContent = won(r.wage);
+    $('kvMonthHours').textContent = MONTH_HOURS + '시간';
+    $('kvHourly').textContent = won(r.hourly);
+    $('kvDayHours').textContent = r.hours + '시간';
+    $('kvDaily').textContent = won(r.daily);
+    $('kvLeaveDays').textContent = r.days + '일';
+
+    if (state.tab === 'leave') {
+      $('sbTitle').textContent = '연차수당 ' + won(r.total);
+      $('sbMeta').textContent = '1일 ' + won(r.daily) + ' × ' + r.days + '일';
+      $('headChip').textContent = '미사용 ' + r.days + '일';
+    }
+  }
+
+  function renderAll() {
+    renderSever();
+    renderUb();
+    renderLeave();
+  }
+
+  /* =========================================================
+     5. 탭 전환
+     ========================================================= */
+  function switchTab(which) {
+    state.tab = which;
+    var map = { sever: ['tabSever', 'paneSever', 'resSever'], ub: ['tabUb', 'paneUb', 'resUb'], leave: ['tabLeave', 'paneLeave', 'resLeave'] };
+    Object.keys(map).forEach(function (k) {
+      var on = k === which;
+      var t = $(map[k][0]), p = $(map[k][1]), r = $(map[k][2]);
+      if (t) { t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); }
+      if (p) p.classList.toggle('is-hidden', !on);
+      if (r) r.classList.toggle('is-hidden', !on);
+    });
+    if (which === 'sever') renderSever();
+    else if (which === 'ub') renderUb();
+    else renderLeave();
+  }
+
+  /* =========================================================
+     6. 요약 복사
+     ========================================================= */
+  function summaryText() {
+    var lines = [];
+    lines.push('[제로포켓 · 2026 퇴직금·실업급여·연차수당 계산기]');
+    lines.push('');
+    if (state.tab === 'sever') {
+      var r = lastSever || calcSeverance();
+      lines.push('■ 예상 퇴직금 (세전) ' + won(r.severance));
+      lines.push('- 재직기간 ' + comma(r.days) + '일 (' + tenureText(r.days) + ')');
+      lines.push('- 최근 3개월 월급 ' + won(r.pay3) + ' → 3개월 임금총액 ' + won(r.pay3Total));
+      lines.push('- 연간 상여금 ' + won(r.bonus) + ' × 3/12 = ' + won(r.bonusAdd));
+      lines.push('- 연차수당 ' + won(r.leavePay) + ' × 3/12 = ' + won(r.leaveAdd));
+      lines.push('- 3개월 총일수 ' + r.periodDays + '일');
+      lines.push('- 1일 평균임금 ' + won(r.avg));
+      lines.push('- 퇴직금 = ' + comma(r.avg) + ' × 30 × (' + comma(r.days) + ' ÷ 365)');
+      if (!r.valid) lines.push('※ 계속근로 1년 미만으로 법정 퇴직금 지급 대상이 아닙니다.');
+    } else if (state.tab === 'ub') {
+      var u = lastUb || calcUnemployment();
+      lines.push('■ 1일 구직급여 ' + won(u.benefit) + ' (2026년 기준)');
+      lines.push('- 퇴직 전 3개월 평균 월급 ' + won(u.pay));
+      lines.push('- 1일 평균임금 ' + won(u.dailyAvg) + ' · 60% ' + won(u.raw));
+      lines.push('- 적용 ' + (u.applied === 'lower' ? '하한액 66,048원' : u.applied === 'upper' ? '상한액 68,100원' : '평균임금의 60%'));
+      lines.push('- 소정급여일수 ' + u.days + '일 (' + (state.age === 'under' ? '50세 미만' : '50세 이상·장애인') + ' · ' + UB_LABEL[state.years] + ')');
+      lines.push('- 월 환산(30일) ' + won(u.month));
+      lines.push('- 총 예상 수령액 ' + won(u.total));
+      lines.push('※ 신청 후 7일 대기기간은 지급되지 않고, 이직일 다음 날부터 12개월 안에 받아야 합니다.');
+    } else {
+      var l = lastLeave || calcLeave();
+      lines.push('■ 예상 연차수당 (세전) ' + won(l.total));
+      lines.push('- 월 통상임금 ' + won(l.wage) + ' ÷ 209시간 = 통상시급 ' + won(l.hourly));
+      lines.push('- 1일 통상임금 ' + won(l.daily) + ' (' + l.hours + '시간 기준)');
+      lines.push('- 미사용 연차 ' + l.days + '일');
+      lines.push('- 연차수당 = ' + comma(l.daily) + ' × ' + l.days + '일');
+    }
+    lines.push('');
+    lines.push('※ 2026년 기준 참고용 계산입니다. 회사 규정·고용센터 결정에 따라 달라질 수 있습니다.');
+    lines.push('https://mydaesu-lab.github.io/retire-calc/');
+    return lines.join('\n');
+  }
+
+  /* =========================================================
+     7. 이벤트 연결
+     ========================================================= */
+  function setAge(age) {
+    state.age = age;
+    var under = age === 'under';
+    $('ageUnder').classList.toggle('is-active', under);
+    $('ageOver').classList.toggle('is-active', !under);
+    $('ageUnder').setAttribute('aria-pressed', under ? 'true' : 'false');
+    $('ageOver').setAttribute('aria-pressed', under ? 'false' : 'true');
+    renderUb();
+  }
+
+  function bind() {
+    ['pay3', 'bonus', 'leavePay', 'ubPay', 'wage'].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.addEventListener('input', function () { fmtMoney(this); renderAll(); });
+    });
+    ['hireDate', 'quitDate'].forEach(function (id) {
+      var el = $(id);
+      if (el) el.addEventListener('change', renderSever);
+    });
+    ['hours', 'leaveDays'].forEach(function (id) {
+      var el = $(id);
+      if (el) el.addEventListener('input', function () {
+        this.value = digits(this.value).replace(/^0+(?=\d)/, '');
+        renderLeave();
+      });
+    });
+
+    $('ubYears').addEventListener('change', function () {
+      state.years = this.value;
+      renderUb();
+      track('retire_years_select', { years: state.years });
+    });
+
+    $('ageUnder').addEventListener('click', function () { setAge('under'); track('retire_age', { age: 'under' }); });
+    $('ageOver').addEventListener('click', function () { setAge('over'); track('retire_age', { age: 'over' }); });
+
+    document.querySelectorAll('[data-pay3]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('pay3').value = comma(Number(btn.getAttribute('data-pay3')));
+        renderAll();
+        track('retire_preset', { field: 'pay3', value: Number(btn.getAttribute('data-pay3')) });
+      });
+    });
+    document.querySelectorAll('[data-ubpay]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('ubPay').value = comma(Number(btn.getAttribute('data-ubpay')));
+        renderAll();
+        track('retire_preset', { field: 'ubpay', value: Number(btn.getAttribute('data-ubpay')) });
+      });
+    });
+    document.querySelectorAll('[data-wage]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('wage').value = comma(Number(btn.getAttribute('data-wage')));
+        renderAll();
+        track('retire_preset', { field: 'wage', value: Number(btn.getAttribute('data-wage')) });
+      });
+    });
+    document.querySelectorAll('[data-hours]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('hours').value = btn.getAttribute('data-hours');
+        renderLeave();
+        track('retire_preset', { field: 'hours', value: Number(btn.getAttribute('data-hours')) });
+      });
+    });
+    document.querySelectorAll('[data-days]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $('leaveDays').value = btn.getAttribute('data-days');
+        renderLeave();
+        track('retire_preset', { field: 'days', value: Number(btn.getAttribute('data-days')) });
+      });
+    });
+
+    $('tabSever').addEventListener('click', function () { switchTab('sever'); track('retire_switch_tab', { tab: 'sever' }); });
+    $('tabUb').addEventListener('click', function () { switchTab('ub'); track('retire_switch_tab', { tab: 'ub' }); });
+    $('tabLeave').addEventListener('click', function () { switchTab('leave'); track('retire_switch_tab', { tab: 'leave' }); });
+
+    // 소정급여일수 표 행 클릭 → 가입기간 적용
+    var tbody = $('ubDaysTable').querySelector('tbody');
+    tbody.addEventListener('click', function (e) {
+      var tr = e.target.closest ? e.target.closest('tr[data-k]') : null;
+      if (!tr) return;
+      state.years = tr.getAttribute('data-k');
+      $('ubYears').value = state.years;
+      renderUb();
+      toast('가입기간 ' + UB_LABEL[state.years] + ' 기준으로 계산했어요.');
+      track('retire_days_table', { years: state.years });
+    });
+
+    $('copyBtn').addEventListener('click', function () {
+      copyText(summaryText(), '결과를 복사했어요. 카톡·메모장에 붙여 넣어 보세요.');
+      track('retire_copy_summary', { where: 'panel', tab: state.tab });
+    });
+    $('sbCopy').addEventListener('click', function () {
+      copyText(summaryText(), '결과를 복사했어요.');
+      track('retire_copy_summary', { where: 'sticky', tab: state.tab });
+    });
+
+    $('sampleBtn').addEventListener('click', function () {
+      $('hireDate').value = SAMPLE.hire;
+      $('quitDate').value = SAMPLE.quit;
+      $('pay3').value = comma(SAMPLE.pay3);
+      $('bonus').value = comma(SAMPLE.bonus);
+      $('leavePay').value = comma(SAMPLE.leavePay);
+      $('ubPay').value = comma(SAMPLE.ubPay);
+      $('wage').value = comma(SAMPLE.wage);
+      $('hours').value = String(SAMPLE.hours);
+      $('leaveDays').value = String(SAMPLE.leaveDays);
+      state.years = SAMPLE.years;
+      $('ubYears').value = SAMPLE.years;
+      setAge(SAMPLE.age);
+      renderAll();
+      toast('월 420만 원 · 9년 6개월 근무 예시로 채웠어요.');
+      track('retire_sample', {});
+    });
+
+    $('resetBtn').addEventListener('click', function () {
+      $('hireDate').value = DEFAULTS.hire;
+      $('quitDate').value = DEFAULTS.quit;
+      $('pay3').value = comma(DEFAULTS.pay3);
+      $('bonus').value = comma(DEFAULTS.bonus);
+      $('leavePay').value = comma(DEFAULTS.leavePay);
+      $('ubPay').value = comma(DEFAULTS.ubPay);
+      $('wage').value = comma(DEFAULTS.wage);
+      $('hours').value = String(DEFAULTS.hours);
+      $('leaveDays').value = String(DEFAULTS.leaveDays);
+      state.years = DEFAULTS.years;
+      $('ubYears').value = DEFAULTS.years;
+      setAge(DEFAULTS.age);
+      renderAll();
+      toast('처음 상태로 돌렸어요.');
+      track('retire_reset', {});
+    });
+
+    // 광고 접기
+    try {
+      if (localStorage.getItem(AD_KEY) === '1') $('adCard').classList.add('is-hidden');
+    } catch (e) { /* 저장소 차단 시 무시 */ }
+    $('adToggle').addEventListener('click', function () {
+      $('adCard').classList.add('is-hidden');
+      try { localStorage.setItem(AD_KEY, '1'); } catch (e) { /* 무시 */ }
+    });
+
+    // 광고 슬롯
+    (function initAd() {
+      if (!AD_SLOT_ID) return;
+      var slot = $('adSlot');
+      if (!slot) return;
+      slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { /* 무시 */ }
+    })();
+
+    // 모달
+    document.querySelectorAll('[data-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var d = $(btn.getAttribute('data-modal') === 'about' ? 'modalAbout' : 'modalPrivacy');
+        if (d && typeof d.showModal === 'function') d.showModal();
+      });
+    });
+    document.querySelectorAll('dialog.modal').forEach(function (d) {
+      d.addEventListener('click', function (e) {
+        if (e.target === d) d.close();
+      });
+      d.querySelectorAll('[data-close]').forEach(function (b) {
+        b.addEventListener('click', function () { d.close(); });
+      });
+    });
+
+    // 모바일 고정 바
+    document.body.classList.add('has-work');
+    $('stickyBar').classList.add('is-ready');
+  }
+
+  /* =========================================================
+     8. 시작
+     ========================================================= */
+  bind();
+  renderAll();
+  switchTab('sever');
+})();
+</script>
+</body>
+</html>
