@@ -1096,10 +1096,22 @@
         innerW = rxIn * 1.7;
         innerH = ryIn * 1.7;
       }
-      var weight = seal.font === 'hand' ? 700 : 800;
+      var weight = seal.font === 'hand' ? 700 : 900;
       o.textAlign = 'center';
       o.textBaseline = 'middle';
       o.fillStyle = ink;
+      o.strokeStyle = ink;
+      o.lineJoin = 'round';
+      var curSize = 0;
+      /* 도장은 획이 두꺼워야 찍은 느낌이 납니다. 글자를 채우고 한 번 더 외곽선을 그어 살을 붙입니다. */
+      function drawChar(ch, x, y) {
+        o.fillText(ch, x, y);
+        if (curSize > 0) {
+          o.lineWidth = Math.max(1, curSize * (seal.font === 'hand' ? 0.012 : 0.024));
+          o.miterLimit = 1.6;
+          o.strokeText(ch, x, y);
+        }
+      }
 
       /* 글꼴마다 실제 글자 크기가 달라(손글씨체는 작게 그려짐) 잉크 크기를 재서 맞춥니다. */
       function glyphBox(list, sizeSample) {
@@ -1119,6 +1131,7 @@
         return Math.max(10, s);
       }
       function setFont(size) {
+        curSize = size;
         o.font = weight + ' ' + Math.round(size) + 'px ' + FONTS[seal.font];
       }
 
@@ -1130,7 +1143,7 @@
           [cx - cell * 0.5, cy - cell * 0.5], [cx + cell * 0.5, cy - cell * 0.5],
           [cx - cell * 0.5, cy + cell * 0.5], [cx + cell * 0.5, cy + cell * 0.5]
         ];
-        for (var k = 0; k < 4; k++) o.fillText(chars[k], positions[k][0], positions[k][1]);
+        for (var k = 0; k < 4; k++) drawChar(chars[k], positions[k][0], positions[k][1]);
       } else {
         var charH = innerH * (n === 2 ? 0.48 : 0.34);
         var size = n === 1
@@ -1145,15 +1158,15 @@
           var blockH = size * mBox1.h / 100 + gap1 + glyphBox(['인'], 100).h * inSize1 / 100;
           var y1 = cy - blockH / 2 + size * mBox1.h / 100 / 2;
           setFont(size);
-          o.fillText(chars[0], cx, y1);
+          drawChar(chars[0], cx, y1);
           setFont(inSize1);
-          o.fillText('인', cx, y1 + size * mBox1.h / 100 / 2 + gap1 + glyphBox(['인'], 100).h * inSize1 / 100 / 2);
+          drawChar('인', cx, y1 + size * mBox1.h / 100 / 2 + gap1 + glyphBox(['인'], 100).h * inSize1 / 100 / 2);
         } else {
           var firstY = n === 1 ? cy : cy - (n - 1) * charH / 2;
           var lastY = firstY;
           for (var i2 = 0; i2 < n; i2++) {
             lastY = firstY + i2 * charH;
-            o.fillText(chars[i2], cx, lastY);
+            drawChar(chars[i2], cx, lastY);
           }
           if (seal.suffix && name.length) {
             var mBox = glyphBox(chars, 100);
@@ -1170,7 +1183,7 @@
             var limY = (seal.shape === 'rect' ? (S - pad * 2) / 2 - borderW : ryIn * 0.8);
             inX = clamp(inX, cx - limX + inW2 * 0.5, cx + limX - inW2 * 0.5);
             inY = clamp(inY, cy - limY + inH * 0.5, cy + limY - inH * 0.5);
-            o.fillText('인', inX, inY);
+            drawChar('인', inX, inY);
           }
         }
       }
