@@ -1230,7 +1230,15 @@
     $('kvPeriod').textContent = r.periodDays + '일';
     $('kvAvg').textContent = won(r.avg);
 
-    $('sevWarn').classList.toggle('is-hidden', r.valid || r.days <= 0);
+    $('sevWarn').classList.toggle('is-hidden', true);
+    var warnEl = $('sevWarn');
+    if (r.days < 0) {
+      warnEl.innerHTML = '<b>날짜를 확인해 주세요</b> — 퇴사일이 입사일보다 빠릅니다. 퇴사일에는 마지막 근무일의 다음 날을 넣어 주세요.';
+      warnEl.classList.remove('is-hidden');
+    } else if (r.days >= 0 && !r.valid) {
+      warnEl.innerHTML = '<b>계속근로 1년 미만</b> — 법정 퇴직금 지급 대상이 아니에요. 취업규칙·근로계약에서 정했거나 퇴직연금에 가입했다면 따로 확인해 보세요.';
+      warnEl.classList.remove('is-hidden');
+    }
     $('tenureNote').innerHTML = '재직일수 <b>' + comma(r.days) + '일</b> (' + tenureText(r.days) + ') · 3개월 총일수 <b>' + r.periodDays + '일</b>';
 
     if (state.tab === 'sever') {
