@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>투명 도장 · 전자서명 이미지 만들기 — 인감·막도장·사인 PNG | 제로포켓</title>
+<meta name="description" content="이름만 넣으면 배경이 투명한 도장 이미지(PNG)를 만들고, 마우스·손가락으로 전자서명을 그려 여백을 자동으로 잘라 저장합니다. 종이에 찍은 도장·사인 사진을 올리면 흰 배경을 지워 투명 PNG로 바꿔 줍니다. 한글·워드·PDF 계약서에 바로 넣을 수 있고, 이름·서명·사진은 서버로 전송되지 않습니다.">
+<meta name="keywords" content="투명 도장, 도장 만들기, 도장 이미지, 막도장, 인감 도장, 전자서명, 전자서명 만들기, 서명 만들기, 사인 만들기, 손글씨 서명, 서명 이미지, 도장 PNG, 배경 투명 PNG, 도장 배경 지우기, 도장 사진 배경 제거, 계약서 도장, PDF 도장 넣기, 한글 도장 넣기, 제로포켓, ZeroPocket">
+<meta name="author" content="제로포켓 (ZeroPocket)">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#5b57f0">
+
+<!-- Open Graph (카카오톡 · 페이스북 · 슬랙 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제로포켓 (ZeroPocket)">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="투명 도장 · 전자서명 이미지 만들기 | 제로포켓">
+<meta property="og:description" content="이름만 넣으면 끝나는 투명 배경 도장, 손으로 그리는 전자서명, 종이 도장 사진의 흰 배경 지우기까지. 900×900 투명 PNG로 저장해 한글·워드·PDF에 바로 넣으세요.">
+<meta property="og:image" content="https://mydaesu-lab.github.io/stamp-sign/preview.png">
+<meta property="og:image:alt" content="투명 도장·전자서명 만들기 화면 — 이름을 넣어 만든 빨간 원형 도장과 투명 배경 미리보기">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:url" content="https://mydaesu-lab.github.io/stamp-sign/">
+
+<!-- X(트위터) 카드 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="투명 도장 · 전자서명 이미지 만들기 | 제로포켓">
+<meta name="twitter:description" content="이름만 넣으면 배경 투명 도장 완성. 손가락으로 그린 서명은 여백을 자동으로 잘라 저장하고, 종이 도장 사진은 흰 배경을 지워 투명 PNG로.">
+<meta name="twitter:image" content="https://mydaesu-lab.github.io/stamp-sign/preview.png">
+
+<link rel="canonical" href="https://mydaesu-lab.github.io/stamp-sign/">
+
+<!-- 웹 글꼴: 본문(프리텐다드) + 도장 글꼴(명조·고딕·손글씨) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400..900&family=Noto+Serif+KR:wght@400..900&display=swap">
+
+<!-- 네이버 서치 어드바이저 사이트 소유 확인 (루트 도메인 https://mydaesu-lab.github.io 기준) -->
+<meta name="naver-site-verification" content="fcfc79d72d40d1e24ea85bba39f1a0a909981803">
+
+<!-- 구글 서치 콘솔 사이트 소유 확인 -->
+<meta name="google-site-verification" content="UR1LrYrFfH_GfDMqj1WYLMmttmiXr3U8a368ysQidLc">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9437997408751622"
+     crossorigin="anonymous"></script>
+
+<!-- Google tag (gtag.js) · GA4 방문자 분석 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFRNHP2GC4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFRNHP2GC4');
+</script>
+
+<!-- 구조화 데이터: 웹앱 정보 + FAQ (검색 결과에 질문·답변 노출) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "투명 도장 · 전자서명 이미지 만들기",
+      "alternateName": "제로포켓 투명 도장 만들기 · 전자서명 만들기 · 도장 사진 배경 지우기",
+      "url": "https://mydaesu-lab.github.io/stamp-sign/",
+      "image": "https://mydaesu-lab.github.io/stamp-sign/preview.png",
+      "description": "이름을 입력하면 배경이 투명한 도장 이미지(900×900 PNG)를 만들고, 마우스·손가락으로 전자서명을 그려 여백을 자동으로 잘라 저장하며, 종이에 찍은 도장·사인 사진을 올리면 흰 배경을 지워 투명 PNG로 바꿔 주는 무료 도구. 모든 처리는 브라우저 안에서만 이루어지고 파일은 서버로 전송되지 않습니다.",
+      "applicationCategory": "DesignApplication",
+      "applicationSubCategory": "도장 · 전자서명 이미지 만들기",
+      "operatingSystem": "웹 브라우저 (Windows, macOS, Android, iOS)",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "browserRequirements": "JavaScript와 Canvas를 지원하는 최신 브라우저",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": { "@type": "Organization", "name": "제로포켓 (ZeroPocket)", "url": "https://mydaesu-lab.github.io/" },
+      "featureList": [
+        "이름 1~4자 입력으로 도장 이미지 생성 · '인'자 자동 붙이기 토글",
+        "모양 원형·사각형·타원형, 글꼴 명조·고딕·손글씨",
+        "테두리 굵기와 인주 번짐·질감 슬라이더",
+        "인주 색상 전통 빨강·주홍·검정·네이비",
+        "900×900 투명 배경 PNG 다운로드 · 체크무늬 투명 미리보기",
+        "마우스·터치 전자서명 캔버스와 부드러운 곡선 보정",
+        "펜 굵기·색상(검정·파랑·빨강), 실행취소·전체 지우기",
+        "서명 여백 자동 크롭 후 투명 PNG 저장",
+        "종이에 찍은 도장·사인 사진 업로드와 샘플 사진 체험",
+        "흰 배경 자동 제거 · 민감도(임계값) 슬라이더 · 색상 보정",
+        "잡티 제거와 여백 자동 자르기",
+        "모든 처리는 브라우저 안에서만 · 파일 서버 미전송"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "투명 도장 이미지를 PDF나 한글 문서에 넣으려면 어떻게 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "여기서 만든 PNG는 배경이 투명하므로 흰 종이 위에 겹쳐도 사각 테두리가 보이지 않습니다. 한글(HWP)은 입력 → 그림에서 파일을 고르고 크기를 줄인 뒤 '글자처럼 취급'을 풀어 본문 위에 올리면 되고, 워드·구글 문서는 삽입 → 그림으로 넣습니다. PDF는 한글·워드에서 작성해 PDF로 저장할 때 도장을 미리 넣어 두는 방법이 가장 간단하고, 이미 만들어진 PDF라면 Adobe Acrobat의 'PDF 편집 → 이미지 추가' 같은 기능으로 얹습니다. 미리보기(맥)는 PDF에 이미지를 넣는 기능이 없습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "종이에 찍은 도장 사진의 배경을 지우려면 어떻게 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "세 번째 탭 '사진 투명화'에 사진을 올리면 흰 종이 부분이 자동으로 투명해집니다. 사진은 도장을 정면에서, 그늘이 지지 않게, 흰 종이에 또렷하게 찍은 것일수록 잘 지워집니다. 배경이 덜 지워지면 민감도를 올리고, 도장 색까지 옅어지면 민감도를 내리세요. 색상 보정에서 '빨강 도장'을 고르면 인주 빨강만 남기고 종이 얼룩을 정리합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "손으로 그린 전자서명에 법적 효력이 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "전자서명법 제3조는 전자서명이 전자적 형태라는 이유만으로 서명·서명날인·기명날인으로서의 효력이 부인되지 않는다고 정하고 있고, 민사소송법 제358조는 사문서에 본인이나 대리인의 서명·날인·무인이 있으면 진정한 것으로 추정한다고 정합니다. 다만 서명 이미지를 붙였다는 사실만으로 모든 계약이 유효해지는 것은 아니며, 본인 확인과 의사 표시, 문서의 무결성, 개별 법령이 요구하는 방식(예: 등기·유언)을 함께 봐야 합니다. 큰 권리가 걸린 계약은 전문가 상담을 권합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "도장의 '인'자는 꼭 붙여야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "법으로 정해진 것은 아닙니다. 관행적으로 이름 세 자 옆에 작은 '인'자를 새기고, 네 자 이름은 2×2로 배치합니다. 이 도구는 '인'자를 자동으로 붙이는 토글을 기본으로 켜 두었으니, 이름만 깔끔하게 새기고 싶으면 끄면 됩니다. 계약서·영수증에 쓰는 막도장은 모양이 자유롭고, 인감증명서에 쓰는 인감은 주민센터에 신고한 도장이어야 합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "만든 도장·서명 이미지와 올린 사진이 서버로 전송되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "아니요. 도장 그리기, 서명 그리기, 사진 배경 지우기는 모두 브라우저 안의 캔버스에서 처리되며 서버로 보내는 요청이 없습니다. 업로드한 사진은 메모리에만 있고, 새로고침하면 사라집니다. 방문 통계(GA4)에는 '도장 저장', '서명 저장', '사진 투명화' 같은 동작 이름만 남고 이름·서명·사진은 전송되지 않습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "다른 사람 이름의 도장을 만들어도 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "타인 명의의 도장이나 서명 이미지를 만들어 문서에 찍으면 사문서위조(형법 제231조)나 사기 등으로 처벌받을 수 있습니다. 이 도구는 본인 문서에 쓰는 도장·서명을 만드는 용도이며, 대리 날인이 허용되는 경우에도 본인의 위임을 확인해야 합니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#f5f6fa;
+    --surface:#ffffff;
+    --ink:#14161c;
+    --ink-2:#3c4152;
+    --muted:#7b8194;
+    --line:#e7e9f0;
+    --accent:#5b57f0;
+    --accent-2:#8b5cf6;
+    --accent-soft:#eeecff;
+    --good:#0f9d6e;
+    --warn:#b45309;
+    --danger:#c02626;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(20,24,60,.07);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Noto Sans CJK KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 10% -12%, #e9e6ff 0%, rgba(233,230,255,0) 62%),
+      radial-gradient(820px 520px at 96% -6%, #ffe7f1 0%, rgba(255,231,241,0) 58%),
+      var(--bg);
+    min-height:100vh;
+  }
+  .is-hidden{display:none !important}
+  button{font-family:inherit}
+
+  /* ---------- topbar ---------- */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,233,240,.9)}
+  .topbar-inner{max-width:1240px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:0}
+  .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#5b57f0,#8b5cf6);font-size:17px;box-shadow:0 6px 16px rgba(91,87,240,.32);flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .brand-text b{font-size:15.5px;letter-spacing:-.02em}
+  .brand-text i{font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .free-pill{font-size:11.5px;font-weight:700;color:#4b45c9;background:#eeecff;border-radius:999px;padding:6px 11px;white-space:nowrap}
+
+  /* ---------- hero ---------- */
+  .hero{max-width:1240px;margin:0 auto;padding:26px 22px 4px}
+  .badge-strip{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .privacy-badge{display:inline-flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:700;color:#1f7a5a;background:#e7f7f0;border:1px solid #c8ebe0;border-radius:999px;padding:7px 13px;line-height:1.4;word-break:keep-all}
+  .privacy-badge b{color:#0f6b4c}
+  .sibling-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#4b45c9;background:#fff;border:1px solid #dcd9ff;border-radius:999px;padding:7px 13px;text-decoration:none;transition:background .14s,border-color .14s,color .14s}
+  .sibling-link:hover{background:#f7f6ff;border-color:#bdb7ff;color:#3a34b8}
+  .sibling-link:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+  .pb-text{min-width:0}
+  .sib-strip{display:flex;flex:1 1 100%;flex-wrap:wrap;gap:8px}
+  .hero h1{margin:14px 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.28;letter-spacing:-.045em;font-weight:800;word-break:keep-all}
+  .hero h1 span{color:#5b57f0}
+  .hero-sub{margin:0;max-width:900px;font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+  .hero-sub b{color:var(--ink);font-weight:700}
+
+  /* ---------- layout ---------- */
+  .layout{max-width:1240px;margin:0 auto;padding:18px 22px 40px;display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:18px;align-items:start}
+
+  /* ---------- stage ---------- */
+  .stage{min-width:0}
+  .stage-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 14px 16px}
+  .stage-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+  .stage-title{font-size:13px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+  .chip{font-size:11.5px;font-weight:700;color:#4b45c9;background:var(--accent-soft);border-radius:999px;padding:4px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chip.grey{color:#6b7183;background:#f1f2f8}
+  .chip.good{color:#0f6b4c;background:#e7f7f0}
+  .stage-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 10px;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:background .14s,border-color .14s,color .14s;white-space:nowrap}
+  .mini-btn:hover:not(:disabled){background:#f7f8fc;border-color:#d9dce8;color:var(--ink)}
+  .mini-btn.primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(91,87,240,.28)}
+  .mini-btn.primary:hover:not(:disabled){background:linear-gradient(135deg,#514cdd,#7f4fef);color:#fff;border-color:transparent}
+  .mini-btn:disabled{opacity:.5;cursor:default}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;gap:5px;background:#f2f3f9;border-radius:13px;padding:5px;margin-bottom:13px}
+  .tabs button{flex:1 1 0;min-width:0;border:0;background:transparent;border-radius:9px;padding:10px 8px;font:inherit;font-size:13px;font-weight:800;color:#6b7183;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.2;transition:background .14s,color .14s,box-shadow .14s}
+  .tabs button span.t-ico{font-size:14px;line-height:1}
+  .tabs button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .tabs button:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+
+  /* ---------- fields ---------- */
+  .inbox{border:1px solid var(--line);border-radius:14px;padding:12px 12px 13px;background:#fbfbfe}
+  .inbox + .inbox{margin-top:9px}
+  .inbox-head{display:flex;align-items:center;gap:7px;margin:0 0 9px;font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .inbox-head .dot{width:7px;height:7px;border-radius:50%;background:#5b57f0;flex:0 0 auto}
+  .inbox-head.g .dot{background:#0f9d6e}
+  .inbox-head.r .dot{background:#d0342c}
+  .inbox-head small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+  .field{margin-top:12px}
+  .field:first-child{margin-top:0}
+  .field-label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+  .field-label small{font-weight:600;color:var(--muted);font-size:11px;margin-left:4px}
+  .input{width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .input:focus{outline:none;border-color:#8b86ff;box-shadow:0 0 0 3px rgba(91,87,240,.14)}
+  .input::placeholder{color:#a8adbc}
+  .row-note{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.55}
+  .row-note b{color:var(--ink-2);font-weight:700}
+  .field-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;background:#f2f3f9;border-radius:12px;padding:4px}
+  .seg button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:inherit;font-size:12.5px;font-weight:700;color:#6b7183;cursor:pointer;transition:background .14s,color .14s,box-shadow .14s;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1.2;min-width:0;text-align:center}
+  .seg button.is-active{background:#fff;color:#2b2f3f;box-shadow:0 1px 3px rgba(20,24,60,.13)}
+  .seg button:focus-visible{outline:2px solid #7c78f5;outline-offset:2px}
+
+  /* switch */
+  .switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-2);user-select:none;padding:2px 0}
+  .switch input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+  .switch .track{position:relative;width:38px;height:22px;border-radius:99px;background:#dcdfe9;transition:background .17s;flex:0 0 auto}
+  .switch .track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(20,24,60,.25);transition:transform .17s}
+  .switch input:checked + .track{background:#5b57f0}
+  .switch input:checked + .track::after{transform:translateX(16px)}
+  .switch input:focus-visible + .track{outline:2px solid #7c78f5;outline-offset:2px}
+  .switch .sw-text small{display:block;font-size:10.5px;font-weight:600;color:var(--muted)}
+  .switch.sw-row{display:flex;width:100%;justify-content:space-between;gap:12px;align-items:center}
+  .switch.sw-row .sw-text{flex:1 1 auto;min-width:0}
+  .dz-thumb img{background:#fff}
+
+  /* range */
+  .range-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:2px}
+  .range-row b{font-size:11.5px;font-weight:800;color:#4b45c9;font-variant-numeric:tabular-nums}
+  .range{display:block;width:100%;height:24px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+  .range::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:#e9ebf3}
+  .range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;margin-top:-6px;border-radius:50%;background:#fff;border:2px solid #5b57f0;box-shadow:0 2px 6px rgba(91,87,240,.35)}
+  .range::-moz-range-track{height:6px;border-radius:99px;background:#e9ebf3}
+  .range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #5b57f0;box-shadow:0 2px 6px rgba(91,87,240,.35)}
+  .range:focus-visible{outline:none}
+  .range:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(91,87,240,.28)}
+  .range-ends{display:flex;justify-content:space-between;margin-top:-2px;font-size:10.5px;color:var(--muted)}
+  .range-ticks{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:-2px}
+
+  /* ink colors */
+  .inks{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .ink-btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:7px 4px 6px;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;transition:border-color .14s,background .14s,box-shadow .14s;min-width:0}
+  .ink-btn i{display:block;width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+  .ink-btn span{font-size:10.5px;font-weight:700;color:#6b7183;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .ink-btn:hover{border-color:#cdc8ff;background:#fbfaff}
+  .ink-btn.is-active{border-color:#a9a2ff;background:#f5f3ff;box-shadow:0 0 0 2px rgba(91,87,240,.12)}
+  .ink-btn.is-active span{color:#4b45c9}
+
+  /* signature pad */
+  .sig-wrap{position:relative;border:1px dashed #cfd3e2;border-radius:14px;background:#fff;overflow:hidden;margin-top:2px;touch-action:none}
+  .sig-wrap canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}
+  .sig-guide{position:absolute;left:8%;right:8%;bottom:26%;border-bottom:1px dashed #dfe2ec;pointer-events:none}
+  .sig-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12.5px;font-weight:700;color:#b9bdcc;pointer-events:none;text-align:center;line-height:1.4}
+  .sig-hint.is-off{display:none}
+
+  /* dropzone */
+  .dropzone{position:relative;border:1.5px dashed #cfd3e2;border-radius:14px;background:#fbfbfe;padding:18px 14px;text-align:center;transition:border-color .15s,background .15s}
+  .dropzone.is-over{border-color:#8b86ff;background:#f6f4ff}
+  .dropzone .dz-text{margin:8px 0 0;font-size:11px;line-height:1.6;color:var(--muted)}
+  .dz-thumb{display:flex;align-items:center;gap:9px;justify-content:center;margin-top:10px;font-size:11px;color:var(--ink-2);font-weight:700;min-width:0}
+  .dz-thumb img{width:44px;height:32px;object-fit:cover;border-radius:6px;border:1px solid var(--line);flex:0 0 auto}
+  .dz-thumb span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  /* ---------- panel ---------- */
+  .panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px 16px;min-width:0}
+  .pv-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+  .pv-head b{font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .preview-stage{display:grid;place-items:center;min-height:236px;padding:12px;border-radius:14px;border:1px solid var(--line);background-color:#fff;background-image:linear-gradient(45deg,#eceef5 25%,transparent 25%),linear-gradient(-45deg,#eceef5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#eceef5 75%),linear-gradient(-45deg,transparent 75%,#eceef5 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0;overflow:hidden}
+  .preview-stage.solid{background-image:none;background-color:#fff}
+  .preview-stage.dark{background-image:none;background-color:#23252f;border-color:#2f3240}
+  .pv-canvas{display:block;max-width:100%;max-height:300px;width:auto;height:auto;border-radius:6px}
+  .pv-empty{margin:0;font-size:11.5px;line-height:1.6;color:#a2a7b8;text-align:center;max-width:230px}
+  .pv-tools{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+  .pv-tools .mini-btn{flex:1 1 auto;text-align:center;justify-content:center}
+  .kv{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);line-height:1.45}
+  .kv:first-child{border-top:0;padding-top:0}
+  .kv > span{min-width:0}
+  .kv b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .kv-section{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+  .btn{appearance:none;border:1px solid transparent;border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,#5b57f0,#8b5cf6);color:#fff;box-shadow:0 8px 20px rgba(91,87,240,.28)}
+  .btn-primary:hover:not(:disabled){box-shadow:0 12px 26px rgba(91,87,240,.34)}
+  .btn-primary:disabled{opacity:.55;box-shadow:none;cursor:default}
+  .btn-block{width:100%;margin-top:13px;padding:13px 14px;font-size:14px}
+  .hint{font-size:11.5px;color:var(--muted);margin:7px 0 0;line-height:1.55}
+  .hint.tiny{font-size:10.5px}
+  .hint.center{text-align:center}
+  .hint b{color:var(--ink-2);font-weight:700}
+
+  /* ---------- ad ---------- */
+  .ad-wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  .ad-card{border:1px dashed #d6d9e6;border-radius:16px;padding:10px 13px 12px;background:rgba(255,255,255,.72)}
+  .ad-head{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+  .ad-badge{font-size:9px;font-weight:900;letter-spacing:.08em;color:#8a90a3;border:1px solid #dcdfe9;border-radius:4px;padding:1px 4px}
+  .ad-label{font-weight:700;color:#8a90a3}
+  .ad-head .link-btn{margin-left:auto;color:#8a90a3;font-size:11px;font-weight:600}
+  .link-btn{border:0;background:none;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;padding:3px 4px;border-radius:6px}
+  .ad-slot{margin-top:8px;border-radius:11px;background:repeating-linear-gradient(45deg,#fafbfe,#fafbfe 10px,#f4f5fa 10px,#f4f5fa 20px);border:1px solid #eef0f6;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:3px}
+  .ad-slot b{font-size:12.5px;color:#9aa0b0}
+  .ad-slot span{font-size:10.5px;color:#b3b8c6}
+
+  /* ---------- content ---------- */
+  .content{max-width:1240px;margin:0 auto;padding:20px 22px 0}
+  .content-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 30px 28px;scroll-margin-top:78px}
+  .content-card + .content-card{margin-top:16px}
+  .content-title{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:17px;line-height:1.4;letter-spacing:-.025em;font-weight:800}
+  .lead{margin:0 0 9px;max-width:900px;font-size:13.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .lead:last-child{margin-bottom:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .lead code,.tip code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 0;padding:0}
+  .facts li{display:flex;flex-direction:column;gap:2px;background:#fbfbfe;border:1px solid var(--line);border-radius:13px;padding:12px 14px;min-width:0}
+  .facts b{font-size:16px;font-weight:800;color:#4b45c9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .facts span{font-size:11.5px;line-height:1.45;color:var(--muted)}
+  .tips{list-style:none;display:grid;grid-template-columns:1fr;gap:13px;margin:16px 0 0;padding:0}
+  .tip{background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;min-width:0}
+  .tip-num{display:inline-block;margin-bottom:7px;padding:2px 6px;border-radius:6px;background:var(--accent-soft);color:#6d68e8;font-size:10.5px;font-weight:900;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+  .tip h3{margin:0 0 6px;font-size:13.5px;font-weight:800;line-height:1.42;letter-spacing:-.015em}
+  .tip p{margin:0;font-size:12.5px;line-height:1.72;color:var(--ink-2);overflow-wrap:anywhere}
+  .tip p b{color:var(--ink);font-weight:700}
+  .faq{margin-top:12px;border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);scroll-margin-top:88px}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:14px 2px;list-style:none;cursor:pointer;font-size:13.5px;font-weight:700;letter-spacing:-.012em;color:var(--ink);transition:color .14s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::before{content:"Q";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--accent-soft);color:#4b45c9;font-size:11px;font-weight:900}
+  .faq-item summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:16px;font-weight:700;line-height:1;transition:transform .16s}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:#4b45c9}
+  .faq-body{padding:0 2px 15px 31px;font-size:12.5px;line-height:1.78;color:var(--ink-2);overflow-wrap:anywhere}
+  .faq-body p{margin:0}
+  .faq-body b{color:var(--ink);font-weight:700}
+  .inline-link{border:0;background:none;padding:0;font:inherit;font-size:inherit;font-weight:700;color:#5b57f0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .content-cta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--muted)}
+  .content-cta a{color:#4b45c9;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .disclaimer{margin:16px 0 0;padding:11px 13px;border:1px solid #ffe1b8;background:#fff8ec;border-radius:11px;font-size:11.5px;line-height:1.65;color:#7a4b00}
+  .disclaimer b{color:#8a5300;font-weight:800}
+  .disclaimer.strong{border-color:#f6c7c1;background:#fdf1f0;color:#8c2a22}
+  .disclaimer.strong b{color:#a3241b}
+
+  /* ---------- footer ---------- */
+  .foot{max-width:1240px;margin:0 auto;padding:24px 22px 34px}
+  .foot-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:20px;border-top:1px solid var(--line)}
+  .foot-brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .foot-brand .brand-mark{width:30px;height:30px;border-radius:9px;font-size:14px;box-shadow:none}
+  .foot-name{margin:0;font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+  .foot-desc{margin:1px 0 0;font-size:11px;line-height:1.45;color:var(--muted)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:4px 16px}
+  .foot-link{border:0;background:none;padding:2px 0;font:inherit;font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .14s,text-decoration-color .14s;white-space:nowrap}
+  .foot-link:hover{color:#4b45c9;text-decoration-color:currentColor}
+  .foot-copy{flex-basis:100%;margin:0;font-size:11px;line-height:1.6;color:#9aa0b0}
+
+  /* ---------- modal ---------- */
+  .modal{width:min(640px,calc(100vw - 32px));max-width:min(640px,calc(100vw - 32px));max-height:min(84vh,780px);margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 30px 80px rgba(15,18,40,.34);overflow:hidden;font-family:inherit}
+  .modal::backdrop{background:rgba(18,20,32,.46)}
+  .modal-inner{display:flex;flex-direction:column;max-height:min(84vh,780px)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px 14px;border-bottom:1px solid var(--line)}
+  .modal-head h2{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .modal-close{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit;font-size:12px;color:var(--ink-2);cursor:pointer}
+  .modal-close:hover{background:#f5f6fa;color:var(--ink)}
+  .modal-body{padding:18px 22px 24px;overflow-y:auto;font-size:12.8px;line-height:1.8;color:var(--ink-2);overscroll-behavior:contain;overflow-wrap:anywhere}
+  .modal-body h3{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em}
+  .modal-body h3:first-child{margin-top:0}
+  .modal-body p{margin:0 0 9px}
+  .modal-body ul{margin:0 0 10px;padding-left:18px}
+  .modal-body li{margin:0 0 4px}
+  .modal-body b{color:var(--ink);font-weight:700}
+  .modal-body code{font-family:inherit;font-size:.94em;font-weight:600;color:#4b45c9;background:#f1f0ff;border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+  .modal-body a{color:#4b45c9;font-weight:600}
+  .modal-note{margin:16px 0 0 !important;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfbfe;font-size:11.5px;color:var(--muted)}
+
+  /* ---------- toast / sticky ---------- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);max-width:min(560px,calc(100vw - 32px));background:#20222c;color:#fff;font-size:12.5px;font-weight:600;line-height:1.5;padding:11px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(10,12,30,.34);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;text-align:center}
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+  .sticky-bar{display:none;position:fixed;left:0;right:0;bottom:0;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);align-items:center;gap:11px;z-index:50}
+  .sb-info{display:flex;flex-direction:column;line-height:1.25;min-width:0;flex:1 1 auto}
+  .sb-info b{font-size:13.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sb-info span{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-bar .btn{flex:0 0 auto;padding:12px 16px;font-size:13.5px}
+
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr;padding:14px 16px 30px;gap:14px}
+    .panel{position:static}
+    .hero{padding:20px 16px 2px}
+    .content,.ad-wrap,.foot{padding-left:16px;padding-right:16px}
+    .content-card{padding:20px 18px 22px}
+    .facts{grid-template-columns:1fr 1fr}
+    .brand-text i{display:none}
+    body.has-work{padding-bottom:76px}
+    .sticky-bar.is-ready{display:flex}
+    .toast{bottom:84px}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:22px}
+    .hero-sub{font-size:12.5px}
+    .privacy-badge{flex:1 1 100%;border-radius:14px;font-size:11px;padding:8px 12px}
+    .sibling-link{font-size:11px;padding:6px 11px}
+    .sib-strip{display:flex;flex:1 1 100%;flex-wrap:nowrap;gap:7px;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .sib-strip::-webkit-scrollbar{display:none}
+    .sib-strip .sibling-link{flex:0 0 auto}
+    .topbar-inner{padding:9px 14px}
+    .free-pill{display:none}
+    .tabs button{font-size:11.5px;padding:9px 5px;gap:4px}
+    .tabs button span.t-ico{font-size:13px}
+    .stage-title .chip{display:none}
+    .preview-stage{min-height:200px}
+    .pv-canvas{max-height:230px}
+    .modal{width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100vh - 108px);margin:auto auto 84px;border-radius:16px}
+    .modal-inner{max-height:calc(100vh - 108px)}
+    .modal-head{padding:14px 16px 12px}
+    .modal-body{padding:15px 16px 20px}
+  }
+  @media (max-width:360px){
+    .hero h1{font-size:20px}
+    .tabs button{font-size:10.5px}
+    .tabs button span.t-ico{display:none}
+    .inks{grid-template-columns:1fr 1fr}
+    .pv-canvas{max-height:190px}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="https://mydaesu-lab.github.io/stamp-sign/">
+      <span class="brand-mark" aria-hidden="true">🖋️</span>
+      <span class="brand-text">
+        <b>투명 도장 · 전자서명</b>
+        <i>제로포켓 · 배경 투명 PNG · 서버 전송 없음</i>
+      </span>
+    </a>
+    <span class="free-pill">무료 · 회원가입 없음</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="badge-strip">
+      <span class="privacy-badge"><span aria-hidden="true">🔒</span><span class="pb-text"><b>이름·서명·사진은 서버로 전송되지 않아요</b> · 100% 브라우저 처리</span></span>
+      <div class="sib-strip">
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/" title="제로포켓 무료 웹툴 전체 보기">🏠 전체 툴</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/text-counter/">✍️ 글자수 세기</a>
+        <a class="sibling-link" href="https://mydaesu-lab.github.io/retire-calc/">📅 퇴직금 계산</a>
+      </div>
+    </div>
+    <h1>도장도 서명도 사진도 — <span>배경이 투명한 PNG</span>로</h1>
+    <p class="hero-sub">이름을 넣으면 <b>테두리·글꼴·인주 색·번짐</b>을 고른 <b>900×900 투명 도장</b>이 완성됩니다. 손가락으로 그린 <b>전자서명</b>은 여백을 자동으로 잘라 저장하고, <b>종이에 찍은 도장·사인 사진</b>은 흰 배경을 지워 투명 PNG로 바꿔 줍니다. 만든 파일은 한글·워드·PDF 문서에 바로 얹을 수 있고, 이름·서명·사진은 서버로 가지 않아요.</p>
+  </section>
+
+  <section class="layout" id="app">
+    <!-- ============ 입력 · 그리기 ============ -->
+    <div class="stage">
+      <div class="stage-card">
+        <div class="stage-head">
+          <div class="stage-title">
+            <span>만들기</span>
+            <span class="chip grey" id="headChip">배경 투명 PNG</span>
+          </div>
+          <div class="stage-actions">
+            <button class="mini-btn" type="button" id="resetBtn">초기화</button>
+            <button class="mini-btn primary" type="button" id="saveBtnTop">PNG 저장</button>
+          </div>
+        </div>
+
+        <div class="tabs" id="mainTabs" role="tablist" aria-label="만들기 종류 선택">
+          <button type="button" id="tabSeal" role="tab" aria-selected="true" aria-controls="paneSeal" class="is-active"><span class="t-ico" aria-hidden="true">🔴</span>도장 만들기</button>
+          <button type="button" id="tabSign" role="tab" aria-selected="false" aria-controls="paneSign"><span class="t-ico" aria-hidden="true">✍️</span>전자서명</button>
+          <button type="button" id="tabPhoto" role="tab" aria-selected="false" aria-controls="panePhoto"><span class="t-ico" aria-hidden="true">🖼️</span>사진 투명화</button>
+        </div>
+
+        <!-- ================= 탭 1: 도장 만들기 ================= -->
+        <div class="pane" id="paneSeal" role="tabpanel" aria-labelledby="tabSeal">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>이름<small>1~4자</small></p>
+            <div class="field" style="margin-top:0">
+              <label class="field-label" for="sealName">도장에 새길 이름</label>
+              <input class="input" id="sealName" type="text" inputmode="text" autocomplete="off" maxlength="4" value="심대성" placeholder="예: 심대성">
+              <p class="row-note" id="nameNote">세 글자 이름은 세로로 새기고, 옆에 작은 <b>‘인’</b>자를 붙입니다.</p>
+            </div>
+            <div class="field">
+              <label class="switch sw-row" for="suffixToggle">
+                <span class="sw-text" style="font-size:12.5px;font-weight:700;color:var(--ink-2)">‘인’자 자동으로 붙이기<small>홍길동 → 홍길동인</small></span>
+                <input type="checkbox" id="suffixToggle" checked>
+                <span class="track" aria-hidden="true"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>모양과 글꼴<small>도장 인상 결정</small></p>
+            <div class="field" style="margin-top:0">
+              <span class="field-label">모양</span>
+              <div class="seg" id="shapeSeg" role="group" aria-label="도장 모양">
+                <button type="button" class="is-active" data-shape="circle" aria-pressed="true">원형</button>
+                <button type="button" data-shape="rect" aria-pressed="false">사각형</button>
+                <button type="button" data-shape="oval" aria-pressed="false">타원형</button>
+              </div>
+            </div>
+            <div class="field">
+              <span class="field-label">글꼴</span>
+              <div class="seg" id="fontSeg" role="group" aria-label="도장 글꼴">
+                <button type="button" class="is-active" data-font="serif" aria-pressed="true">명조</button>
+                <button type="button" data-font="sans" aria-pressed="false">고딕</button>
+                <button type="button" data-font="hand" aria-pressed="false">손글씨</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>테두리와 인주<small>찍은 느낌</small></p>
+            <div class="field" style="margin-top:0">
+              <div class="range-row"><label class="field-label" for="borderRange" style="margin:0">테두리 굵기</label><b id="borderVal">52</b></div>
+              <input class="range" id="borderRange" type="range" min="0" max="100" step="1" value="52" aria-describedby="borderNote">
+              <div class="range-ends"><span>얇게 · 인감 느낌</span><span>굵게 · 막도장 느낌</span></div>
+              <p class="row-note" id="borderNote">굵은 테두리는 손에 쥐고 찍는 <b>막도장</b>, 얇은 테두리는 <b>인감</b>에 가깝습니다.</p>
+            </div>
+            <div class="field">
+              <div class="range-row"><label class="field-label" for="textureRange" style="margin:0">인주 번짐 · 질감</label><b id="textureVal">36</b></div>
+              <input class="range" id="textureRange" type="range" min="0" max="100" step="1" value="36" aria-describedby="textureNote">
+              <div class="range-ends"><span>깨끗한 디지털</span><span>거친 종이 질감</span></div>
+              <p class="row-note" id="textureNote">0이면 깔끔한 전자 도장, <b>30~50</b>이면 종이에 찍은 듯 자연스럽습니다.</p>
+            </div>
+            <div class="field">
+              <span class="field-label">인주 색상</span>
+              <div class="inks" id="inkGroup" role="group" aria-label="인주 색상">
+                <button class="ink-btn is-active" type="button" data-ink="#c1272d" aria-pressed="true"><i style="background:#c1272d"></i><span>전통 빨강</span></button>
+                <button class="ink-btn" type="button" data-ink="#e23e1c" aria-pressed="false"><i style="background:#e23e1c"></i><span>주홍</span></button>
+                <button class="ink-btn" type="button" data-ink="#232323" aria-pressed="false"><i style="background:#232323"></i><span>검정</span></button>
+                <button class="ink-btn" type="button" data-ink="#1b2a4a" aria-pressed="false"><i style="background:#1b2a4a"></i><span>네이비</span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="inbox" style="background:#fff">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>쓰는 곳<small>참고</small></p>
+            <p class="row-note" style="margin:0">계약서·영수증·견적서에 쓰는 <b>막도장</b>은 모양이 자유롭습니다. 인감증명서에 쓰는 <b>인감</b>은 주민센터에 신고한 도장이어야 하니, 이 이미지는 문서용으로만 쓰세요.</p>
+          </div>
+        </div>
+
+        <!-- ================= 탭 2: 전자서명 ================= -->
+        <div class="pane is-hidden" id="paneSign" role="tabpanel" aria-labelledby="tabSign">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>서명 그리기<small>마우스 · 손가락</small></p>
+            <div class="sig-wrap" id="sigWrap">
+              <canvas id="sigPad" width="1200" height="440" aria-label="전자서명을 그리는 캔버스"></canvas>
+              <span class="sig-guide" aria-hidden="true"></span>
+              <span class="sig-hint" id="sigHint">여기에 서명을 그려 주세요</span>
+            </div>
+            <p class="row-note" id="sigNote">그린 뒤에는 <b>여백을 자동으로 잘라</b> 저장합니다. 휴대폰에서는 손가락으로 천천히 그으세요.</p>
+          </div>
+
+          <div class="inbox g">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>펜<small>굵기 · 색</small></p>
+            <div class="field" style="margin-top:0">
+              <div class="range-row"><label class="field-label" for="penRange" style="margin:0">펜 굵기</label><b id="penVal">5 px</b></div>
+              <input class="range" id="penRange" type="range" min="2" max="12" step="1" value="5">
+              <div class="range-ends"><span>가늘게 · 만년필</span><span>굵게 · 사인펜</span></div>
+            </div>
+            <div class="field">
+              <span class="field-label">펜 색</span>
+              <div class="seg" id="penSeg" role="group" aria-label="펜 색상">
+                <button type="button" class="is-active" data-pen="#141414" aria-pressed="true">검정</button>
+                <button type="button" data-pen="#1d3fbf" aria-pressed="false">파랑</button>
+                <button type="button" data-pen="#b3261e" aria-pressed="false">빨강</button>
+              </div>
+            </div>
+            <div class="field" style="display:flex;gap:6px;flex-wrap:wrap">
+              <button class="mini-btn" type="button" id="undoBtn" disabled>↶ 실행취소</button>
+              <button class="mini-btn" type="button" id="clearBtn" disabled>🗑 전체 지우기</button>
+            </div>
+          </div>
+
+          <div class="inbox" style="background:#fff">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>잘 나오게 그리는 요령<small>참고</small></p>
+            <p class="row-note" style="margin:0">서명은 <b>천천히 크게</b> 그릴수록 저장했을 때 매끄럽습니다. 문서에 넣을 때는 폭 <b>3~5cm</b> 크기로 줄여 쓰면 자연스럽고, 같은 서명을 여러 문서에 복사해 붙이는 것은 중요한 계약일수록 피하세요.</p>
+          </div>
+        </div>
+
+        <!-- ================= 탭 3: 사진 투명화 ================= -->
+        <div class="pane is-hidden" id="panePhoto" role="tabpanel" aria-labelledby="tabPhoto">
+          <div class="inbox">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>사진 올리기<small>JPG · PNG</small></p>
+            <div class="dropzone" id="dropZone">
+              <input type="file" id="photoInput" accept="image/*" class="is-hidden">
+              <button class="mini-btn primary" type="button" id="pickBtn">📷 사진 선택</button>
+              <p class="dz-text">여기로 사진을 끌어다 놓아도 돼요<br>흰 종이에 찍은 도장·사인 사진이 가장 잘 지워집니다</p>
+              <div class="dz-thumb is-hidden" id="dzThumb"><img alt="" id="dzImg"><span id="dzName"></span></div>
+            </div>
+            <div class="field">
+              <button class="mini-btn" type="button" id="sampleBtn">✨ 샘플 사진으로 체험하기</button>
+            </div>
+          </div>
+
+          <div class="inbox r">
+            <p class="inbox-head"><span class="dot" aria-hidden="true"></span>배경 지우기<small>흰 종이 → 투명</small></p>
+            <div class="field" style="margin-top:0">
+              <div class="range-row"><label class="field-label" for="sensRange" style="margin:0">민감도</label><b id="sensVal">50</b></div>
+              <input class="range" id="sensRange" type="range" min="0" max="100" step="1" value="50" aria-describedby="sensNote">
+              <div class="range-ends"><span>배경을 많이 지움</span><span>옅은 잉크까지 살림</span></div>
+              <p class="row-note" id="sensNote">종이 얼룩이 남으면 왼쪽으로, 도장 색이 같이 옅어지면 오른쪽으로 옮기세요.</p>
+            </div>
+            <div class="field">
+              <span class="field-label">색상 보정</span>
+              <div class="seg" id="modeSeg" role="group" aria-label="색상 보정 방식">
+                <button type="button" class="is-active" data-mode="auto" aria-pressed="true">자동</button>
+                <button type="button" data-mode="red" aria-pressed="false">빨강 도장</button>
+                <button type="button" data-mode="black" aria-pressed="false">검정 사인</button>
+              </div>
+              <p class="row-note">‘자동’은 원래 잉크 색을 살리고, ‘빨강 도장’은 인주 빨강만, ‘검정 사인’은 먹색만 남깁니다.</p>
+            </div>
+            <div class="field">
+              <label class="switch sw-row" for="cleanToggle">
+                <span class="sw-text" style="font-size:12.5px;font-weight:700;color:var(--ink-2)">종이 잡티 제거<small>점·먼지를 지웁니다</small></span>
+                <input type="checkbox" id="cleanToggle" checked>
+                <span class="track" aria-hidden="true"></span>
+              </label>
+            </div>
+            <div class="field">
+              <label class="switch sw-row" for="cropToggle">
+                <span class="sw-text" style="font-size:12.5px;font-weight:700;color:var(--ink-2)">여백 자동 자르기<small>도장 부분만 남깁니다</small></span>
+                <input type="checkbox" id="cropToggle" checked>
+                <span class="track" aria-hidden="true"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 미리보기 ============ -->
+    <aside class="panel" aria-label="미리보기와 저장">
+      <div class="pv-head">
+        <b>미리보기</b>
+        <span class="chip grey" id="pvChip">900 × 900 · 투명</span>
+      </div>
+      <div class="preview-stage" id="pvStage">
+        <canvas class="pv-canvas" id="sealCanvas" width="900" height="900" aria-label="도장 미리보기"></canvas>
+        <canvas class="pv-canvas is-hidden" id="sigPreview" width="600" height="240" aria-label="전자서명 미리보기"></canvas>
+        <p class="pv-empty is-hidden" id="pvEmpty">사진을 올리면<br>배경을 지운 결과가 여기에 보여요</p>
+        <canvas class="pv-canvas is-hidden" id="photoPreview" width="600" height="400" aria-label="사진 투명화 결과 미리보기"></canvas>
+      </div>
+      <div class="pv-tools">
+        <button class="mini-btn" id="bgToggle" type="button">흰 배경으로 보기</button>
+      </div>
+
+      <div class="kv-section">
+        <div class="kv"><span>파일 형식</span><b>PNG · 배경 투명</b></div>
+        <div class="kv"><span>크기</span><b id="kvSize">900 × 900 px</b></div>
+        <div class="kv"><span>용량</span><b id="kvBytes">—</b></div>
+        <div class="kv"><span>저장 위치</span><b>다운로드 폴더</b></div>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="button" id="saveBtn">⬇️ 투명 PNG 저장</button>
+      <p class="hint center" id="saveHint">투명 PNG라 흰 종이 문서에 겹쳐도 사각 테두리가 보이지 않아요.</p>
+      <p class="hint center tiny">이미지는 내 기기에서만 만들어집니다. 타인 명의 도장·서명에 쓰지 마세요.</p>
+    </aside>
+  </section>
+
+  <!-- ============ 광고 영역 ============ -->
+  <div class="ad-wrap">
+    <div class="ad-card" id="adCard">
+      <div class="ad-head">
+        <span class="ad-badge">AD</span>
+        <span class="ad-label">광고 영역</span>
+        <button class="link-btn" id="adToggle" type="button">숨기기</button>
+      </div>
+      <div class="ad-slot" id="adSlot">
+        <b>광고가 표시되는 자리입니다</b>
+        <span>광고는 도구 기능과 무관하며, 이름·서명·사진은 광고로 전달되지 않습니다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 안내 콘텐츠 ============ -->
+  <div class="content">
+    <article class="content-card" id="guide-seal">
+      <h2 class="content-title"><span aria-hidden="true">🔴</span> 투명 도장 이미지 — 900×900 PNG 하나면 충분합니다</h2>
+      <p class="lead">도장 이미지를 문서에 넣을 때 가장 자주 생기는 문제는 <b>흰 사각형</b>입니다. 배경이 흰색인 JPG를 넣으면 도장 둘레에 종이 사각형이 같이 찍혀 어색해집니다. 이 도구는 처음부터 <b>배경 알파값이 0인 PNG</b>로 저장하기 때문에, 문서 배경이 무엇이든 도장 테두리만 또렷하게 얹힙니다. 크기는 <b>900×900 픽셀</b>로, A4 문서에 폭 3~5cm로 줄여 넣어도 가장자리가 뭉개지지 않습니다.</p>
+      <ul class="facts">
+        <li><b>900px</b><span>정사각 투명 PNG<br>축소해도 선명</span></li>
+        <li><b>0%</b><span>서버 전송<br>기기 안에서만 생성</span></li>
+        <li><b>4색</b><span>전통 빨강·주홍<br>검정·네이비</span></li>
+        <li><b>3모양</b><span>원형·사각형<br>타원형</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>이름 세 글자엔 작은 ‘인’자를 — 관행일 뿐, 법은 아닙니다</h3>
+          <p>도장 관행으로는 이름 석 자를 세로로 새기고 옆에 작은 <b>‘인(印)’</b>자를 붙입니다. 이 도구는 이름을 세로로 배치하고 마지막 글자 옆에 ‘인’자를 작게 넣으며, <b>‘인’자 자동으로 붙이기</b> 토글로 끌 수 있습니다. 네 글자 이름은 가로 2×2로 배치합니다. 법령이 정한 형식이 아니므로 회사 규정이나 상대방 요구가 있으면 그에 맞추면 됩니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>테두리와 번짐으로 ‘찍은 느낌’을 조절합니다</h3>
+          <p>테두리를 <b>굵게</b> 하면 손에 쥐고 찍는 막도장, <b>얇게</b> 하면 인감도장에 가깝습니다. 인주 번짐·질감을 0으로 두면 인쇄물 같은 깔끔한 도장이 되고, <b>30~50</b> 사이가 종이에 찍은 듯 자연스럽습니다. 70을 넘기면 글자가 거칠어져 작은 문서에서는 읽기 어려울 수 있으니, 계약서처럼 또렷해야 하는 문서에는 50 이하를 권합니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>한글(HWP)·워드·PDF에 넣는 순서</h3>
+          <p><b>한글</b>은 입력 → 그림에서 PNG를 고르고, 그림을 선택한 뒤 <code>글자처럼 취급</code>을 풀면 본문 위 원하는 위치에 자유롭게 얹을 수 있습니다. <b>워드</b>는 삽입 → 그림 → ‘텍스트 배치’에서 ‘텍스트 앞’을 고르면 글 위에 겹칩니다. <b>PDF</b>는 한글·워드에서 도장까지 넣어 PDF로 저장하는 방법이 가장 확실하고, 이미 만들어진 PDF라면 Adobe Acrobat의 ‘도구 → PDF 편집 → 이미지 추가’로 얹습니다. 맥 미리보기 앱은 PDF에 이미지를 삽입하는 기능이 없습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">04</span>
+          <h3>인감도장과 막도장은 쓰임이 다릅니다</h3>
+          <p><b>인감</b>은 주민센터에 신고한 도장으로, 인감증명서 발급과 부동산·금융 거래에 쓰입니다. <b>막도장</b>은 계약서·영수증·견적서에 자유롭게 찍는 도장으로 신고가 필요 없습니다. 이 도구로 만드는 이미지는 문서용 막도장에 해당하며, 인감증명서를 대신하지 못합니다.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 도장 모양·크기·글꼴에 법정 기준은 없지만, 공공기관·금융기관이 요구하는 서식이 따로 있을 수 있습니다. 제출 전에 해당 기관의 안내를 확인하세요.</p>
+    </article>
+
+    <article class="content-card" id="guide-sign">
+      <h2 class="content-title"><span aria-hidden="true">✍️</span> 전자서명 — 종이에 쓴 것처럼 보이게 하는 세 가지</h2>
+      <p class="lead">문서에 넣을 서명은 <b>선이 매끄럽고 여백이 정돈된</b> 이미지여야 자연스럽습니다. 캔버스에 그린 선은 점과 점을 <b>2차 곡선으로 이어 붙여</b> 손으로 그린 듯한 흐름을 만들고, 저장할 때 잉크가 있는 부분만 찾아 <b>자동으로 잘라</b> 냅니다. 그래서 넣을 때 위치를 맞추기 쉽고, 흰 사각형도 생기지 않습니다.</p>
+      <ul class="facts">
+        <li><b>1200px</b><span>서명 캔버스<br>인쇄해도 선명</span></li>
+        <li><b>자동</b><span>여백 크롭<br>도장 부분만</span></li>
+        <li><b>3색</b><span>검정·파랑<br>빨강 펜</span></li>
+        <li><b>PNG</b><span>배경 투명<br>문서에 바로</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>굵기는 4~6px, 크게 그리고 줄이기</h3>
+          <p>작은 캔버스에 작게 그리면 저장한 이미지가 흐릿해집니다. <b>큰 화면에서 크게</b> 그리고, 문서에 넣을 때 폭 3~5cm로 줄이면 선이 살아 있습니다. 펜 굵기는 기본 5px가 무난하고, 모바일 손가락으로 그린다면 8px 정도가 보기 좋습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>여백은 자동으로 잘립니다</h3>
+          <p>저장할 때 잉크가 있는 영역의 경계를 계산해 위아래·좌우 여백을 잘라 냅니다. 덕분에 문서에 넣었을 때 서명 둘레에 불필요한 공간이 생기지 않고, 크기를 지정하기도 쉽습니다. 자르기는 저장하는 순간에만 적용되고 원본 캔버스의 그림은 그대로 남아 있어 다시 그려도 됩니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>같은 서명을 복사해 붙이는 건 중요한 문서에선 피하세요</h3>
+          <p>서명 이미지를 파일로 저장하면 여러 문서에 붙일 수 있지만, 큰 권리가 오가는 계약서라면 상대방이 <b>진정성립</b>을 다툴 여지가 생깁니다(민사소송법 제357조·제358조). 중요한 계약은 전자서명 서비스나 종이 원본, 공증처럼 <b>본인 확인 절차</b>가 붙은 방식을 함께 쓰세요.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 서명 이미지는 만드는 즉시 이 기기의 다운로드 폴더에 저장됩니다. 파일이 다른 사람에게 넘어가면 도용될 수 있으니, 쓰지 않는 서명 파일은 지워 두세요.</p>
+    </article>
+
+    <article class="content-card" id="guide-photo">
+      <h2 class="content-title"><span aria-hidden="true">🖼️</span> 종이에 찍은 도장·사인 사진의 흰 배경 지우기</h2>
+      <p class="lead">이미 인감도장을 찍어 둔 종이가 있다면 새로 만들 필요 없이 <b>사진만 올리면</b> 됩니다. 사진에서 종이의 밝기를 기준으로 삼아, 종이보다 충분히 어두운 픽셀만 남기고 나머지를 투명하게 만듭니다. 여기에 <b>색상 보정</b>을 더해 반투명한 가장자리의 색을 되살리고, <b>잡티 제거</b>로 종이 먼지를 지웁니다.</p>
+      <ul class="facts">
+        <li><b>1600px</b><span>사진 처리<br>최대 크기</span></li>
+        <li><b>3단계</b><span>민감도·색상<br>·잡티 제거</span></li>
+        <li><b>자동</b><span>여백 자르기<br>도장만 남김</span></li>
+        <li><b>0%</b><span>사진 서버<br>전송 없음</span></li>
+      </ul>
+      <ol class="tips">
+        <li class="tip">
+          <span class="tip-num">01</span>
+          <h3>찍을 때: 정면, 그늘 없이, 흰 종이에</h3>
+          <p>사진이 잘 지워지는지는 <b>찍을 때</b> 결정됩니다. 도장을 종이 위에 놓고 <b>정면에서</b>, 그림자가 지지 않게, 가능하면 <b>흰 종이</b>에 찍은 것을 쓰세요. 형광등 아래 노란 기운이 돌면 색상 보정에서 ‘빨강 도장’을 고르면 됩니다. 손떨림이 심하거나 각도가 비스듬하면 테두리가 이중으로 보일 수 있습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">02</span>
+          <h3>민감도는 ‘배경이 지워지는 만큼’입니다</h3>
+          <p>슬라이더를 왼쪽으로 옮기면 종이 얼룩·그림자까지 더 많이 지우고, 오른쪽으로 옮기면 옅은 잉크까지 남깁니다. 종이 위에 회색 얼룩이 남으면 <b>왼쪽으로</b>, 도장 색이 사라지면 <b>오른쪽으로</b> 조금씩 옮기며 미리보기를 확인하세요. 미리보기 위 ‘흰 배경으로 보기’를 누르면 실제 문서에 넣었을 때처럼 확인할 수 있습니다.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-num">03</span>
+          <h3>색상 보정 세 가지의 차이</h3>
+          <p><b>자동</b>은 원래 잉크 색을 그대로 살립니다(빨간 도장이면 빨강, 파란 사인이면 파랑). <b>빨강 도장</b>은 모든 잉크를 인주 빨강으로 통일해 종이의 노란 기운과 얼룩을 없애고, <b>검정 사인</b>은 먹색으로 통일합니다. 사진 색이 누렇게 나왔다면 ‘빨강 도장’이 가장 깔끔합니다.</p>
+        </li>
+      </ol>
+      <p class="disclaimer"><b>참고용 안내</b> — 배경 제거는 ‘지우는’ 기능이라 원본 사진을 복구하지 않습니다. 원본 파일은 기기에 그대로 남으니 필요하면 따로 보관하세요. 사진은 브라우저 메모리에서만 처리되고 서버로 전송되지 않습니다.</p>
+    </article>
+
+    <article class="content-card" id="faq">
+      <h2 class="content-title"><span aria-hidden="true">❓</span> 자주 묻는 질문 (FAQ)</h2>
+      <p class="lead">도장·서명 이미지를 만들면서 가장 많이 헷갈리는 것들만 모았습니다.</p>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>투명 도장 이미지를 PDF·한글 문서에 넣으려면 어떻게 하나요?</summary>
+          <div class="faq-body"><p>여기서 만든 PNG는 배경이 투명해서 흰 종이 위에 겹쳐도 사각 테두리가 보이지 않습니다. <b>한글(HWP)</b>은 입력 → 그림으로 넣고 ‘글자처럼 취급’을 풀어 위치를 잡고, <b>워드·구글 문서</b>는 삽입 → 그림에서 ‘텍스트 앞’ 배치를 고릅니다. <b>PDF</b>는 한글·워드에서 작성할 때 도장을 미리 넣어 PDF로 저장하는 방법이 가장 간단하고, 이미 만들어진 PDF는 Adobe Acrobat의 ‘PDF 편집 → 이미지 추가’로 얹습니다. 맥 미리보기 앱은 PDF에 이미지를 넣을 수 없습니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>종이에 찍은 도장 사진의 배경을 지우려면?</summary>
+          <div class="faq-body"><p><b>사진 투명화</b> 탭에 사진을 올리면 흰 종이 부분이 자동으로 투명해집니다. 배경이 덜 지워지면 민감도를 왼쪽으로, 도장 색까지 옅어지면 오른쪽으로 옮기세요. 색이 누렇게 나온 사진은 색상 보정에서 <b>빨강 도장</b>을 고르면 인주 빨강만 남습니다. 파일은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>손으로 그린 전자서명에 법적 효력이 있나요?</summary>
+          <div class="faq-body"><p><b>전자서명법 제3조</b>는 전자서명이 전자적 형태라는 이유만으로 서명·서명날인·기명날인으로서의 효력이 부인되지 않는다고 정하고 있고, <b>민사소송법 제358조</b>는 사문서에 본인이나 대리인의 서명·날인·무인이 있으면 진정한 것으로 추정한다고 정합니다. 다만 서명 이미지를 붙였다는 사실만으로 모든 계약이 유효해지는 것은 아니며, 본인 확인과 의사 표시, 문서의 무결성, 개별 법령이 요구하는 방식(등기·유언 등)을 함께 봐야 합니다. 큰 권리가 걸린 계약은 전문가 상담을 권합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>도장의 ‘인’자는 꼭 붙여야 하나요?</summary>
+          <div class="faq-body"><p>법으로 정해진 것은 아닙니다. 관행적으로 이름 세 자 옆에 작은 ‘인’자를 새기고, 네 자 이름은 2×2로 배치합니다. 이 도구는 <b>‘인’자 자동으로 붙이기</b>가 기본으로 켜져 있으니, 이름만 새기고 싶으면 토글을 끄면 됩니다. 계약서·영수증에 쓰는 막도장은 모양이 자유롭고, 인감증명서에 쓰는 인감은 주민센터에 신고한 도장이어야 합니다.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>만든 이미지와 올린 사진이 서버로 전송되나요?</summary>
+          <div class="faq-body"><p>아니요. 도장 그리기, 서명 그리기, 사진 배경 지우기는 모두 <b>브라우저 안의 캔버스</b>에서 처리되고 서버로 보내는 요청이 없습니다. 올린 사진은 메모리에만 있으며 새로고침하면 사라집니다. 방문 통계(GA4)에는 ‘도장 저장’, ‘서명 저장’, ‘사진 투명화’ 같은 동작 이름만 남고 이름·서명·사진은 전송되지 않습니다. 자세한 내용은 <button class="inline-link" type="button" data-modal="privacy">개인정보처리방침</button>에서 확인할 수 있어요.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>다른 사람 이름의 도장을 만들어도 되나요?</summary>
+          <div class="faq-body"><p>타인 명의의 도장이나 서명 이미지를 만들어 문서에 찍으면 <b>사문서위조(형법 제231조)</b>나 사기 등으로 처벌받을 수 있습니다. 이 도구는 본인 문서에 쓰는 도장·서명을 만드는 용도이며, 대리 날인이 허용되는 경우에도 본인의 위임을 확인해야 합니다.</p></div>
+        </details>
+      </div>
+      <p class="content-cta">PDF를 합치거나 페이지를 빼야 한다면 <a href="https://mydaesu-lab.github.io/pdf-tools/">안심 PDF 도구</a>, 서류 사진의 다른 개인정보를 가려야 한다면 <a href="https://mydaesu-lab.github.io/safe-photo/">안심 사진 편집기</a>를 함께 써 보세요.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot" aria-labelledby="footName">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true">🎒</span>
+      <div>
+        <p class="foot-name" id="footName">제로포켓 (ZeroPocket)</p>
+        <p class="foot-desc">가입·설치·서버 전송 없이 브라우저에서만 만드는 무료 웹툴</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="다른 무료 도구">
+      <a class="foot-link" href="https://mydaesu-lab.github.io/">🏠 전체 툴</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/thumb-maker/">🎨 썸네일 10초</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/safe-photo/">🔒 안심 사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/photo-merge/">🧩 사진 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/tax-calc/">🧮 연말정산</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/pdf-tools/">📄 PDF 합치기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/qr-maker/">📲 QR 생성기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/loan-calc/">🏠 대출·전월세</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/margin-calc/">💰 마진 계산기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/id-photo/">🪪 증명사진</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/salary-calc/">🧾 연봉 실수령액</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/text-counter/">✍️ 글자수 세기</a>
+      <a class="foot-link" href="https://mydaesu-lab.github.io/retire-calc/">📅 퇴직금 계산</a>
+      <button class="foot-link" type="button" data-modal="about">서비스 정보</button>
+      <button class="foot-link" type="button" data-modal="privacy">개인정보처리방침</button>
+    </nav>
+    <p class="foot-copy">© 2026 제로포켓 (ZeroPocket) · 이름·서명·사진은 내 기기 밖으로 나가지 않아요 · 만든 이미지는 본인 문서에만 쓰세요</p>
+  </div>
+</footer>
+
+<!-- ============ 모바일 고정 바 ============ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-info">
+    <b id="sbTitle">투명 도장 PNG</b>
+    <span id="sbMeta">900 × 900 · 배경 투명</span>
+  </div>
+  <button class="btn btn-primary" id="sbSave" type="button">⬇️ 저장</button>
+</div>
+
+<!-- ============ 모달 ============ -->
+<dialog class="modal" id="modalAbout" aria-labelledby="aboutTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="aboutTitle">서비스 소개</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><b>투명 도장 · 전자서명 이미지 만들기</b>는 문서에 넣을 도장과 서명을 설치 없이 만들려고 만든 무료 도구입니다. 도장은 이름만 넣으면 되고, 서명은 캔버스에 직접 그리고, 이미 찍어 둔 종이 도장이 있다면 사진을 올려 배경만 지우면 됩니다.</p>
+
+      <h3>이렇게 만듭니다</h3>
+      <ul>
+        <li><b>도장 만들기</b> — 이름(1~4자)과 ‘인’자 토글, 모양(원형·사각형·타원형), 글꼴(명조·고딕·손글씨), 테두리 굵기, 인주 번짐·질감, 인주 색상을 조합해 <b>900×900 투명 PNG</b>를 만듭니다. 이름은 세로로 새기고 마지막 글자 옆에 작은 ‘인’자를 붙입니다.</li>
+        <li><b>전자서명</b> — 마우스나 손가락으로 그린 획을 2차 곡선으로 부드럽게 잇고, 저장할 때 잉크 영역만 찾아 <b>여백을 자동으로 잘라</b> 투명 PNG로 저장합니다.</li>
+        <li><b>사진 투명화</b> — 종이 사진의 밝기를 기준으로 종이 부분을 투명하게 만들고, 색상 보정(자동·빨강 도장·검정 사인)과 잡티 제거, 여백 자르기를 적용합니다.</li>
+      </ul>
+
+      <h3>알아 두세요</h3>
+      <p>만든 이미지는 <b>참고용 문서 이미지</b>입니다. 인감증명서나 금융·부동산 거래처럼 본인 확인이 필요한 절차에서는 기관이 정한 방식(인감 신고, 전자서명 인증서 등)을 따라야 합니다.</p>
+      <p class="disclaimer strong"><b>타인 명의 도장·서명 금지</b> — 다른 사람의 이름으로 도장을 만들어 문서에 찍으면 사문서위조(형법 제231조) 등으로 처벌받을 수 있습니다. 본인 또는 적법한 위임을 받은 문서에만 사용하세요.</p>
+      <p>이름·서명 획·사진은 <b>서버로 전송되지 않고</b> 브라우저 안에서만 처리됩니다. 페이지를 새로고침하면 작업 중인 내용은 사라집니다.</p>
+
+      <h3>운영</h3>
+      <p>이 도구는 무료로 제공되며, 운영 비용은 화면의 광고 영역으로 충당합니다. 광고는 <b>도구 아래</b>에만 표시되고, 원하지 않으면 ‘숨기기’로 접을 수 있습니다. 오류 제보나 개선 의견은 사이트 운영자에게 알려 주세요.</p>
+      <p class="modal-note">제로포켓 (ZeroPocket) · 투명 도장·전자서명 만들기 · 회원가입 없는 브라우저 기반 도구</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modalPrivacy" aria-labelledby="privacyTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="privacyTitle">개인정보처리방침</h2>
+      <button class="modal-close" type="button" data-close="true" aria-label="닫기">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>투명 도장·전자서명 만들기(제로포켓, 이하 ‘사이트’)는 이용자의 개인정보를 소중히 다루며, 아래와 같이 처리 방침을 안내합니다.</p>
+
+      <h3>1. 수집하는 개인정보</h3>
+      <p>사이트는 회원가입이 없고, 이름·전화번호·이메일 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. 도장에 넣은 이름, 그린 서명, 올린 사진 역시 사이트가 수집하거나 보관하지 않습니다.</p>
+
+      <h3>2. 입력한 정보는 서버로 전송되지 않습니다</h3>
+      <p>도장 생성, 서명 그리기, 사진 배경 제거는 모두 <b>이용자의 브라우저(클라이언트) 안</b>에서 처리됩니다. 이름·서명 획·사진이 서버로 업로드되지 않으며, 서버에 저장하는 공간도 없습니다. 브라우저 탭을 닫거나 새로 고치면 메모리에서 사라집니다.</p>
+
+      <h3>3. 이름·서명·사진의 성격</h3>
+      <p>도장에 넣는 이름과 그리는 서명은 <b>이용자가 스스로 만드는 문서 이미지</b>이며, 주민등록번호·계좌번호 같은 민감한 정보를 입력할 필요가 없습니다. 사이트는 어떤 기관·금융회사와도 연결되지 않습니다.</p>
+
+      <h3>4. 브라우저에 저장되는 정보</h3>
+      <p>작업 내용과 만든 이미지는 화면에만 존재하며, 사이트는 이를 브라우저 저장소(localStorage)에 저장하지 않습니다. 페이지를 새로 고치면 처음 상태로 돌아갑니다. (광고 영역을 접은 상태만 기기에 기억됩니다.)</p>
+
+      <h3>5. 쿠키와 제3자 서비스 (Google AdSense · Google Analytics · Google Fonts)</h3>
+      <p><b>Google AdSense(광고)</b> — 사이트는 Google AdSense를 통해 광고를 게재할 수 있습니다. Google을 비롯한 제3자 광고 사업자는 쿠키를 사용하여 이용자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록에 기반한 광고를 게재합니다.</p>
+      <p><b>Google Analytics 4(방문 통계)</b> — 사이트는 방문자 수·유입 경로·이용 환경 같은 통계를 확인하기 위해 Google Analytics 4(측정 ID: <code>G-GFRNHP2GC4</code>)를 사용합니다. 이 서비스는 쿠키(<code>_ga</code>, <code>_ga_GFRNHP2GC4</code> 등)를 사용하며, 수집되는 값은 개인을 식별하지 않는 익명 통계입니다. 이름·서명·사진은 Analytics로 전송되지 않으며, 사이트가 보내는 이벤트는 ‘도장 저장, 서명 저장, 사진 투명화, 탭 전환’ 같은 동작 이름뿐입니다.</p>
+      <ul>
+        <li>이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다.</li>
+        <li>제3자 광고 사업자의 쿠키 사용을 원하지 않으면 <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>에서 거부할 수 있습니다.</li>
+        <li>방문 통계 수집을 원하지 않으면 브라우저에서 쿠키를 차단하거나 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가기능</a>을 설치하면 됩니다.</li>
+        <li>쿠키를 차단해도 도장·서명·사진 기능은 그대로 사용할 수 있습니다.</li>
+      </ul>
+
+      <h3>6. 외부 서비스 이용</h3>
+      <p>도장 글꼴을 표시하기 위해 Google Fonts에서 스타일 파일을 불러오며, 이 과정에서 해당 서비스에 접속 IP·브라우저 정보가 전달될 수 있습니다. 각 서비스의 개인정보처리방침이 적용되며, 웹 글꼴을 차단해도 기능은 정상 동작합니다.</p>
+
+      <h3>7. 아동의 개인정보</h3>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+      <h3>8. 방침의 변경</h3>
+      <p>내용이 바뀌면 이 화면에 시행일과 함께 게시합니다. 중요한 변경이 있는 경우 첫 화면에서 안내합니다.</p>
+
+      <p class="modal-note">시행일: 2026년 11월 27일 · 문의: 사이트 운영자</p>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. 설정 · 유틸
+     ========================================================= */
+  var AD_SLOT_ID = '';                 // AdSense 광고 단위 ID. 비워 두면 안내용 자리만 표시됩니다.
+  var AD_KEY = 'zeropocket.stamp.ad.hidden';
+  var SEAL_SIZE = 900;                 // 도장 캔버스 한 변
+  var SIG_W = 1200, SIG_H = 440;       // 서명 캔버스
+  var PHOTO_MAX = 1600;                // 사진 처리 최대 변
+
+  var FONTS = {
+    serif: '"Noto Serif KR","Nanum Myeongjo",serif',
+    sans: '"Noto Sans KR","Malgun Gothic",sans-serif',
+    hand: '"Gaegu","Nanum Pen Script","Noto Sans KR",cursive'
+  };
+  var SEAL_DEFAULTS = { name: '심대성', suffix: true, shape: 'circle', font: 'serif', border: 52, texture: 36, ink: '#c1272d' };
+
+  var state = { tab: 'seal', lastBytes: 0 };
+  var seal = {};
+  var pen = { color: '#141414', width: 5 };
+  var strokes = [];
+  var sigDirty = true;
+  var photo = { src: null, name: '', sens: 50, mode: 'auto', clean: true, crop: true, view: 'checker', result: null, lastStamp: null };
+
+  function $(id) { return document.getElementById(id); }
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  function today() { var d = new Date(); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+      }
+    } catch (e) { /* 통계 실패는 기능에 영향 없음 */ }
+  }
+  function toast(msg) {
+    var t = $('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('is-on');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.remove('is-on'); }, 3200);
+  }
+  function bytesText(n) {
+    if (!n) return '—';
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / 1048576).toFixed(2) + ' MB';
+  }
+  function safeName(s) {
+    return String(s || '').replace(/[\\/:*?"<>|\s]+/g, '').slice(0, 20) || '도장';
+  }
+
+  /* =========================================================
+     1. 도장 그리기
+     ========================================================= */
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function roundRectPath(c, x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    c.moveTo(x + r, y);
+    c.lineTo(x + w - r, y);
+    c.arcTo(x + w, y, x + w, y + r, r);
+    c.lineTo(x + w, y + h - r);
+    c.arcTo(x + w, y + h, x + w - r, y + h, r);
+    c.lineTo(x + r, y + h);
+    c.arcTo(x, y + h, x, y + h - r, r);
+    c.lineTo(x, y + r);
+    c.arcTo(x, y, x + r, y, r);
+    c.closePath();
+  }
+
+  function buildInk() {
+    var S = SEAL_SIZE, cx = S / 2, cy = S / 2;
+    var ink = seal.ink;
+    var tex = seal.texture / 100;
+    var off = document.createElement('canvas');
+    off.width = S; off.height = S;
+    var o = off.getContext('2d');
+    var rnd = mulberry32(20261127);
+
+    /* --- 테두리(링) --- */
+    var borderW = seal.border <= 0 ? 0 : (S * 0.014 + (seal.border / 100) * S * 0.055);
+    var pad = S * 0.04;
+    var wob = 1.2 + tex * 3.4;
+    var isOval = seal.shape === 'oval';
+    if (isOval) borderW *= 0.86;
+
+    function wobble(a, k) {
+      return (Math.sin(a * 7 + 1.1) * 0.5 + Math.sin(a * 13 + 2.7) * 0.3 + Math.sin(a * 3 + 0.4) * 0.2) * wob * k;
+    }
+
+    o.fillStyle = ink;
+    if (borderW > 0.5) {
+      if (seal.shape === 'rect') {
+        var x0 = pad, y0 = pad, w = S - pad * 2, h = S - pad * 2;
+        var rr = S * 0.055;
+        o.beginPath();
+        roundRectPath(o, x0, y0, w, h, rr);
+        roundRectPath(o, x0 + borderW, y0 + borderW, w - borderW * 2, h - borderW * 2, Math.max(2, rr - borderW));
+        o.fill('evenodd');
+      } else {
+        var rx = (S - pad * 2) / 2;
+        var ry = seal.shape === 'oval' ? (S - pad * 2) * 0.36 : rx;
+        o.beginPath();
+        var steps = 240, i, a, r;
+        for (i = 0; i <= steps; i++) {
+          a = i / steps * Math.PI * 2;
+          r = 1 + wobble(a, 1) / rx;
+          o[i === 0 ? 'moveTo' : 'lineTo'](cx + Math.cos(a) * rx * r, cy + Math.sin(a) * ry * r);
+        }
+        for (i = steps; i >= 0; i--) {
+          a = i / steps * Math.PI * 2;
+          var rx2 = Math.max(2, rx - borderW), ry2 = Math.max(2, ry - borderW);
+          r = 1 + wobble(a + 0.7, 1) / rx;
+          o.lineTo(cx + Math.cos(a) * rx2 * r, cy + Math.sin(a) * ry2 * r);
+        }
+        o.closePath();
+        o.fill('evenodd');
+      }
+    }
+
+    /* --- 이름 --- */
+    var name = String(seal.name || '').trim();
+    var chars = name.split('').slice(0, 4);
+    var n = chars.length;
+    if (n > 0) {
+      var rxIn = (S - pad * 2) / 2 - borderW - S * 0.02;
+      var ryIn = (seal.shape === 'oval' ? (S - pad * 2) * 0.36 : (S - pad * 2) / 2) - borderW - S * 0.02;
+      var innerW, innerH;
+      if (seal.shape === 'rect') {
+        innerW = (S - pad * 2) - borderW * 2 - S * 0.04;
+        innerH = innerW;
+      } else {
+        innerW = rxIn * 1.7;
+        innerH = ryIn * 1.7;
+      }
+      var weight = seal.font === 'hand' ? 700 : 800;
+      o.textAlign = 'center';
+      o.textBaseline = 'middle';
+      o.fillStyle = ink;
+
+      /* 글꼴마다 실제 글자 크기가 달라(손글씨체는 작게 그려짐) 잉크 크기를 재서 맞춥니다. */
+      function glyphBox(list, sizeSample) {
+        o.font = weight + ' ' + sizeSample + 'px ' + FONTS[seal.font];
+        var mx = 0, mh = 0;
+        for (var gi = 0; gi < list.length; gi++) {
+          var m = o.measureText(list[gi]);
+          var h = (m.actualBoundingBoxAscent || sizeSample * 0.72) + (m.actualBoundingBoxDescent || sizeSample * 0.24);
+          if (h > mh) mh = h;
+          if (m.width > mx) mx = m.width;
+        }
+        return { w: mx || sizeSample, h: mh || sizeSample };
+      }
+      function fitSize(list, targetH, targetW) {
+        var box = glyphBox(list, 100);
+        var s = Math.min(100 * targetH / box.h, 100 * targetW / box.w);
+        return Math.max(10, s);
+      }
+      function setFont(size) {
+        o.font = weight + ' ' + Math.round(size) + 'px ' + FONTS[seal.font];
+      }
+
+      if (n === 4) {
+        var cell = Math.min(innerW, innerH) * 0.5;
+        var size4 = fitSize(chars, cell * 0.88, Math.min(cell * 0.88, innerW * 0.42));
+        setFont(size4);
+        var positions = [
+          [cx - cell * 0.5, cy - cell * 0.5], [cx + cell * 0.5, cy - cell * 0.5],
+          [cx - cell * 0.5, cy + cell * 0.5], [cx + cell * 0.5, cy + cell * 0.5]
+        ];
+        for (var k = 0; k < 4; k++) o.fillText(chars[k], positions[k][0], positions[k][1]);
+      } else {
+        var charH = innerH * (n === 2 ? 0.48 : 0.34);
+        var size = n === 1
+          ? fitSize(chars, innerH * (seal.suffix ? 0.44 : 0.6), innerW * 0.6)
+          : fitSize(chars, charH * 0.94, innerW * 0.72);
+        setFont(size);
+        if (n === 1 && seal.suffix) {
+          /* 한 글자 + ‘인’자는 위아래로 새깁니다. */
+          var mBox1 = glyphBox(chars, 100);
+          var inSize1 = fitSize(['인'], mBox1.h * size / 100 * 0.52, innerW * 0.3);
+          var gap1 = size * 0.1;
+          var blockH = size * mBox1.h / 100 + gap1 + glyphBox(['인'], 100).h * inSize1 / 100;
+          var y1 = cy - blockH / 2 + size * mBox1.h / 100 / 2;
+          setFont(size);
+          o.fillText(chars[0], cx, y1);
+          setFont(inSize1);
+          o.fillText('인', cx, y1 + size * mBox1.h / 100 / 2 + gap1 + glyphBox(['인'], 100).h * inSize1 / 100 / 2);
+        } else {
+          var firstY = n === 1 ? cy : cy - (n - 1) * charH / 2;
+          var lastY = firstY;
+          for (var i2 = 0; i2 < n; i2++) {
+            lastY = firstY + i2 * charH;
+            o.fillText(chars[i2], cx, lastY);
+          }
+          if (seal.suffix && name.length) {
+            var mBox = glyphBox(chars, 100);
+            var mainH = mBox.h * size / 100;
+            var mainW = mBox.w * size / 100;
+            var iBox = glyphBox(['인'], 100);
+            var inSize = fitSize(['인'], mainH * 0.46, innerW * 0.24);
+            var inH = iBox.h * inSize / 100;
+            var inW2 = iBox.w * inSize / 100;
+            setFont(inSize);
+            var inX = cx - Math.min(innerW * 0.33, mainW * 0.52 + inW2 * 0.55);
+            var inY = lastY + mainH * 0.3 + inH * 0.5;
+            var limX = (seal.shape === 'rect' ? (S - pad * 2) / 2 - borderW : Math.min(rxIn, ryIn) * 0.82);
+            var limY = (seal.shape === 'rect' ? (S - pad * 2) / 2 - borderW : ryIn * 0.8);
+            inX = clamp(inX, cx - limX + inW2 * 0.5, cx + limX - inW2 * 0.5);
+            inY = clamp(inY, cy - limY + inH * 0.5, cy + limY - inH * 0.5);
+            o.fillText('인', inX, inY);
+          }
+        }
+      }
+    }
+
+    /* --- 질감: 잉크를 긁어낸 자국 --- */
+    if (tex > 0.01) {
+      o.globalCompositeOperation = 'destination-out';
+      var dots = Math.round(260 + tex * 2100);
+      for (var d = 0; d < dots; d++) {
+        var px = rnd() * S, py = rnd() * S;
+        var pr = 0.8 + rnd() * 3.4 * (0.5 + tex);
+        var g = o.createRadialGradient(px, py, 0, px, py, pr);
+        var al = 0.10 + rnd() * 0.45 * tex;
+        g.addColorStop(0, 'rgba(0,0,0,' + al.toFixed(3) + ')');
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        o.fillStyle = g;
+        o.beginPath(); o.arc(px, py, pr, 0, Math.PI * 2); o.fill();
+      }
+      /* 가장자리 마모: 테두리 근처를 더 긁음 */
+      for (var e = 0; e < Math.round(60 + tex * 220); e++) {
+        var ang = rnd() * Math.PI * 2;
+        var rr = (seal.shape === 'oval' ? (S - pad * 2) * 0.36 : (S - pad * 2) / 2);
+        var er = rr * (0.86 + rnd() * 0.2);
+        var ex = cx + Math.cos(ang) * er;
+        var ey = cy + Math.sin(ang) * (seal.shape === 'oval' ? rr * 0.74 : er);
+        var erd = 1.4 + rnd() * 4;
+        var eg = o.createRadialGradient(ex, ey, 0, ex, ey, erd);
+        eg.addColorStop(0, 'rgba(0,0,0,' + (0.25 + rnd() * 0.5).toFixed(2) + ')');
+        eg.addColorStop(1, 'rgba(0,0,0,0)');
+        o.fillStyle = eg;
+        o.beginPath(); o.arc(ex, ey, erd, 0, Math.PI * 2); o.fill();
+      }
+      o.globalCompositeOperation = 'source-over';
+    }
+    return off;
+  }
+
+  function drawSeal() {
+    var cv = $('sealCanvas');
+    if (!cv) return;
+    var ctx = cv.getContext('2d');
+    ctx.clearRect(0, 0, SEAL_SIZE, SEAL_SIZE);
+    var name = String(seal.name || '').trim();
+    if (!name) {
+      updateSealInfo(0);
+      return;
+    }
+    var off = buildInk();
+    var tex = seal.texture / 100;
+    var bleed = tex * SEAL_SIZE * 0.008;
+    if (bleed > 0.2) {
+      var rnd = mulberry32(777);
+      ctx.globalAlpha = 0.16;
+      for (var i = 0; i < 3; i++) {
+        ctx.drawImage(off, (rnd() - 0.5) * bleed, (rnd() - 0.5) * bleed);
+      }
+      ctx.globalAlpha = 1;
+    }
+    ctx.drawImage(off, 0, 0);
+    $('sealCanvas').setAttribute('data-ready', '1');
+    updateSealInfo(0);
+    scheduleSize( $('sealCanvas') );
+  }
+
+  function updateSealInfo() {
+    var name = String(seal.name || '').trim();
+    $('kvSize').textContent = '900 × 900 px';
+    $('pvChip').textContent = '900 × 900 · 투명';
+    $('sbTitle').textContent = name ? '도장 ' + name + (seal.suffix && name.length < 4 ? '인' : '') : '투명 도장 PNG';
+    $('sbMeta').textContent = '900 × 900 · 배경 투명';
+    $('saveBtn').textContent = '⬇️ 도장 PNG 저장';
+    $('saveHint').textContent = '투명 PNG라 흰 종이 문서에 겹쳐도 사각 테두리가 보이지 않아요.';
+    $('nameNote').innerHTML = (function () {
+      var n = name.length;
+      if (!n) return '이름을 넣으면 도장이 바로 그려집니다.';
+      if (n >= 4) return '네 글자 이름은 <b>2×2 배치</b>로 새깁니다.';
+      if (n === 1) return '한 글자는 가운데에 크게 새기고 옆에 <b>‘인’</b>자를 붙입니다.';
+      return '이름을 세로로 새기고 마지막 글자 옆에 작은 <b>‘인’</b>자를 붙입니다.';
+    })();
+  }
+
+  /* =========================================================
+     2. 전자서명
+     ========================================================= */
+  function sigCtx() { return $('sigPad').getContext('2d'); }
+
+  function renderPad() {
+    var c = sigCtx(), cv = $('sigPad');
+    c.clearRect(0, 0, cv.width, cv.height);
+    for (var i = 0; i < strokes.length; i++) traceStroke(c, strokes[i]);
+  }
+
+  function traceStroke(c, s) {
+    var pts = s.pts, i, mx, my;
+    c.strokeStyle = s.color;
+    c.fillStyle = s.color;
+    c.lineWidth = s.w;
+    c.lineCap = 'round';
+    c.lineJoin = 'round';
+    if (pts.length === 1) {
+      c.beginPath(); c.arc(pts[0].x, pts[0].y, s.w / 2, 0, Math.PI * 2); c.fill();
+      return;
+    }
+    c.beginPath();
+    c.moveTo(pts[0].x, pts[0].y);
+    for (i = 1; i < pts.length - 1; i++) {
+      mx = (pts[i].x + pts[i + 1].x) / 2;
+      my = (pts[i].y + pts[i + 1].y) / 2;
+      c.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
+    }
+    var last = pts[pts.length - 1];
+    c.lineTo(last.x, last.y);
+    c.stroke();
+  }
+
+  function sigBounds() {
+    var cv = $('sigPad');
+    var c = cv.getContext('2d');
+    var w = cv.width, h = cv.height;
+    var data = c.getImageData(0, 0, w, h).data;
+    var minX = w, minY = h, maxX = -1, maxY = -1;
+    for (var y = 0; y < h; y++) {
+      var row = y * w * 4;
+      for (var x = 0; x < w; x++) {
+        if (data[row + x * 4 + 3] > 8) {
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    if (maxX < 0) return null;
+    var padpx = 18;
+    minX = Math.max(0, minX - padpx); minY = Math.max(0, minY - padpx);
+    maxX = Math.min(w - 1, maxX + padpx); maxY = Math.min(h - 1, maxY + padpx);
+    return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+  }
+
+  function renderSigPreview() {
+    var cv = $('sigPreview');
+    var hint = $('sigHint');
+    if (!strokes.length) {
+      cv.width = 600; cv.height = 240;
+      var c0 = cv.getContext('2d');
+      c0.clearRect(0, 0, 600, 240);
+      $('undoBtn').disabled = true;
+      $('clearBtn').disabled = true;
+      $('kvSize').textContent = '—';
+      $('kvBytes').textContent = '—';
+      $('pvChip').textContent = '서명 대기';
+      $('sbTitle').textContent = '전자서명 PNG';
+      $('sbMeta').textContent = '여백 자동 크롭 · 배경 투명';
+      if (hint) hint.classList.remove('is-off');
+      return;
+    }
+    if (hint) hint.classList.add('is-off');
+    $('undoBtn').disabled = false;
+    $('clearBtn').disabled = false;
+    var b = sigBounds();
+    if (!b) return;
+    cv.width = b.w; cv.height = b.h;
+    var c = cv.getContext('2d');
+    c.clearRect(0, 0, b.w, b.h);
+    c.drawImage($('sigPad'), b.x, b.y, b.w, b.h, 0, 0, b.w, b.h);
+    $('kvSize').textContent = b.w + ' × ' + b.h + ' px';
+    $('pvChip').textContent = '투명 · 자동 크롭';
+    $('sbTitle').textContent = '전자서명 PNG';
+    $('sbMeta').textContent = b.w + ' × ' + b.h + ' px · 배경 투명';
+    $('saveBtn').textContent = '⬇️ 서명 PNG 저장';
+    $('saveHint').textContent = '잉크가 있는 부분만 잘라 저장해요. 원본 캔버스의 서명은 그대로 남습니다.';
+    scheduleSize(cv);
+  }
+
+  function sigPoint(e) {
+    var cv = $('sigPad');
+    var r = cv.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width * cv.width;
+    var y = (e.clientY - r.top) / r.height * cv.height;
+    return { x: clamp(x, 0, cv.width), y: clamp(y, 0, cv.height) };
+  }
+
+  function bindSignature() {
+    var cv = $('sigPad');
+    var drawing = false, cur = null, lastDrawn = null;
+
+    function down(e) {
+      if (e.button !== undefined && e.button !== 0 && e.pointerType === 'mouse') return;
+      drawing = true;
+      cur = { color: pen.color, w: pen.width, pts: [sigPoint(e)] };
+      strokes.push(cur);
+      try { cv.setPointerCapture(e.pointerId); } catch (err) { /* 무시 */ }
+      var c = sigCtx();
+      c.beginPath();
+      c.arc(cur.pts[0].x, cur.pts[0].y, pen.width / 2, 0, Math.PI * 2);
+      c.fillStyle = pen.color;
+      c.fill();
+      e.preventDefault();
+    }
+    function move(e) {
+      if (!drawing || !cur) return;
+      var p = sigPoint(e);
+      var prev = cur.pts[cur.pts.length - 1];
+      if (Math.abs(p.x - prev.x) < 0.7 && Math.abs(p.y - prev.y) < 0.7) return;
+      cur.pts.push(p);
+      /* 마지막 두 점 구간만 이어 그리기 */
+      var c = sigCtx();
+      c.strokeStyle = cur.color;
+      c.lineWidth = cur.w;
+      c.lineCap = 'round';
+      c.lineJoin = 'round';
+      c.beginPath();
+      var a = cur.pts[cur.pts.length - 3], bb = cur.pts[cur.pts.length - 2];
+      if (a && bb) {
+        c.moveTo((a.x + bb.x) / 2, (a.y + bb.y) / 2);
+        c.quadraticCurveTo(bb.x, bb.y, (bb.x + p.x) / 2, (bb.y + p.y) / 2);
+      } else if (bb) {
+        c.moveTo(bb.x, bb.y);
+        c.lineTo(p.x, p.y);
+      }
+      c.stroke();
+      e.preventDefault();
+    }
+    function up(e) {
+      if (!drawing) return;
+      drawing = false; cur = null;
+      renderSigPreview();
+      track('stamp_sign_draw', { strokes: strokes.length });
+      e.preventDefault();
+    }
+
+    cv.addEventListener('pointerdown', down);
+    cv.addEventListener('pointermove', move);
+    cv.addEventListener('pointerup', up);
+    cv.addEventListener('pointercancel', up);
+    cv.addEventListener('pointerleave', function (e) { if (drawing) up(e); });
+
+    $('penRange').addEventListener('input', function () {
+      pen.width = Number(this.value);
+      $('penVal').textContent = pen.width + ' px';
+      if (strokes.length) { renderPad(); renderSigPreview(); }
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#penSeg button'), function (btn) {
+      btn.addEventListener('click', function () {
+        pen.color = btn.getAttribute('data-pen');
+        Array.prototype.forEach.call(document.querySelectorAll('#penSeg button'), function (b) {
+          var on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        track('stamp_pen_color', { color: pen.color });
+      });
+    });
+    $('undoBtn').addEventListener('click', function () {
+      if (!strokes.length) return;
+      strokes.pop();
+      renderPad();
+      renderSigPreview();
+      track('stamp_sign_undo', {});
+    });
+    $('clearBtn').addEventListener('click', function () {
+      strokes = [];
+      renderPad();
+      renderSigPreview();
+      toast('서명을 모두 지웠어요.');
+      track('stamp_sign_clear', {});
+    });
+  }
+
+  /* =========================================================
+     3. 사진 투명화
+     ========================================================= */
+  function loadImageFromCanvas(cv, name) {
+    photo.lastStamp = null;
+    var img = new Image();
+    img.onload = function () {
+      var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+      var scale = Math.min(1, PHOTO_MAX / Math.max(iw, ih));
+      var src = document.createElement('canvas');
+      src.width = Math.max(1, Math.round(iw * scale));
+      src.height = Math.max(1, Math.round(ih * scale));
+      var c = src.getContext('2d');
+      c.drawImage(img, 0, 0, src.width, src.height);
+      photo.src = src;
+      photo.name = name || '사진';
+      setDzThumb(src, photo.name);
+      processPhoto();
+      track('stamp_photo_load', {});
+    };
+    img.onerror = function () { toast('사진을 읽지 못했어요. 다른 파일로 시도해 주세요.'); };
+    img.src = cv;
+  }
+
+  function setDzThumb(cv, name, transparent) {
+    var thumb = $('dzThumb');
+    var img = $('dzImg');
+    try {
+      var url;
+      if (transparent) {
+        var t = document.createElement('canvas');
+        var scale = Math.min(1, 160 / Math.max(cv.width, cv.height));
+        t.width = Math.max(1, Math.round(cv.width * scale));
+        t.height = Math.max(1, Math.round(cv.height * scale));
+        var tc = t.getContext('2d');
+        tc.fillStyle = '#fff';
+        tc.fillRect(0, 0, t.width, t.height);
+        tc.drawImage(cv, 0, 0, t.width, t.height);
+        url = t.toDataURL('image/jpeg', 0.75);
+      } else {
+        url = cv.toDataURL('image/jpeg', 0.7);
+      }
+      img.src = url;
+      $('dzName').textContent = name;
+      thumb.classList.remove('is-hidden');
+    } catch (e) { /* 무시 */ }
+  }
+
+  function readPhotoFile(file) {
+    if (!file) return;
+    if (!/^image\//.test(file.type)) { toast('이미지 파일(JPG·PNG)만 올릴 수 있어요.'); return; }
+    var url = URL.createObjectURL(file);
+    loadImageFromCanvas(url, file.name);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  }
+
+  function makeSamplePhoto() {
+    var W = 900, H = 700;
+    var cv = document.createElement('canvas');
+    cv.width = W; cv.height = H;
+    var c = cv.getContext('2d');
+    /* 종이 */
+    var g = c.createLinearGradient(0, 0, W * 0.4, H);
+    g.addColorStop(0, '#fffdf7');
+    g.addColorStop(0.55, '#f8f5ea');
+    g.addColorStop(1, '#eeeade');
+    c.fillStyle = g;
+    c.fillRect(0, 0, W, H);
+    /* 종이 결 */
+    var rnd = mulberry32(4242);
+    for (var i = 0; i < 2600; i++) {
+      c.fillStyle = 'rgba(150,140,120,' + (0.02 + rnd() * 0.05).toFixed(3) + ')';
+      c.beginPath();
+      c.arc(rnd() * W, rnd() * H, 0.6 + rnd() * 1.4, 0, Math.PI * 2);
+      c.fill();
+    }
+    /* 은은한 그늘 */
+    var sg = c.createRadialGradient(W * 0.2, H * 0.1, 40, W * 0.2, H * 0.1, W * 0.9);
+    sg.addColorStop(0, 'rgba(255,255,255,0)');
+    sg.addColorStop(1, 'rgba(120,110,90,0.10)');
+    c.fillStyle = sg;
+    c.fillRect(0, 0, W, H);
+
+    /* 도장 (살짝 기울여 찍은 느낌) */
+    var tmp = document.createElement('canvas');
+    tmp.width = 420; tmp.height = 420;
+    var t = tmp.getContext('2d');
+    var ink = '#c4302b';
+    t.strokeStyle = ink;
+    t.lineWidth = 26;
+    t.beginPath();
+    t.arc(210, 210, 172, 0, Math.PI * 2);
+    t.stroke();
+    t.fillStyle = ink;
+    t.textAlign = 'center';
+    t.textBaseline = 'middle';
+    t.font = '800 78px "Noto Serif KR","Nanum Myeongjo",serif';
+    t.fillText('심', 210, 120);
+    t.fillText('대', 210, 196);
+    t.fillText('성', 210, 272);
+    t.font = '800 34px "Noto Serif KR",serif';
+    t.fillText('인', 148, 306);
+
+    c.save();
+    c.translate(W * 0.34, H * 0.40);
+    c.rotate(-0.09);
+    c.globalAlpha = 0.93;
+    try { c.filter = 'blur(0.5px)'; } catch (e) { /* 무시 */ }
+    c.drawImage(tmp, -170, -170, 340, 340);
+    c.filter = 'none';
+    c.globalAlpha = 1;
+    c.restore();
+
+    /* 서명 */
+    c.save();
+    c.strokeStyle = 'rgba(28,30,40,0.9)';
+    c.lineWidth = 7;
+    c.lineCap = 'round';
+    c.lineJoin = 'round';
+    c.beginPath();
+    c.moveTo(W * 0.30, H * 0.72);
+    c.bezierCurveTo(W * 0.34, H * 0.62, W * 0.30, H * 0.60, W * 0.38, H * 0.70);
+    c.bezierCurveTo(W * 0.44, H * 0.78, W * 0.40, H * 0.60, W * 0.47, H * 0.68);
+    c.bezierCurveTo(W * 0.52, H * 0.74, W * 0.50, H * 0.60, W * 0.58, H * 0.69);
+    c.stroke();
+    c.restore();
+
+    loadImageFromCanvas(cv.toDataURL('image/png'), '샘플 도장 사진');
+    toast('샘플 사진을 만들었어요. 민감도를 바꿔 보세요.');
+    track('stamp_photo_sample', {});
+  }
+
+  function processPhoto() {
+    if (!photo.src) return;
+    var src = photo.src;
+    var w = src.width, h = src.height;
+    var sctx = src.getContext('2d');
+    var img;
+    try { img = sctx.getImageData(0, 0, w, h); } catch (e) { toast('이 사진은 브라우저에서 읽을 수 없어요.'); return; }
+    var d = img.data;
+    var i, x, y;
+
+    /* 종이 기준: 테두리 픽셀의 채널별 중앙값 */
+    var samples = [[], [], []];
+    var band = Math.max(2, Math.round(Math.min(w, h) * 0.06));
+    function pushPx(px, py) {
+      var o = (py * w + px) * 4;
+      samples[0].push(d[o]); samples[1].push(d[o + 1]); samples[2].push(d[o + 2]);
+    }
+    for (y = 0; y < h; y += 3) { for (x = 0; x < w; x += 3) { if (y < band || y >= h - band || x < band || x >= w - band) pushPx(x, y); } }
+    function median(arr) {
+      if (!arr.length) return 255;
+      arr.sort(function (a, b) { return a - b; });
+      return arr[Math.floor(arr.length / 2)];
+    }
+    var paper = [median(samples[0]), median(samples[1]), median(samples[2])];
+    var paperMin = Math.min(paper[0], paper[1], paper[2]);
+    if (paperMin < 90) { paper[0] = 235; paper[1] = 235; paper[2] = 235; paperMin = 235; }
+
+    var sens = photo.sens / 100;
+    var k0 = 0.10 + (1 - sens) * 0.42;   /* 민감도 높을수록 k0 작아져 더 많이 지움 */
+    var k1 = k0 + 0.16;
+
+    var out = document.createElement('canvas');
+    out.width = w; out.height = h;
+    var octx = out.getContext('2d');
+    var outImg = octx.createImageData(w, h);
+    var od = outImg.data;
+
+    var keepMax = [0, 0, 0], keepCount = 0;
+
+    for (i = 0; i < d.length; i += 4) {
+      var r = d[i], g = d[i + 1], b = d[i + 2];
+      var mn = Math.min(r, g, b);
+      var ink = (paperMin - mn) / paperMin;      /* 0(종이) ~ 1(진한 잉크) */
+      if (ink <= k0) continue;                    /* 완전 투명 */
+      var a = clamp((ink - k0) / (k1 - k0), 0, 1);
+      var al = Math.round(a * 255);
+      if (al < 6) continue;
+
+      /* 종이 위에 얹힌 색을 잉크 색으로 되돌리기 */
+      var er = paper[0] - (paper[0] - r) * (255 / Math.max(1, al));
+      var eg = paper[1] - (paper[1] - g) * (255 / Math.max(1, al));
+      var eb = paper[2] - (paper[2] - b) * (255 / Math.max(1, al));
+      er = clamp(er, 0, 255); eg = clamp(eg, 0, 255); eb = clamp(eb, 0, 255);
+
+      if (photo.mode === 'red') { er = 193; eg = 39; eb = 45; }
+      else if (photo.mode === 'black') { er = 26; eg = 26; eb = 30; }
+
+      od[i] = er; od[i + 1] = eg; od[i + 2] = eb; od[i + 3] = al;
+      if (a > 0.6) {
+        keepMax[0] += er; keepMax[1] += eg; keepMax[2] += eb;
+        keepCount++;
+      }
+    }
+
+    /* 잡티 제거: 약한 알파 지우고, 이웃이 거의 없는 점 제거 */
+    if (photo.clean) {
+      for (i = 3; i < od.length; i += 4) { if (od[i] < 28) od[i] = 0; }
+      for (var yy2 = 1; yy2 < h - 1; yy2++) {
+        for (var xx2 = 1; xx2 < w - 1; xx2++) {
+          var idx = (yy2 * w + xx2) * 4;
+          if (od[idx + 3] === 0) continue;
+          var nb = 0;
+          for (var dy = -1; dy <= 1; dy++) {
+            for (var dx2 = -1; dx2 <= 1; dx2++) {
+              if (!dx2 && !dy) continue;
+              if (od[((yy2 + dy) * w + (xx2 + dx2)) * 4 + 3] > 60) nb++;
+            }
+          }
+          if (nb <= 1) od[idx + 3] = 0;
+        }
+      }
+    }
+
+    octx.putImageData(outImg, 0, 0);
+
+    /* 여백 자르기 */
+    var result = out;
+    if (photo.crop) {
+      var bb = inkBounds(out);
+      if (bb) {
+        var padpx = Math.round(Math.min(w, h) * 0.015);
+        var cx0 = Math.max(0, bb.x - padpx), cy0 = Math.max(0, bb.y - padpx);
+        var cw = Math.min(w - cx0, bb.w + padpx * 2), ch = Math.min(h - cy0, bb.h + padpx * 2);
+        var crop = document.createElement('canvas');
+        crop.width = cw; crop.height = ch;
+        crop.getContext('2d').drawImage(out, cx0, cy0, cw, ch, 0, 0, cw, ch);
+        result = crop;
+      }
+    }
+    photo.result = result;
+    setDzThumb(result, photo.name + ' · ' + result.width + '×' + result.height, true);
+
+    var pv = $('photoPreview');
+    pv.width = result.width; pv.height = result.height;
+    var pc = pv.getContext('2d');
+    pc.clearRect(0, 0, pv.width, pv.height);
+    pc.drawImage(result, 0, 0);
+    pv.classList.remove('is-hidden');
+    $('pvEmpty').classList.add('is-hidden');
+    $('sealCanvas').classList.add('is-hidden');
+    $('sigPreview').classList.add('is-hidden');
+    $('bgToggle').classList.remove('is-hidden');
+
+    $('kvSize').textContent = result.width + ' × ' + result.height + ' px';
+    $('pvChip').textContent = '투명 · ' + (photo.mode === 'red' ? '빨강 보정' : photo.mode === 'black' ? '검정 보정' : '자동');
+    $('sbTitle').textContent = '투명 PNG';
+    $('sbMeta').textContent = result.width + ' × ' + result.height + ' px';
+    $('saveBtn').textContent = '⬇️ 투명 PNG 저장';
+    $('saveHint').textContent = '흰 배경이 지워진 PNG예요. 문서에 얹으면 도장·서명만 남습니다.';
+    scheduleSize(result);
+  }
+
+  function inkBounds(cv) {
+    var w = cv.width, h = cv.height;
+    var data = cv.getContext('2d').getImageData(0, 0, w, h).data;
+    var minX = w, minY = h, maxX = -1, maxY = -1;
+    for (var y = 0; y < h; y++) {
+      var row = y * w * 4;
+      for (var x = 0; x < w; x++) {
+        if (data[row + x * 4 + 3] > 10) {
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    if (maxX < 0) return null;
+    return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+  }
+
+  /* =========================================================
+     4. 저장 · 크기 계산
+     ========================================================= */
+  var sizeTimer = null;
+  function scheduleSize(canvas) {
+    if (sizeTimer) clearTimeout(sizeTimer);
+    sizeTimer = setTimeout(function () {
+      sizeTimer = null;
+      if (!canvas || !canvas.toBlob) return;
+      try {
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          state.lastBytes = blob.size;
+          $('kvBytes').textContent = bytesText(blob.size);
+        }, 'image/png');
+      } catch (e) { /* 무시 */ }
+    }, 180);
+  }
+
+  function currentCanvas() {
+    if (state.tab === 'seal') return $('sealCanvas');
+    if (state.tab === 'sign') {
+      if (!strokes.length) return null;
+      return $('sigPreview');
+    }
+    return photo.result;
+  }
+
+  function download() {
+    var cv = currentCanvas();
+    if (!cv) {
+      if (state.tab === 'seal') { toast('이름을 먼저 넣어 주세요.'); $('sealName').focus(); }
+      else if (state.tab === 'sign') { toast('먼저 서명을 그려 주세요.'); }
+      else { toast('먼저 사진을 올려 주세요.'); }
+      return;
+    }
+    var fname;
+    if (state.tab === 'seal') fname = '도장_' + safeName(String(seal.name || '').trim()) + '.png';
+    else if (state.tab === 'sign') fname = '서명_' + today() + '.png';
+    else fname = '투명_' + (photo.mode === 'red' ? '도장' : photo.mode === 'black' ? '사인' : '이미지') + '_' + today() + '.png';
+
+    try {
+      cv.toBlob(function (blob) {
+        if (!blob) { toast('저장에 실패했어요. 브라우저를 새로고침해 보세요.'); return; }
+        state.lastBytes = blob.size;
+        $('kvBytes').textContent = bytesText(blob.size);
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = fname;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+        toast('투명 PNG로 저장했어요 · ' + bytesText(blob.size));
+        track('stamp_download', { tab: state.tab, mode: state.tab === 'photo' ? photo.mode : '' });
+      }, 'image/png');
+    } catch (e) {
+      toast('저장에 실패했어요. 브라우저를 새로고침해 보세요.');
+    }
+  }
+
+  /* =========================================================
+     5. 탭 전환 · 패널
+     ========================================================= */
+  function switchTab(which) {
+    state.tab = which;
+    var map = {
+      seal: ['tabSeal', 'paneSeal'], sign: ['tabSign', 'paneSign'], photo: ['tabPhoto', 'panePhoto']
+    };
+    Object.keys(map).forEach(function (k) {
+      var on = k === which;
+      var t = $(map[k][0]), p = $(map[k][1]);
+      if (t) { t.classList.toggle('is-active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); }
+      if (p) p.classList.toggle('is-hidden', !on);
+    });
+    var sealOn = which === 'seal', signOn = which === 'sign', photoOn = which === 'photo';
+    $('sealCanvas').classList.toggle('is-hidden', !sealOn);
+    $('sigPreview').classList.toggle('is-hidden', !signOn);
+    $('bgToggle').classList.toggle('is-hidden', !photoOn);
+    $('pvEmpty').classList.toggle('is-hidden', !(photoOn && !photo.result));
+    $('photoPreview').classList.toggle('is-hidden', !(photoOn && !!photo.result));
+    $('headChip').textContent = sealOn ? '배경 투명 PNG' : (signOn ? '여백 자동 크롭' : '흰 배경 제거');
+    $('kvBytes').textContent = '—';
+    if (sizeTimer) { clearTimeout(sizeTimer); sizeTimer = null; }
+
+    if (sealOn) {
+      drawSeal();
+    } else if (signOn) {
+      renderPad();
+      renderSigPreview();
+    } else {
+      if (photo.result) processPhoto(); else resetPanelForPhoto();
+    }
+    applyBgView();
+  }
+
+  function resetPanelForPhoto() {
+    $('pvChip').textContent = '사진 대기';
+    $('kvSize').textContent = '—';
+    $('kvBytes').textContent = '—';
+    $('sbTitle').textContent = '사진 투명화';
+    $('sbMeta').textContent = '흰 배경 → 투명 PNG';
+    $('saveBtn').textContent = '⬇️ 투명 PNG 저장';
+    $('saveHint').textContent = '흰 종이를 지우고 도장·서명만 남깁니다.';
+  }
+
+  function applyBgView() {
+    var stage = $('pvStage');
+    var btn = $('bgToggle');
+    stage.classList.toggle('solid', photo.view === 'white');
+    stage.classList.toggle('dark', photo.view === 'dark');
+    btn.textContent = photo.view === 'checker' ? '흰 배경으로 보기' : (photo.view === 'white' ? '검은 배경으로 보기' : '체크무늬로 보기');
+  }
+
+  /* =========================================================
+     6. 이벤트 연결
+     ========================================================= */
+  function setSegButtons(selector, attr, value) {
+    Array.prototype.forEach.call(document.querySelectorAll(selector), function (b) {
+      var on = b.getAttribute(attr) === value;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  function readSealInputs() {
+    seal.name = $('sealName').value.replace(/\s+/g, ' ').slice(0, 4);
+    seal.suffix = $('suffixToggle').checked;
+    seal.border = Number($('borderRange').value);
+    seal.texture = Number($('textureRange').value);
+    $('borderVal').textContent = seal.border;
+    $('textureVal').textContent = seal.texture;
+  }
+
+  function bind() {
+    /* 도장 입력 */
+    $('sealName').addEventListener('input', function () {
+      var v = this.value.replace(/[^\uAC00-\uD7A3a-zA-Z0-9]/g, '');
+      if (v !== this.value) this.value = v;
+      readSealInputs();
+      if (state.tab === 'seal') drawSeal();
+    });
+    $('suffixToggle').addEventListener('change', function () {
+      seal.suffix = this.checked;
+      if (state.tab === 'seal') { drawSeal(); track('stamp_suffix', { on: seal.suffix }); }
+    });
+    $('borderRange').addEventListener('input', function () {
+      readSealInputs();
+      if (state.tab === 'seal') drawSeal();
+    });
+    $('textureRange').addEventListener('input', function () {
+      readSealInputs();
+      if (state.tab === 'seal') drawSeal();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#shapeSeg button'), function (btn) {
+      btn.addEventListener('click', function () {
+        seal.shape = btn.getAttribute('data-shape');
+        setSegButtons('#shapeSeg button', 'data-shape', seal.shape);
+        if (state.tab === 'seal') drawSeal();
+        track('stamp_shape', { shape: seal.shape });
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#fontSeg button'), function (btn) {
+      btn.addEventListener('click', function () {
+        seal.font = btn.getAttribute('data-font');
+        setSegButtons('#fontSeg button', 'data-font', seal.font);
+        if (state.tab === 'seal') drawSeal();
+        track('stamp_font', { font: seal.font });
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#inkGroup .ink-btn'), function (btn) {
+      btn.addEventListener('click', function () {
+        seal.ink = btn.getAttribute('data-ink');
+        Array.prototype.forEach.call(document.querySelectorAll('#inkGroup .ink-btn'), function (b) {
+          var on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        if (state.tab === 'seal') drawSeal();
+        track('stamp_ink', { ink: seal.ink });
+      });
+    });
+
+    /* 탭 */
+    $('tabSeal').addEventListener('click', function () { switchTab('seal'); track('stamp_switch_tab', { tab: 'seal' }); });
+    $('tabSign').addEventListener('click', function () { switchTab('sign'); track('stamp_switch_tab', { tab: 'sign' }); });
+    $('tabPhoto').addEventListener('click', function () { switchTab('photo'); track('stamp_switch_tab', { tab: 'photo' }); });
+
+    bindSignature();
+
+    /* 사진 */
+    $('pickBtn').addEventListener('click', function () { $('photoInput').click(); });
+    $('photoInput').addEventListener('change', function () {
+      if (this.files && this.files[0]) readPhotoFile(this.files[0]);
+    });
+    var dz = $('dropZone');
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.add('is-over'); });
+    });
+    ['dragleave', 'dragend'].forEach(function (ev) {
+      dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.remove('is-over'); });
+    });
+    dz.addEventListener('drop', function (e) {
+      e.preventDefault();
+      dz.classList.remove('is-over');
+      var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f) readPhotoFile(f);
+    });
+    $('sampleBtn').addEventListener('click', makeSamplePhoto);
+    $('sensRange').addEventListener('input', function () {
+      photo.sens = Number(this.value);
+      $('sensVal').textContent = photo.sens;
+      if (photo.src) processPhoto();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#modeSeg button'), function (btn) {
+      btn.addEventListener('click', function () {
+        photo.mode = btn.getAttribute('data-mode');
+        setSegButtons('#modeSeg button', 'data-mode', photo.mode);
+        if (photo.src) processPhoto();
+        track('stamp_photo_mode', { mode: photo.mode });
+      });
+    });
+    $('cleanToggle').addEventListener('change', function () {
+      photo.clean = this.checked;
+      if (photo.src) processPhoto();
+    });
+    $('cropToggle').addEventListener('change', function () {
+      photo.crop = this.checked;
+      if (photo.src) processPhoto();
+    });
+    $('bgToggle').addEventListener('click', function () {
+      photo.view = photo.view === 'checker' ? 'white' : (photo.view === 'white' ? 'dark' : 'checker');
+      applyBgView();
+    });
+
+    /* 저장 */
+    $('saveBtn').addEventListener('click', download);
+    $('sbSave').addEventListener('click', download);
+    $('saveBtnTop').addEventListener('click', download);
+
+    /* 초기화 */
+    $('resetBtn').addEventListener('click', function () {
+      if (state.tab === 'seal') {
+        $('sealName').value = SEAL_DEFAULTS.name;
+        $('suffixToggle').checked = SEAL_DEFAULTS.suffix;
+        $('borderRange').value = SEAL_DEFAULTS.border;
+        $('textureRange').value = SEAL_DEFAULTS.texture;
+        seal = Object.assign({}, SEAL_DEFAULTS);
+        setSegButtons('#shapeSeg button', 'data-shape', seal.shape);
+        setSegButtons('#fontSeg button', 'data-font', seal.font);
+        Array.prototype.forEach.call(document.querySelectorAll('#inkGroup .ink-btn'), function (b) {
+          var on = b.getAttribute('data-ink') === seal.ink;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        readSealInputs();
+        drawSeal();
+        toast('도장을 처음 상태로 돌렸어요.');
+      } else if (state.tab === 'sign') {
+        strokes = [];
+        renderPad();
+        renderSigPreview();
+        toast('서명을 지웠어요.');
+      } else {
+        photo.src = null; photo.result = null; photo.name = '';
+        $('photoInput').value = '';
+        $('dzThumb').classList.add('is-hidden');
+        $('photoPreview').classList.add('is-hidden');
+        $('pvEmpty').classList.remove('is-hidden');
+        resetPanelForPhoto();
+        toast('사진을 비웠어요.');
+      }
+    });
+
+    /* 광고 접기 */
+    try {
+      if (localStorage.getItem(AD_KEY) === '1') $('adCard').classList.add('is-hidden');
+    } catch (e) { /* 저장소 차단 시 무시 */ }
+    $('adToggle').addEventListener('click', function () {
+      $('adCard').classList.add('is-hidden');
+      try { localStorage.setItem(AD_KEY, '1'); } catch (e) { /* 무시 */ }
+    });
+
+    /* 광고 슬롯 */
+    (function initAd() {
+      if (!AD_SLOT_ID) return;
+      var slot = $('adSlot');
+      if (!slot) return;
+      slot.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9437997408751622" data-ad-slot="' + AD_SLOT_ID + '" data-ad-format="auto" data-full-width-responsive="true"></ins>';
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { /* 무시 */ }
+    })();
+
+    /* 모달 */
+    document.querySelectorAll('[data-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var d = $(btn.getAttribute('data-modal') === 'about' ? 'modalAbout' : 'modalPrivacy');
+        if (d && typeof d.showModal === 'function') d.showModal();
+      });
+    });
+    document.querySelectorAll('dialog.modal').forEach(function (d) {
+      d.addEventListener('click', function (e) {
+        if (e.target === d) d.close();
+      });
+      d.querySelectorAll('[data-close]').forEach(function (b) {
+        b.addEventListener('click', function () { d.close(); });
+      });
+    });
+
+    /* 글꼴 미리 불러오기 (캔버스는 쓰기 전에 글꼴을 명시적으로 요청해야 함) */
+    (function preloadFonts() {
+      if (!document.fonts || !document.fonts.load) return;
+      ['800 100px "Noto Serif KR"', '800 100px "Noto Sans KR"', '400 100px "Gaegu"', '700 100px "Gaegu"'].forEach(function (f) {
+        try {
+          document.fonts.load(f, '심대성인').then(function () {
+            if (state.tab === 'seal') drawSeal();
+          }, function () { /* 무시 */ });
+        } catch (e) { /* 무시 */ }
+      });
+    })();
+
+    /* 글꼴 준비되면 다시 그리기 */
+    if (document.fonts && document.fonts.ready && document.fonts.ready.then) {
+      document.fonts.ready.then(function () {
+        if (state.tab === 'seal') drawSeal();
+      });
+    }
+    if (document.fonts && document.fonts.addEventListener) {
+      try {
+        document.fonts.addEventListener('loadingdone', function () {
+          if (state.tab === 'seal') drawSeal();
+        });
+      } catch (e) { /* 무시 */ }
+    }
+
+    document.body.classList.add('has-work');
+    $('stickyBar').classList.add('is-ready');
+  }
+
+  /* =========================================================
+     7. 시작
+     ========================================================= */
+  seal = Object.assign({}, SEAL_DEFAULTS);
+  bind();
+  switchTab('seal');
+})();
+</script>
+</body>
+</html>
